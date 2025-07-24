@@ -289,6 +289,112 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Featured Workflow */}
+      <section className="py-20 bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4">
+              🔥 Featured Workflow
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <span className="text-primary">E-commerce Customer Support Automation</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              A comprehensive automation workflow that handles customer inquiries, order lookups, return requests, and support ticket creation with intelligent routing and notifications.
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            <Card className="overflow-hidden border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-elegant">
+              <div className="p-8">
+                <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/c46b64bf-41c9-42f4-a2a6-862b87aaccdd.png" 
+                    alt="E-commerce Customer Support Automation Workflow"
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
+                </div>
+                
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="text-center p-4 bg-card/50 rounded-lg border border-border/50">
+                    <div className="text-2xl font-bold text-primary mb-1">8</div>
+                    <div className="text-sm text-muted-foreground">Automation Steps</div>
+                  </div>
+                  <div className="text-center p-4 bg-card/50 rounded-lg border border-border/50">
+                    <div className="text-2xl font-bold text-aqua mb-1">5</div>
+                    <div className="text-sm text-muted-foreground">Integration Points</div>
+                  </div>
+                  <div className="text-center p-4 bg-card/50 rounded-lg border border-border/50">
+                    <div className="text-2xl font-bold text-purple-start mb-1">24/7</div>
+                    <div className="text-sm text-muted-foreground">Availability</div>
+                  </div>
+                  <div className="text-center p-4 bg-card/50 rounded-lg border border-border/50">
+                    <div className="text-2xl font-bold text-primary mb-1">95%</div>
+                    <div className="text-sm text-muted-foreground">Automation Rate</div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-lg font-semibold mb-4 text-primary">Key Features:</h4>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                        Intelligent order inquiry handling
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-aqua rounded-full mr-3"></div>
+                        Automated return request processing
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-purple-start rounded-full mr-3"></div>
+                        Support ticket creation & routing
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                        Multi-channel notifications (Email & Slack)
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-4 text-aqua">Business Impact:</h4>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                        85% reduction in response time
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                        70% decrease in manual workload
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                        98% accuracy in order processing
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                        24/7 customer support coverage
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button variant="hero" size="lg">
+                    Build Similar Workflow
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                  <Button variant="outline" size="lg">
+                    View Technical Details
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Workflow Samples */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
