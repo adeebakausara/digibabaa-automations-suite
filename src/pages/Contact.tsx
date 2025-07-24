@@ -1,0 +1,408 @@
+import { useState } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/components/ui/use-toast";
+import { 
+  Mail, 
+  Phone, 
+  MapPin, 
+  Calendar, 
+  MessageSquare, 
+  ArrowRight,
+  Clock,
+  Users,
+  CheckCircle,
+  Zap
+} from "lucide-react";
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    service: "",
+    message: "",
+    budget: "",
+    timeline: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    toast({
+      title: "Message Sent Successfully!",
+      description: "We'll get back to you within 24 hours to discuss your AI automation needs.",
+    });
+    
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      service: "",
+      message: "",
+      budget: "",
+      timeline: ""
+    });
+    
+    setIsSubmitting(false);
+  };
+
+  const services = [
+    "AI Chatbots",
+    "Voice Agents", 
+    "Custom Automation",
+    "Platform Integrations",
+    "Complete AI Solution",
+    "Consultation Only"
+  ];
+
+  const budgetRanges = [
+    "Under $5,000",
+    "$5,000 - $15,000",
+    "$15,000 - $50,000", 
+    "$50,000 - $100,000",
+    "$100,000+",
+    "Need Assessment"
+  ];
+
+  const timelines = [
+    "ASAP (1-2 weeks)",
+    "1-2 months",
+    "3-6 months",
+    "6+ months",
+    "Just exploring"
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="pt-20 pb-16 bg-gradient-to-b from-card/50 to-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Badge variant="secondary" className="mb-6">
+            📞 Get In Touch
+          </Badge>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Let's Build Your <span className="bg-gradient-primary bg-clip-text text-transparent">AI Future</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Ready to transform your business with AI automation? Get a free consultation and discover how we can help you achieve your goals.
+          </p>
+          <div className="flex items-center justify-center gap-6 mb-8">
+            <div className="flex items-center text-green-400">
+              <CheckCircle className="h-5 w-5 mr-2" />
+              <span>Free Consultation</span>
+            </div>
+            <div className="flex items-center text-blue-400">
+              <Clock className="h-5 w-5 mr-2" />
+              <span>24hr Response</span>
+            </div>
+            <div className="flex items-center text-purple-400">
+              <Users className="h-5 w-5 mr-2" />
+              <span>Expert Team</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form & Info */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            {/* Contact Form */}
+            <div className="lg:col-span-2">
+              <Card className="hover:shadow-elegant transition-all duration-300 border-border/50">
+                <CardHeader>
+                  <CardTitle className="text-2xl flex items-center">
+                    <MessageSquare className="h-6 w-6 text-primary mr-3" />
+                    Get Your Free AI Automation Audit
+                  </CardTitle>
+                  <p className="text-muted-foreground">
+                    Tell us about your business needs, and we'll create a custom AI automation strategy for you.
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="name">Full Name *</Label>
+                        <Input
+                          id="name"
+                          value={formData.name}
+                          onChange={(e) => handleInputChange("name", e.target.value)}
+                          placeholder="Your full name"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="email">Email Address *</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => handleInputChange("email", e.target.value)}
+                          placeholder="your@email.com"
+                          required
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="company">Company Name</Label>
+                        <Input
+                          id="company"
+                          value={formData.company}
+                          onChange={(e) => handleInputChange("company", e.target.value)}
+                          placeholder="Your company"
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="phone">Phone Number</Label>
+                        <Input
+                          id="phone"
+                          value={formData.phone}
+                          onChange={(e) => handleInputChange("phone", e.target.value)}
+                          placeholder="+1 (555) 123-4567"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="service">Service Interest *</Label>
+                        <Select value={formData.service} onValueChange={(value) => handleInputChange("service", value)} required>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a service" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {services.map((service) => (
+                              <SelectItem key={service} value={service}>
+                                {service}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label htmlFor="budget">Budget Range</Label>
+                        <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select budget range" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {budgetRanges.map((range) => (
+                              <SelectItem key={range} value={range}>
+                                {range}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="timeline">Project Timeline</Label>
+                      <Select value={formData.timeline} onValueChange={(value) => handleInputChange("timeline", value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="When do you want to start?" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {timelines.map((timeline) => (
+                            <SelectItem key={timeline} value={timeline}>
+                              {timeline}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="message">Project Details *</Label>
+                      <Textarea
+                        id="message"
+                        value={formData.message}
+                        onChange={(e) => handleInputChange("message", e.target.value)}
+                        placeholder="Tell us about your business challenges, current processes, and what you'd like to automate..."
+                        rows={5}
+                        required
+                      />
+                    </div>
+
+                    <Button 
+                      type="submit" 
+                      variant="hero" 
+                      size="lg" 
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Send My Free Audit Request
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Information */}
+            <div className="space-y-8">
+              
+              {/* Contact Details */}
+              <Card className="hover:shadow-elegant transition-all duration-300 border-border/50">
+                <CardHeader>
+                  <CardTitle className="text-xl">Contact Information</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full">
+                      <Mail className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Email Us</h4>
+                      <p className="text-muted-foreground text-sm">hello@digibabaa.com</p>
+                      <p className="text-muted-foreground text-sm">support@digibabaa.com</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="flex items-center justify-center w-12 h-12 bg-aqua/10 rounded-full">
+                      <Phone className="h-6 w-6 text-aqua" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Call Us</h4>
+                      <p className="text-muted-foreground text-sm">+1 (555) 123-4567</p>
+                      <p className="text-muted-foreground text-sm">Mon-Fri, 9AM-6PM PST</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="flex items-center justify-center w-12 h-12 bg-purple-start/10 rounded-full">
+                      <MapPin className="h-6 w-6 text-purple-start" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Visit Us</h4>
+                      <p className="text-muted-foreground text-sm">123 Innovation Drive</p>
+                      <p className="text-muted-foreground text-sm">San Francisco, CA 94107</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Quick Actions */}
+              <Card className="hover:shadow-elegant transition-all duration-300 border-border/50">
+                <CardHeader>
+                  <CardTitle className="text-xl">Quick Actions</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <Button variant="accent" className="w-full justify-start">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Book a 30-min Demo
+                  </Button>
+                  <Button variant="outline" className="w-full justify-start">
+                    <Zap className="h-4 w-4 mr-2" />
+                    Download Case Studies
+                  </Button>
+                  <Button variant="outline" className="w-full justify-start">
+                    <MessageSquare className="h-4 w-4 mr-2" />
+                    Start Live Chat
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Response Time */}
+              <Card className="bg-gradient-primary text-white hover:shadow-elegant transition-all duration-300">
+                <CardContent className="p-6 text-center">
+                  <Clock className="h-12 w-12 mx-auto mb-4 opacity-80" />
+                  <h3 className="text-lg font-semibold mb-2">Quick Response Guarantee</h3>
+                  <p className="text-sm opacity-90">
+                    We respond to all inquiries within 24 hours, usually much faster!
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-card/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Frequently Asked <span className="text-primary">Questions</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Get answers to common questions about our AI automation services
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {[
+              {
+                question: "How long does it take to implement AI automation?",
+                answer: "Implementation timelines vary based on complexity. Simple chatbots can be live within 1-2 weeks, while comprehensive automation systems typically take 4-8 weeks. We'll provide a detailed timeline during your consultation."
+              },
+              {
+                question: "Do I need technical knowledge to use your AI solutions?",
+                answer: "Not at all! Our solutions are designed to be user-friendly. We provide complete training and ongoing support to ensure your team can effectively manage and use the AI systems."
+              },
+              {
+                question: "Can you integrate with our existing systems?",
+                answer: "Yes, we specialize in seamless integrations with popular platforms like Zoho, Salesforce, Shopify, WhatsApp, and hundreds of other tools via APIs and platforms like Zapier."
+              },
+              {
+                question: "What kind of ROI can we expect?",
+                answer: "Our clients typically see 200-400% ROI within the first year through cost savings, increased efficiency, and improved customer satisfaction. We'll provide specific projections based on your use case."
+              },
+              {
+                question: "Is my data secure with your AI solutions?",
+                answer: "Absolutely. We maintain enterprise-grade security with end-to-end encryption, SOC 2 compliance, and GDPR adherence. Your data privacy and security are our top priorities."
+              }
+            ].map((faq, index) => (
+              <Card key={index} className="hover:shadow-elegant transition-all duration-300">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-primary">{faq.question}</h3>
+                  <p className="text-muted-foreground">{faq.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Contact;
