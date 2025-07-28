@@ -117,8 +117,8 @@ const Index = () => {
               },
               {
                 icon: BarChart3,
-                title: "Integrations",
-                description: "Seamless connections with your existing tools and platforms",
+                title: "AI Website Design",
+                description: "Create stunning, AI-powered websites with intelligent design recommendations and responsive layouts",
                 image: heroImage,
                 color: "text-soft-teal"
               }

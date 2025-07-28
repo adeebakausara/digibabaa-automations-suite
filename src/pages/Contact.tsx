@@ -70,7 +70,7 @@ const Contact = () => {
     "AI Chatbots",
     "Voice Agents", 
     "Custom Automation",
-    "Platform Integrations",
+    "AI Website Design",
     "Complete AI Solution",
     "Consultation Only"
   ];
