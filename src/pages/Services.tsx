@@ -86,23 +86,23 @@ const Services = () => {
     },
     {
       icon: BarChart3,
-      title: "Cross-Platform Integrations",
-      subtitle: "Seamless System Connections",
-      description: "Connect your AI solutions with existing tools and platforms including WhatsApp, Zoho, Zapier, Shopify, Google Sheets, and hundreds of other applications.",
+      title: "AI Website Design",
+      subtitle: "Intelligent Web Development",
+      description: "Create stunning, AI-powered websites with intelligent design recommendations, automated content generation, and responsive layouts that adapt to your brand and business needs.",
       image: automationImage,
       features: [
-        "API Integration & Development",
-        "Data Synchronization",
-        "Real-time Updates",
-        "Custom Webhooks",
-        "Third-party App Connections",
-        "Enterprise System Integration"
+        "AI-Powered Design Generation",
+        "Responsive Layout Creation",
+        "Content Generation & Optimization",
+        "Brand-Consistent Styling",
+        "SEO-Optimized Structure",
+        "Mobile-First Development"
       ],
       useCases: [
-        "CRM System Integration",
-        "E-commerce Platform Sync",
-        "Marketing Tool Connections",
-        "Analytics & Reporting Integration"
+        "Business Website Creation",
+        "E-commerce Store Design",
+        "Landing Page Development",
+        "Portfolio & Blog Sites"
       ]
     }
   ];
