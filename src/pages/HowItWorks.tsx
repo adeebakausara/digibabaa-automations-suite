@@ -19,53 +19,66 @@ const HowItWorks = () => {
   const steps = [
     {
       step: "01",
-      title: "Discovery & Consultation",
-      description: "We start with a comprehensive analysis of your business needs, current processes, and automation goals.",
+      title: "Discovery",
+      description: "We analyze your current processes and identify automation opportunities.",
       icon: MessageSquare,
       details: [
-        "Free business automation audit",
-        "Process mapping and analysis",
+        "Business process mapping",
+        "Automation opportunity identification",
         "Goal setting and KPI definition",
-        "Custom solution design"
+        "Technical feasibility assessment"
       ],
       duration: "1-2 weeks"
     },
     {
       step: "02", 
-      title: "AI Solution Development",
-      description: "Our team builds and customizes your AI automation solutions using cutting-edge technology.",
+      title: "Planning",
+      description: "Detailed strategy and roadmap tailored to your business needs.",
       icon: Settings,
       details: [
-        "AI model training and customization",
-        "Integration setup and configuration",
-        "User interface design",
-        "Quality testing and optimization"
+        "Solution architecture design",
+        "Technology stack selection",
+        "Project timeline development",
+        "Resource allocation planning"
       ],
-      duration: "2-4 weeks"
+      duration: "1 week"
     },
     {
       step: "03",
-      title: "Deployment & Integration",
-      description: "We seamlessly deploy your AI solutions and integrate them with your existing systems.",
+      title: "Integration",
+      description: "Seamless implementation with existing disruption to your operations.",
       icon: Rocket,
       details: [
-        "Staged rollout implementation",
-        "Team training and onboarding",
-        "System integration and testing",
-        "Performance monitoring setup"
+        "System integration setup",
+        "Data migration and testing",
+        "API connections establishment",
+        "Security implementation"
       ],
-      duration: "1-2 weeks"
+      duration: "2-3 weeks"
     },
     {
       step: "04",
-      title: "Optimization & Support",
-      description: "Continuous monitoring, optimization, and support to ensure maximum performance and ROI.",
+      title: "Launch",
+      description: "Go live with comprehensive training and immediate support.",
+      icon: Users,
+      details: [
+        "Staff training and onboarding",
+        "System go-live coordination",
+        "Performance monitoring",
+        "Initial optimization"
+      ],
+      duration: "1 week"
+    },
+    {
+      step: "05",
+      title: "Optimization",
+      description: "Continuous improvement and scaling based on performance data.",
       icon: BarChart3,
       details: [
-        "24/7 system monitoring",
-        "Performance analytics and reporting",
-        "Continuous optimization",
-        "Ongoing technical support"
+        "Performance analytics review",
+        "System optimization",
+        "Feature enhancement",
+        "Ongoing support"
       ],
       duration: "Ongoing"
     }
@@ -108,76 +121,70 @@ const HowItWorks = () => {
             How <span className="bg-gradient-primary bg-clip-text text-transparent">It Works</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Our proven 4-step process ensures successful AI automation implementation that delivers measurable results for your business.
+            Our proven 5-step process ensures successful AI automation implementation that delivers measurable results for your business.
           </p>
         </div>
       </section>
 
-      {/* Process Steps */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {steps.map((step, index) => (
-            <div key={index} className="relative mb-16">
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute left-1/2 top-32 w-0.5 h-24 bg-gradient-to-b from-primary to-primary/30 transform -translate-x-1/2" />
-              )}
-              
-              <div className={`lg:flex lg:items-center lg:gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className="lg:w-1/2 mb-8 lg:mb-0">
-                  <Card className="relative overflow-hidden hover:shadow-elegant transition-all duration-300 border-border/50 hover:border-primary/30">
-                    <CardContent className="p-8">
-                      <div className="flex items-center mb-6">
-                        <div className="flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mr-4">
-                          <step.icon className="h-8 w-8 text-white" />
+      {/* Process Steps - Vertical Timeline */}
+      <section className="py-20 bg-gradient-to-b from-background to-card/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative">
+            {/* Central Timeline Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 transform -translate-x-1/2" />
+            
+            {steps.map((step, index) => (
+              <div key={index} className="relative mb-16 last:mb-0">
+                {/* Step Circle */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="flex items-center justify-center w-12 h-12 bg-primary rounded-full border-4 border-background">
+                    <span className="text-white font-bold text-sm">{step.step}</span>
+                  </div>
+                </div>
+                
+                {/* Step Content Card */}
+                <div className={`ml-auto w-80 ${index % 2 === 0 ? 'mr-auto ml-0 pl-16' : 'ml-auto pr-16'}`}>
+                  <Card className="bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-elegant">
+                    <CardContent className="p-6">
+                      <div className="flex items-center mb-4">
+                        <div className="flex items-center justify-center w-10 h-10 bg-gradient-primary rounded-lg mr-3">
+                          <step.icon className="h-5 w-5 text-white" />
                         </div>
                         <div>
-                          <Badge variant="secondary" className="mb-2">
-                            Step {step.step}
+                          <Badge variant="secondary" className="text-xs mb-1">
+                            {step.title}
                           </Badge>
-                          <h3 className="text-2xl font-bold">{step.title}</h3>
+                          <h3 className="text-lg font-bold">{step.title}</h3>
                         </div>
                       </div>
                       
-                      <p className="text-muted-foreground mb-6">
+                      <p className="text-muted-foreground text-sm mb-4">
                         {step.description}
                       </p>
                       
-                      <div className="space-y-3 mb-6">
+                      <div className="space-y-2 mb-4">
                         {step.details.map((detail, idx) => (
-                          <div key={idx} className="flex items-center">
-                            <CheckCircle className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
-                            <span className="text-sm">{detail}</span>
+                          <div key={idx} className="flex items-start">
+                            <CheckCircle className="h-3 w-3 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-xs text-muted-foreground">{detail}</span>
                           </div>
                         ))}
                       </div>
                       
-                      <div className="flex items-center justify-between pt-4 border-t border-border">
-                        <span className="text-sm text-muted-foreground">
-                          Duration: {step.duration}
+                      <div className="flex items-center justify-between pt-3 border-t border-border/50">
+                        <span className="text-xs text-muted-foreground">
+                          {step.duration}
                         </span>
-                        <Button variant="outline" size="sm">
-                          Learn More
+                        <Button variant="ghost" size="sm" className="text-xs h-7">
+                          Details
                         </Button>
                       </div>
                     </CardContent>
                   </Card>
                 </div>
-                
-                <div className="lg:w-1/2">
-                  <div className="text-center lg:text-left">
-                    <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-ai rounded-full mb-6 mx-auto lg:mx-0">
-                      <span className="text-3xl font-bold text-white">{step.step}</span>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">{step.title}</h2>
-                    <p className="text-lg text-muted-foreground">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -209,39 +216,6 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* Timeline Visual */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            <span className="text-primary">Project Timeline</span>
-          </h2>
-          
-          <div className="relative">
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-aqua to-purple-start transform -translate-x-1/2" />
-            
-            <div className="space-y-12">
-              {[
-                { week: "Week 1-2", title: "Discovery & Planning", color: "bg-primary" },
-                { week: "Week 3-6", title: "Development & Testing", color: "bg-aqua" },
-                { week: "Week 7-8", title: "Deployment & Training", color: "bg-purple-start" },
-                { week: "Ongoing", title: "Support & Optimization", color: "bg-soft-teal" }
-              ].map((phase, index) => (
-                <div key={index} className="relative flex items-center justify-center">
-                  <div className={`w-4 h-4 ${phase.color} rounded-full border-4 border-background z-10`} />
-                  <div className="absolute left-1/2 transform -translate-x-1/2 ml-8">
-                    <Card className="w-64">
-                      <CardContent className="p-4 text-center">
-                        <Badge variant="secondary" className="mb-2">{phase.week}</Badge>
-                        <h4 className="font-semibold">{phase.title}</h4>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-purple">
