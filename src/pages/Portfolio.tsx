@@ -22,52 +22,100 @@ import automationImage from "@/assets/custom-automation.jpg";
 const Portfolio = () => {
   const projects = [
     {
-      title: "E-commerce Customer Support Automation",
-      client: "RetailMax Inc.",
+      title: "AI-Powered E-commerce Website",
+      client: "ModernShop Co.",
       industry: "E-commerce",
       image: chatbotsImage,
-      description: "Implemented AI chatbots across website and WhatsApp to handle customer inquiries, order tracking, and product recommendations.",
+      description: "Designed and developed a responsive e-commerce website with AI-powered product recommendations, smart search, and personalized user experiences.",
       results: {
-        "Response Time": "2 minutes (from 2 hours)",
-        "Customer Satisfaction": "95% (improved from 78%)",
-        "Cost Reduction": "60% in support costs",
-        "Conversion Rate": "25% increase in sales"
+        "Conversion Rate": "45% increase",
+        "Page Load Speed": "2.1s (50% faster)",
+        "User Engagement": "75% longer sessions",
+        "Mobile Experience": "98% mobile optimization score"
       },
-      services: ["AI Chatbots", "WhatsApp Integration", "CRM Integration"],
+      services: ["AI Website Design", "Responsive Design", "UX/UI Optimization"],
       icon: MessageSquare,
       demoAvailable: true
     },
     {
-      title: "Healthcare Voice Agent System",
-      client: "MedCare Clinics",
-      industry: "Healthcare",
+      title: "SaaS Platform Interface Design",
+      client: "CloudTech Solutions",
+      industry: "B2B SaaS",
       image: voiceImage,
-      description: "Deployed AI voice agents for appointment scheduling, patient pre-screening, and 24/7 medical information support.",
+      description: "Created an intuitive AI-enhanced dashboard interface for a cloud management platform with smart data visualization and predictive analytics.",
       results: {
-        "Appointment Efficiency": "80% automated scheduling",
-        "Patient Satisfaction": "92% approval rating",
-        "Staff Time Saved": "15 hours per week",
-        "Call Volume Handled": "500% increase capacity"
+        "User Adoption": "90% increase in daily active users",
+        "Task Completion": "60% faster user workflows",
+        "Support Tickets": "40% reduction in UI-related issues",
+        "Customer Satisfaction": "94% positive feedback"
       },
-      services: ["Voice Agents", "IVR Integration", "Healthcare Compliance"],
-      icon: Mic,
+      services: ["AI Website Design", "Dashboard UI", "Data Visualization"],
+      icon: BarChart3,
       demoAvailable: true
     },
     {
-      title: "Lead Generation Automation",
-      client: "TechStartup Pro",
-      industry: "B2B SaaS",
+      title: "Healthcare Practice Website",
+      client: "WellCare Medical Group",
+      industry: "Healthcare",
       image: automationImage,
-      description: "Created custom automation workflows for lead capture, qualification, nurturing, and CRM integration with automated follow-ups.",
+      description: "Developed a HIPAA-compliant website with AI-powered appointment booking, patient portal, and telemedicine integration.",
+      results: {
+        "Online Bookings": "80% of appointments now online",
+        "Patient Portal Usage": "95% patient adoption",
+        "Administrative Time": "50% reduction",
+        "Patient Satisfaction": "92% improvement rating"
+      },
+      services: ["AI Website Design", "Patient Portal", "HIPAA Compliance"],
+      icon: Mic,
+      demoAvailable: false
+    },
+    {
+      title: "Real Estate AI Website Platform",
+      client: "PremierHomes Realty",
+      industry: "Real Estate",
+      image: chatbotsImage,
+      description: "Built an AI-driven real estate website with smart property matching, virtual tours, and automated lead qualification system.",
       results: {
         "Lead Quality": "85% qualified leads",
-        "Follow-up Speed": "Instant automated responses",
-        "Conversion Rate": "40% improvement",
-        "Sales Efficiency": "3x faster lead processing"
+        "Virtual Tour Engagement": "200% increase",
+        "Property Matching Accuracy": "92% success rate",
+        "Agent Productivity": "150% improvement"
       },
-      services: ["Custom Automation", "Lead Scoring", "Email Sequences"],
-      icon: Zap,
-      demoAvailable: false
+      services: ["AI Website Design", "Virtual Tours", "Lead Qualification"],
+      icon: BarChart3,
+      demoAvailable: true
+    },
+    {
+      title: "FinTech Dashboard Redesign",
+      client: "InvestSmart Capital",
+      industry: "Financial Services",
+      image: voiceImage,
+      description: "Redesigned investment platform with AI-powered portfolio insights, risk assessment tools, and personalized financial recommendations.",
+      results: {
+        "User Engagement": "120% increase in daily usage",
+        "Investment Accuracy": "78% better outcomes",
+        "Client Retention": "95% retention rate",
+        "Platform Performance": "3x faster load times"
+      },
+      services: ["AI Website Design", "Financial UI", "Data Analytics"],
+      icon: TrendingUp,
+      demoAvailable: true
+    },
+    {
+      title: "EdTech Learning Platform",
+      client: "SmartLearn Academy",
+      industry: "Education",
+      image: automationImage,
+      description: "Created an adaptive learning platform with AI-powered personalized curricula, progress tracking, and interactive content delivery.",
+      results: {
+        "Learning Outcomes": "65% improvement in test scores",
+        "Student Engagement": "180% increase in course completion",
+        "Teacher Efficiency": "40% time saved on grading",
+        "Platform Usage": "300% growth in active users"
+      },
+      services: ["AI Website Design", "Learning Management", "Adaptive UI"],
+      icon: Users,
+      demoAvailable: true
     },
     {
       title: "Restaurant Chain Order Management",
