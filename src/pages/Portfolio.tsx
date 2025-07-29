@@ -22,148 +22,132 @@ import automationImage from "@/assets/custom-automation.jpg";
 const Portfolio = () => {
   const projects = [
     {
-      title: "AI-Powered E-commerce Website",
-      client: "ModernShop Co.",
+      title: "E-commerce Complete AI Solution",
+      client: "RetailMax Inc.",
       industry: "E-commerce",
       image: chatbotsImage,
-      description: "Designed and developed a responsive e-commerce website with AI-powered product recommendations, smart search, and personalized user experiences.",
+      description: "Full-stack AI implementation including website redesign, AI chatbots for customer support, voice ordering system, and automated workflow for order processing and inventory management.",
       results: {
-        "Conversion Rate": "45% increase",
-        "Page Load Speed": "2.1s (50% faster)",
-        "User Engagement": "75% longer sessions",
-        "Mobile Experience": "98% mobile optimization score"
+        "Response Time": "2 minutes (from 2 hours)",
+        "Customer Satisfaction": "95% (improved from 78%)",
+        "Cost Reduction": "60% in support costs",
+        "Conversion Rate": "45% increase in sales"
       },
-      services: ["AI Website Design", "Responsive Design", "UX/UI Optimization"],
+      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
       icon: MessageSquare,
       demoAvailable: true
     },
     {
-      title: "SaaS Platform Interface Design",
-      client: "CloudTech Solutions",
-      industry: "B2B SaaS",
+      title: "Healthcare AI Voice & Booking System",
+      client: "MedCare Clinics",
+      industry: "Healthcare",
       image: voiceImage,
-      description: "Created an intuitive AI-enhanced dashboard interface for a cloud management platform with smart data visualization and predictive analytics.",
+      description: "Comprehensive healthcare solution with AI voice agents for appointment scheduling, patient pre-screening, chatbot for FAQ, and custom website with patient portal integration.",
       results: {
-        "User Adoption": "90% increase in daily active users",
-        "Task Completion": "60% faster user workflows",
-        "Support Tickets": "40% reduction in UI-related issues",
-        "Customer Satisfaction": "94% positive feedback"
+        "Appointment Efficiency": "80% automated scheduling",
+        "Patient Satisfaction": "92% approval rating",
+        "Staff Time Saved": "15 hours per week",
+        "Online Bookings": "85% of appointments"
       },
-      services: ["AI Website Design", "Dashboard UI", "Data Visualization"],
-      icon: BarChart3,
+      services: ["AI Voice Agent", "AI Website Design", "AI Chatbot", "Custom Workflow"],
+      icon: Mic,
       demoAvailable: true
     },
     {
-      title: "Healthcare Practice Website",
-      client: "WellCare Medical Group",
-      industry: "Healthcare",
-      image: automationImage,
-      description: "Developed a HIPAA-compliant website with AI-powered appointment booking, patient portal, and telemedicine integration.",
-      results: {
-        "Online Bookings": "80% of appointments now online",
-        "Patient Portal Usage": "95% patient adoption",
-        "Administrative Time": "50% reduction",
-        "Patient Satisfaction": "92% improvement rating"
-      },
-      services: ["AI Website Design", "Patient Portal", "HIPAA Compliance"],
-      icon: Mic,
-      demoAvailable: false
-    },
-    {
-      title: "Real Estate AI Website Platform",
-      client: "PremierHomes Realty",
+      title: "Real Estate Lead Generation Platform",
+      client: "PropertyPro Realty",
       industry: "Real Estate",
-      image: chatbotsImage,
-      description: "Built an AI-driven real estate website with smart property matching, virtual tours, and automated lead qualification system.",
+      image: automationImage,
+      description: "AI-powered real estate platform with intelligent website design, chatbot for property inquiries, voice follow-up system, and automated lead qualification workflow.",
       results: {
         "Lead Quality": "85% qualified leads",
-        "Virtual Tour Engagement": "200% increase",
-        "Property Matching Accuracy": "92% success rate",
-        "Agent Productivity": "150% improvement"
+        "Response Time": "Under 5 minutes",
+        "Agent Productivity": "200% increase",
+        "Deal Closure": "35% faster transactions"
       },
-      services: ["AI Website Design", "Virtual Tours", "Lead Qualification"],
+      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
       icon: BarChart3,
       demoAvailable: true
     },
     {
-      title: "FinTech Dashboard Redesign",
-      client: "InvestSmart Capital",
-      industry: "Financial Services",
-      image: voiceImage,
-      description: "Redesigned investment platform with AI-powered portfolio insights, risk assessment tools, and personalized financial recommendations.",
-      results: {
-        "User Engagement": "120% increase in daily usage",
-        "Investment Accuracy": "78% better outcomes",
-        "Client Retention": "95% retention rate",
-        "Platform Performance": "3x faster load times"
-      },
-      services: ["AI Website Design", "Financial UI", "Data Analytics"],
-      icon: TrendingUp,
-      demoAvailable: true
-    },
-    {
-      title: "EdTech Learning Platform",
-      client: "SmartLearn Academy",
-      industry: "Education",
-      image: automationImage,
-      description: "Created an adaptive learning platform with AI-powered personalized curricula, progress tracking, and interactive content delivery.",
-      results: {
-        "Learning Outcomes": "65% improvement in test scores",
-        "Student Engagement": "180% increase in course completion",
-        "Teacher Efficiency": "40% time saved on grading",
-        "Platform Usage": "300% growth in active users"
-      },
-      services: ["AI Website Design", "Learning Management", "Adaptive UI"],
-      icon: Users,
-      demoAvailable: true
-    },
-    {
-      title: "Restaurant Chain Order Management",
+      title: "Restaurant Chain AI Automation",
       client: "FoodieChain",
       industry: "Food & Beverage",
       image: chatbotsImage,
-      description: "Integrated AI chatbots with voice ordering for multi-location restaurant chain with real-time inventory management.",
+      description: "Multi-location restaurant solution with AI website, voice ordering system, chatbot for reservations, and automated workflow for inventory and order management across all locations.",
       results: {
         "Order Accuracy": "99.2% accuracy rate",
         "Order Processing": "50% faster fulfillment",
         "Customer Experience": "90% satisfaction score",
         "Revenue Growth": "30% increase in orders"
       },
-      services: ["Voice Ordering", "Inventory Integration", "Multi-location Setup"],
-      icon: BarChart3,
+      services: ["AI Voice Agent", "AI Chatbot", "Custom Workflow", "AI Website Design"],
+      icon: Zap,
       demoAvailable: true
     },
     {
-      title: "Financial Services Customer Onboarding",
+      title: "Financial Services Digital Transformation",
       client: "FinanceFirst Bank",
       industry: "Financial Services",
       image: voiceImage,
-      description: "Automated customer onboarding process with AI chatbots for document collection, verification, and account setup.",
+      description: "Complete digital overhaul with modern AI website, chatbot for customer queries, voice banking system, and automated workflow for loan processing and customer onboarding.",
       results: {
         "Onboarding Time": "Reduced from 5 days to 2 hours",
-        "Document Processing": "95% automated verification",
-        "Customer Satisfaction": "88% positive feedback",
-        "Compliance Score": "100% regulatory compliance"
+        "Customer Queries": "90% resolved by AI",
+        "Processing Speed": "70% faster loan approvals",
+        "Customer Satisfaction": "88% positive feedback"
       },
-      services: ["Document AI", "Compliance Automation", "Identity Verification"],
-      icon: MessageSquare,
+      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
+      icon: TrendingUp,
       demoAvailable: false
     },
     {
-      title: "Real Estate Lead Qualification System",
-      client: "PropertyPro Realty",
-      industry: "Real Estate",
+      title: "SaaS Platform AI Integration",
+      client: "CloudTech Solutions",
+      industry: "B2B SaaS",
       image: automationImage,
-      description: "Built comprehensive lead qualification system with chatbots, voice follow-ups, and automated property matching.",
+      description: "Comprehensive SaaS enhancement with redesigned AI-powered website, intelligent chatbot for technical support, voice-activated features, and custom automation workflows for user onboarding.",
       results: {
-        "Lead Response": "Under 5 minutes",
-        "Qualification Rate": "75% pre-qualified leads",
-        "Agent Productivity": "200% increase",
-        "Deal Closure": "35% faster transactions"
+        "User Adoption": "90% increase in daily active users",
+        "Support Resolution": "75% automated",
+        "Onboarding Speed": "60% faster user setup",
+        "Customer Retention": "85% improvement"
       },
-      services: ["Lead Qualification", "Property Matching", "Agent Integration"],
-      icon: BarChart3,
+      services: ["AI Website Design", "AI Chatbot", "Custom Workflow", "AI Voice Agent"],
+      icon: Users,
       demoAvailable: true
+    },
+    {
+      title: "EdTech AI Learning Ecosystem",
+      client: "SmartLearn Academy",
+      industry: "Education",
+      image: chatbotsImage,
+      description: "AI-powered educational platform with adaptive website design, tutoring chatbot, voice-based learning assistant, and automated workflow for student progress tracking and personalized curriculum delivery.",
+      results: {
+        "Learning Outcomes": "65% improvement in test scores",
+        "Student Engagement": "180% increase in course completion",
+        "Teacher Efficiency": "40% time saved on administrative tasks",
+        "Platform Usage": "300% growth in active users"
+      },
+      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
+      icon: MessageSquare,
+      demoAvailable: true
+    },
+    {
+      title: "Manufacturing AI Operations Hub",
+      client: "IndustriPro Manufacturing",
+      industry: "Manufacturing",
+      image: voiceImage,
+      description: "Industrial AI solution with operations dashboard website, chatbot for employee queries, voice-controlled equipment interface, and custom workflow automation for production scheduling and quality control.",
+      results: {
+        "Production Efficiency": "45% increase in output",
+        "Error Reduction": "80% fewer quality issues",
+        "Employee Training": "50% faster onboarding",
+        "Operational Costs": "35% reduction"
+      },
+      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
+      icon: BarChart3,
+      demoAvailable: false
     }
   ];
 
