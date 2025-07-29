@@ -20,66 +20,36 @@ const HowItWorks = () => {
     {
       step: "01",
       title: "Discovery",
-      description: "We analyze your current processes and identify automation opportunities.",
+      description: "We analyze your processes and identify opportunities.",
       icon: MessageSquare,
-      details: [
-        "Business process mapping",
-        "Automation opportunity identification",
-        "Goal setting and KPI definition",
-        "Technical feasibility assessment"
-      ],
       duration: "1-2 weeks"
     },
     {
       step: "02", 
       title: "Planning",
-      description: "Detailed strategy and roadmap tailored to your business needs.",
+      description: "Strategy and roadmap tailored to your needs.",
       icon: Settings,
-      details: [
-        "Solution architecture design",
-        "Technology stack selection",
-        "Project timeline development",
-        "Resource allocation planning"
-      ],
       duration: "1 week"
     },
     {
       step: "03",
       title: "Integration",
-      description: "Seamless implementation with existing disruption to your operations.",
+      description: "Seamless implementation with minimal disruption.",
       icon: Rocket,
-      details: [
-        "System integration setup",
-        "Data migration and testing",
-        "API connections establishment",
-        "Security implementation"
-      ],
       duration: "2-3 weeks"
     },
     {
       step: "04",
       title: "Launch",
-      description: "Go live with comprehensive training and immediate support.",
+      description: "Go live with training and support.",
       icon: Users,
-      details: [
-        "Staff training and onboarding",
-        "System go-live coordination",
-        "Performance monitoring",
-        "Initial optimization"
-      ],
       duration: "1 week"
     },
     {
       step: "05",
       title: "Optimization",
-      description: "Continuous improvement and scaling based on performance data.",
+      description: "Continuous improvement and scaling.",
       icon: BarChart3,
-      details: [
-        "Performance analytics review",
-        "System optimization",
-        "Feature enhancement",
-        "Ongoing support"
-      ],
       duration: "Ongoing"
     }
   ];
@@ -88,22 +58,22 @@ const HowItWorks = () => {
     {
       icon: Clock,
       title: "Save Time",
-      description: "Automate repetitive tasks and free up your team for strategic work"
+      description: "Automate tasks"
     },
     {
       icon: Target,
       title: "Increase Accuracy",
-      description: "Reduce human error with AI-powered precision and consistency"
+      description: "Reduce errors"
     },
     {
       icon: Users,
       title: "Scale Operations",
-      description: "Handle increased workload without proportional staff increases"
+      description: "Handle more work"
     },
     {
       icon: BarChart3,
       title: "Improve ROI",
-      description: "See measurable improvements in efficiency and cost reduction"
+      description: "Measurable results"
     }
   ];
 
@@ -112,129 +82,83 @@ const HowItWorks = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-b from-card/50 to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-6">
-            🔄 Our Process
-          </Badge>
+      <section className="pt-20 pb-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             How <span className="bg-gradient-primary bg-clip-text text-transparent">It Works</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Our proven 5-step process ensures successful AI automation implementation that delivers measurable results for your business.
+          <p className="text-lg text-muted-foreground mb-8">
+            Simple 5-step process for AI automation success
           </p>
         </div>
       </section>
 
-      {/* Process Steps - Vertical Timeline */}
-      <section className="py-20 bg-gradient-to-b from-background to-card/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative">
-            {/* Central Timeline Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 transform -translate-x-1/2" />
-            
+      {/* Process Steps - Clean Minimalist Design */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="relative mb-16 last:mb-0">
-                {/* Step Circle */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="flex items-center justify-center w-12 h-12 bg-primary rounded-full border-4 border-background">
-                    <span className="text-white font-bold text-sm">{step.step}</span>
+              <div key={index} className="text-center group">
+                {/* Step Number & Icon */}
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 mx-auto bg-gradient-primary rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <step.icon className="h-8 w-8 text-white" />
                   </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                    {step.step}
+                  </div>
+                  {/* Connection Line */}
+                  {index < steps.length - 1 && (
+                    <div className="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent" />
+                  )}
                 </div>
                 
-                {/* Step Content Card */}
-                <div className={`ml-auto w-80 ${index % 2 === 0 ? 'mr-auto ml-0 pl-16' : 'ml-auto pr-16'}`}>
-                  <Card className="bg-card/80 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-elegant">
-                    <CardContent className="p-6">
-                      <div className="flex items-center mb-4">
-                        <div className="flex items-center justify-center w-10 h-10 bg-gradient-primary rounded-lg mr-3">
-                          <step.icon className="h-5 w-5 text-white" />
-                        </div>
-                        <div>
-                          <Badge variant="secondary" className="text-xs mb-1">
-                            {step.title}
-                          </Badge>
-                          <h3 className="text-lg font-bold">{step.title}</h3>
-                        </div>
-                      </div>
-                      
-                      <p className="text-muted-foreground text-sm mb-4">
-                        {step.description}
-                      </p>
-                      
-                      <div className="space-y-2 mb-4">
-                        {step.details.map((detail, idx) => (
-                          <div key={idx} className="flex items-start">
-                            <CheckCircle className="h-3 w-3 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-xs text-muted-foreground">{detail}</span>
-                          </div>
-                        ))}
-                      </div>
-                      
-                      <div className="flex items-center justify-between pt-3 border-t border-border/50">
-                        <span className="text-xs text-muted-foreground">
-                          {step.duration}
-                        </span>
-                        <Button variant="ghost" size="sm" className="text-xs h-7">
-                          Details
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                {/* Step Content */}
+                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <p className="text-sm text-muted-foreground mb-3">{step.description}</p>
+                <Badge variant="outline" className="text-xs">
+                  {step.duration}
+                </Badge>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-card/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Why Choose <span className="text-primary">Our Process?</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Our structured approach ensures successful implementation and measurable results
-            </p>
-          </div>
+      {/* Benefits Section - Minimalist */}
+      <section className="py-20 bg-card/30">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why It <span className="text-primary">Works</span>
+          </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
-                <CardContent className="p-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4">
-                    <benefit.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                  <p className="text-muted-foreground">{benefit.description}</p>
-                </CardContent>
-              </Card>
+              <div key={index} className="text-center group">
+                <div className="w-12 h-12 mx-auto bg-gradient-primary rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <benefit.icon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="font-semibold mb-1">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground">{benefit.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-purple">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your AI Journey?
+      {/* CTA Section - Clean */}
+      <section className="py-20">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            Ready to Start?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Let's schedule a free consultation to discuss your automation needs
+          <p className="text-muted-foreground mb-8">
+            Let's discuss your automation needs
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-              Book Free Consultation
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              View Our Services
-            </Button>
-          </div>
+          <Button variant="hero" size="lg">
+            Book Free Consultation
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
         </div>
       </section>
 
