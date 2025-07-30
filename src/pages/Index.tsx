@@ -18,7 +18,9 @@ import {
   Quote,
   Phone,
   Cog,
-  Palette
+  Palette,
+  Calendar,
+  Clock
 } from "lucide-react";
 import heroImage from "@/assets/hero-ai-automation.jpg";
 import chatbotsImage from "@/assets/ai-chatbots.jpg";
@@ -113,6 +115,27 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      
+      {/* Calendly Banner */}
+      <div className="bg-gradient-primary text-white py-3 px-4 sm:px-6 lg:px-8 sticky top-0 z-50 shadow-lg">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Calendar className="h-5 w-5" />
+            <span className="text-sm font-medium">
+              🚀 Ready to transform your business? Book your FREE AI automation consultation now!
+            </span>
+          </div>
+          <a 
+            href="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
+          >
+            <Clock className="h-4 w-4" />
+            Book Free Consultation
+          </a>
+        </div>
+      </div>
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
