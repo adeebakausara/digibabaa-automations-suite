@@ -14,7 +14,126 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      media_assets: {
+        Row: {
+          alt_text: string | null
+          category: string | null
+          created_at: string | null
+          id: string
+          name: string
+          type: string
+          updated_at: string | null
+          url: string
+        }
+        Insert: {
+          alt_text?: string | null
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          name: string
+          type: string
+          updated_at?: string | null
+          url: string
+        }
+        Update: {
+          alt_text?: string | null
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          name?: string
+          type?: string
+          updated_at?: string | null
+          url?: string
+        }
+        Relationships: []
+      }
+      services: {
+        Row: {
+          created_at: string | null
+          description: string
+          icon: string | null
+          id: string
+          image_url: string | null
+          page_route: string | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          description: string
+          icon?: string | null
+          id?: string
+          image_url?: string | null
+          page_route?: string | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string
+          icon?: string | null
+          id?: string
+          image_url?: string | null
+          page_route?: string | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          company: string
+          created_at: string | null
+          id: string
+          image_url: string | null
+          is_featured: boolean | null
+          is_video: boolean | null
+          name: string
+          quote: string
+          rating: number
+          results: string | null
+          role: string
+          updated_at: string | null
+          video_length: string | null
+          video_thumbnail: string | null
+          video_url: string | null
+        }
+        Insert: {
+          company: string
+          created_at?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          is_video?: boolean | null
+          name: string
+          quote: string
+          rating?: number
+          results?: string | null
+          role: string
+          updated_at?: string | null
+          video_length?: string | null
+          video_thumbnail?: string | null
+          video_url?: string | null
+        }
+        Update: {
+          company?: string
+          created_at?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          is_video?: boolean | null
+          name?: string
+          quote?: string
+          rating?: number
+          results?: string | null
+          role?: string
+          updated_at?: string | null
+          video_length?: string | null
+          video_thumbnail?: string | null
+          video_url?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
