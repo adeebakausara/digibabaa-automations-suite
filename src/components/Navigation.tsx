@@ -25,12 +25,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <img 
                 src="/lovable-uploads/efa27489-cc8e-41c9-908e-4b86add273c0.png" 
                 alt="DigiBabaa Logo" 
-                className="h-12 w-auto brightness-0 saturate-100 invert-[0.4] sepia-[1] saturate-[3] hue-rotate-[180deg] brightness-[1.2] contrast-[1.1] group-hover:brightness-[1.4] transition-all duration-300"
+                className="h-14 w-auto brightness-0 saturate-100 invert-[0.35] sepia-[1] saturate-[2] hue-rotate-[180deg] brightness-[1.3] contrast-[1.2] group-hover:brightness-[1.5] transition-all duration-300"
               />
             </div>
             <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
