@@ -24,25 +24,25 @@ export const useTestimonials = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchTestimonials = async () => {
-    try {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from('testimonials')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-      
-      setTestimonials(data || []);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch testimonials');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase
+          .from('testimonials')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+        
+        setTestimonials(data || []);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to fetch testimonials');
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchTestimonials();
   }, []);
 
@@ -56,7 +56,6 @@ export const useTestimonials = () => {
     writtenTestimonials,
     featuredTestimonials,
     loading,
-    error,
-    refreshTestimonials: fetchTestimonials
+    error
   };
 };
