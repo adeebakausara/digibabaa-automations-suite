@@ -28,9 +28,9 @@ const Navigation = () => {
           <Link to="/" className="flex items-center group">
             <div className="relative">
               <img 
-                src="/lovable-uploads/da772967-570e-468b-8fdf-8434a106f8f8.png" 
+                src="/lovable-uploads/a122200e-7031-4b3e-b840-5a3aa896ee90.png" 
                 alt="DigiBabaa Logo" 
-                className="h-13 w-auto group-hover:scale-105 transition-all duration-300"
+                className="h-10 w-auto group-hover:scale-105 transition-all duration-300"
               />
             </div>
           </Link>
