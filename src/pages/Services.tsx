@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -234,11 +235,14 @@ const Services = () => {
             Let's discuss which AI services are right for your business
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-              Schedule Free Consultation
+            <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
+              <Link to="/contact">Schedule Free Consultation</Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              View Pricing Plans
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" asChild>
+              <Link to="/pricing">View Pricing Plans</Link>
+            </Button>
+            <Button variant="default" size="lg" className="px-8" asChild>
+              <Link to="/services/ai-chatbot">Try AI Chatbot Demo</Link>
             </Button>
           </div>
         </div>
