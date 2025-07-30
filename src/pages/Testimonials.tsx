@@ -1,11 +1,13 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Quote, Play, ArrowRight, TrendingUp, Users, Award, Edit } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Star, Quote, Play, ArrowRight, TrendingUp, Users, Award, Edit, Video, Sparkles, Brain, Eye, Download, Clock } from "lucide-react";
 import { useTestimonials } from "@/hooks/useTestimonials";
 import TestimonialEditModal from "@/components/TestimonialEditModal";
+import AIVideoGenerator from "@/components/AIVideoGenerator";
 import { useState, useEffect } from "react";
 
 const Testimonials = () => {
@@ -13,6 +15,7 @@ const Testimonials = () => {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState<any>(null);
   const [testimonials, setTestimonials] = useState<any[]>([]);
+  const [activeTab, setActiveTab] = useState("testimonials");
 
   // Update local state when data changes
   useEffect(() => {
@@ -67,34 +70,169 @@ const Testimonials = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-b from-card/50 to-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-6">
-            🌟 Client Success Stories
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            What Our <span className="bg-gradient-primary bg-clip-text text-transparent">Clients Say</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Real testimonials from real businesses that have transformed their operations with DigiBabaa's AI automation solutions.
-          </p>
-          <div className="flex items-center justify-center gap-6 mb-8">
-            <div className="flex items-center">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                ))}
-              </div>
-              <span className="ml-2 text-lg font-semibold">4.9/5</span>
+      {/* Enhanced Hero Section */}
+      <section className="relative pt-20 pb-24 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-border/50 rounded-full px-6 py-3 mb-8">
+              <Sparkles className="h-4 w-4 text-primary animate-pulse" />
+              <span className="text-sm font-medium">AI-Powered Success Stories</span>
+              <Video className="h-4 w-4 text-secondary" />
             </div>
-            <div className="text-muted-foreground">•</div>
-            <div className="text-lg">
-              <span className="font-semibold text-primary">200+</span> Happy Clients
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+              Client <span className="bg-gradient-primary bg-clip-text text-transparent">Testimonials</span>
+              <br />
+              <span className="text-3xl md:text-4xl font-medium text-muted-foreground">
+                Real Impact, Real Results
+              </span>
+            </h1>
+            
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed">
+              Discover how leading businesses leverage our AI automation solutions to achieve 
+              extraordinary growth and operational excellence.
+            </p>
+            
+            {/* Enhanced Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {[
+                { icon: Users, number: "200+", label: "Happy Clients" },
+                { icon: Star, number: "4.9/5", label: "Avg Rating" },
+                { icon: TrendingUp, number: "320%", label: "Avg ROI" },
+                { icon: Video, number: "50+", label: "Video Stories" }
+              ].map((stat, index) => (
+                <Card key={index} className="bg-card/50 backdrop-blur-sm border-border/50 hover:shadow-elegant transition-all duration-300">
+                  <CardContent className="p-6 text-center">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-3">
+                      <stat.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="text-2xl font-bold text-foreground mb-1">{stat.number}</div>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
       </section>
+
+      {/* Main Content Tabs */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <div className="flex justify-center mb-12">
+              <TabsList className="grid w-full max-w-md grid-cols-2 bg-card/50 backdrop-blur-sm">
+                <TabsTrigger value="testimonials" className="data-[state=active]:bg-primary data-[state=active]:text-white">
+                  <Eye className="h-4 w-4 mr-2" />
+                  View Testimonials
+                </TabsTrigger>
+                <TabsTrigger value="ai-generator" className="data-[state=active]:bg-secondary data-[state=active]:text-white">
+                  <Brain className="h-4 w-4 mr-2" />
+                  AI Generator
+                </TabsTrigger>
+              </TabsList>
+            </div>
+
+            <TabsContent value="testimonials" className="space-y-20">
+              {/* Featured Video Testimonials */}
+              <div>
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                    Featured <span className="text-primary">Video Stories</span>
+                  </h2>
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Watch our clients share their transformation journeys in their own words
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                  {videoTestimonials.slice(0, 3).map((testimonial, index) => (
+                    <Card 
+                      key={index} 
+                      className="group hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl border-border/50 overflow-hidden relative"
+                    >
+                      {testimonial.is_featured && (
+                        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                          <Badge className="bg-gradient-primary text-white px-4 py-2 shadow-lg">
+                            <Award className="h-3 w-3 mr-1" />
+                            Featured Story
+                          </Badge>
+                        </div>
+                      )}
+                      
+                      <div className="relative overflow-hidden">
+                        <img 
+                          src={testimonial.video_thumbnail || testimonial.image_url || 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'} 
+                          alt={testimonial.name}
+                          className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                          <div className="flex items-center gap-4">
+                            <div className="flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
+                              <Play className="h-8 w-8 text-white ml-1" />
+                            </div>
+                            <Button
+                              size="sm"
+                              variant="secondary"
+                              onClick={() => handleEditClick(testimonial)}
+                              className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm"
+                            >
+                              <Edit className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                        {testimonial.video_length && (
+                          <div className="absolute bottom-4 right-4">
+                            <Badge className="bg-black/80 text-white backdrop-blur-sm">
+                              <Clock className="h-3 w-3 mr-1" />
+                              {testimonial.video_length}
+                            </Badge>
+                          </div>
+                        )}
+                        <div className="absolute top-4 left-4">
+                          <Badge variant="secondary" className="bg-black/50 text-white backdrop-blur-sm">
+                            {testimonial.company || "Business"}
+                          </Badge>
+                        </div>
+                      </div>
+                      
+                      <CardContent className="p-6 bg-gradient-to-br from-card to-card/50">
+                        <div className="flex mb-4">
+                          {[...Array(testimonial.rating || 5)].map((_, i) => (
+                            <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                          ))}
+                        </div>
+                        
+                        <Quote className="h-6 w-6 text-primary/40 mb-3" />
+                        <p className="text-muted-foreground mb-6 italic line-clamp-3">
+                          "{testimonial.quote}"
+                        </p>
+                        
+                        {testimonial.results && (
+                          <div className="mb-4">
+                            <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-400/30">
+                              <TrendingUp className="h-3 w-3 mr-1" />
+                              {testimonial.results}
+                            </Badge>
+                          </div>
+                        )}
+                        
+                        <div className="border-t border-border pt-4">
+                          <p className="font-semibold text-lg">{testimonial.name}</p>
+                          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                          <p className="text-sm text-primary font-medium">{testimonial.company}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
 
       {/* Featured Video Testimonials */}
       <section className="py-20">
@@ -198,90 +336,116 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Written Testimonials Grid */}
-      <section className="py-20 bg-card/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              More <span className="text-primary">Success Stories</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Discover how businesses across industries have benefited from our AI solutions
-            </p>
-          </div>
-          
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-             {writtenTestimonials.map((testimonial, index) => (
-               <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 relative">
-                 <CardContent className="p-6">
-                   <div className="flex items-center justify-between mb-4">
-                     <div className="flex">
-                       {[...Array(testimonial.rating)].map((_, i) => (
-                         <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                       ))}
-                     </div>
-                     <div className="flex items-center gap-2">
-                       <Badge variant="secondary">Business</Badge>
-                       <Button
-                         size="sm"
-                         variant="ghost"
-                         onClick={() => handleEditClick(testimonial)}
-                         className="opacity-0 group-hover:opacity-100 transition-opacity h-8 w-8 p-0"
-                       >
-                         <Edit className="h-4 w-4" />
-                       </Button>
-                     </div>
-                   </div>
-                  
-                  <Quote className="h-6 w-6 text-primary/30 mb-3" />
-                  <p className="text-muted-foreground mb-6 italic">
-                    "{testimonial.quote}"
+              {/* Written Testimonials Grid */}
+              <div className="bg-gradient-to-br from-card/50 to-card/20 rounded-3xl p-12">
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                    Written <span className="text-primary">Success Stories</span>
+                  </h2>
+                  <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Detailed testimonials showcasing measurable business impact across industries
                   </p>
-                  
-                  <div className="mb-4">
-                    <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-400/30">
-                      <TrendingUp className="h-3 w-3 mr-1" />
-                      {testimonial.results}
-                    </Badge>
-                  </div>
-                  
-                  <div className="border-t border-border pt-4">
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                    <p className="text-sm text-primary">{testimonial.company}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                  {writtenTestimonials.map((testimonial, index) => (
+                    <Card key={index} className="group hover:scale-[1.02] transition-all duration-500 hover:shadow-xl border-border/50 relative bg-gradient-to-br from-card to-card/50">
+                      <CardContent className="p-8">
+                        <div className="flex items-center justify-between mb-6">
+                          <div className="flex">
+                            {[...Array(testimonial.rating || 5)].map((_, i) => (
+                              <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                            ))}
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Badge variant="secondary" className="bg-secondary/20 text-secondary">
+                              {testimonial.company || "Business"}
+                            </Badge>
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => handleEditClick(testimonial)}
+                              className="opacity-0 group-hover:opacity-100 transition-opacity h-8 w-8 p-0 hover:bg-primary/10"
+                            >
+                              <Edit className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                       
+                       <Quote className="h-8 w-8 text-primary/40 mb-4" />
+                       <p className="text-muted-foreground mb-6 italic text-lg leading-relaxed">
+                         "{testimonial.quote}"
+                       </p>
+                       
+                       {testimonial.results && (
+                         <div className="mb-6">
+                           <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-400/30 px-3 py-1">
+                             <TrendingUp className="h-4 w-4 mr-2" />
+                             {testimonial.results}
+                           </Badge>
+                         </div>
+                       )}
+                       
+                       <div className="border-t border-border pt-6">
+                         <p className="font-bold text-lg">{testimonial.name}</p>
+                         <p className="text-muted-foreground">{testimonial.role}</p>
+                         <p className="text-primary font-semibold">{testimonial.company}</p>
+                       </div>
+                     </CardContent>
+                   </Card>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="ai-generator" className="mt-12">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                  AI Video <span className="text-secondary">Generator</span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                  Create professional testimonial videos instantly using advanced AI technology
+                </p>
+              </div>
+              
+              <AIVideoGenerator />
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
-      {/* Industry Statistics */}
-      <section className="py-20">
+      {/* Industry Performance Dashboard */}
+      <section className="py-20 bg-gradient-to-br from-secondary/5 via-background to-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              <span className="text-primary">Industry</span> Performance
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="text-primary">Industry</span> Impact Dashboard
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Our track record of success across different industries
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive performance metrics showcasing our expertise across diverse sectors
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {industryStats.map((stat, index) => (
-              <Card key={index} className="text-center hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-4">{stat.industry}</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="text-3xl font-bold text-primary mb-1">{stat.satisfaction}</div>
-                      <p className="text-sm text-muted-foreground">Client Satisfaction</p>
+              <Card key={index} className="group text-center hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl border-border/50 bg-gradient-to-br from-card to-card/50 overflow-hidden">
+                <CardHeader className="pb-4">
+                  <div className="w-16 h-16 mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <TrendingUp className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl font-bold">{stat.industry}</CardTitle>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="space-y-6">
+                    <div className="relative">
+                      <div className="text-4xl font-bold text-primary mb-2">{stat.satisfaction}</div>
+                      <p className="text-sm text-muted-foreground font-medium">Client Satisfaction</p>
+                      <div className="absolute -inset-2 bg-primary/5 rounded-lg -z-10 group-hover:bg-primary/10 transition-colors duration-300" />
                     </div>
-                    <div>
-                      <div className="text-2xl font-semibold text-aqua mb-1">{stat.projects}</div>
-                      <p className="text-sm text-muted-foreground">Completed Projects</p>
+                    <div className="relative">
+                      <div className="text-3xl font-bold text-secondary mb-2">{stat.projects}</div>
+                      <p className="text-sm text-muted-foreground font-medium">Completed Projects</p>
+                      <div className="absolute -inset-2 bg-secondary/5 rounded-lg -z-10 group-hover:bg-secondary/10 transition-colors duration-300" />
                     </div>
                   </div>
                 </CardContent>
@@ -291,72 +455,122 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Overall Stats */}
-      <section className="py-20 bg-gradient-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Our Overall Impact
-          </h2>
+      {/* Enhanced Overall Impact */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-secondary" />
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-white rounded-full blur-3xl" />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+              Our Global Impact
+            </h2>
+            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+              Transforming businesses worldwide with cutting-edge AI automation solutions
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { 
                 icon: Users,
                 number: "200+", 
                 label: "Happy Clients",
-                description: "Businesses transformed"
+                description: "Businesses transformed",
+                gradient: "from-blue-400 to-cyan-400"
               },
               { 
                 icon: Star,
                 number: "4.9/5", 
                 label: "Average Rating",
-                description: "Client satisfaction score"
+                description: "Client satisfaction score",
+                gradient: "from-yellow-400 to-orange-400"
               },
               { 
                 icon: TrendingUp,
                 number: "320%", 
                 label: "Average ROI",
-                description: "Return on investment"
+                description: "Return on investment",
+                gradient: "from-green-400 to-emerald-400"
               },
               { 
                 icon: Award,
                 number: "98%", 
                 label: "Success Rate",
-                description: "Project completion rate"
+                description: "Project completion rate",
+                gradient: "from-purple-400 to-pink-400"
               }
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
-                  <stat.icon className="h-8 w-8" />
-                </div>
-                <div className="text-4xl font-bold mb-2">{stat.number}</div>
-                <h3 className="text-lg font-semibold mb-1">{stat.label}</h3>
-                <p className="text-sm opacity-80">{stat.description}</p>
-              </div>
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-500 hover:scale-105">
+                <CardContent className="p-8 text-center">
+                  <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${stat.gradient} rounded-2xl mb-6 shadow-lg`}>
+                    <stat.icon className="h-10 w-10 text-white" />
+                  </div>
+                  <div className="text-5xl font-bold mb-3">{stat.number}</div>
+                  <h3 className="text-xl font-semibold mb-2">{stat.label}</h3>
+                  <p className="text-sm opacity-80">{stat.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-card/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Join Our <span className="text-primary">Success Stories?</span>
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's create your own AI automation success story
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
-              Start Your Success Story
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="lg">
-              <Play className="mr-2 h-4 w-4" />
-              Watch More Testimonials
-            </Button>
-          </div>
+      {/* Enhanced CTA Section */}
+      <section className="py-24 bg-gradient-to-br from-card/50 via-card/30 to-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="bg-gradient-to-br from-card to-card/50 border-border/50 shadow-2xl overflow-hidden">
+            <CardContent className="p-12 text-center">
+              <div className="mb-8">
+                <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-6 py-3 mb-6">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium text-primary">Join 200+ Success Stories</span>
+                </div>
+                
+                <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                  Ready to <span className="bg-gradient-primary bg-clip-text text-transparent">Transform</span>
+                  <br />
+                  Your Business?
+                </h2>
+                
+                <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+                  Join hundreds of successful businesses that have revolutionized their operations 
+                  with our AI automation solutions. Your success story starts here.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <Button size="lg" className="bg-gradient-primary hover:opacity-90 text-white px-8 py-4 text-lg">
+                  <Sparkles className="mr-2 h-5 w-5" />
+                  Start Your Success Story
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                
+                <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-2">
+                  <Video className="mr-2 h-5 w-5" />
+                  Generate AI Video
+                </Button>
+              </div>
+              
+              <div className="mt-8 flex items-center justify-center gap-8 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full" />
+                  <span>Free Consultation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                  <span>Instant Setup</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full" />
+                  <span>Guaranteed Results</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
