@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import VideoUpload from "@/components/VideoUpload";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -17,6 +19,12 @@ import {
 } from "lucide-react";
 
 const AiVoiceAgent = () => {
+  const [currentVideoUrl, setCurrentVideoUrl] = useState<string>("");
+
+  const handleVideoUploaded = (videoUrl: string, fileName: string) => {
+    setCurrentVideoUrl(videoUrl);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -36,36 +44,43 @@ const AiVoiceAgent = () => {
         </div>
       </section>
 
-      {/* AI Calling Agent Demo Video Section */}
+      {/* Video Upload & Demo Section */}
       <section className="py-20 bg-card/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Experience AI Voice in Action
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            See how our AI calling agent works in real customer interactions
-          </p>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Experience AI Voice in Action
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Upload your own demo video or see how our AI calling agent works
+            </p>
+          </div>
           
-          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 mb-8">
-            <div className="relative w-full max-w-3xl mx-auto">
-              <video 
-                poster="/lovable-uploads/10077d03-415c-48a0-8895-1b03ca1b0bdd.png"
-                controls
-                className="w-full h-auto rounded-xl shadow-elegant"
-                preload="metadata"
-              >
-                <source src="#" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <Button variant="hero" size="lg" className="px-8 bg-primary/90 hover:bg-primary pointer-events-auto">
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
-                </Button>
+          {currentVideoUrl ? (
+            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 mb-8">
+              <div className="relative w-full max-w-3xl mx-auto">
+                <video 
+                  src={currentVideoUrl}
+                  controls
+                  className="w-full h-auto rounded-xl shadow-elegant"
+                  preload="metadata"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <p className="text-lg mt-6 text-center">Your uploaded AI voice agent demo</p>
+              <div className="flex justify-center mt-4">
+                <VideoUpload 
+                  onVideoUploaded={handleVideoUploaded}
+                  currentVideoUrl={currentVideoUrl}
+                />
               </div>
             </div>
-            <p className="text-lg mt-6">Learn how AI calling agents handle customer inquiries automatically</p>
-          </div>
+          ) : (
+            <VideoUpload 
+              onVideoUploaded={handleVideoUploaded}
+            />
+          )}
         </div>
       </section>
 
