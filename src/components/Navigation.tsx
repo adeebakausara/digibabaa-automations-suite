@@ -30,12 +30,9 @@ const Navigation = () => {
               <img 
                 src="/lovable-uploads/da772967-570e-468b-8fdf-8434a106f8f8.png" 
                 alt="DigiBabaa Logo" 
-                className="h-12 w-auto group-hover:scale-105 transition-all duration-300"
+                className="h-16 w-auto group-hover:scale-105 transition-all duration-300"
               />
             </div>
-            <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              DigiBabaa
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
