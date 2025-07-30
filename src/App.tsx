@@ -10,6 +10,9 @@ import AiChatbot from "./pages/AiChatbot";
 import AiVoiceAgent from "./pages/AiVoiceAgent";
 import CustomAiAutomation from "./pages/CustomAiAutomation";
 import AiWebsiteDesign from "./pages/AiWebsiteDesign";
+import GetStarted from "./pages/GetStarted";
+import Demo from "./pages/Demo";
+import BookConsultation from "./pages/BookConsultation";
 import HowItWorks from "./pages/HowItWorks";
 import Pricing from "./pages/Pricing";
 import About from "./pages/About";
@@ -34,6 +37,9 @@ const App = () => (
           <Route path="/services/ai-voice-agent" element={<AiVoiceAgent />} />
           <Route path="/services/custom-ai-automation" element={<CustomAiAutomation />} />
           <Route path="/services/ai-website-design" element={<AiWebsiteDesign />} />
+          <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/demo" element={<Demo />} />
+          <Route path="/book-consultation" element={<BookConsultation />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />

@@ -143,17 +143,23 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
-            <Button variant="hero" size="lg" className="group">
-              Start Automating
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="outline" size="lg" className="group">
-              <Play className="mr-2 h-4 w-4" />
-              Watch Demo
-            </Button>
-            <Button variant="accent" size="lg">
-              Book Free Audit
-            </Button>
+            <Link to="/get-started">
+              <Button variant="hero" size="lg" className="group">
+                Start Automating
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/demo">
+              <Button variant="outline" size="lg" className="group">
+                <Play className="mr-2 h-4 w-4" />
+                Watch Demo
+              </Button>
+            </Link>
+            <Link to="/book-consultation">
+              <Button variant="accent" size="lg">
+                Book Free Audit
+              </Button>
+            </Link>
           </div>
           
           {/* Platform Logos */}
@@ -262,12 +268,16 @@ const Index = () => {
             Join hundreds of businesses already automating their success with DigiBabaa
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-              Get Started Today
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Schedule Free Consultation
-            </Button>
+            <Link to="/get-started">
+              <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
+                Get Started Today
+              </Button>
+            </Link>
+            <Link to="/book-consultation">
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+                Schedule Free Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
