@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import aiCallingAgentDemo from "@/assets/ai-calling-agent-demo.jpg";
 import { 
   Mic, 
   Phone, 
@@ -35,27 +36,31 @@ const AiVoiceAgent = () => {
         </div>
       </section>
 
-      {/* Live Demo Section */}
+      {/* AI Calling Agent Demo Video Section */}
       <section className="py-20 bg-card/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Experience AI Voice in Action
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Try our voice agent and see how it can transform your customer interactions
+            See how our AI calling agent works in real customer interactions
           </p>
           
           <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 mb-8">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
-                <Mic className="h-12 w-12 text-primary" />
+            <div className="relative w-full max-w-3xl mx-auto">
+              <img 
+                src={aiCallingAgentDemo}
+                alt="AI Calling Agent Demo - How AI Voice Agents Work"
+                className="w-full h-auto rounded-xl shadow-elegant"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Button variant="hero" size="lg" className="px-8 bg-primary/90 hover:bg-primary">
+                  <Play className="mr-2 h-5 w-5" />
+                  Watch Demo
+                </Button>
               </div>
             </div>
-            <p className="text-lg mb-6">Click below to start a voice conversation with our AI agent</p>
-            <Button variant="hero" size="lg" className="px-8">
-              <Play className="mr-2 h-5 w-5" />
-              Try the Demo
-            </Button>
+            <p className="text-lg mt-6">Learn how AI calling agents handle customer inquiries automatically</p>
           </div>
         </div>
       </section>
