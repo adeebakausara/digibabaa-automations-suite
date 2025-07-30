@@ -3,11 +3,33 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Quote, Play, ArrowRight, TrendingUp, Users, Award } from "lucide-react";
+import { Star, Quote, Play, ArrowRight, TrendingUp, Users, Award, Edit } from "lucide-react";
 import { useTestimonials } from "@/hooks/useTestimonials";
+import TestimonialEditModal from "@/components/TestimonialEditModal";
+import { useState, useEffect } from "react";
 
 const Testimonials = () => {
   const { videoTestimonials, writtenTestimonials, loading, error } = useTestimonials();
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [selectedTestimonial, setSelectedTestimonial] = useState<any>(null);
+  const [testimonials, setTestimonials] = useState<any[]>([]);
+
+  // Update local state when data changes
+  useEffect(() => {
+    setTestimonials([...videoTestimonials, ...writtenTestimonials]);
+  }, [videoTestimonials, writtenTestimonials]);
+
+  const handleEditClick = (testimonial: any) => {
+    setSelectedTestimonial(testimonial);
+    setEditModalOpen(true);
+  };
+
+  const handleTestimonialUpdate = (updatedTestimonial: any) => {
+    // Update local state immediately for UI responsiveness
+    setTestimonials(prev => 
+      prev.map(t => t.id === updatedTestimonial.id ? updatedTestimonial : t)
+    );
+  };
 
   // Fallback data for industry stats (can be made dynamic later)
   const industryStats = [
@@ -110,8 +132,18 @@ const Testimonials = () => {
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="flex items-center justify-center w-16 h-16 bg-primary/80 rounded-full">
-                      <Play className="h-8 w-8 text-white ml-1" />
+                    <div className="flex gap-4">
+                      <div className="flex items-center justify-center w-16 h-16 bg-primary/80 rounded-full">
+                        <Play className="h-8 w-8 text-white ml-1" />
+                      </div>
+                      <Button
+                        size="sm"
+                        variant="secondary"
+                        onClick={() => handleEditClick(testimonial)}
+                        className="bg-white/20 hover:bg-white/30 text-white border-white/30"
+                      >
+                        <Edit className="h-4 w-4" />
+                      </Button>
                     </div>
                   </div>
                   {testimonial.video_length && (
@@ -123,6 +155,16 @@ const Testimonials = () => {
                   )}
                   <div className="absolute top-4 left-4">
                     <Badge variant="secondary">Technology</Badge>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => handleEditClick(testimonial)}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 hover:bg-black/70 text-white h-8 w-8 p-0"
+                    >
+                      <Edit className="h-4 w-4" />
+                    </Button>
                   </div>
                 </div>
                 
@@ -168,18 +210,28 @@ const Testimonials = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {writtenTestimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-                    <Badge variant="secondary">Business</Badge>
-                  </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+             {writtenTestimonials.map((testimonial, index) => (
+               <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 relative">
+                 <CardContent className="p-6">
+                   <div className="flex items-center justify-between mb-4">
+                     <div className="flex">
+                       {[...Array(testimonial.rating)].map((_, i) => (
+                         <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                       ))}
+                     </div>
+                     <div className="flex items-center gap-2">
+                       <Badge variant="secondary">Business</Badge>
+                       <Button
+                         size="sm"
+                         variant="ghost"
+                         onClick={() => handleEditClick(testimonial)}
+                         className="opacity-0 group-hover:opacity-100 transition-opacity h-8 w-8 p-0"
+                       >
+                         <Edit className="h-4 w-4" />
+                       </Button>
+                     </div>
+                   </div>
                   
                   <Quote className="h-6 w-6 text-primary/30 mb-3" />
                   <p className="text-muted-foreground mb-6 italic">
@@ -309,6 +361,14 @@ const Testimonials = () => {
       </section>
 
       <Footer />
+      
+      {/* Edit Modal */}
+      <TestimonialEditModal
+        isOpen={editModalOpen}
+        onClose={() => setEditModalOpen(false)}
+        testimonial={selectedTestimonial}
+        onUpdate={handleTestimonialUpdate}
+      />
     </div>
   );
 };
