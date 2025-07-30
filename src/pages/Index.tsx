@@ -116,26 +116,17 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Calendly Banner */}
-      <div className="bg-gradient-primary text-white py-3 px-4 sm:px-6 lg:px-8 sticky top-0 z-50 shadow-lg">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Calendar className="h-5 w-5" />
-            <span className="text-sm font-medium">
-              🚀 Ready to transform your business? Book your FREE AI automation consultation now!
-            </span>
-          </div>
-          <a 
-            href="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
-          >
-            <Clock className="h-4 w-4" />
-            Book Free Consultation
-          </a>
-        </div>
-      </div>
+      {/* Floating Calendly Button */}
+      <a 
+        href="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-gradient-primary text-white px-4 py-3 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 group"
+      >
+        <Calendar className="h-5 w-5" />
+        <span className="hidden md:inline text-sm font-medium">Book Free Consultation</span>
+        <span className="md:hidden text-sm font-medium">Book Call</span>
+      </a>
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
