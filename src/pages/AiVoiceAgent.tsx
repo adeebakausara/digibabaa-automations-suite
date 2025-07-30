@@ -48,13 +48,17 @@ const AiVoiceAgent = () => {
           
           <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 mb-8">
             <div className="relative w-full max-w-3xl mx-auto">
-              <img 
-                src={aiCallingAgentDemo}
-                alt="AI Calling Agent Demo - How AI Voice Agents Work"
+              <video 
+                poster="/lovable-uploads/10077d03-415c-48a0-8895-1b03ca1b0bdd.png"
+                controls
                 className="w-full h-auto rounded-xl shadow-elegant"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Button variant="hero" size="lg" className="px-8 bg-primary/90 hover:bg-primary">
+                preload="metadata"
+              >
+                <source src="#" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <Button variant="hero" size="lg" className="px-8 bg-primary/90 hover:bg-primary pointer-events-auto">
                   <Play className="mr-2 h-5 w-5" />
                   Watch Demo
                 </Button>
