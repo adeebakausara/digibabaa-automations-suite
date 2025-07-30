@@ -27,8 +27,11 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="relative">
-              <Bot className="h-8 w-8 text-primary group-hover:text-aqua transition-colors duration-300" />
-              <Zap className="h-4 w-4 text-aqua absolute -top-1 -right-1 animate-pulse" />
+              <img 
+                src="/lovable-uploads/efa27489-cc8e-41c9-908e-4b86add273c0.png" 
+                alt="DigiBabaa Logo" 
+                className="h-8 w-auto brightness-0 saturate-100 invert-[0.3] sepia-[1] saturate-[5] hue-rotate-[180deg] group-hover:hue-rotate-[200deg] transition-all duration-300"
+              />
             </div>
             <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               DigiBabaa
