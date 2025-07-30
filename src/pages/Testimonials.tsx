@@ -4,104 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Quote, Play, ArrowRight, TrendingUp, Users, Award } from "lucide-react";
+import { useTestimonials } from "@/hooks/useTestimonials";
 
 const Testimonials = () => {
-  const videoTestimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO, TechStart Inc.",
-      company: "TechStart Inc.",
-      industry: "Technology",
-      rating: 5,
-      videoLength: "3:24",
-      thumbnail: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      quote: "DigiBabaa's AI chatbot increased our customer engagement by 300% and reduced response time to under 2 minutes. The ROI was incredible.",
-      results: "300% engagement increase, 2min response time",
-      featured: true
-    },
-    {
-      name: "Michael Chen",
-      role: "Operations Director",
-      company: "ServicePro",
-      industry: "Customer Service",
-      rating: 5,
-      videoLength: "2:48",
-      thumbnail: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      quote: "The voice agent integration transformed our customer support. We now handle 5x more calls with better satisfaction scores.",
-      results: "5x call capacity, 95% satisfaction",
-      featured: true
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Marketing Manager",
-      company: "GrowthCorp",
-      industry: "Marketing",
-      rating: 5,
-      videoLength: "4:12",
-      thumbnail: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      quote: "Custom automation workflows saved us 20 hours per week on lead generation. ROI was visible within the first month.",
-      results: "20hrs/week saved, Instant ROI",
-      featured: false
-    }
-  ];
+  const { videoTestimonials, writtenTestimonials, loading, error } = useTestimonials();
 
-  const writtenTestimonials = [
-    {
-      name: "David Park",
-      role: "Founder & CEO",
-      company: "RetailMax",
-      industry: "E-commerce",
-      rating: 5,
-      quote: "DigiBabaa transformed our customer service completely. Our AI chatbot now handles 80% of customer inquiries automatically, and customer satisfaction has increased to 96%. The integration with our existing systems was seamless.",
-      results: "80% automation, 96% satisfaction"
-    },
-    {
-      name: "Lisa Thompson",
-      role: "VP of Operations",
-      company: "MedCare Clinics",
-      industry: "Healthcare",
-      rating: 5,
-      quote: "The voice agent system has revolutionized our appointment scheduling. Patients can now book appointments 24/7, and our staff can focus on providing better care instead of administrative tasks.",
-      results: "24/7 availability, 60% time savings"
-    },
-    {
-      name: "James Wilson",
-      role: "Sales Director",
-      company: "PropertyPro Realty",
-      industry: "Real Estate",
-      rating: 5,
-      quote: "Lead qualification has never been easier. The AI system pre-qualifies prospects and schedules follow-ups automatically. Our conversion rate improved by 45% in just three months.",
-      results: "45% conversion improvement"
-    },
-    {
-      name: "Maria Garcia",
-      role: "Customer Success Manager",
-      company: "FinanceFirst Bank",
-      industry: "Financial Services",
-      rating: 5,
-      quote: "The compliance and security features gave us confidence to automate our customer onboarding. We've reduced processing time from days to hours while maintaining 100% regulatory compliance.",
-      results: "Days to hours, 100% compliance"
-    },
-    {
-      name: "Robert Kim",
-      role: "Owner",
-      company: "FoodieChain Restaurants",
-      industry: "Food & Beverage",
-      rating: 5,
-      quote: "Voice ordering integration across our 15 locations has been a game-changer. Order accuracy is at 99%, and we're processing 40% more orders during peak hours.",
-      results: "99% accuracy, 40% more orders"
-    },
-    {
-      name: "Amanda Foster",
-      role: "Marketing Director",
-      company: "TechSolutions Pro",
-      industry: "B2B SaaS",
-      rating: 5,
-      quote: "The automated lead nurturing sequence has transformed our sales funnel. We're now converting 35% more leads into customers, and our sales team loves the qualified prospects they receive.",
-      results: "35% more conversions"
-    }
-  ];
-
+  // Fallback data for industry stats (can be made dynamic later)
   const industryStats = [
     { industry: "E-commerce", satisfaction: "96%", projects: "45+" },
     { industry: "Healthcare", satisfaction: "94%", projects: "32+" },
@@ -110,6 +18,28 @@ const Testimonials = () => {
     { industry: "Technology", satisfaction: "97%", projects: "52+" },
     { industry: "Food & Beverage", satisfaction: "95%", projects: "24+" }
   ];
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-xl text-muted-foreground">Loading testimonials...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-xl text-destructive mb-4">Error loading testimonials: {error}</p>
+          <Button onClick={() => window.location.reload()}>Try Again</Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -161,10 +91,10 @@ const Testimonials = () => {
               <Card 
                 key={index} 
                 className={`group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden ${
-                  testimonial.featured ? 'border-primary shadow-glow-primary' : 'border-border/50'
+                  testimonial.is_featured ? 'border-primary shadow-glow-primary' : 'border-border/50'
                 }`}
               >
-                {testimonial.featured && (
+                {testimonial.is_featured && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                     <Badge className="bg-gradient-primary text-white px-4 py-1">
                       <Award className="h-3 w-3 mr-1" />
@@ -175,7 +105,7 @@ const Testimonials = () => {
                 
                 <div className="relative">
                   <img 
-                    src={testimonial.thumbnail} 
+                    src={testimonial.video_thumbnail || testimonial.image_url || 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'} 
                     alt={testimonial.name}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -184,13 +114,15 @@ const Testimonials = () => {
                       <Play className="h-8 w-8 text-white ml-1" />
                     </div>
                   </div>
-                  <div className="absolute bottom-4 right-4">
-                    <Badge variant="secondary" className="bg-black/80 text-white">
-                      {testimonial.videoLength}
-                    </Badge>
-                  </div>
+                  {testimonial.video_length && (
+                    <div className="absolute bottom-4 right-4">
+                      <Badge variant="secondary" className="bg-black/80 text-white">
+                        {testimonial.video_length}
+                      </Badge>
+                    </div>
+                  )}
                   <div className="absolute top-4 left-4">
-                    <Badge variant="secondary">{testimonial.industry}</Badge>
+                    <Badge variant="secondary">Technology</Badge>
                   </div>
                 </div>
                 
@@ -246,7 +178,7 @@ const Testimonials = () => {
                         <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                       ))}
                     </div>
-                    <Badge variant="secondary">{testimonial.industry}</Badge>
+                    <Badge variant="secondary">Business</Badge>
                   </div>
                   
                   <Quote className="h-6 w-6 text-primary/30 mb-3" />

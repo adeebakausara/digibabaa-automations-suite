@@ -14,14 +14,93 @@ import {
   ArrowRight,
   CheckCircle,
   Play,
-  Quote
+  Quote,
+  Phone,
+  Cog,
+  Palette
 } from "lucide-react";
 import heroImage from "@/assets/hero-ai-automation.jpg";
 import chatbotsImage from "@/assets/ai-chatbots.jpg";
 import voiceImage from "@/assets/ai-voice-agents.jpg";
 import automationImage from "@/assets/custom-automation.jpg";
+import { useServices } from "@/hooks/useServices";
+import { useTestimonials } from "@/hooks/useTestimonials";
 
 const Index = () => {
+  const { services, loading: servicesLoading } = useServices();
+  const { testimonials, loading: testimonialsLoading } = useTestimonials();
+
+  // Icon mapping for services
+  const iconMap: { [key: string]: any } = {
+    'MessageCircle': MessageSquare,
+    'Phone': Phone,
+    'Cog': Zap,
+    'Palette': BarChart3
+  };
+
+  // Fallback static services data
+  const fallbackServices = [
+    {
+      id: '1',
+      title: "AI Chatbots",
+      description: "Intelligent conversational agents for websites, WhatsApp, and social platforms",
+      image_url: chatbotsImage,
+      icon: 'MessageCircle'
+    },
+    {
+      id: '2', 
+      title: "Voice Agents",
+      description: "AI-powered voice solutions for IVR, customer support, and sales automation",
+      image_url: voiceImage,
+      icon: 'Phone'
+    },
+    {
+      id: '3',
+      title: "Custom Automation", 
+      description: "Tailored AI workflows for lead generation, email outreach, and CRM management",
+      image_url: automationImage,
+      icon: 'Cog'
+    },
+    {
+      id: '4',
+      title: "AI Website Design",
+      description: "Create stunning, AI-powered websites with intelligent design recommendations and responsive layouts",
+      image_url: heroImage,
+      icon: 'Palette'
+    }
+  ];
+
+  // Fallback static testimonials data
+  const fallbackTestimonials = [
+    {
+      id: "fallback-1",
+      quote: "DigiBabaa's AI chatbot increased our customer engagement by 300% and reduced response time to under 2 minutes.",
+      name: "Sarah Johnson",
+      role: "CEO",
+      company: "TechStart Inc.",
+      rating: 5
+    },
+    {
+      id: "fallback-2",
+      quote: "The voice agent integration transformed our customer support. We now handle 5x more calls with better satisfaction scores.",
+      name: "Michael Chen",
+      role: "Operations Director",
+      company: "ServicePro",
+      rating: 5
+    },
+    {
+      id: "fallback-3",
+      quote: "Custom automation workflows saved us 20 hours per week on lead generation. ROI was visible within the first month.",
+      name: "Emily Rodriguez",
+      role: "Marketing Manager",
+      company: "GrowthCorp",
+      rating: 5
+    }
+  ];
+
+  const displayServices = servicesLoading ? fallbackServices : (services.length > 0 ? services : fallbackServices);
+  const displayTestimonials = testimonialsLoading ? fallbackTestimonials : (testimonials.length > 0 ? testimonials.slice(0, 3) : fallbackTestimonials);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -93,56 +172,33 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: MessageSquare,
-                title: "AI Chatbots",
-                description: "Intelligent conversational agents for websites, WhatsApp, and social platforms",
-                image: chatbotsImage,
-                color: "text-primary"
-              },
-              {
-                icon: Mic,
-                title: "Voice Agents",
-                description: "AI-powered voice solutions for IVR, customer support, and sales automation",
-                image: voiceImage,
-                color: "text-aqua"
-              },
-              {
-                icon: Zap,
-                title: "Custom Automation",
-                description: "Tailored AI workflows for lead generation, email outreach, and CRM management",
-                image: automationImage,
-                color: "text-purple-start"
-              },
-              {
-                icon: BarChart3,
-                title: "AI Website Design",
-                description: "Create stunning, AI-powered websites with intelligent design recommendations and responsive layouts",
-                image: heroImage,
-                color: "text-soft-teal"
-              }
-            ].map((service, index) => (
-              <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 hover:border-primary/30">
-                <CardContent className="p-6">
-                  <div className="relative mb-4 overflow-hidden rounded-lg">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                    <service.icon className={`absolute bottom-2 right-2 h-8 w-8 ${service.color}`} />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+            {displayServices.map((service, index) => {
+              const IconComponent = service.icon ? iconMap[service.icon] || MessageSquare : MessageSquare;
+              const colors = ["text-primary", "text-aqua", "text-purple-start", "text-soft-teal"];
+              const images = [chatbotsImage, voiceImage, automationImage, heroImage];
+              
+              return (
+                <Card key={service.id || index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 hover:border-primary/30">
+                  <CardContent className="p-6">
+                    <div className="relative mb-4 overflow-hidden rounded-lg">
+                      <img 
+                        src={service.image_url || images[index % images.length]} 
+                        alt={service.title}
+                        className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                      <IconComponent className={`absolute bottom-2 right-2 h-8 w-8 ${colors[index % colors.length]}`} />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -160,27 +216,8 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "DigiBabaa's AI chatbot increased our customer engagement by 300% and reduced response time to under 2 minutes.",
-                author: "Sarah Johnson",
-                role: "CEO, TechStart Inc.",
-                rating: 5
-              },
-              {
-                quote: "The voice agent integration transformed our customer support. We now handle 5x more calls with better satisfaction scores.",
-                author: "Michael Chen",
-                role: "Operations Director, ServicePro",
-                rating: 5
-              },
-              {
-                quote: "Custom automation workflows saved us 20 hours per week on lead generation. ROI was visible within the first month.",
-                author: "Emily Rodriguez",
-                role: "Marketing Manager, GrowthCorp",
-                rating: 5
-              }
-            ].map((testimonial, index) => (
-              <Card key={index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
+            {displayTestimonials.map((testimonial, index) => (
+              <Card key={testimonial.id || index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
                 <CardContent className="p-6">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -192,8 +229,8 @@ const Index = () => {
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role} {testimonial.company && `, ${testimonial.company}`}</p>
                   </div>
                 </CardContent>
               </Card>
