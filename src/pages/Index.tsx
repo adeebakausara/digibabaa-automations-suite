@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 import { 
   Bot, 
   Mic, 
@@ -36,6 +37,14 @@ const Index = () => {
     'Phone': Phone,
     'Cog': Zap,
     'Palette': BarChart3
+  };
+
+  // Service URL mapping
+  const serviceUrlMap: { [key: string]: string } = {
+    "AI Chatbots": "/services/ai-chatbot",
+    "Voice Agents": "/services/ai-voice-agent", 
+    "Custom Automation": "/services/custom-ai-automation",
+    "AI Website Design": "/services/ai-website-design"
   };
 
   // Fallback static services data
@@ -176,27 +185,30 @@ const Index = () => {
               const IconComponent = service.icon ? iconMap[service.icon] || MessageSquare : MessageSquare;
               const colors = ["text-primary", "text-aqua", "text-purple-start", "text-soft-teal"];
               const images = [chatbotsImage, voiceImage, automationImage, heroImage];
+              const serviceUrl = serviceUrlMap[service.title] || "/services";
               
               return (
-                <Card key={service.id || index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 hover:border-primary/30">
-                  <CardContent className="p-6">
-                    <div className="relative mb-4 overflow-hidden rounded-lg">
-                      <img 
-                        src={service.image_url || images[index % images.length]} 
-                        alt={service.title}
-                        className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                      <IconComponent className={`absolute bottom-2 right-2 h-8 w-8 ${colors[index % colors.length]}`} />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <Link key={service.id || index} to={serviceUrl} className="block">
+                  <Card className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 hover:border-primary/30 cursor-pointer">
+                    <CardContent className="p-6">
+                      <div className="relative mb-4 overflow-hidden rounded-lg">
+                        <img 
+                          src={service.image_url || images[index % images.length]} 
+                          alt={service.title}
+                          className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                        <IconComponent className={`absolute bottom-2 right-2 h-8 w-8 ${colors[index % colors.length]}`} />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
               );
             })}
           </div>
