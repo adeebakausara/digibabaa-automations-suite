@@ -30,7 +30,7 @@ const Navigation = () => {
               <img 
                 src="/lovable-uploads/da772967-570e-468b-8fdf-8434a106f8f8.png" 
                 alt="DigiBabaa Logo" 
-                className="h-16 w-auto group-hover:scale-105 transition-all duration-300"
+                className="h-13 w-auto group-hover:scale-105 transition-all duration-300"
               />
             </div>
           </Link>
