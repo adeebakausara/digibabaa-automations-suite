@@ -9,26 +9,18 @@ import TestimonialEditModal from "@/components/TestimonialEditModal";
 import { useState, useEffect } from "react";
 
 const Testimonials = () => {
-  const { videoTestimonials, writtenTestimonials, loading, error } = useTestimonials();
+  const { videoTestimonials, writtenTestimonials, loading, error, refreshTestimonials } = useTestimonials();
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState<any>(null);
-  const [testimonials, setTestimonials] = useState<any[]>([]);
-
-  // Update local state when data changes
-  useEffect(() => {
-    setTestimonials([...videoTestimonials, ...writtenTestimonials]);
-  }, [videoTestimonials, writtenTestimonials]);
 
   const handleEditClick = (testimonial: any) => {
     setSelectedTestimonial(testimonial);
     setEditModalOpen(true);
   };
 
-  const handleTestimonialUpdate = (updatedTestimonial: any) => {
-    // Update local state immediately for UI responsiveness
-    setTestimonials(prev => 
-      prev.map(t => t.id === updatedTestimonial.id ? updatedTestimonial : t)
-    );
+  const handleTestimonialUpdate = async (updatedTestimonial: any) => {
+    // Refresh testimonials from database to get latest data
+    await refreshTestimonials();
   };
 
   // Fallback data for industry stats (can be made dynamic later)
