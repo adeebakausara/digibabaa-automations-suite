@@ -72,12 +72,13 @@ const TestimonialEditModal = ({ isOpen, onClose, testimonial, onUpdate }: Testim
           updated_at: new Date().toISOString()
         })
         .eq('id', testimonial.id)
-        .select()
-        .single();
+        .select();
 
       if (error) throw error;
 
-      onUpdate(data);
+      if (data && data.length > 0) {
+        onUpdate(data[0]);
+      }
       toast({
         title: "Success",
         description: "Testimonial updated successfully",
