@@ -25,7 +25,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center group">
             <div className="relative">
               <img 
                 src="/lovable-uploads/efa27489-cc8e-41c9-908e-4b86add273c0.png" 
