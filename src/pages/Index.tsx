@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
+import { AIChatWidget } from "@/components/AIChatWidget";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { 
@@ -116,32 +117,17 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        {/* AI Chatbot Button */}
-        <a 
-          href="https://adeebakausar292.app.n8n.cloud/webhook/e6740e52-b548-4728-95bb-93d69c9ebc5a"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-primary text-white p-4 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 group"
-          title="Try Our AI Chatbot"
-        >
-          <MessageSquare className="h-6 w-6" />
-          <span className="hidden lg:inline text-sm font-medium whitespace-nowrap">AI Chat</span>
-        </a>
-        
-        {/* Calendly Button */}
-        <a 
-          href="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-gradient-primary text-white px-4 py-3 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 group"
-        >
-          <Calendar className="h-5 w-5" />
-          <span className="hidden md:inline text-sm font-medium">Book Free Consultation</span>
-          <span className="md:hidden text-sm font-medium">Book Call</span>
-        </a>
-      </div>
+      {/* Floating Calendly Button */}
+      <a 
+        href="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 left-6 z-40 bg-gradient-primary text-white px-4 py-3 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 group"
+      >
+        <Calendar className="h-5 w-5" />
+        <span className="hidden md:inline text-sm font-medium">Book Free Consultation</span>
+        <span className="md:hidden text-sm font-medium">Book Call</span>
+      </a>
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -312,6 +298,7 @@ const Index = () => {
       </section>
 
       <Footer />
+      <AIChatWidget />
     </div>
   );
 };
