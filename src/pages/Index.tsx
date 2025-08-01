@@ -45,7 +45,7 @@ const Index = () => {
   // Service URL mapping
   const serviceUrlMap: { [key: string]: string } = {
     "AI Chatbots": "/services/ai-chatbot",
-    "Voice Agents": "https://lovable.dev/projects/c764d01a-d871-49ac-8427-a59448e8fa9d", 
+    "Voice Agents": "/services/ai-voice-agent", 
     "Custom Automation": "/services/custom-ai-automation",
     "AI Website Design": "/services/ai-website-design"
   };
