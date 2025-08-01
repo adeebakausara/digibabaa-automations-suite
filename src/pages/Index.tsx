@@ -45,8 +45,10 @@ const Index = () => {
   // Service URL mapping
   const serviceUrlMap: { [key: string]: string } = {
     "AI Chatbots": "/services/ai-chatbot",
-    "Voice Agents": "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-voice-agent", 
+    "Voice Agents": "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-voice-agent",
+    "AI Voice Agents": "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-voice-agent", 
     "Custom Automation": "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/custom-ai-automation",
+    "Custom AI Automation": "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/custom-ai-automation",
     "AI Website Design": "/services/ai-website-design"
   };
 
