@@ -10,6 +10,11 @@ import AiChatbot from "./pages/AiChatbot";
 import AiVoiceAgent from "./pages/AiVoiceAgent";
 import CustomAiAutomation from "./pages/CustomAiAutomation";
 import AiWebsiteDesign from "./pages/AiWebsiteDesign";
+import LeadGenerationDetails from "./pages/LeadGenerationDetails";
+import EcommerceLeadDetails from "./pages/EcommerceLeadDetails";
+import OrderProcessingDetails from "./pages/OrderProcessingDetails";
+import CustomerSupportDetails from "./pages/CustomerSupportDetails";
+import CustomerVerificationDetails from "./pages/CustomerVerificationDetails";
 import GetStarted from "./pages/GetStarted";
 import Demo from "./pages/Demo";
 import BookConsultation from "./pages/BookConsultation";
@@ -37,6 +42,11 @@ const App = () => (
           <Route path="/services/ai-voice-agent" element={<AiVoiceAgent />} />
           <Route path="/services/custom-ai-automation" element={<CustomAiAutomation />} />
           <Route path="/services/ai-website-design" element={<AiWebsiteDesign />} />
+          <Route path="/automation/lead-generation" element={<LeadGenerationDetails />} />
+          <Route path="/automation/ecommerce-lead" element={<EcommerceLeadDetails />} />
+          <Route path="/automation/order-processing" element={<OrderProcessingDetails />} />
+          <Route path="/automation/customer-support" element={<CustomerSupportDetails />} />
+          <Route path="/automation/customer-verification" element={<CustomerVerificationDetails />} />
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/book-consultation" element={<BookConsultation />} />

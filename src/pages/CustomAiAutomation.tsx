@@ -81,27 +81,32 @@ const CustomAiAutomation = () => {
               {
                 title: "Lead Generation & Management",
                 description: "Automates lead capture, validation, scoring, and nurturing workflows with seamless CRM integration and email automation.",
-                image: "/lovable-uploads/cfc66a89-08a0-4f5e-a8d3-6e02a5a74b58.png"
+                image: "/lovable-uploads/cfc66a89-08a0-4f5e-a8d3-6e02a5a74b58.png",
+                link: "/automation/lead-generation"
               },
               {
                 title: "E-commerce Lead Automation", 
                 description: "Streamlines e-commerce lead processing with automated routing, scoring, and multi-channel follow-up campaigns.",
-                image: "/lovable-uploads/28284395-0823-47f7-9b9b-c697b37127a7.png"
+                image: "/lovable-uploads/28284395-0823-47f7-9b9b-c697b37127a7.png",
+                link: "/automation/ecommerce-lead"
               },
               {
                 title: "Order Processing Automation",
                 description: "Manages end-to-end order workflows from validation to fulfillment with automated routing and notification systems.",
-                image: "/lovable-uploads/16d3eaf0-536d-4ef1-add3-daa4dd9dbe27.png"
+                image: "/lovable-uploads/16d3eaf0-536d-4ef1-add3-daa4dd9dbe27.png",
+                link: "/automation/order-processing"
               },
               {
                 title: "Customer Support Automation",
                 description: "Handles customer inquiries, order lookups, and return requests with intelligent routing and automated responses.",
-                image: "/lovable-uploads/9a5c9675-1b5b-430f-a8ea-f1f92fa8c76a.png"
+                image: "/lovable-uploads/9a5c9675-1b5b-430f-a8ea-f1f92fa8c76a.png",
+                link: "/automation/customer-support"
               },
               {
                 title: "Customer Verification System",
                 description: "Automates customer onboarding with identity verification, compliance screening, and approval workflows.",
-                image: "/lovable-uploads/eee2d694-55fd-4edc-afd7-6ad6163fd127.png"
+                image: "/lovable-uploads/eee2d694-55fd-4edc-afd7-6ad6163fd127.png",
+                link: "/automation/customer-verification"
               }
             ].map((workflow, index) => (
               <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden">
@@ -115,9 +120,11 @@ const CustomAiAutomation = () => {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3 text-foreground">{workflow.title}</h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">{workflow.description}</p>
-                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" asChild>
+                    <Link to={workflow.link}>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
