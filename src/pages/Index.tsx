@@ -272,6 +272,111 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Customer Video Testimonials Section */}
+      <section className="py-20 bg-card/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What Our <span className="text-primary">Customers Are Saying</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              See how our service has transformed real businesses
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Isabella Hawke - VerdeVitae */}
+            <Card className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 overflow-hidden">
+              <CardContent className="p-0">
+                <div className="relative aspect-video">
+                  <video 
+                    controls 
+                    className="w-full h-full object-cover"
+                    poster="/placeholder.svg"
+                  >
+                    <source src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//isabella.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
+                </div>
+                <div className="p-6">
+                  <Quote className="h-6 w-6 text-primary/30 mb-3" />
+                  <p className="text-muted-foreground mb-4 italic">
+                    "Their strategy boosted our customer retention rate significantly."
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <p className="font-semibold">Isabella Hawke</p>
+                      <p className="text-sm text-muted-foreground">VerdeVitae</p>
+                      <a 
+                        href="https://verdevitaecorporate.com/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-xs text-primary hover:text-primary/80 transition-colors"
+                      >
+                        verdevitaecorporate.com
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Zahid Testimonial 1 */}
+            <Card className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 overflow-hidden">
+              <CardContent className="p-0">
+                <div className="relative aspect-video">
+                  <video 
+                    controls 
+                    className="w-full h-full object-cover"
+                    poster="/placeholder.svg"
+                  >
+                    <source src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
+                </div>
+                <div className="p-6">
+                  <Quote className="h-6 w-6 text-primary/30 mb-3" />
+                  <p className="text-muted-foreground mb-4 italic">
+                    "I was impressed by the quality and results in just weeks!"
+                  </p>
+                  <div>
+                    <p className="font-semibold">Zahid</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Zahid Ahmed Testimonial */}
+            <Card className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 overflow-hidden">
+              <CardContent className="p-0">
+                <div className="relative aspect-video">
+                  <video 
+                    controls 
+                    className="w-full h-full object-cover"
+                    poster="/placeholder.svg"
+                  >
+                    <source src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid2.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none" />
+                </div>
+                <div className="p-6">
+                  <Quote className="h-6 w-6 text-primary/30 mb-3" />
+                  <p className="text-muted-foreground mb-4 italic">
+                    "Professional, reliable, and absolutely worth it."
+                  </p>
+                  <div>
+                    <p className="font-semibold">Zahid Ahmed</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
