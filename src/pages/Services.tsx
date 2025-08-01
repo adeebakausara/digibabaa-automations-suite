@@ -186,8 +186,16 @@ const Services = () => {
                   </div>
                 </div>
                 
-                <Button variant="accent" size="lg">
-                  Learn More About {service.title}
+                <Button variant="accent" size="lg" asChild>
+                  <a href={
+                    service.title === "AI Chatbots" ? "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-chatbot" :
+                    service.title === "AI Voice Agents" ? "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-voice-agent" :
+                    service.title === "Custom AI Automation" ? "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/custom-ai-automation" :
+                    service.title === "AI Website Design" ? "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-website-design" :
+                    "#"
+                  }>
+                    Learn More About {service.title}
+                  </a>
                 </Button>
               </div>
             </div>
