@@ -146,10 +146,11 @@ const Testimonials = () => {
                 
                 {/* Video Thumbnail */}
                 <div className="relative overflow-hidden aspect-video">
-                  <img 
-                    src={testimonial.image}
-                    alt={testimonial.name}
+                  <video 
+                    src={testimonial.videoUrl}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    preload="metadata"
+                    muted
                   />
                   
                   {/* Video Overlay */}
