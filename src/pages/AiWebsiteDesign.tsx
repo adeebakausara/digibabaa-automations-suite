@@ -17,6 +17,13 @@ import {
   ShoppingCart
 } from "lucide-react";
 
+// Import portfolio images
+import realEstatePortfolio from "@/assets/real-estate-portfolio.jpg";
+import restaurantPortfolio from "@/assets/restaurant-portfolio.jpg";
+import fintechPortfolio from "@/assets/fintech-portfolio.jpg";
+import saasPortfolio from "@/assets/saas-portfolio.jpg";
+import ecommercePortfolio from "@/assets/ecommerce-portfolio.jpg";
+
 const AiWebsiteDesign = () => {
   const features = [
     "AI-driven, custom website designs tailored to your brand",
@@ -64,40 +71,18 @@ const AiWebsiteDesign = () => {
         </div>
       </section>
 
-      {/* Live Demo Section */}
-      <section className="py-20 bg-card/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            See AI Design in Action
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Explore stunning websites created by our AI design system
-          </p>
-          
-          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 mb-8">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
-                <Sparkles className="h-12 w-12 text-primary" />
-              </div>
-            </div>
-            <p className="text-lg mb-6">Watch AI create beautiful, responsive websites in real-time</p>
-            <Button variant="hero" size="lg" className="px-8">
-              <Monitor className="mr-2 h-5 w-5" />
-              See It in Action
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Portfolio Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-b from-card/30 to-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-6">
+              🏆 Success Stories
+            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Our <span className="text-primary">AI Website Portfolio</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore stunning AI-powered websites we've created for clients across various industries
+              Explore stunning AI-powered websites we've created for clients across various industries. Each project showcases our AI's ability to create beautiful, functional, and results-driven websites.
             </p>
           </div>
           
@@ -106,42 +91,47 @@ const AiWebsiteDesign = () => {
               {
                 title: "Real Estate Lead Generation Platform",
                 description: "An AI-powered platform that helps real estate agents generate qualified leads through smart data analysis, personalized property recommendations, and client tracking tools.",
-                image: "/placeholder.svg",
+                image: realEstatePortfolio,
                 link: "https://ai-propel-leads.lovable.app/"
               },
               {
                 title: "Restaurant Chain AI Automation",
                 description: "AI-driven automation system for restaurant chains, featuring real-time order processing, automated reservations, and personalized customer insights.",
-                image: "/placeholder.svg",
+                image: restaurantPortfolio,
                 link: "https://flavor-flow-automation.lovable.app/#dashboard"
               },
               {
                 title: "Financial Services Digital Transformation",
                 description: "An AI platform for financial services, offering predictive analytics, automated client engagement, and advanced reporting features for enhanced decision-making.",
-                image: "/placeholder.svg",
+                image: fintechPortfolio,
                 link: "https://fin-nova-ignite.lovable.app/"
               },
               {
                 title: "SaaS Platform AI Integration",
                 description: "Seamlessly integrates AI capabilities into SaaS platforms with real-time analytics, automated customer support, and personalized service recommendations.",
-                image: "/placeholder.svg",
+                image: saasPortfolio,
                 link: "https://saas-ai-catalyst.lovable.app/"
               },
               {
                 title: "E-commerce Complete AI Solution",
                 description: "An AI-powered e-commerce platform that offers personalized shopping experiences, automated inventory management, and AI-driven customer engagement.",
-                image: "/placeholder.svg",
+                image: ecommercePortfolio,
                 link: "https://ai-shop-glow.lovable.app"
               }
             ].map((project, index) => (
-              <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden">
-                <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
+              <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden bg-card/50 backdrop-blur-sm border border-primary/10">
+                <div className="aspect-video relative overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Badge variant="secondary" className="text-xs">
+                      Live Project
+                    </Badge>
+                  </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
@@ -152,7 +142,7 @@ const AiWebsiteDesign = () => {
                   </p>
                   <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" asChild>
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      View Project
+                      View Live Project
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -162,6 +152,32 @@ const AiWebsiteDesign = () => {
           </div>
         </div>
       </section>
+
+      {/* Live Demo Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            See AI Design in Action
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Watch our AI create beautiful, responsive websites in real-time
+          </p>
+          
+          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 mb-8">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
+                <Sparkles className="h-12 w-12 text-primary" />
+              </div>
+            </div>
+            <p className="text-lg mb-6">Experience the power of AI-driven web design</p>
+            <Button variant="hero" size="lg" className="px-8">
+              <Monitor className="mr-2 h-5 w-5" />
+              See It in Action
+            </Button>
+          </div>
+        </div>
+      </section>
+
 
       {/* Integrations Section */}
       <section className="py-20 bg-card/30">
