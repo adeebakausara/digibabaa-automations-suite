@@ -256,7 +256,7 @@ const Index = () => {
                   <video 
                     controls 
                     className="w-full h-full object-cover"
-                    poster="/placeholder.svg"
+                    preload="metadata"
                   >
                     <source src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//isabella.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
@@ -293,7 +293,7 @@ const Index = () => {
                   <video 
                     controls 
                     className="w-full h-full object-cover"
-                    poster="/placeholder.svg"
+                    preload="metadata"
                   >
                     <source src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
@@ -319,7 +319,7 @@ const Index = () => {
                   <video 
                     controls 
                     className="w-full h-full object-cover"
-                    poster="/placeholder.svg"
+                    preload="metadata"
                   >
                     <source src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid2.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
