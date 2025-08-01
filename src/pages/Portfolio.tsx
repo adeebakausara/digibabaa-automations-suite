@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -250,8 +251,26 @@ const Portfolio = () => {
                   </div>
                   
                   <div className="flex gap-3">
-                    <Button variant="outline" size="sm" className="flex-1">
-                      View Case Study
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1" 
+                      asChild
+                    >
+                      <Link 
+                        to={
+                          index === 0 ? "/case-study/ecommerce" :
+                          index === 1 ? "/case-study/healthcare" :
+                          index === 2 ? "/case-study/real-estate" :
+                          index === 3 ? "/case-study/restaurant" :
+                          "/contact"
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Case Study
+                        <ExternalLink className="h-3 w-3 ml-1" />
+                      </Link>
                     </Button>
                     {project.demoAvailable && (
                       <Button variant="accent" size="sm">

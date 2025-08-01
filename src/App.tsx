@@ -25,6 +25,10 @@ import Portfolio from "./pages/Portfolio";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import EcommerceCaseStudy from "./pages/EcommerceCaseStudy";
+import HealthcareCaseStudy from "./pages/HealthcareCaseStudy";
+import RealEstateCaseStudy from "./pages/RealEstateCaseStudy";
+import RestaurantCaseStudy from "./pages/RestaurantCaseStudy";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +60,10 @@ const App = () => (
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/case-study/ecommerce" element={<EcommerceCaseStudy />} />
+          <Route path="/case-study/healthcare" element={<HealthcareCaseStudy />} />
+          <Route path="/case-study/real-estate" element={<RealEstateCaseStudy />} />
+          <Route path="/case-study/restaurant" element={<RestaurantCaseStudy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
