@@ -159,86 +159,179 @@ const Testimonials = () => {
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-                    {videoTestimonials.slice(0, 6).map((testimonial, index) => (
-                      <Card 
-                        key={index} 
-                        className="group hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl border-border/50 overflow-hidden relative"
-                      >
-                        {testimonial.is_featured && (
-                          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
-                            <Badge className="bg-gradient-primary text-white px-3 py-1 text-xs shadow-lg">
-                              <Award className="h-3 w-3 mr-1" />
-                              Featured
-                            </Badge>
-                          </div>
-                        )}
-                        
-                        <div className="relative overflow-hidden">
-                          <img 
-                            src={testimonial.video_thumbnail || testimonial.image_url || 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'} 
-                            alt={testimonial.name}
-                            className="w-full h-48 md:h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                          <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                            <div className="flex items-center gap-3">
-                              <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-full border border-white/30">
-                                <Play className="h-6 w-6 md:h-8 md:w-8 text-white ml-1" />
-                              </div>
-                              <Button
-                                size="sm"
-                                variant="secondary"
-                                onClick={() => handleEditClick(testimonial)}
-                                className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm h-8 w-8 p-0"
-                              >
-                                <Edit className="h-4 w-4" />
-                              </Button>
-                            </div>
-                          </div>
-                          {testimonial.video_length && (
-                            <div className="absolute bottom-3 right-3">
-                              <Badge className="bg-black/80 text-white backdrop-blur-sm text-xs">
-                                <Clock className="h-3 w-3 mr-1" />
-                                {testimonial.video_length}
-                              </Badge>
-                            </div>
-                          )}
-                          <div className="absolute top-3 left-3">
-                            <Badge variant="secondary" className="bg-black/50 text-white backdrop-blur-sm text-xs">
-                              {testimonial.company || "Business"}
-                            </Badge>
+                    {/* Isabella Hawke */}
+                    <Card className="group hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl border-border/50 overflow-hidden relative">
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                        <Badge className="bg-gradient-primary text-white px-3 py-1 text-xs shadow-lg">
+                          <Award className="h-3 w-3 mr-1" />
+                          Featured
+                        </Badge>
+                      </div>
+                      
+                      <div className="relative overflow-hidden">
+                        <img 
+                          src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                          alt="Isabella Hawke"
+                          className="w-full h-48 md:h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                          <div className="flex items-center gap-3">
+                            <a 
+                              href="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//isabella.mp4"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 hover:bg-white/30 transition-all"
+                            >
+                              <Play className="h-6 w-6 md:h-8 md:w-8 text-white ml-1" />
+                            </a>
                           </div>
                         </div>
+                        <div className="absolute top-3 left-3">
+                          <Badge variant="secondary" className="bg-black/50 text-white backdrop-blur-sm text-xs">
+                            VerdeVitae
+                          </Badge>
+                        </div>
+                      </div>
+                      
+                      <CardContent className="p-4 md:p-6 bg-gradient-to-br from-card to-card/50">
+                        <div className="flex mb-3 md:mb-4">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                          ))}
+                        </div>
                         
-                        <CardContent className="p-4 md:p-6 bg-gradient-to-br from-card to-card/50">
-                          <div className="flex mb-3 md:mb-4">
-                            {[...Array(testimonial.rating || 5)].map((_, i) => (
-                              <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                            ))}
+                        <Quote className="h-5 w-5 md:h-6 md:w-6 text-primary/40 mb-2 md:mb-3" />
+                        <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 italic line-clamp-3">
+                          "Their strategy boosted our customer retention rate significantly."
+                        </p>
+                        
+                        <div className="border-t border-border pt-3 md:pt-4">
+                          <p className="font-semibold text-base md:text-lg">Isabella Hawke</p>
+                          <p className="text-xs md:text-sm text-primary font-medium">VerdeVitae</p>
+                          <a 
+                            href="https://verdevitaecorporate.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs md:text-sm text-blue-400 hover:text-blue-300 underline block"
+                          >
+                            VerdeVitae Corporate
+                          </a>
+                          <div className="mt-2">
+                            <a 
+                              href="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//isabella.mp4"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-muted-foreground hover:text-primary underline break-all"
+                            >
+                              Video URL: https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//isabella.mp4
+                            </a>
                           </div>
-                          
-                          <Quote className="h-5 w-5 md:h-6 md:w-6 text-primary/40 mb-2 md:mb-3" />
-                          <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 italic line-clamp-3">
-                            "{testimonial.quote}"
-                          </p>
-                          
-                          {testimonial.results && (
-                            <div className="mb-3 md:mb-4">
-                              <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-400/30 text-xs">
-                                <TrendingUp className="h-3 w-3 mr-1" />
-                                {testimonial.results}
-                              </Badge>
-                            </div>
-                          )}
-                          
-                          <div className="border-t border-border pt-3 md:pt-4">
-                            <p className="font-semibold text-base md:text-lg">{testimonial.name}</p>
-                            <p className="text-xs md:text-sm text-muted-foreground">{testimonial.role}</p>
-                            <p className="text-xs md:text-sm text-primary font-medium">{testimonial.company}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Zahid */}
+                    <Card className="group hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl border-border/50 overflow-hidden relative">
+                      <div className="relative overflow-hidden">
+                        <img 
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                          alt="Zahid"
+                          className="w-full h-48 md:h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                          <div className="flex items-center gap-3">
+                            <a 
+                              href="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid.mp4"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 hover:bg-white/30 transition-all"
+                            >
+                              <Play className="h-6 w-6 md:h-8 md:w-8 text-white ml-1" />
+                            </a>
                           </div>
-                        </CardContent>
-                      </Card>
-                    ))}
+                        </div>
+                      </div>
+                      
+                      <CardContent className="p-4 md:p-6 bg-gradient-to-br from-card to-card/50">
+                        <div className="flex mb-3 md:mb-4">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                          ))}
+                        </div>
+                        
+                        <Quote className="h-5 w-5 md:h-6 md:w-6 text-primary/40 mb-2 md:mb-3" />
+                        <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 italic line-clamp-3">
+                          "I was impressed by the quality and results in just weeks!"
+                        </p>
+                        
+                        <div className="border-t border-border pt-3 md:pt-4">
+                          <p className="font-semibold text-base md:text-lg">Zahid</p>
+                          <div className="mt-2">
+                            <a 
+                              href="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid.mp4"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-muted-foreground hover:text-primary underline break-all"
+                            >
+                              Video URL: https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid.mp4
+                            </a>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Zahid Ahmed */}
+                    <Card className="group hover:scale-[1.02] transition-all duration-500 hover:shadow-2xl border-border/50 overflow-hidden relative">
+                      <div className="relative overflow-hidden">
+                        <img 
+                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                          alt="Zahid Ahmed"
+                          className="w-full h-48 md:h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                          <div className="flex items-center gap-3">
+                            <a 
+                              href="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid2.mp4"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 hover:bg-white/30 transition-all"
+                            >
+                              <Play className="h-6 w-6 md:h-8 md:w-8 text-white ml-1" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <CardContent className="p-4 md:p-6 bg-gradient-to-br from-card to-card/50">
+                        <div className="flex mb-3 md:mb-4">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                          ))}
+                        </div>
+                        
+                        <Quote className="h-5 w-5 md:h-6 md:w-6 text-primary/40 mb-2 md:mb-3" />
+                        <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 italic line-clamp-3">
+                          "Professional, reliable, and absolutely worth it."
+                        </p>
+                        
+                        <div className="border-t border-border pt-3 md:pt-4">
+                          <p className="font-semibold text-base md:text-lg">Zahid Ahmed</p>
+                          <div className="mt-2">
+                            <a 
+                              href="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid2.mp4"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-muted-foreground hover:text-primary underline break-all"
+                            >
+                              Video URL: https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos//zahid2.mp4
+                            </a>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
                 </div>
               )}
