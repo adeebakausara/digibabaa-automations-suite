@@ -55,7 +55,7 @@ export const AIChatWidget = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://adeebakausar292.app.n8n.cloud/webhook/e6740e52-b548-4728-95bb-93d69c9ebc5a', {
+      const response = await fetch('https://adeebakausar292.app.n8n.cloud/webhook/chatbot', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
