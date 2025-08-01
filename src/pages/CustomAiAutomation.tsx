@@ -62,27 +62,86 @@ const CustomAiAutomation = () => {
         </div>
       </section>
 
-      {/* Live Demo Section */}
+      {/* AI Automation Workflows Section */}
       <section className="py-20 bg-card/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            See Custom Automation in Action
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Explore how our tailored AI solutions can transform your specific business processes
-          </p>
-          
-          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 mb-8">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
-                <Workflow className="h-12 w-12 text-primary" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Customize AI Automation Systems
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Explore our suite of AI-powered automation systems designed to streamline business operations, 
+              increase efficiency, and enhance customer experience. Browse through our offerings and find the perfect fit for your needs.
+            </p>
+          </div>
+
+          {/* Workflow Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                title: "Lead Generation & Management",
+                description: "Automates lead capture, validation, scoring, and nurturing workflows with seamless CRM integration and email automation.",
+                image: "/lovable-uploads/cfc66a89-08a0-4f5e-a8d3-6e02a5a74b58.png"
+              },
+              {
+                title: "E-commerce Lead Automation", 
+                description: "Streamlines e-commerce lead processing with automated routing, scoring, and multi-channel follow-up campaigns.",
+                image: "/lovable-uploads/28284395-0823-47f7-9b9b-c697b37127a7.png"
+              },
+              {
+                title: "Order Processing Automation",
+                description: "Manages end-to-end order workflows from validation to fulfillment with automated routing and notification systems.",
+                image: "/lovable-uploads/16d3eaf0-536d-4ef1-add3-daa4dd9dbe27.png"
+              },
+              {
+                title: "Customer Support Automation",
+                description: "Handles customer inquiries, order lookups, and return requests with intelligent routing and automated responses.",
+                image: "/lovable-uploads/9a5c9675-1b5b-430f-a8ea-f1f92fa8c76a.png"
+              },
+              {
+                title: "Customer Verification System",
+                description: "Automates customer onboarding with identity verification, compliance screening, and approval workflows.",
+                image: "/lovable-uploads/eee2d694-55fd-4edc-afd7-6ad6163fd127.png"
+              }
+            ].map((workflow, index) => (
+              <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden">
+                <div className="aspect-video overflow-hidden bg-gradient-to-br from-muted/50 to-muted">
+                  <img 
+                    src={workflow.image} 
+                    alt={workflow.title}
+                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">{workflow.title}</h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{workflow.description}</p>
+                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                Ready to Transform Your Business with AI?
+              </h3>
+              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Discover how our custom automation systems can revolutionize your operations and drive growth.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="px-8" asChild>
+                  <Link to="/contact">Get Started Today</Link>
+                </Button>
+                <Button variant="outline" size="lg" className="px-8" asChild>
+                  <Link to="/contact">Schedule a Demo</Link>
+                </Button>
               </div>
             </div>
-            <p className="text-lg mb-6">Discover custom automation solutions designed for your industry</p>
-            <Button variant="hero" size="lg" className="px-8">
-              <Target className="mr-2 h-5 w-5" />
-              See It in Action
-            </Button>
           </div>
         </div>
       </section>
