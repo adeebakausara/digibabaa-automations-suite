@@ -61,28 +61,12 @@ export const AIChatWidget = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: text.trim(),
-          timestamp: new Date().toISOString(),
-          source: 'website_chat'
+          message: text.trim()
         })
       });
 
-      let botResponse = "Thank you for your message! Our team will get back to you soon. In the meantime, feel free to explore our services or book a free consultation.";
-
-      if (response.ok) {
-        const data = await response.text();
-        try {
-          const jsonData = JSON.parse(data);
-          if (jsonData.response || jsonData.message) {
-            botResponse = jsonData.response || jsonData.message;
-          }
-        } catch {
-          // If response is not JSON, use it as text
-          if (data && data !== '{"message":"Workflow was started"}') {
-            botResponse = data;
-          }
-        }
-      }
+      const data = await response.json();
+      const botResponse = data.reply || data.message || JSON.stringify(data);
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
