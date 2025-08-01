@@ -236,44 +236,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What Our <span className="text-primary">Clients Say</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Real results from businesses that transformed with DigiBabaa
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {displayTestimonials.map((testimonial, index) => (
-              <Card key={testimonial.id || index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <Quote className="h-8 w-8 text-primary/30 mb-4" />
-                  <p className="text-muted-foreground mb-6 italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role} {testimonial.company && `, ${testimonial.company}`}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Customer Video Testimonials Section */}
-      <section className="py-20 bg-card/50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -376,6 +340,43 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Text Testimonials Section */}
+      <section className="py-20 bg-card/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What Our <span className="text-primary">Clients Say</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Real results from businesses that transformed with DigiBabaa
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {displayTestimonials.map((testimonial, index) => (
+              <Card key={testimonial.id || index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
+                <CardContent className="p-6">
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <Quote className="h-8 w-8 text-primary/30 mb-4" />
+                  <p className="text-muted-foreground mb-6 italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div>
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role} {testimonial.company && `, ${testimonial.company}`}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-primary relative overflow-hidden">
