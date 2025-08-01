@@ -89,8 +89,82 @@ const AiWebsiteDesign = () => {
         </div>
       </section>
 
-      {/* Integrations Section */}
+      {/* Portfolio Section */}
       <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Our <span className="text-primary">AI Website Portfolio</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Explore stunning AI-powered websites we've created for clients across various industries
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Real Estate Lead Generation Platform",
+                description: "An AI-powered platform that helps real estate agents generate qualified leads through smart data analysis, personalized property recommendations, and client tracking tools.",
+                image: "/placeholder.svg",
+                link: "/real-estate-case-study"
+              },
+              {
+                title: "Restaurant Chain AI Automation",
+                description: "AI-driven automation system for restaurant chains, featuring real-time order processing, automated reservations, and personalized customer insights.",
+                image: "/placeholder.svg",
+                link: "/restaurant-case-study"
+              },
+              {
+                title: "Financial Services Digital Transformation",
+                description: "An AI platform for financial services, offering predictive analytics, automated client engagement, and advanced reporting features for enhanced decision-making.",
+                image: "/placeholder.svg",
+                link: "/contact"
+              },
+              {
+                title: "SaaS Platform AI Integration",
+                description: "Seamlessly integrates AI capabilities into SaaS platforms with real-time analytics, automated customer support, and personalized service recommendations.",
+                image: "/placeholder.svg",
+                link: "/contact"
+              },
+              {
+                title: "E-commerce Complete AI Solution",
+                description: "An AI-powered e-commerce platform that offers personalized shopping experiences, automated inventory management, and AI-driven customer engagement.",
+                image: "/placeholder.svg",
+                link: "/ecommerce-case-study"
+              }
+            ].map((project, index) => (
+              <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden">
+                <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" asChild>
+                    <Link to={project.link}>
+                      View Project
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Integrations Section */}
+      <section className="py-20 bg-card/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Platform <span className="text-primary">Integrations</span>
