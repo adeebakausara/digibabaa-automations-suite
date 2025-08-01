@@ -107,31 +107,31 @@ const AiWebsiteDesign = () => {
                 title: "Real Estate Lead Generation Platform",
                 description: "An AI-powered platform that helps real estate agents generate qualified leads through smart data analysis, personalized property recommendations, and client tracking tools.",
                 image: "/placeholder.svg",
-                link: "/real-estate-case-study"
+                link: "https://ai-propel-leads.lovable.app/"
               },
               {
                 title: "Restaurant Chain AI Automation",
                 description: "AI-driven automation system for restaurant chains, featuring real-time order processing, automated reservations, and personalized customer insights.",
                 image: "/placeholder.svg",
-                link: "/restaurant-case-study"
+                link: "https://flavor-flow-automation.lovable.app/#dashboard"
               },
               {
                 title: "Financial Services Digital Transformation",
                 description: "An AI platform for financial services, offering predictive analytics, automated client engagement, and advanced reporting features for enhanced decision-making.",
                 image: "/placeholder.svg",
-                link: "/contact"
+                link: "https://fin-nova-ignite.lovable.app/"
               },
               {
                 title: "SaaS Platform AI Integration",
                 description: "Seamlessly integrates AI capabilities into SaaS platforms with real-time analytics, automated customer support, and personalized service recommendations.",
                 image: "/placeholder.svg",
-                link: "/contact"
+                link: "https://saas-ai-catalyst.lovable.app/"
               },
               {
                 title: "E-commerce Complete AI Solution",
                 description: "An AI-powered e-commerce platform that offers personalized shopping experiences, automated inventory management, and AI-driven customer engagement.",
                 image: "/placeholder.svg",
-                link: "/ecommerce-case-study"
+                link: "https://ai-shop-glow.lovable.app"
               }
             ].map((project, index) => (
               <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden">
@@ -151,10 +151,10 @@ const AiWebsiteDesign = () => {
                     {project.description}
                   </p>
                   <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300" asChild>
-                    <Link to={project.link}>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
                       View Project
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
