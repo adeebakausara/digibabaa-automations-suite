@@ -408,7 +408,7 @@ const Index = () => {
 
       {/* Calendar Booking Section */}
       <section className="py-16 bg-gradient-to-b from-background to-card/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-primary">Book Your</span> Free Consultation
@@ -425,7 +425,7 @@ const Index = () => {
                 style={{width: '100%', border:'none', overflow: 'hidden'}} 
                 scrolling="no" 
                 id="sf5ZeWALmqKvHoroSvTs_1754294861967"
-                className="w-full min-h-[600px] rounded-xl"
+                className="w-full min-h-[800px] rounded-xl"
               />
             </div>
             <script src="https://api.teamair.life/js/form_embed.js" type="text/javascript"></script>
