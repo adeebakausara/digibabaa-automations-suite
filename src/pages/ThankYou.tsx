@@ -26,7 +26,7 @@ const ThankYou = () => {
                 alt="DigiBabaa Logo" 
                 className="mx-auto h-20 md:h-24 mb-6 hover-scale"
               />
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-8 px-6">
+              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-8 px-8 py-4 leading-relaxed">
                 DigiBabaa
               </h1>
               <p className="text-xl text-muted-foreground font-medium">AI Automation Solutions</p>
