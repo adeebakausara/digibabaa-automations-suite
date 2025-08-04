@@ -406,14 +406,14 @@ const Index = () => {
       </section>
 
       {/* Calendar Booking Section */}
-      <section className="py-16 bg-card/30">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="py-12 bg-card/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
               <span className="text-primary">Book Your</span> Free Consultation
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Schedule a call with our AI automation experts to discuss your business needs
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+              Schedule a call with our AI automation experts
             </p>
           </div>
           
@@ -424,12 +424,12 @@ const Index = () => {
                 style={{
                   width: '100%', 
                   border: 'none', 
-                  height: '700px',
+                  height: '500px',
                   borderRadius: '8px'
                 }} 
                 scrolling="yes" 
                 id="sf5ZeWALmqKvHoroSvTs_1754294861967"
-                className="w-full h-[700px] rounded-lg"
+                className="w-full h-[500px] rounded-lg"
                 title="Book Consultation Calendar"
               />
             </div>
