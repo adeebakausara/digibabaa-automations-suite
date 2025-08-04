@@ -24,6 +24,7 @@ import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
+import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import EcommerceCaseStudy from "./pages/EcommerceCaseStudy";
 import HealthcareCaseStudy from "./pages/HealthcareCaseStudy";
@@ -60,6 +61,7 @@ const App = () => (
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/case-study/ecommerce" element={<EcommerceCaseStudy />} />
           <Route path="/case-study/healthcare" element={<HealthcareCaseStudy />} />
           <Route path="/case-study/real-estate" element={<RealEstateCaseStudy />} />
