@@ -420,10 +420,10 @@ const Index = () => {
           <div className="bg-card rounded-lg shadow-elegant border border-border/50 overflow-hidden">
             <iframe 
               src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
-              style={{width: '100%', border: 'none', overflow: 'hidden', minHeight: '600px'}} 
+              style={{width: '100%', border: 'none', overflow: 'hidden', height: '800px'}} 
               scrolling="no" 
               id="sf5ZeWALmqKvHoroSvTs_1754294861967"
-              className="w-full"
+              className="w-full h-[800px]"
             />
             <script src="https://api.teamair.life/js/form_embed.js" type="text/javascript"></script>
           </div>
