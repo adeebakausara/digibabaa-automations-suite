@@ -14,26 +14,38 @@ const ThankYou = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Hero Section */}
           <div className="text-center mb-16">
+            {/* DigiBabaa Branding */}
+            <div className="mb-8">
+              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+                DigiBabaa
+              </h1>
+              <p className="text-lg text-muted-foreground">AI Automation Solutions</p>
+            </div>
+
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-primary rounded-full mb-8 shadow-glow-primary">
               <CheckCircle className="w-10 h-10 text-white" />
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Thank You!
-            </h1>
+            </h2>
             
             <div className="max-w-3xl mx-auto">
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Thank you so much for connecting with us! We're thrilled that you've taken the time to schedule a call and explore how we can support your growth. Your journey starts here, and we're excited to help you succeed!
+              <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+                Thank you so much for connecting with DigiBabaa! We're thrilled that you've taken the time to schedule a call and explore how our AI automation solutions can support your business growth. Your digital transformation journey starts here, and we're excited to help you succeed!
               </p>
+
+              <div className="text-sm text-muted-foreground/80 mb-8">
+                <p>From Akbar Hayat and the entire DigiBabaa team</p>
+              </div>
               
               <div className="bg-gradient-ai/10 border border-primary/20 rounded-xl p-6 mb-8">
                 <div className="flex items-center justify-center mb-4">
                   <Mail className="w-6 h-6 text-primary mr-2" />
-                  <span className="text-lg font-semibold text-foreground">Check Your Email</span>
+                  <span className="text-lg font-semibold text-foreground">We'll Be In Touch Soon!</span>
                 </div>
                 <p className="text-muted-foreground">
-                  Check your email for more details about your booking and next steps. We look forward to speaking with you soon!
+                  Stay tuned for our email with more details about your booking and next steps. We look forward to discussing your AI automation needs!
                 </p>
               </div>
             </div>
