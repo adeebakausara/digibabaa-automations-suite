@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
               Empowering businesses with cutting-edge AI automation solutions. 
-              Transform your operations with intelligent chatbots, voice agents, 
+              Transform your operations with voice agents, 
               and custom automation workflows.
             </p>
             <div className="flex space-x-4">

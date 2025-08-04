@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
-import AiChatbot from "./pages/AiChatbot";
+
 import AiVoiceAgent from "./pages/AiVoiceAgent";
 import CustomAiAutomation from "./pages/CustomAiAutomation";
 import AiWebsiteDesign from "./pages/AiWebsiteDesign";
@@ -43,7 +43,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/services/ai-chatbot" element={<AiChatbot />} />
+          
           <Route path="/services/ai-voice-agent" element={<AiVoiceAgent />} />
           <Route path="/services/custom-ai-automation" element={<CustomAiAutomation />} />
           <Route path="/services/ai-website-design" element={<AiWebsiteDesign />} />

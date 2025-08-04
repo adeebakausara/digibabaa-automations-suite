@@ -16,33 +16,12 @@ import {
   Mail,
   ShoppingCart
 } from "lucide-react";
-import chatbotsImage from "@/assets/ai-chatbots.jpg";
+
 import voiceImage from "@/assets/ai-voice-agents.jpg";
 import automationImage from "@/assets/custom-automation.jpg";
 
 const Services = () => {
   const services = [
-    {
-      icon: MessageSquare,
-      title: "AI Chatbots",
-      subtitle: "Intelligent Conversational Agents",
-      description: "Deploy sophisticated AI chatbots across websites, WhatsApp, and social platforms to engage customers 24/7, answer queries, and drive conversions.",
-      image: chatbotsImage,
-      features: [
-        "Website Live Chat Integration",
-        "WhatsApp Business Automation",
-        "Social Media Messaging",
-        "Lead Qualification & Capture",
-        "Multi-language Support",
-        "Custom Knowledge Base Training"
-      ],
-      useCases: [
-        "Customer Support Automation",
-        "Lead Generation & Nurturing",
-        "E-commerce Product Assistance",
-        "FAQ & Information Delivery"
-      ]
-    },
     {
       icon: Mic,
       title: "AI Voice Agents",
@@ -188,7 +167,6 @@ const Services = () => {
                 
                 <Button variant="accent" size="lg" asChild>
                   <a href={
-                    service.title === "AI Chatbots" ? "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-chatbot" :
                     service.title === "AI Voice Agents" ? "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-voice-agent" :
                     service.title === "Custom AI Automation" ? "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/custom-ai-automation" :
                     service.title === "AI Website Design" ? "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-website-design" :
@@ -250,7 +228,7 @@ const Services = () => {
               <Link to="/pricing">View Pricing Plans</Link>
             </Button>
             <Button variant="default" size="lg" className="px-8" asChild>
-              <Link to="/services/ai-chatbot">Try AI Chatbot Demo</Link>
+              <Link to="/services/ai-voice-agent">Try AI Voice Agent Demo</Link>
             </Button>
           </div>
         </div>

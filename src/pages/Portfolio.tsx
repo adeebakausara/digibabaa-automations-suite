@@ -16,7 +16,7 @@ import {
   Clock,
   Play
 } from "lucide-react";
-import chatbotsImage from "@/assets/ai-chatbots.jpg";
+
 import voiceImage from "@/assets/ai-voice-agents.jpg";
 import automationImage from "@/assets/custom-automation.jpg";
 
@@ -26,15 +26,15 @@ const Portfolio = () => {
       title: "E-commerce Complete AI Solution",
       client: "RetailMax Inc.",
       industry: "E-commerce",
-      image: chatbotsImage,
-      description: "Full-stack AI implementation including website redesign, AI chatbots for customer support, voice ordering system, and automated workflow for order processing and inventory management.",
+      image: "/placeholder.svg",
+      description: "Full-stack AI implementation including website redesign, voice ordering system, and automated workflow for order processing and inventory management.",
       results: {
         "Response Time": "2 minutes (from 2 hours)",
         "Customer Satisfaction": "95% (improved from 78%)",
         "Cost Reduction": "60% in support costs",
         "Conversion Rate": "45% increase in sales"
       },
-      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
+      services: ["AI Website Design", "AI Voice Agent", "Custom Workflow"],
       icon: MessageSquare,
       demoAvailable: true
     },
@@ -43,14 +43,14 @@ const Portfolio = () => {
       client: "MedCare Clinics",
       industry: "Healthcare",
       image: voiceImage,
-      description: "Comprehensive healthcare solution with AI voice agents for appointment scheduling, patient pre-screening, chatbot for FAQ, and custom website with patient portal integration.",
+      description: "Comprehensive healthcare solution with AI voice agents for appointment scheduling, patient pre-screening, and custom website with patient portal integration.",
       results: {
         "Appointment Efficiency": "80% automated scheduling",
         "Patient Satisfaction": "92% approval rating",
         "Staff Time Saved": "15 hours per week",
         "Online Bookings": "85% of appointments"
       },
-      services: ["AI Voice Agent", "AI Website Design", "AI Chatbot", "Custom Workflow"],
+      services: ["AI Voice Agent", "AI Website Design", "Custom Workflow"],
       icon: Mic,
       demoAvailable: true
     },
@@ -59,14 +59,14 @@ const Portfolio = () => {
       client: "PropertyPro Realty",
       industry: "Real Estate",
       image: automationImage,
-      description: "AI-powered real estate platform with intelligent website design, chatbot for property inquiries, voice follow-up system, and automated lead qualification workflow.",
+      description: "AI-powered real estate platform with intelligent website design, voice follow-up system, and automated lead qualification workflow.",
       results: {
         "Lead Quality": "85% qualified leads",
         "Response Time": "Under 5 minutes",
         "Agent Productivity": "200% increase",
         "Deal Closure": "35% faster transactions"
       },
-      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
+      services: ["AI Website Design", "AI Voice Agent", "Custom Workflow"],
       icon: BarChart3,
       demoAvailable: true
     },
@@ -74,15 +74,15 @@ const Portfolio = () => {
       title: "Restaurant Chain AI Automation",
       client: "FoodieChain",
       industry: "Food & Beverage",
-      image: chatbotsImage,
-      description: "Multi-location restaurant solution with AI website, voice ordering system, chatbot for reservations, and automated workflow for inventory and order management across all locations.",
+      image: "/placeholder.svg",
+      description: "Multi-location restaurant solution with AI website, voice ordering system, and automated workflow for inventory and order management across all locations.",
       results: {
         "Order Accuracy": "99.2% accuracy rate",
         "Order Processing": "50% faster fulfillment",
         "Customer Experience": "90% satisfaction score",
         "Revenue Growth": "30% increase in orders"
       },
-      services: ["AI Voice Agent", "AI Chatbot", "Custom Workflow", "AI Website Design"],
+      services: ["AI Voice Agent", "Custom Workflow", "AI Website Design"],
       icon: Zap,
       demoAvailable: true
     },
@@ -91,14 +91,14 @@ const Portfolio = () => {
       client: "FinanceFirst Bank",
       industry: "Financial Services",
       image: voiceImage,
-      description: "Complete digital overhaul with modern AI website, chatbot for customer queries, voice banking system, and automated workflow for loan processing and customer onboarding.",
+      description: "Complete digital overhaul with modern AI website, voice banking system, and automated workflow for loan processing and customer onboarding.",
       results: {
         "Onboarding Time": "Reduced from 5 days to 2 hours",
         "Customer Queries": "90% resolved by AI",
         "Processing Speed": "70% faster loan approvals",
         "Customer Satisfaction": "88% positive feedback"
       },
-      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
+      services: ["AI Website Design", "AI Voice Agent", "Custom Workflow"],
       icon: TrendingUp,
       demoAvailable: false
     },
@@ -107,14 +107,14 @@ const Portfolio = () => {
       client: "CloudTech Solutions",
       industry: "B2B SaaS",
       image: automationImage,
-      description: "Comprehensive SaaS enhancement with redesigned AI-powered website, intelligent chatbot for technical support, voice-activated features, and custom automation workflows for user onboarding.",
+      description: "Comprehensive SaaS enhancement with redesigned AI-powered website, voice-activated features, and custom automation workflows for user onboarding.",
       results: {
         "User Adoption": "90% increase in daily active users",
         "Support Resolution": "75% automated",
         "Onboarding Speed": "60% faster user setup",
         "Customer Retention": "85% improvement"
       },
-      services: ["AI Website Design", "AI Chatbot", "Custom Workflow", "AI Voice Agent"],
+      services: ["AI Website Design", "Custom Workflow", "AI Voice Agent"],
       icon: Users,
       demoAvailable: true
     },
@@ -122,15 +122,15 @@ const Portfolio = () => {
       title: "EdTech AI Learning Ecosystem",
       client: "SmartLearn Academy",
       industry: "Education",
-      image: chatbotsImage,
-      description: "AI-powered educational platform with adaptive website design, tutoring chatbot, voice-based learning assistant, and automated workflow for student progress tracking and personalized curriculum delivery.",
+      image: "/placeholder.svg",
+      description: "AI-powered educational platform with adaptive website design, voice-based learning assistant, and automated workflow for student progress tracking and personalized curriculum delivery.",
       results: {
         "Learning Outcomes": "65% improvement in test scores",
         "Student Engagement": "180% increase in course completion",
         "Teacher Efficiency": "40% time saved on administrative tasks",
         "Platform Usage": "300% growth in active users"
       },
-      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
+      services: ["AI Website Design", "AI Voice Agent", "Custom Workflow"],
       icon: MessageSquare,
       demoAvailable: true
     },
@@ -139,14 +139,14 @@ const Portfolio = () => {
       client: "IndustriPro Manufacturing",
       industry: "Manufacturing",
       image: voiceImage,
-      description: "Industrial AI solution with operations dashboard website, chatbot for employee queries, voice-controlled equipment interface, and custom workflow automation for production scheduling and quality control.",
+      description: "Industrial AI solution with operations dashboard website, voice-controlled equipment interface, and custom workflow automation for production scheduling and quality control.",
       results: {
         "Production Efficiency": "45% increase in output",
         "Error Reduction": "80% fewer quality issues",
         "Employee Training": "50% faster onboarding",
         "Operational Costs": "35% reduction"
       },
-      services: ["AI Website Design", "AI Chatbot", "AI Voice Agent", "Custom Workflow"],
+      services: ["AI Website Design", "AI Voice Agent", "Custom Workflow"],
       icon: BarChart3,
       demoAvailable: false
     }
@@ -359,7 +359,7 @@ const Portfolio = () => {
                 title: "Lead Capture to Conversion",
                 steps: [
                   "Visitor lands on website",
-                  "AI chatbot engages automatically",
+                  "AI voice agent engages automatically",
                   "Qualified lead data captured",
                   "CRM entry created instantly",
                   "Personalized follow-up sequence",

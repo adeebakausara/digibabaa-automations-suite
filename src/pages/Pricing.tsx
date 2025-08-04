@@ -13,7 +13,7 @@ const Pricing = () => {
       period: "/month",
       description: "Perfect for small businesses getting started with AI automation",
       features: [
-        "AI Chatbot for 1 platform",
+        "AI Voice Agent for 1 platform",
         "Basic voice agent setup",
         "Email automation workflows",
         "WhatsApp integration",
@@ -30,7 +30,7 @@ const Pricing = () => {
       period: "/month",
       description: "Comprehensive AI automation for growing businesses",
       features: [
-        "AI Chatbots for 3 platforms",
+        "AI Voice Agents for 3 platforms",
         "Advanced voice agent with IVR",
         "Custom automation workflows",
         "CRM integration (Zoho, Salesforce)",
@@ -49,7 +49,7 @@ const Pricing = () => {
       period: "Quote",
       description: "Fully customized AI solutions for large organizations",
       features: [
-        "Unlimited AI chatbots & platforms",
+        "Unlimited AI voice agents & platforms",
         "Enterprise voice agent system",
         "Custom AI model development",
         "Full system integrations",

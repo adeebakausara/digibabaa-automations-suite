@@ -16,7 +16,7 @@ import {
   Star,
   ShoppingCart
 } from "lucide-react";
-import chatbotsImage from "@/assets/ai-chatbots.jpg";
+
 
 const RestaurantCaseStudy = () => {
   return (
@@ -71,7 +71,7 @@ const RestaurantCaseStudy = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl overflow-hidden shadow-elegant">
             <img 
-              src={chatbotsImage} 
+              src="/placeholder.svg" 
               alt="Restaurant AI Automation System"
               className="w-full h-96 object-cover"
             />

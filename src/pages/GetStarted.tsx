@@ -50,12 +50,6 @@ const GetStarted = () => {
 
   const services = [
     {
-      title: "AI Chatbots",
-      description: "Intelligent conversational agents for customer support and engagement",
-      icon: MessageSquare,
-      link: "/services/ai-chatbot"
-    },
-    {
       title: "Voice Agents",
       description: "AI-powered voice solutions for calls and customer interactions", 
       icon: Phone,

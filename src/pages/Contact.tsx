@@ -67,8 +67,7 @@ const Contact = () => {
   };
 
   const services = [
-    "AI Chatbots",
-    "Voice Agents", 
+    "Voice Agents",
     "Custom Automation",
     "AI Website Design",
     "Complete AI Solution",
