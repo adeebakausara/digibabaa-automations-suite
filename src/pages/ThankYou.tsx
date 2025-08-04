@@ -16,14 +16,20 @@ const ThankYou = () => {
           <div className="text-center mb-16">
             {/* DigiBabaa Branding */}
             <div className="mb-8">
-              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
-                DigiBabaa
-              </h1>
+              <img 
+                src="/lovable-uploads/0b295294-5b14-4405-b5ef-da41243c9f16.png" 
+                alt="DigiBabaa Logo" 
+                className="mx-auto h-16 md:h-20 mb-2"
+              />
               <p className="text-lg text-muted-foreground">AI Automation Solutions</p>
             </div>
 
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-primary rounded-full mb-8 shadow-glow-primary">
-              <CheckCircle className="w-10 h-10 text-white" />
+            <div className="inline-flex items-center justify-center w-20 h-20 mb-8">
+              <img 
+                src="/lovable-uploads/e3bdc08f-6aa0-4cb0-8e44-38e3a65f5baf.png" 
+                alt="Success Checkmark" 
+                className="w-20 h-20"
+              />
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
