@@ -19,8 +19,11 @@ const ThankYou = () => {
               <img 
                 src="/lovable-uploads/0b295294-5b14-4405-b5ef-da41243c9f16.png" 
                 alt="DigiBabaa Logo" 
-                className="mx-auto h-16 md:h-20 mb-2"
+                className="mx-auto h-16 md:h-20 mb-4"
               />
+              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+                DigiBabaa
+              </h1>
               <p className="text-lg text-muted-foreground">AI Automation Solutions</p>
             </div>
 
