@@ -417,22 +417,8 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="bg-background rounded-xl shadow-elegant border border-border/50 overflow-hidden hover:shadow-glow transition-shadow duration-300">
-            <div className="p-2">
-              <iframe 
-                src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
-                style={{
-                  width: '100%', 
-                  border: 'none', 
-                  height: '400px',
-                  borderRadius: '8px'
-                }} 
-                scrolling="yes" 
-                id="sf5ZeWALmqKvHoroSvTs_1754294861967"
-                className="w-full h-[400px] rounded-lg"
-                title="Book Consultation Calendar"
-              />
-            </div>
+          <div className="bg-background rounded-xl shadow-elegant border border-border/50 overflow-hidden">
+            <iframe src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" style={{width: '100%', border:'none', overflow: 'hidden'}} scrolling="no" id="sf5ZeWALmqKvHoroSvTs_1754294861967"></iframe>
             <script src="https://api.teamair.life/js/form_embed.js" type="text/javascript"></script>
           </div>
         </div>
