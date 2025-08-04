@@ -27,13 +27,6 @@ const ThankYou = () => {
               <p className="text-lg text-muted-foreground">AI Automation Solutions</p>
             </div>
 
-            <div className="inline-flex items-center justify-center w-20 h-20 mb-8">
-              <img 
-                src="/lovable-uploads/e3bdc08f-6aa0-4cb0-8e44-38e3a65f5baf.png" 
-                alt="Success Checkmark" 
-                className="w-20 h-20"
-              />
-            </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Thank You!
