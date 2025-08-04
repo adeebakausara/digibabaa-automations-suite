@@ -405,6 +405,31 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Calendar Booking Section */}
+      <section className="py-16 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="text-primary">Book Your</span> Free Consultation
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Schedule a call with our AI automation experts to discuss your business needs
+            </p>
+          </div>
+          
+          <div className="bg-card rounded-lg shadow-elegant border border-border/50 overflow-hidden">
+            <iframe 
+              src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
+              style={{width: '100%', border: 'none', overflow: 'hidden', minHeight: '600px'}} 
+              scrolling="no" 
+              id="sf5ZeWALmqKvHoroSvTs_1754294861967"
+              className="w-full"
+            />
+            <script src="https://api.teamair.life/js/form_embed.js" type="text/javascript"></script>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <AIChatWidget />
     </div>
