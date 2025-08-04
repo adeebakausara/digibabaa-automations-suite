@@ -424,12 +424,12 @@ const Index = () => {
                 style={{
                   width: '100%', 
                   border: 'none', 
-                  height: '500px',
+                  height: '400px',
                   borderRadius: '8px'
                 }} 
                 scrolling="yes" 
                 id="sf5ZeWALmqKvHoroSvTs_1754294861967"
-                className="w-full h-[500px] rounded-lg"
+                className="w-full h-[400px] rounded-lg"
                 title="Book Consultation Calendar"
               />
             </div>
