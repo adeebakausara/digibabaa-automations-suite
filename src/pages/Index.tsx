@@ -407,20 +407,27 @@ const Index = () => {
 
 
       {/* Calendar Booking Section */}
-      <section className="py-12 bg-card/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+      <section className="py-16 bg-gradient-to-b from-background to-card/30">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-primary">Book Your</span> Free Consultation
             </h2>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              Schedule a call with our AI automation experts
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Schedule a call with our AI automation experts to discuss your business needs
             </p>
           </div>
           
-          <div className="bg-background rounded-xl shadow-elegant border border-border/50 overflow-hidden">
-            <iframe src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" style={{width: '100%', border:'none', overflow: 'hidden'}} scrolling="no" id="sf5ZeWALmqKvHoroSvTs_1754294861967"></iframe>
-            <br />
+          <div className="bg-background rounded-2xl shadow-elegant border border-border/50 overflow-hidden hover:shadow-glow transition-all duration-300">
+            <div className="p-1">
+              <iframe 
+                src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
+                style={{width: '100%', border:'none', overflow: 'hidden'}} 
+                scrolling="no" 
+                id="sf5ZeWALmqKvHoroSvTs_1754294861967"
+                className="w-full min-h-[600px] rounded-xl"
+              />
+            </div>
             <script src="https://api.teamair.life/js/form_embed.js" type="text/javascript"></script>
           </div>
         </div>
