@@ -16,7 +16,7 @@ import {
   Clock,
   DollarSign
 } from "lucide-react";
-
+import chatbotsImage from "@/assets/ai-chatbots.jpg";
 
 const EcommerceCaseStudy = () => {
   return (
@@ -47,6 +47,10 @@ const EcommerceCaseStudy = () => {
           
           <div className="flex flex-wrap gap-4 mb-8">
             <Badge variant="outline" className="px-4 py-2">
+              <MessageSquare className="h-4 w-4 mr-2" />
+              AI Chatbot
+            </Badge>
+            <Badge variant="outline" className="px-4 py-2">
               <Mic className="h-4 w-4 mr-2" />
               Voice Ordering
             </Badge>
@@ -67,7 +71,7 @@ const EcommerceCaseStudy = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl overflow-hidden shadow-elegant">
             <img 
-              src="/placeholder.svg" 
+              src={chatbotsImage} 
               alt="E-commerce AI Solution"
               className="w-full h-96 object-cover"
             />
@@ -88,7 +92,7 @@ const EcommerceCaseStudy = () => {
               </p>
               <p className="text-muted-foreground mb-6">
                 Our full-stack AI implementation included a complete website redesign with AI-powered features, 
-                voice ordering capabilities and automated workflows 
+                intelligent chatbots for customer support, voice ordering capabilities, and automated workflows 
                 for order processing and inventory management.
               </p>
               
@@ -172,7 +176,7 @@ const EcommerceCaseStudy = () => {
               <h3 className="text-2xl font-semibold mb-6 text-green-400">Solutions</h3>
               <div className="space-y-4">
                 {[
-                  "AI voice agent providing instant 24/7 customer support",
+                  "AI chatbot providing instant 24/7 customer support",
                   "Modern, responsive website with intuitive design",
                   "Voice ordering system for hands-free shopping",
                   "Automated order processing and fulfillment workflows",

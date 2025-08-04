@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
-
+import { AIChatWidget } from "@/components/AIChatWidget";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { 
@@ -24,7 +24,7 @@ import {
   Clock
 } from "lucide-react";
 import heroImage from "@/assets/hero-ai-automation.jpg";
-
+import chatbotsImage from "@/assets/ai-chatbots.jpg";
 import voiceImage from "@/assets/ai-voice-agents.jpg";
 import automationImage from "@/assets/custom-automation.jpg";
 import { useServices } from "@/hooks/useServices";
@@ -44,7 +44,7 @@ const Index = () => {
 
   // Service URL mapping
   const serviceUrlMap: { [key: string]: string } = {
-    
+    "AI Chatbots": "/services/ai-chatbot",
     "Voice Agents": "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-voice-agent",
     "AI Voice Agents": "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/ai-voice-agent", 
     "Custom Automation": "https://c764d01a-d871-49ac-8427-a59448e8fa9d.lovableproject.com/services/custom-ai-automation",
@@ -54,6 +54,13 @@ const Index = () => {
 
   // Fallback static services data
   const fallbackServices = [
+    {
+      id: '1',
+      title: "AI Chatbots",
+      description: "Intelligent conversational agents for websites, WhatsApp, and social platforms",
+      image_url: chatbotsImage,
+      icon: 'MessageCircle'
+    },
     {
       id: '2', 
       title: "Voice Agents",
@@ -81,7 +88,7 @@ const Index = () => {
   const fallbackTestimonials = [
     {
       id: "fallback-1",
-      quote: "DigiBabaa's AI solutions increased our customer engagement by 300% and reduced response time to under 2 minutes.",
+      quote: "DigiBabaa's AI chatbot increased our customer engagement by 300% and reduced response time to under 2 minutes.",
       name: "Sarah Johnson",
       role: "CEO",
       company: "TechStart Inc.",
@@ -148,7 +155,7 @@ const Index = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in">
-            Unlock the power of AI voice agents and custom automation 
+            Unlock the power of AI chatbots, voice agents, and custom automation 
             to streamline operations and boost productivity across all platforms.
           </p>
           
@@ -200,7 +207,7 @@ const Index = () => {
             {displayServices.map((service, index) => {
               const IconComponent = service.icon ? iconMap[service.icon] || MessageSquare : MessageSquare;
               const colors = ["text-primary", "text-aqua", "text-purple-start", "text-soft-teal"];
-              const images = [voiceImage, automationImage, heroImage];
+              const images = [chatbotsImage, voiceImage, automationImage, heroImage];
               const serviceUrl = serviceUrlMap[service.title] || "/services";
               
               return (
@@ -427,7 +434,7 @@ const Index = () => {
       </section>
 
       <Footer />
-      
+      <AIChatWidget />
     </div>
   );
 };

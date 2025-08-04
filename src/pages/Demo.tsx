@@ -20,6 +20,13 @@ import {
 const Demo = () => {
   const demoVideos = [
     {
+      title: "AI Chatbot in Action",
+      description: "See how our AI chatbot handles customer inquiries with human-like responses",
+      thumbnail: "/placeholder.svg",
+      duration: "3:45",
+      category: "Chatbot"
+    },
+    {
       title: "Voice Agent Demo",
       description: "Experience our AI voice agent managing customer calls and appointments",
       thumbnail: "/placeholder.svg", 
@@ -38,7 +45,7 @@ const Demo = () => {
   const features = [
     {
       icon: MessageSquare,
-      title: "Interactive AI Voice Demo",
+      title: "Interactive Chatbot Demo",
       description: "Chat with our AI assistant and experience the conversation flow"
     },
     {

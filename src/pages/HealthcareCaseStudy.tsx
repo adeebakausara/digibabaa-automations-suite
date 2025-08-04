@@ -58,6 +58,10 @@ const HealthcareCaseStudy = () => {
               <Globe className="h-4 w-4 mr-2" />
               Patient Portal
             </Badge>
+            <Badge variant="outline" className="px-4 py-2">
+              <MessageSquare className="h-4 w-4 mr-2" />
+              AI Chatbot
+            </Badge>
           </div>
         </div>
       </section>
@@ -88,7 +92,7 @@ const HealthcareCaseStudy = () => {
               </p>
               <p className="text-muted-foreground mb-6">
                 Our comprehensive healthcare solution included AI voice agents for appointment scheduling, 
-                patient pre-screening capabilities and a custom 
+                patient pre-screening capabilities, intelligent chatbots for FAQ handling, and a custom 
                 website with integrated patient portal functionality.
               </p>
               
@@ -174,7 +178,7 @@ const HealthcareCaseStudy = () => {
                 {[
                   "AI voice agent handling appointments 24/7",
                   "Intelligent patient pre-screening workflows",
-                  "HIPAA-compliant FAQ system for common inquiries",
+                  "HIPAA-compliant chatbot for common inquiries",
                   "Integrated patient portal with secure access",
                   "Automated appointment reminders and follow-ups",
                   "Real-time calendar synchronization across locations"
@@ -203,8 +207,8 @@ const HealthcareCaseStudy = () => {
               },
               {
                 icon: MessageSquare,
-                title: "Patient Portal", 
-                description: "HIPAA-compliant system answering common medical and administrative questions"
+                title: "Patient Chatbot", 
+                description: "HIPAA-compliant chatbot answering common medical and administrative questions"
               },
               {
                 icon: Calendar,

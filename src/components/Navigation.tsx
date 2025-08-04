@@ -14,7 +14,7 @@ const Navigation = () => {
       name: "Services", 
       path: "/services",
       submenu: [
-        
+        { name: "AI Chatbot", path: "/services/ai-chatbot" },
         { name: "AI Voice Agent", path: "/services/ai-voice-agent" },
         { name: "Custom AI Automation", path: "/services/custom-ai-automation" },
         { name: "AI Website Design", path: "/services/ai-website-design" },
