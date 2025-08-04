@@ -406,8 +406,8 @@ const Index = () => {
       </section>
 
       {/* Calendar Booking Section */}
-      <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-card/30">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-primary">Book Your</span> Free Consultation
@@ -417,14 +417,22 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="bg-card rounded-lg shadow-elegant border border-border/50 overflow-hidden">
-            <iframe 
-              src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
-              style={{width: '100%', border: 'none', overflow: 'hidden', height: '800px'}} 
-              scrolling="no" 
-              id="sf5ZeWALmqKvHoroSvTs_1754294861967"
-              className="w-full h-[800px]"
-            />
+          <div className="bg-background rounded-xl shadow-elegant border border-border/50 overflow-hidden hover:shadow-glow transition-shadow duration-300">
+            <div className="p-2">
+              <iframe 
+                src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
+                style={{
+                  width: '100%', 
+                  border: 'none', 
+                  height: '700px',
+                  borderRadius: '8px'
+                }} 
+                scrolling="yes" 
+                id="sf5ZeWALmqKvHoroSvTs_1754294861967"
+                className="w-full h-[700px] rounded-lg"
+                title="Book Consultation Calendar"
+              />
+            </div>
             <script src="https://api.teamair.life/js/form_embed.js" type="text/javascript"></script>
           </div>
         </div>
