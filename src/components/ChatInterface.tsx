@@ -144,7 +144,7 @@ export const ChatInterface = () => {
 
         <CardContent className="flex flex-col h-[550px] p-0 relative">
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-background/30 via-card/20 to-background/50 backdrop-blur-sm">
+          <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-background/30 via-background/10 to-background/50 backdrop-blur-sm">
             {messages.map((message, index) => (
               <div
                 key={message.id}
@@ -153,7 +153,7 @@ export const ChatInterface = () => {
               >
                 {!message.isUser && (
                   <Avatar className="w-10 h-10 border-2 border-primary/20 shadow-md">
-                    <AvatarFallback className="bg-gradient-to-br from-primary/20 to-primary/10 text-primary">
+                    <AvatarFallback className="bg-primary/10 text-primary">
                       <Bot className="h-5 w-5" />
                     </AvatarFallback>
                   </Avatar>
@@ -163,8 +163,8 @@ export const ChatInterface = () => {
                   <div
                     className={`p-4 rounded-3xl shadow-md transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5 ${
                       message.isUser
-                        ? 'bg-gradient-to-br from-primary to-primary/90 text-white rounded-br-lg shadow-primary/20'
-                        : 'bg-white border border-border/30 text-foreground rounded-bl-lg shadow-xl'
+                        ? 'bg-primary text-primary-foreground rounded-br-lg shadow-primary/20'
+                        : 'bg-card border border-border/30 text-card-foreground rounded-bl-lg shadow-xl'
                     }`}
                   >
                     <p className="text-sm leading-relaxed whitespace-pre-wrap font-medium">{message.text}</p>
@@ -186,7 +186,7 @@ export const ChatInterface = () => {
 
                 {message.isUser && (
                   <Avatar className="w-10 h-10 border-2 border-primary/20 shadow-md">
-                    <AvatarFallback className="bg-gradient-to-br from-primary to-primary/90 text-white">
+                    <AvatarFallback className="bg-primary text-primary-foreground">
                       <User className="h-5 w-5" />
                     </AvatarFallback>
                   </Avatar>
@@ -197,16 +197,16 @@ export const ChatInterface = () => {
             {isLoading && (
               <div className="flex gap-4 justify-start animate-fade-in">
                 <Avatar className="w-10 h-10 border-2 border-primary/20 shadow-md">
-                  <AvatarFallback className="bg-gradient-to-br from-primary/20 to-primary/10 text-primary">
+                  <AvatarFallback className="bg-primary/10 text-primary">
                     <Bot className="h-5 w-5" />
                   </AvatarFallback>
                 </Avatar>
-                <div className="bg-white border border-border/30 p-4 rounded-3xl rounded-bl-lg shadow-xl max-w-[200px]">
+                <div className="bg-card border border-border/30 p-4 rounded-3xl rounded-bl-lg shadow-xl max-w-[200px]">
                   <div className="flex items-center space-x-3">
                     <div className="flex space-x-1">
-                      <div className="w-3 h-3 bg-gradient-to-r from-primary to-primary/70 rounded-full animate-bounce"></div>
-                      <div className="w-3 h-3 bg-gradient-to-r from-primary/70 to-primary/50 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-3 h-3 bg-gradient-to-r from-primary/50 to-primary/30 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-3 h-3 bg-primary rounded-full animate-bounce"></div>
+                      <div className="w-3 h-3 bg-primary/70 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-3 h-3 bg-primary/50 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                     </div>
                     <span className="text-xs text-muted-foreground font-medium">AI is thinking...</span>
                   </div>
@@ -217,7 +217,7 @@ export const ChatInterface = () => {
           </div>
 
           {/* Input */}
-          <div className="relative border-t bg-gradient-to-r from-white/80 via-white/90 to-white/80 backdrop-blur-md p-6">
+          <div className="relative border-t bg-card/80 backdrop-blur-md p-6">
             <form onSubmit={handleSubmit} className="flex gap-4">
               <div className="flex-1 relative">
                 <Input
@@ -226,7 +226,7 @@ export const ChatInterface = () => {
                   onKeyPress={handleKeyPress}
                   placeholder="Type your message here..."
                   disabled={isLoading}
-                  className="pr-12 py-4 text-base rounded-2xl border-2 border-border/30 focus:border-primary/50 bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 placeholder:text-muted-foreground/60"
+                  className="pr-12 py-4 text-base rounded-2xl border-2 border-border/30 focus:border-primary/50 bg-background/90 shadow-lg hover:shadow-xl transition-all duration-300 placeholder:text-muted-foreground/60 text-foreground"
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground/40">
                   <MessageSquare className="h-4 w-4" />
@@ -236,7 +236,7 @@ export const ChatInterface = () => {
                 type="submit"
                 disabled={isLoading || !inputValue.trim()}
                 size="lg"
-                className="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-14 w-14 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="h-5 w-5" />
               </Button>
