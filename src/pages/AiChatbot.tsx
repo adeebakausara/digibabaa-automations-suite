@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { ChatInterface } from "@/components/ChatInterface";
 import { MessageCircle, Globe, Facebook, Instagram, MessageSquare, Phone, Calendar } from "lucide-react";
 
 const AiChatbot = () => {
@@ -56,52 +57,20 @@ const AiChatbot = () => {
           <div className="mb-12">
             <Dialog>
               <DialogTrigger asChild>
-                <Button size="lg" className="px-8 py-6 text-lg font-semibold">
+                <Button size="lg" className="px-8 py-6 text-lg font-semibold bg-primary text-white hover:bg-primary/90">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Try the Demo
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-md">
+              <DialogContent className="sm:max-w-2xl max-h-[80vh]">
                 <DialogHeader>
                   <DialogTitle className="flex items-center gap-2">
                     <MessageCircle className="h-5 w-5 text-primary" />
                     AI Chatbot Demo
                   </DialogTitle>
                 </DialogHeader>
-                <div className="space-y-4">
-                  <div className="h-64 bg-muted/50 rounded-lg p-4 overflow-y-auto">
-                    <div className="space-y-3">
-                      {messages.map((message) => (
-                        <div
-                          key={message.id}
-                          className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}
-                        >
-                          <div
-                            className={`max-w-xs px-3 py-2 rounded-lg text-sm ${
-                              message.isBot
-                                ? 'bg-primary/10 text-foreground'
-                                : 'bg-primary text-primary-foreground'
-                            }`}
-                          >
-                            {message.text}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      value={inputMessage}
-                      onChange={(e) => setInputMessage(e.target.value)}
-                      onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                      placeholder="Type your message..."
-                      className="flex-1 px-3 py-2 border border-border rounded-md bg-background"
-                    />
-                    <Button onClick={handleSendMessage} size="sm">
-                      Send
-                    </Button>
-                  </div>
+                <div className="mt-4">
+                  <ChatInterface />
                 </div>
               </DialogContent>
             </Dialog>
