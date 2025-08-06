@@ -66,7 +66,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const emailResponse = await resend.emails.send({
       from: "Consultation Form <onboarding@resend.dev>",
-      to: ["akbar@digiababaa.com"],
+      to: ["akbarhayat228@gmail.com"],
       subject: `New Consultation Request from ${formData.firstName} ${formData.lastName}`,
       html: emailHtml,
     });
