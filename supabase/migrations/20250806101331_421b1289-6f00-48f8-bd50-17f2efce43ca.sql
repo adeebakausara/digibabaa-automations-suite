@@ -1,0 +1,2 @@
+-- Add Resend API key as a secret (this will be configured via the dashboard)
+-- No database changes needed for this functionality

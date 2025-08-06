@@ -5,9 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { useConsultationForm } from "@/hooks/useConsultationForm";
 import { 
   Calendar, 
   Clock, 
@@ -23,6 +25,8 @@ import {
 } from "lucide-react";
 
 const BookConsultation = () => {
+  const { form, onSubmit, isSubmitting } = useConsultationForm();
+  
   const consultationTypes = [
     {
       title: "AI Strategy Consultation",
@@ -171,101 +175,202 @@ const BookConsultation = () => {
           
           <Card className="hover:shadow-elegant transition-shadow">
             <CardContent className="p-8">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name *</Label>
-                    <Input id="firstName" placeholder="Enter your first name" />
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      rules={{ required: "First name is required" }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>First Name *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Enter your first name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      rules={{ required: "Last name is required" }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Last Name *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Enter your last name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name *</Label>
-                    <Input id="lastName" placeholder="Enter your last name" />
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      rules={{ 
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: "Invalid email address"
+                        }
+                      }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email Address *</FormLabel>
+                          <FormControl>
+                            <Input type="email" placeholder="your@email.com" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Phone Number</FormLabel>
+                          <FormControl>
+                            <Input type="tel" placeholder="+1 (555) 123-4567" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                   </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" />
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="company"
+                      rules={{ required: "Company name is required" }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Company Name *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Your company name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="industry"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Industry</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select your industry" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="ecommerce">E-commerce</SelectItem>
+                              <SelectItem value="healthcare">Healthcare</SelectItem>
+                              <SelectItem value="finance">Finance</SelectItem>
+                              <SelectItem value="real-estate">Real Estate</SelectItem>
+                              <SelectItem value="education">Education</SelectItem>
+                              <SelectItem value="technology">Technology</SelectItem>
+                              <SelectItem value="other">Other</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="company">Company Name *</Label>
-                    <Input id="company" placeholder="Your company name" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="industry">Industry</Label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select your industry" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="ecommerce">E-commerce</SelectItem>
-                        <SelectItem value="healthcare">Healthcare</SelectItem>
-                        <SelectItem value="finance">Finance</SelectItem>
-                        <SelectItem value="real-estate">Real Estate</SelectItem>
-                        <SelectItem value="education">Education</SelectItem>
-                        <SelectItem value="technology">Technology</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="consultation">Consultation Type *</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select consultation type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="strategy">AI Strategy Consultation (60 min)</SelectItem>
-                      <SelectItem value="discovery">Quick Discovery Call (30 min)</SelectItem>
-                      <SelectItem value="technical">Technical Deep Dive (90 min)</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="goals">What are your main automation goals? *</Label>
-                  <Textarea 
-                    id="goals" 
-                    placeholder="Tell us about your current challenges and what you'd like to achieve with AI automation..."
-                    rows={4}
+                  
+                  <FormField
+                    control={form.control}
+                    name="consultationType"
+                    rules={{ required: "Please select a consultation type" }}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Consultation Type *</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select consultation type" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="strategy">AI Strategy Consultation (60 min)</SelectItem>
+                            <SelectItem value="discovery">Quick Discovery Call (30 min)</SelectItem>
+                            <SelectItem value="technical">Technical Deep Dive (90 min)</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="timeline">Expected Timeline</Label>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="When are you looking to implement?" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="immediate">Immediately</SelectItem>
-                      <SelectItem value="1-month">Within 1 month</SelectItem>
-                      <SelectItem value="3-months">Within 3 months</SelectItem>
-                      <SelectItem value="6-months">Within 6 months</SelectItem>
-                      <SelectItem value="exploring">Just exploring</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <Button variant="hero" size="lg" className="w-full group">
-                  Schedule My Free Consultation
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                
-                <p className="text-sm text-muted-foreground text-center">
-                  By submitting this form, you agree to our privacy policy and terms of service.
-                </p>
-              </form>
+                  
+                  <FormField
+                    control={form.control}
+                    name="goals"
+                    rules={{ required: "Please describe your automation goals" }}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>What are your main automation goals? *</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            placeholder="Tell us about your current challenges and what you'd like to achieve with AI automation..."
+                            rows={4}
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="timeline"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Expected Timeline</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="When are you looking to implement?" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="immediate">Immediately</SelectItem>
+                            <SelectItem value="1-month">Within 1 month</SelectItem>
+                            <SelectItem value="3-months">Within 3 months</SelectItem>
+                            <SelectItem value="6-months">Within 6 months</SelectItem>
+                            <SelectItem value="exploring">Just exploring</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <Button 
+                    type="submit" 
+                    variant="hero" 
+                    size="lg" 
+                    className="w-full group" 
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Submitting..." : "Schedule My Free Consultation"}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                  
+                  <p className="text-sm text-muted-foreground text-center">
+                    By submitting this form, you agree to our privacy policy and terms of service.
+                  </p>
+                </form>
+              </Form>
             </CardContent>
           </Card>
         </div>
