@@ -8,57 +8,62 @@ import { CheckCircle, ArrowRight, Star, Zap } from "lucide-react";
 const Pricing = () => {
   const plans = [
     {
-      name: "Starter",
-      price: "$499",
+      name: "AI Chatbot Starter",
+      price: "$299",
       period: "/month",
-      description: "Perfect for small businesses getting started with AI automation",
+      description: "Perfect for small businesses starting with AI chatbot automation",
       features: [
-        "AI Chatbot for 1 platform",
-        "Basic voice agent setup",
-        "Email automation workflows",
-        "WhatsApp integration",
+        "Website Live Chat Integration",
+        "WhatsApp Business Automation",
+        "Lead Qualification & Capture",
+        "Multi-language Support",
+        "Custom Knowledge Base Training",
         "24/7 chat support",
-        "Basic analytics dashboard",
-        "Up to 1,000 conversations/month"
+        "Up to 1,000 conversations/month",
+        "Basic analytics dashboard"
       ],
       highlighted: false,
       cta: "Start Free Trial"
     },
     {
-      name: "Business",
-      price: "$1,299",
+      name: "AI Business Suite",
+      price: "$899",
       period: "/month",
-      description: "Comprehensive AI automation for growing businesses",
+      description: "Complete AI automation suite for growing businesses",
       features: [
-        "AI Chatbots for 3 platforms",
-        "Advanced voice agent with IVR",
-        "Custom automation workflows",
-        "CRM integration (Zoho, Salesforce)",
-        "Advanced analytics & reporting",
+        "AI Chatbots (Multiple Platforms)",
+        "AI Voice Agents with IVR",
+        "Custom AI Automation Workflows",
+        "AI Website Design Tools",
+        "Lead Generation Automation",
+        "Email Marketing Sequences",
+        "CRM Integration (Zoho, Salesforce)",
+        "Social Media Automation",
+        "Advanced Analytics & Reporting",
         "Priority support",
-        "Up to 5,000 conversations/month",
-        "Lead scoring & qualification",
-        "Multi-language support"
+        "Up to 5,000 conversations/month"
       ],
       highlighted: true,
       cta: "Most Popular"
     },
     {
-      name: "Enterprise",
+      name: "Enterprise AI",
       price: "Custom",
       period: "Quote",
       description: "Fully customized AI solutions for large organizations",
       features: [
-        "Unlimited AI chatbots & platforms",
-        "Enterprise voice agent system",
-        "Custom AI model development",
-        "Full system integrations",
-        "Dedicated account manager",
-        "24/7 premium support",
-        "Unlimited conversations",
-        "Advanced security & compliance",
-        "Custom training & onboarding",
-        "API access & white-labeling"
+        "Unlimited AI Chatbots & Platforms",
+        "Advanced AI Voice Agent System",
+        "Custom AI Model Development",
+        "AI Website Design & Development",
+        "Complete Workflow Automation",
+        "Full System Integrations",
+        "Dedicated Account Manager",
+        "24/7 Premium Support",
+        "Unlimited Conversations",
+        "Advanced Security & Compliance",
+        "Custom Training & Onboarding",
+        "API Access & White-labeling"
       ],
       highlighted: false,
       cta: "Contact Sales"
@@ -67,24 +72,34 @@ const Pricing = () => {
 
   const addOns = [
     {
+      name: "AI Voice Agent Upgrade",
+      price: "$399/month",
+      description: "Add advanced voice automation with IVR, appointment scheduling, and call analytics"
+    },
+    {
+      name: "AI Website Design Service",
+      price: "$799 one-time",
+      description: "Complete AI-powered website design with responsive layouts and SEO optimization"
+    },
+    {
+      name: "Custom Automation Workflows",
+      price: "$499/month",
+      description: "Tailored workflow solutions for lead generation, email marketing, and CRM management"
+    },
+    {
       name: "Additional Platform Integration",
       price: "$199/month",
-      description: "Connect additional platforms like Instagram, Telegram, or custom apps"
+      description: "Connect additional platforms like Instagram, Telegram, or custom business apps"
     },
     {
       name: "Advanced Analytics Suite",
       price: "$299/month", 
-      description: "Deep insights, custom reports, and business intelligence dashboards"
-    },
-    {
-      name: "Custom AI Model Training",
-      price: "$999 one-time",
-      description: "Train AI models on your specific data and use cases"
+      description: "Deep insights, custom reports, and comprehensive business intelligence dashboards"
     },
     {
       name: "24/7 Priority Support",
       price: "$199/month",
-      description: "Dedicated support line with guaranteed response times"
+      description: "Dedicated support line with guaranteed response times and account management"
     }
   ];
 
