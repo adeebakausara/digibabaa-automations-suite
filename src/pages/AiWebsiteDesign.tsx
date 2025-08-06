@@ -92,31 +92,31 @@ const AiWebsiteDesign = () => {
                 title: "Real Estate Lead Generation Platform",
                 description: "An AI-powered platform that helps real estate agents generate qualified leads through smart data analysis, personalized property recommendations, and client tracking tools.",
                 image: realEstatePortfolio,
-                link: "https://ai-propel-leads.lovable.app/"
+                link: "#"
               },
               {
                 title: "Restaurant Chain AI Automation",
                 description: "AI-driven automation system for restaurant chains, featuring real-time order processing, automated reservations, and personalized customer insights.",
                 image: restaurantPortfolio,
-                link: "https://flavor-flow-automation.lovable.app/#dashboard"
+                link: "#"
               },
               {
                 title: "Financial Services Digital Transformation",
                 description: "An AI platform for financial services, offering predictive analytics, automated client engagement, and advanced reporting features for enhanced decision-making.",
                 image: fintechPortfolio,
-                link: "https://fin-nova-ignite.lovable.app/"
+                link: "#"
               },
               {
                 title: "SaaS Platform AI Integration",
                 description: "Seamlessly integrates AI capabilities into SaaS platforms with real-time analytics, automated customer support, and personalized service recommendations.",
                 image: saasPortfolio,
-                link: "https://saas-ai-catalyst.lovable.app/"
+                link: "#"
               },
               {
                 title: "E-commerce Complete AI Solution",
                 description: "An AI-powered e-commerce platform that offers personalized shopping experiences, automated inventory management, and AI-driven customer engagement.",
                 image: ecommercePortfolio,
-                link: "https://ai-shop-glow.lovable.app"
+                link: "#"
               }
             ].map((project, index) => (
               <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden bg-card/50 backdrop-blur-sm border border-primary/10">
