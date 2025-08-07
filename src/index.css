@@ -49,6 +49,7 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--neon-blue)));
     --gradient-purple: linear-gradient(135deg, hsl(var(--purple-start)), hsl(var(--purple-end)));
     --gradient-ai: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--aqua)));
+    --gradient-chat: linear-gradient(135deg, hsl(var(--electric-blue)) 0%, hsl(var(--aqua)) 50%, hsl(var(--neon-blue)) 100%);
 
     /* Effects */
     --glow-primary: 0 0 30px hsl(var(--electric-blue) / 0.3);

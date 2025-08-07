@@ -111,7 +111,8 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-purple': 'var(--gradient-purple)',
-				'gradient-ai': 'var(--gradient-ai)'
+				'gradient-ai': 'var(--gradient-ai)',
+				'gradient-chat': 'var(--gradient-chat)'
 			},
 			boxShadow: {
 				'glow-primary': 'var(--glow-primary)',

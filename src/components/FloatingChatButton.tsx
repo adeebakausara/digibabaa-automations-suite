@@ -10,34 +10,30 @@ export const FloatingChatButton = () => {
   return (
     <>
       {/* Floating Chat Button */}
-      <Button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 z-50 h-12 w-12 sm:h-14 sm:w-14 sm:bottom-6 sm:right-6 rounded-full shadow-elegant hover:shadow-glow bg-primary hover:bg-primary/90 text-white"
-        size="sm"
-      >
-        <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
-      </Button>
+      <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+        {/* Pulse Ring Animation */}
+        <div className="absolute inset-0 rounded-full bg-primary/30 animate-ping"></div>
+        <div className="absolute inset-0 rounded-full bg-primary/20 animate-pulse"></div>
+        
+        <Button
+          onClick={() => setIsOpen(true)}
+          className="relative h-14 w-14 sm:h-16 sm:w-16 rounded-full shadow-elegant hover:shadow-glow bg-gradient-primary hover:bg-primary/90 text-white hover:scale-110 transition-all duration-300 group"
+          size="sm"
+        >
+          <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 relative z-10 group-hover:scale-110 transition-transform duration-300" />
+          
+          {/* Notification Badge */}
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-bounce">
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+        </Button>
+      </div>
 
       {/* Chat Dialog */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-2xl max-h-[80vh] m-4 max-w-[calc(100vw-2rem)]">
-          <DialogHeader>
-            <DialogTitle className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <MessageCircle className="h-5 w-5 text-primary" />
-                AI Assistant
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsOpen(false)}
-                className="h-6 w-6 p-0"
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </DialogTitle>
-          </DialogHeader>
-          <div className="mt-4">
+        <DialogContent className="sm:max-w-3xl max-h-[95vh] m-2 sm:m-4 max-w-[calc(100vw-1rem)] p-0 border-0 shadow-2xl rounded-3xl overflow-hidden">
+          <div className="relative">
             <ChatInterface />
           </div>
         </DialogContent>
