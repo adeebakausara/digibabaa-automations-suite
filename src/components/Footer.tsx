@@ -5,9 +5,9 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {/* Logo & Description */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 sm:col-span-2 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="relative">
                 <Bot className="h-8 w-8 text-primary" />
@@ -22,7 +22,7 @@ const Footer = () => {
               Transform your operations with intelligent chatbots, voice agents, 
               and custom automation workflows.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="https://www.linkedin.com/in/akbar-fitness-marketing/"
                 target="_blank"
@@ -108,7 +108,7 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm">
               © 2024 DigiBabaa. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex flex-wrap gap-4 sm:gap-6 mt-4 md:mt-0">
               <Link
                 to="/privacy"
                 className="text-muted-foreground hover:text-primary text-sm transition-colors duration-300"

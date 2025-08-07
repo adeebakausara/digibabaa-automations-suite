@@ -120,5 +120,30 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    /* Improve text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+  }
+
+  /* Improve touch targets on mobile */
+  button, input, select, textarea {
+    @apply min-h-[44px]; /* Apple's recommended minimum touch target size */
+  }
+
+  /* Better focus styles for mobile */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* Prevent zoom on form inputs on iOS */
+  input[type="text"], 
+  input[type="email"], 
+  input[type="tel"], 
+  input[type="password"], 
+  select, 
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
   }
 }

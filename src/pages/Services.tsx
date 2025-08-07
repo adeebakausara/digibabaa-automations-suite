@@ -118,10 +118,10 @@ const Services = () => {
           <Badge variant="secondary" className="mb-6">
             🚀 Complete AI Service Suite
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Our <span className="bg-gradient-primary bg-clip-text text-transparent">AI Services</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
             Comprehensive AI-powered automation solutions designed to transform your business operations and drive growth.
           </p>
           <Button variant="hero" size="lg">

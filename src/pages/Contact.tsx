@@ -102,13 +102,13 @@ const Contact = () => {
           <Badge variant="secondary" className="mb-6">
             📞 Get In Touch
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Let's Build Your <span className="bg-gradient-primary bg-clip-text text-transparent">AI Future</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed">
             Ready to transform your business with AI automation? Get a free consultation and discover how we can help you achieve your goals.
           </p>
-          <div className="flex items-center justify-center gap-6 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-8">
             <div className="flex items-center text-green-400">
               <CheckCircle className="h-5 w-5 mr-2" />
               <span>Free Consultation</span>
@@ -128,7 +128,7 @@ const Contact = () => {
       {/* Contact Form & Info */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             
             {/* Contact Form */}
             <div className="lg:col-span-2">

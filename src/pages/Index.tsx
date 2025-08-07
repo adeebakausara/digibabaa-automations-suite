@@ -124,11 +124,11 @@ const Index = () => {
         href="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 left-6 z-40 bg-gradient-primary text-white px-4 py-3 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 group"
+        className="fixed bottom-4 left-4 z-40 bg-gradient-primary text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 group text-xs sm:text-sm font-medium"
       >
-        <Calendar className="h-5 w-5" />
-        <span className="hidden md:inline text-sm font-medium">Book Free Consultation</span>
-        <span className="md:hidden text-sm font-medium">Book Call</span>
+        <Calendar className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+        <span className="hidden sm:inline">Book Free Consultation</span>
+        <span className="sm:hidden">Book Call</span>
       </a>
       
       {/* Hero Section */}
@@ -147,14 +147,14 @@ const Index = () => {
             🚀 AI-Powered Business Automation
           </Badge>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
             Transform Your Business with{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Intelligent Automation
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in leading-relaxed">
             Unlock the power of AI chatbots, voice agents, and custom automation 
             to streamline operations and boost productivity across all platforms.
           </p>
@@ -203,7 +203,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {displayServices.map((service, index) => {
               const IconComponent = service.icon ? iconMap[service.icon] || MessageSquare : MessageSquare;
               const colors = ["text-primary", "text-aqua", "text-purple-start", "text-soft-teal"];
@@ -250,7 +250,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Isabella Hawke - VerdeVitae */}
             <Card className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 overflow-hidden">
               <CardContent className="p-0">
@@ -355,7 +355,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {displayTestimonials.map((testimonial, index) => (
               <Card key={testimonial.id || index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
                 <CardContent className="p-6">
