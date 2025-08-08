@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, ArrowRight, Star, Zap } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 
 const Pricing = () => {
   const plans = [
@@ -290,6 +291,7 @@ const Pricing = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

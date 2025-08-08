@@ -17,6 +17,7 @@ import {
   Settings,
   Users
 } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 
 const AiVoiceAgent = () => {
   const [currentVideoUrl, setCurrentVideoUrl] = useState<string>("");
@@ -134,6 +135,7 @@ const AiVoiceAgent = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

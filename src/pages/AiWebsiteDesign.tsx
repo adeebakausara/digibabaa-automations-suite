@@ -16,6 +16,7 @@ import {
   Search,
   ShoppingCart
 } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 
 // Import portfolio images
 import realEstatePortfolio from "@/assets/real-estate-portfolio.jpg";
@@ -228,6 +229,7 @@ const AiWebsiteDesign = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

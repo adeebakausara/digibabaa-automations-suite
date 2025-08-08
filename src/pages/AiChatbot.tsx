@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ChatInterface } from "@/components/ChatInterface";
 import { MessageCircle, Globe, Facebook, Instagram, MessageSquare, Phone, Calendar } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 
 const AiChatbot = () => {
   const [messages, setMessages] = useState([
@@ -150,6 +151,7 @@ const AiChatbot = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

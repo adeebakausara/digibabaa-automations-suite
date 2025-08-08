@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { blogPosts, blogCategories, getBlogPostsByCategory } from '../data/blogPosts';
 import { Calendar, Clock, ArrowRight, Search, Filter } from 'lucide-react';
+import { BookConsultationButton } from '../components/BookConsultationButton';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardHeader } from '../components/ui/card';
@@ -207,6 +208,7 @@ const Blog = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

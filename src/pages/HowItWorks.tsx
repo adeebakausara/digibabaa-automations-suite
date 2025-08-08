@@ -14,6 +14,7 @@ import {
   Clock,
   Target
 } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 
 const HowItWorks = () => {
   const steps = [
@@ -162,6 +163,7 @@ const HowItWorks = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

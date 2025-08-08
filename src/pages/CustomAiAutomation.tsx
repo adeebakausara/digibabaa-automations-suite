@@ -14,6 +14,7 @@ import {
   Workflow,
   Target
 } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 
 const CustomAiAutomation = () => {
   const features = [
@@ -202,6 +203,7 @@ const CustomAiAutomation = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

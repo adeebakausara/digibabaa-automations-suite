@@ -21,6 +21,7 @@ import {
   CheckCircle,
   Zap
 } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -420,6 +421,7 @@ const Contact = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );
