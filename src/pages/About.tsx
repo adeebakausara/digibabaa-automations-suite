@@ -15,6 +15,7 @@ import {
   Lightbulb,
   Zap
 } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 
 const About = () => {
   const values = [
@@ -281,6 +282,7 @@ const About = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

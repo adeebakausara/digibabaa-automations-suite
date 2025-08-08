@@ -16,6 +16,7 @@ import {
   Mail,
   ShoppingCart
 } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 import chatbotsImage from "@/assets/ai-chatbots.jpg";
 import voiceImage from "@/assets/ai-voice-agents.jpg";
 import automationImage from "@/assets/custom-automation.jpg";
@@ -256,6 +257,7 @@ const Services = () => {
         </div>
       </section>
 
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
     </div>
   );

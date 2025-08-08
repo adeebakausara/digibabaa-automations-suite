@@ -4,24 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Quote, Play, TrendingUp, Users, Award, Calendar, Sparkles, Video, ArrowRight, CheckCircle } from "lucide-react";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 import { useState } from "react";
 
 const Testimonials = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // Floating Calendly Button
-  const CalendlyButton = () => (
-    <a 
-      href="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-gradient-primary text-white px-4 py-3 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 group"
-    >
-      <Calendar className="h-5 w-5" />
-      <span className="hidden md:inline text-sm font-medium">Book Free Consultation</span>
-      <span className="md:hidden text-sm font-medium">Book Call</span>
-    </a>
-  );
 
   const testimonials = [
     {
@@ -61,7 +49,7 @@ const Testimonials = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <CalendlyButton />
+      <BookConsultationButton variant="fixed" position="bottom-right" />
       
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">

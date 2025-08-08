@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
-
 import Footer from "@/components/Footer";
+import { BookConsultationButton } from "@/components/BookConsultationButton";
 import { Link } from "react-router-dom";
 import { 
   Bot, 
@@ -119,17 +119,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Floating Calendly Button */}
-      <a 
-        href="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 left-4 z-40 bg-gradient-primary text-white px-3 py-2 sm:px-4 sm:py-3 rounded-full shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 flex items-center gap-2 group text-xs sm:text-sm font-medium"
-      >
-        <Calendar className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-        <span className="hidden sm:inline">Book Free Consultation</span>
-        <span className="sm:hidden">Book Call</span>
-      </a>
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
