@@ -49,7 +49,7 @@ const Testimonials = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <BookConsultationButton variant="fixed" position="bottom-right" />
+      <BookConsultationButton variant="fixed" position="bottom-left" />
       
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
