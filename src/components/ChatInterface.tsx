@@ -135,8 +135,8 @@ export const ChatInterface = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col max-h-full">
-      <Card className="flex-1 h-full shadow-2xl border-0 bg-gradient-to-br from-background via-card/90 to-card/50 overflow-hidden relative rounded-2xl sm:rounded-3xl flex flex-col min-h-0">
+    <div className="w-full h-full flex flex-col">
+      <Card className="flex-1 h-full shadow-lg border-0 bg-card overflow-hidden relative rounded-xl flex flex-col">
         {/* Animated background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] animate-pulse"></div>
@@ -224,15 +224,15 @@ export const ChatInterface = () => {
                   </Avatar>
                 )}
                 
-                <div className={`max-w-[80%] sm:max-w-[75%] ${message.isUser ? 'order-first' : ''}`}>
+                <div className={`max-w-[75%] sm:max-w-[70%] ${message.isUser ? 'order-first' : ''}`}>
                   <div
-                    className={`p-3 sm:p-4 rounded-3xl shadow-md transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5 ${
+                    className={`p-2 sm:p-3 rounded-2xl shadow-sm transition-all duration-300 ${
                       message.isUser
-                        ? 'bg-gradient-primary text-white rounded-br-lg shadow-primary/20'
-                        : 'bg-card border border-border/30 text-card-foreground rounded-bl-lg shadow-xl'
+                        ? 'bg-gradient-primary text-white rounded-br-lg'
+                        : 'bg-card border border-border/30 text-card-foreground rounded-bl-lg'
                     }`}
                   >
-                    <p className="text-sm leading-relaxed whitespace-pre-wrap font-medium">{message.text}</p>
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">{message.text}</p>
                   </div>
                   <div className={`flex items-center gap-2 mt-2 px-2 ${message.isUser ? 'justify-end' : 'justify-start'}`}>
                     <p className="text-xs text-muted-foreground">
@@ -267,34 +267,24 @@ export const ChatInterface = () => {
                     <Star className="h-4 w-4 sm:h-5 sm:w-5" />
                   </AvatarFallback>
                 </Avatar>
-                <div className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-3 sm:p-4 rounded-3xl rounded-bl-lg shadow-xl max-w-[90%]">
-                  <p className="text-sm font-medium text-foreground mb-3">Ready to get started? 🚀</p>
-                  <div className="flex flex-wrap gap-2">
+                <div className="bg-primary/5 border border-primary/20 p-2 sm:p-3 rounded-2xl rounded-bl-lg shadow-sm max-w-[85%]">
+                  <p className="text-xs font-medium text-foreground mb-2">Ready to get started? 🚀</p>
+                  <div className="flex flex-wrap gap-1">
                     <Button 
                       size="sm" 
-                      className="bg-primary text-white hover:bg-primary/90 rounded-full text-xs"
+                      className="bg-primary text-white hover:bg-primary/90 rounded-full text-xs h-7"
                       onClick={() => window.open('/contact', '_blank')}
                     >
-                      <Phone className="h-3 w-3 mr-1" />
-                      Free Call
+                      <Phone className="h-2 w-2 mr-1" />
+                      Call
                     </Button>
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      className="rounded-full text-xs border-primary text-primary hover:bg-primary/10"
+                      className="rounded-full text-xs h-7 border-primary text-primary hover:bg-primary/10"
                       onClick={() => window.open('/pricing', '_blank')}
                     >
-                      <ArrowRight className="h-3 w-3 mr-1" />
-                      See Pricing
-                    </Button>
-                    <Button 
-                      size="sm" 
-                      variant="outline" 
-                      className="rounded-full text-xs border-accent text-accent hover:bg-accent/10"
-                      onClick={() => window.open('/demo', '_blank')}
-                    >
-                      <Globe className="h-3 w-3 mr-1" />
-                      Live Demo
+                      Pricing
                     </Button>
                   </div>
                 </div>
