@@ -135,8 +135,8 @@ export const ChatInterface = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col">
-      <Card className="flex-1 h-full shadow-2xl border-0 bg-gradient-to-br from-background via-card/90 to-card/50 overflow-hidden relative rounded-2xl sm:rounded-3xl flex flex-col">
+    <div className="w-full h-full flex flex-col max-h-full">
+      <Card className="flex-1 h-full shadow-2xl border-0 bg-gradient-to-br from-background via-card/90 to-card/50 overflow-hidden relative rounded-2xl sm:rounded-3xl flex flex-col min-h-0">
         {/* Animated background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] animate-pulse"></div>
