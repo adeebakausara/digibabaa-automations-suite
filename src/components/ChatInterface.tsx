@@ -136,8 +136,8 @@ export const ChatInterface = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-2 sm:p-4">
-      <Card className="h-[700px] shadow-2xl border-0 bg-gradient-to-br from-background via-card/90 to-card/50 overflow-hidden relative rounded-3xl">
+    <div className="w-full h-full flex flex-col">
+      <Card className="flex-1 h-full shadow-2xl border-0 bg-gradient-to-br from-background via-card/90 to-card/50 overflow-hidden relative rounded-2xl sm:rounded-3xl flex flex-col">
         {/* Animated background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] animate-pulse"></div>
@@ -195,9 +195,9 @@ export const ChatInterface = () => {
           </div>
         </CardHeader>
 
-        <CardContent className="flex flex-col h-[600px] p-0 relative">
+        <CardContent className="flex flex-col flex-1 p-0 relative min-h-0">
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-4 sm:space-y-6 bg-gradient-to-b from-background/30 via-background/10 to-background/50 backdrop-blur-sm">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4 bg-gradient-to-b from-background/30 via-background/10 to-background/50 backdrop-blur-sm">
             {/* Welcome Animation */}
             {isTyping && (
               <div className="flex gap-3 sm:gap-4 justify-start animate-fade-in">
@@ -334,19 +334,20 @@ export const ChatInterface = () => {
 
           {/* Quick Suggestions */}
           {showSuggestions && messages.length <= 1 && (
-            <div className="p-3 sm:p-4 border-t border-border/30 bg-background/50 backdrop-blur-sm">
-              <p className="text-xs text-muted-foreground mb-3 font-medium">💬 Quick questions to get started:</p>
-              <div className="flex flex-wrap gap-2">
+            <div className="p-3 sm:p-4 border-t border-border/30 bg-background/50 backdrop-blur-sm flex-shrink-0">
+              <p className="text-xs text-muted-foreground mb-2 sm:mb-3 font-medium">💬 Quick questions to get started:</p>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {quickSuggestions.map((suggestion, index) => (
                   <Button
                     key={index}
                     size="sm"
                     variant="outline"
                     onClick={() => handleSuggestionClick(suggestion.text)}
-                    className="rounded-full text-xs h-auto py-2 px-3 border-primary/30 text-primary hover:bg-primary/10 hover:scale-105 transition-all duration-300"
+                    className="rounded-full text-xs h-auto py-1.5 sm:py-2 px-2 sm:px-3 border-primary/30 text-primary hover:bg-primary/10 hover:scale-105 transition-all duration-300"
                   >
                     <span className="mr-1">{suggestion.icon}</span>
-                    {suggestion.text}
+                    <span className="hidden sm:inline">{suggestion.text}</span>
+                    <span className="sm:hidden">{suggestion.text.split(' ')[0]}</span>
                   </Button>
                 ))}
               </div>
@@ -354,16 +355,16 @@ export const ChatInterface = () => {
           )}
 
           {/* Input */}
-          <div className="relative border-t bg-card/80 backdrop-blur-md p-3 sm:p-6">
-            <form onSubmit={handleSubmit} className="flex gap-2 sm:gap-4">
+          <div className="relative border-t bg-card/80 backdrop-blur-md p-3 sm:p-4 flex-shrink-0">
+            <form onSubmit={handleSubmit} className="flex gap-2 sm:gap-3">
               <div className="flex-1 relative">
                 <Input
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="💬 Type your message here... (emojis supported! 😊)"
+                  placeholder="💬 Type your message here..."
                   disabled={isLoading}
-                  className="pr-12 py-3 sm:py-4 text-sm sm:text-base rounded-2xl border-2 border-border/30 focus:border-primary/50 bg-background/90 shadow-lg hover:shadow-xl transition-all duration-300 placeholder:text-muted-foreground/60 text-foreground min-h-[44px]"
+                  className="pr-10 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-border/30 focus:border-primary/50 bg-background/90 shadow-lg hover:shadow-xl transition-all duration-300 placeholder:text-muted-foreground/60 text-foreground min-h-[40px] sm:min-h-[44px]"
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground/40">
                   <MessageSquare className="h-4 w-4" />
@@ -373,15 +374,16 @@ export const ChatInterface = () => {
                 type="submit"
                 disabled={isLoading || !inputValue.trim()}
                 size="lg"
-                className="h-12 w-12 sm:h-14 sm:w-14 rounded-2xl bg-gradient-primary hover:bg-primary/90 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-gradient-primary hover:bg-primary/90 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
               >
                 <Send className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </form>
-            <div className="flex items-center justify-center mt-2 sm:mt-3 gap-2 flex-wrap">
+            <div className="flex items-center justify-center mt-2 gap-2 flex-wrap">
               <div className="flex items-center gap-1">
                 <Sparkles className="h-3 w-3 text-primary/60" />
-                <p className="text-xs text-muted-foreground/80 font-medium">Press Enter to send</p>
+                <p className="text-xs text-muted-foreground/80 font-medium hidden sm:inline">Press Enter to send</p>
+                <p className="text-xs text-muted-foreground/80 font-medium sm:hidden">Enter to send</p>
               </div>
               <span className="text-muted-foreground/40 hidden sm:inline">•</span>
               <p className="text-xs text-muted-foreground/80 font-medium">Powered by DigiBabaa AI</p>

@@ -10,7 +10,7 @@ export const FloatingChatButton = () => {
   return (
     <>
       {/* Floating Chat Button */}
-      <div className="fixed bottom-4 right-4 z-50 sm:bottom-6 sm:right-6">
+      <div className="fixed bottom-20 right-4 z-40 sm:bottom-6 sm:right-6">
         {/* Pulse Ring Animation */}
         <div className="absolute inset-0 rounded-full bg-primary/30 animate-ping"></div>
         <div className="absolute inset-0 rounded-full bg-primary/20 animate-pulse"></div>
@@ -32,8 +32,8 @@ export const FloatingChatButton = () => {
 
       {/* Chat Dialog */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-3xl max-h-[95vh] m-2 sm:m-4 max-w-[calc(100vw-1rem)] p-0 border-0 shadow-2xl rounded-3xl overflow-hidden">
-          <div className="relative">
+        <DialogContent className="sm:max-w-4xl w-[calc(100vw-1rem)] sm:w-full max-h-[95vh] h-[95vh] sm:h-auto m-2 sm:m-4 p-0 border-0 shadow-2xl rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col">
+          <div className="relative flex-1 overflow-hidden">
             <ChatInterface />
           </div>
         </DialogContent>
