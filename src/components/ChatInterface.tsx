@@ -23,11 +23,10 @@ export const ChatInterface = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const quickSuggestions = [
-    { icon: "🤖", text: "Tell me about AI Chatbots", category: "product" },
-    { icon: "🎙️", text: "How do voice agents work?", category: "product" },
-    { icon: "💰", text: "What are your pricing plans?", category: "pricing" },
-    { icon: "📞", text: "Book a free consultation", category: "cta" },
-    { icon: "🚀", text: "See a live demo", category: "cta" }
+    { icon: "🤖", text: "AI Chatbots", category: "product" },
+    { icon: "🎙️", text: "Voice Agents", category: "product" },
+    { icon: "💰", text: "Pricing", category: "pricing" },
+    { icon: "📞", text: "Book Call", category: "cta" }
   ];
 
   const languageLabels = {
@@ -37,9 +36,9 @@ export const ChatInterface = () => {
   };
 
   const greetings = {
-    en: "Hello! ✨ I'm your AI assistant from DigiBabaa. I'm here to help you discover how our AI solutions can transform your business. Whether you want to know about our chatbots, voice agents, or custom automation - I've got you covered! What would you like to explore?",
-    ar: "مرحباً! ✨ أنا مساعدك الذكي من ديجي بابا. أنا هنا لمساعدتك في اكتشاف كيف يمكن لحلولنا الذكية أن تحول عملك. سواء كنت تريد معرفة المزيد عن الشات بوت أو وكلاء الصوت أو الأتمتة المخصصة - لدي كل ما تحتاج إليه!",
-    ur: "السلام علیکم! ✨ میں ڈیجی بابا کا AI اسسٹنٹ ہوں۔ میں آپ کو یہ دکھانے کے لیے یہاں ہوں کہ ہمارے AI حل آپ کے کاروبار کو کیسے تبدیل کر سکتے ہیں۔ چاہے آپ چیٹ بوٹس، وائس ایجنٹس، یا کسٹم آٹومیشن کے بارے میں جاننا چاہتے ہوں - میں آپ کی مدد کے لیے یہاں ہوں!"
+    en: "Hi! I'm DigiBabaa AI. How can I help you today?",
+    ar: "مرحباً! أنا ديجي بابا AI. كيف يمكنني مساعدتك؟",
+    ur: "ہیلو! میں ڈیجی بابا AI ہوں۔ کیسے مدد کر سکتا ہوں؟"
   };
 
   const scrollToBottom = () => {
@@ -106,9 +105,9 @@ export const ChatInterface = () => {
     } catch (error) {
       console.error('Error sending message:', error);
       const errorMessages = {
-        en: "I'm experiencing some technical difficulties at the moment. 🔧 Please try again in a few seconds, or feel free to book a consultation for immediate assistance!",
-        ar: "أواجه بعض الصعوبات التقنية في الوقت الحالي. 🔧 يرجى المحاولة مرة أخرى خلال ثوانٍ قليلة، أو لا تتردد في حجز استشارة للحصول على المساعدة الفورية!",
-        ur: "فی الوقت میں کچھ تکنیکی مشکلات کا سامنا کر رہا ہوں۔ 🔧 براہ کرم کچھ سیکنڈ میں دوبارہ کوشش کریں، یا فوری مدد کے لیے مشاورت بک کرنے میں ہچکچاہٹ محسوس نہ کریں!"
+        en: "Something went wrong. Please try again.",
+        ar: "حدث خطأ. يرجى المحاولة مرة أخرى.",
+        ur: "کچھ غلط ہوا۔ دوبارہ کوشش کریں۔"
       };
       
       const errorMessage: Message = {
@@ -269,7 +268,7 @@ export const ChatInterface = () => {
                   </AvatarFallback>
                 </Avatar>
                 <div className="bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 p-3 sm:p-4 rounded-3xl rounded-bl-lg shadow-xl max-w-[90%]">
-                  <p className="text-sm font-medium text-foreground mb-3">Ready to transform your business? 🚀</p>
+                  <p className="text-sm font-medium text-foreground mb-3">Ready to get started? 🚀</p>
                   <div className="flex flex-wrap gap-2">
                     <Button 
                       size="sm" 
@@ -327,7 +326,7 @@ export const ChatInterface = () => {
           {/* Quick Suggestions */}
           {showSuggestions && messages.length <= 1 && (
             <div className="p-3 sm:p-4 border-t border-border/30 bg-background/50 backdrop-blur-sm flex-shrink-0">
-              <p className="text-xs text-muted-foreground mb-2 sm:mb-3 font-medium">💬 Quick questions to get started:</p>
+              <p className="text-xs text-muted-foreground mb-2 sm:mb-3 font-medium">Quick questions:</p>
               <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {quickSuggestions.map((suggestion, index) => (
                   <Button
@@ -350,13 +349,13 @@ export const ChatInterface = () => {
           <div className="relative border-t bg-card/80 backdrop-blur-md p-3 sm:p-4 flex-shrink-0">
             <form onSubmit={handleSubmit} className="flex gap-2 sm:gap-3">
               <div className="flex-1 relative">
-                <Input
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="💬 Type your message here..."
-                  disabled={isLoading}
-                  className="pr-10 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-border/30 focus:border-primary/50 bg-background/90 shadow-lg hover:shadow-xl transition-all duration-300 placeholder:text-muted-foreground/60 text-foreground min-h-[40px] sm:min-h-[44px]"
+                 <Input
+                   value={inputValue}
+                   onChange={(e) => setInputValue(e.target.value)}
+                   onKeyPress={handleKeyPress}
+                   placeholder="Type message..."
+                   disabled={isLoading}
+                   className="pr-10 py-2.5 sm:py-3 text-sm sm:text-base rounded-xl border-2 border-border/30 focus:border-primary/50 bg-background/90 shadow-lg hover:shadow-xl transition-all duration-300 placeholder:text-muted-foreground/60 text-foreground min-h-[40px] sm:min-h-[44px]"
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground/40">
                   <MessageSquare className="h-4 w-4" />
@@ -371,14 +370,8 @@ export const ChatInterface = () => {
                 <Send className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </form>
-            <div className="flex items-center justify-center mt-2 gap-2 flex-wrap">
-              <div className="flex items-center gap-1">
-                <Sparkles className="h-3 w-3 text-primary/60" />
-                <p className="text-xs text-muted-foreground/80 font-medium hidden sm:inline">Press Enter to send</p>
-                <p className="text-xs text-muted-foreground/80 font-medium sm:hidden">Enter to send</p>
-              </div>
-              <span className="text-muted-foreground/40 hidden sm:inline">•</span>
-              <p className="text-xs text-muted-foreground/80 font-medium">Powered by DigiBabaa AI</p>
+            <div className="flex items-center justify-center mt-1 gap-2">
+              <p className="text-xs text-muted-foreground/60">Enter to send</p>
             </div>
           </div>
         </CardContent>
