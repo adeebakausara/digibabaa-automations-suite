@@ -143,38 +143,30 @@ export const ChatInterface = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] animate-pulse"></div>
         </div>
 
-        <CardHeader className="relative p-4 sm:p-6 bg-gradient-primary text-white overflow-hidden rounded-t-3xl">
-          {/* Floating particles effect */}
-          <div className="absolute inset-0">
-            <div className="absolute top-2 left-4 w-1 h-1 bg-white/30 rounded-full animate-bounce"></div>
-            <div className="absolute top-6 right-8 w-1.5 h-1.5 bg-white/20 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-            <div className="absolute bottom-3 left-1/3 w-1 h-1 bg-white/25 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/2 right-4 w-0.5 h-0.5 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '1.5s' }}></div>
-          </div>
-          
+        <CardHeader className="relative p-2 sm:p-3 bg-gradient-primary text-white overflow-hidden rounded-t-2xl">          
           <div className="relative flex items-center justify-between">
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div className="relative">
-                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-lg">
-                  <Bot className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 shadow-lg">
+                  <Bot className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
+                <div className="absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
               </div>
               <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-bold text-lg sm:text-xl">DigiBabaa AI</span>
-                  <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-300 animate-pulse" />
+                <div className="flex items-center gap-1 mb-0.5">
+                  <span className="font-bold text-sm sm:text-lg">DigiBabaa AI</span>
+                  <Sparkles className="h-2 w-2 sm:h-3 sm:w-3 text-yellow-300 animate-pulse" />
                 </div>
-                <p className="text-white/90 text-xs sm:text-sm font-medium">Your Business Intelligence Assistant</p>
+                <p className="text-white/90 text-xs font-medium">Business Intelligence Assistant</p>
               </div>
             </div>
             
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               {/* Language Selector */}
               <select 
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as 'en' | 'ar' | 'ur')}
-                className="bg-white/20 text-white text-xs rounded-lg px-2 py-1 border border-white/30 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="bg-white/20 text-white text-xs rounded px-1 py-0.5 border border-white/30 backdrop-blur-sm focus:outline-none focus:ring-1 focus:ring-white/50"
               >
                 {Object.entries(languageLabels).map(([code, label]) => (
                   <option key={code} value={code} className="text-black">{label}</option>
@@ -182,13 +174,13 @@ export const ChatInterface = () => {
               </select>
               
               <div className="flex flex-col items-end">
-                <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-xs sm:text-sm text-white/90 font-medium">Online</span>
+                <div className="flex items-center gap-1 mb-0.5">
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="text-xs text-white/90 font-medium">Online</span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Zap className="h-3 w-3 text-yellow-300" />
-                  <span className="text-xs text-white/80">Instant Responses</span>
+                <div className="flex items-center gap-0.5">
+                  <Zap className="h-2 w-2 text-yellow-300" />
+                  <span className="text-xs text-white/80">Instant</span>
                 </div>
               </div>
             </div>
@@ -197,16 +189,16 @@ export const ChatInterface = () => {
 
         <CardContent className="flex flex-col flex-1 p-0 relative min-h-0">
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4 bg-gradient-to-b from-background/30 via-background/10 to-background/50 backdrop-blur-sm">
+          <div className="flex-1 overflow-y-auto p-2 sm:p-3 space-y-2 sm:space-y-3 bg-gradient-to-b from-background/30 via-background/10 to-background/50 backdrop-blur-sm">
             {/* Welcome Animation */}
             {isTyping && (
               <div className="flex gap-3 sm:gap-4 justify-start animate-fade-in">
-                <Avatar className="w-8 h-8 sm:w-10 sm:h-10 border-2 border-primary/20 shadow-md">
-                  <AvatarFallback className="bg-primary/10 text-primary">
-                    <Bot className="h-4 w-4 sm:h-5 sm:w-5" />
-                  </AvatarFallback>
-                </Avatar>
-                <div className="bg-card border border-border/30 p-3 sm:p-4 rounded-3xl rounded-bl-lg shadow-xl max-w-[250px]">
+                 <Avatar className="w-6 h-6 sm:w-8 sm:h-8 border border-primary/20 shadow-md">
+                   <AvatarFallback className="bg-primary/10 text-primary">
+                     <Bot className="h-3 w-3 sm:h-4 sm:w-4" />
+                   </AvatarFallback>
+                 </Avatar>
+                 <div className="bg-card border border-border/30 p-2 sm:p-3 rounded-2xl rounded-bl-lg shadow-lg max-w-[200px]">
                   <div className="flex items-center space-x-3">
                     <div className="flex space-x-1">
                       <div className="w-2 h-2 sm:w-3 sm:h-3 bg-primary rounded-full animate-bounce"></div>

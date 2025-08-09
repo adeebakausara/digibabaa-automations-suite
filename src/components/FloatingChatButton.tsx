@@ -32,7 +32,7 @@ export const FloatingChatButton = () => {
 
       {/* Chat Dialog */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-4xl w-[calc(100vw-1rem)] sm:w-full max-h-[95vh] h-[95vh] sm:h-auto m-2 sm:m-4 p-0 border-0 shadow-2xl rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col">
+        <DialogContent className="sm:max-w-2xl w-[calc(100vw-1rem)] sm:w-full max-h-[85vh] h-[85vh] sm:h-[600px] m-2 sm:m-4 p-0 border-0 shadow-2xl rounded-xl sm:rounded-2xl overflow-hidden flex flex-col">
           <div className="relative flex-1 overflow-hidden">
             <ChatInterface />
           </div>
