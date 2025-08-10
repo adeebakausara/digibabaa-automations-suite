@@ -5,31 +5,89 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ChatInterface } from "@/components/ChatInterface";
-import { MessageCircle, Globe, Facebook, Instagram, MessageSquare, Phone, Calendar } from "lucide-react";
+import { MessageCircle, Globe, Facebook, Instagram, MessageSquare, Phone, Calendar, Send } from "lucide-react";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
+import { toast } from "sonner";
+
+interface Message {
+  id: number;
+  text: string;
+  isBot: boolean;
+  timestamp: string;
+}
 
 const AiChatbot = () => {
-  const [messages, setMessages] = useState([
-    { id: 1, text: "Hi! I'm your AI assistant. How can I help you today?", isBot: true }
+  const [messages, setMessages] = useState<Message[]>([
+    { id: 1, text: "Hi! I'm DigiBabaa AI. How can I help you today?", isBot: true, timestamp: getCurrentTime() }
+  ]);
+  const [chatMessages, setChatMessages] = useState<Message[]>([
+    { id: 1, text: "Hi! I'm DigiBabaa AI. How can I help you today?", isBot: true, timestamp: getCurrentTime() }
   ]);
   const [inputMessage, setInputMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSendMessage = () => {
-    if (!inputMessage.trim()) return;
+  function getCurrentTime() {
+    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
 
-    const newMessage = { id: messages.length + 1, text: inputMessage, isBot: false };
-    setMessages([...messages, newMessage]);
+  const sendToWebhook = async (message: string) => {
+    try {
+      const response = await fetch('https://adeebakausar292.app.n8n.cloud/webhook/chatbot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: message,
+          timestamp: new Date().toISOString(),
+          user: 'website-visitor'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data.response || "Thanks for your message! I'm processing it now.";
+    } catch (error) {
+      console.error('Error sending to webhook:', error);
+      return "I'm having trouble connecting right now. Please try again in a moment.";
+    }
+  };
+
+  const handleSendMessage = async (messageText?: string) => {
+    const textToSend = messageText || inputMessage.trim();
+    if (!textToSend) return;
+
+    // Add user message
+    const userMessage: Message = { 
+      id: chatMessages.length + 1, 
+      text: textToSend, 
+      isBot: false, 
+      timestamp: getCurrentTime() 
+    };
+    
+    setChatMessages(prev => [...prev, userMessage]);
     setInputMessage("");
+    setIsLoading(true);
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse = {
-        id: messages.length + 2,
-        text: "Thanks for your message! I can help you with product information, booking appointments, and answering questions about our services. What would you like to know?",
-        isBot: true
-      };
-      setMessages(prev => [...prev, botResponse]);
-    }, 1000);
+    // Send to webhook and get response
+    const botResponse = await sendToWebhook(textToSend);
+    
+    const aiMessage: Message = {
+      id: chatMessages.length + 2,
+      text: botResponse,
+      isBot: true,
+      timestamp: getCurrentTime()
+    };
+    
+    setChatMessages(prev => [...prev, aiMessage]);
+    setIsLoading(false);
+  };
+
+  const handleQuickQuestion = (question: string) => {
+    handleSendMessage(question);
   };
 
   const integrations = [
@@ -76,53 +134,89 @@ const AiChatbot = () => {
               </div>
 
               {/* Chat Messages */}
-              <div className="p-6 space-y-4 bg-slate-800 min-h-[300px]">
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="h-4 w-4 text-white" />
+              <div className="p-6 space-y-4 bg-slate-800 min-h-[300px] max-h-[400px] overflow-y-auto">
+                {chatMessages.map((message) => (
+                  <div key={message.id} className={`flex gap-3 ${!message.isBot ? 'justify-end' : ''}`}>
+                    {message.isBot && (
+                      <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <MessageCircle className="h-4 w-4 text-white" />
+                      </div>
+                    )}
+                    <div className={`rounded-lg p-4 max-w-xs ${
+                      message.isBot 
+                        ? 'bg-slate-700' 
+                        : 'bg-blue-500 text-white'
+                    }`}>
+                      <p className={message.isBot ? 'text-white' : 'text-white'}>{message.text}</p>
+                      <span className={`text-xs mt-2 block ${
+                        message.isBot ? 'text-slate-400' : 'text-blue-100'
+                      }`}>
+                        {message.timestamp}
+                      </span>
+                    </div>
+                    {!message.isBot && (
+                      <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="w-5 h-5 bg-slate-400 rounded-full"></div>
+                      </div>
+                    )}
                   </div>
-                  <div className="bg-slate-700 rounded-lg p-4 max-w-xs">
-                    <p className="text-white">Hi! I'm DigiBabaa AI. How can I help you today?</p>
-                    <span className="text-slate-400 text-xs mt-2 block">03:44 PM</span>
+                ))}
+                
+                {isLoading && (
+                  <div className="flex gap-3">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <MessageCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <div className="bg-slate-700 rounded-lg p-4">
+                      <div className="flex space-x-1">
+                        <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                        <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                )}
 
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="h-4 w-4 text-white" />
-                  </div>
-                  <div className="bg-slate-700 rounded-lg p-4 max-w-sm">
-                    <p className="text-white mb-3">Ready to get started? 🚀</p>
-                    <div className="flex gap-2">
-                      <Button size="sm" className="bg-blue-500 hover:bg-blue-600 text-white">
-                        <Phone className="h-4 w-4 mr-1" />
-                        Call
+                {/* Quick Questions - Show only initially */}
+                {chatMessages.length === 1 && (
+                  <div className="pt-4">
+                    <p className="text-slate-400 text-sm mb-3">Quick questions:</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs"
+                        onClick={() => handleQuickQuestion("Tell me about AI Chatbots")}
+                      >
+                        🤖 AI Chatbots
                       </Button>
-                      <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600">
-                        Pricing
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs"
+                        onClick={() => handleQuickQuestion("What are Voice Agents?")}
+                      >
+                        🎤 Voice Agents
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs"
+                        onClick={() => handleQuickQuestion("What is your pricing?")}
+                      >
+                        💰 Pricing
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs"
+                        onClick={() => handleQuickQuestion("I want to book a call")}
+                      >
+                        📞 Book Call
                       </Button>
                     </div>
                   </div>
-                </div>
-
-                {/* Quick Questions */}
-                <div className="pt-4">
-                  <p className="text-slate-400 text-sm mb-3">Quick questions:</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs">
-                      🤖 AI Chatbots
-                    </Button>
-                    <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs">
-                      🎤 Voice Agents
-                    </Button>
-                    <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs">
-                      💰 Pricing
-                    </Button>
-                    <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs">
-                      📞 Book Call
-                    </Button>
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Input Area */}
@@ -130,11 +224,20 @@ const AiChatbot = () => {
                 <div className="flex gap-2">
                   <input 
                     type="text" 
+                    value={inputMessage}
+                    onChange={(e) => setInputMessage(e.target.value)}
+                    onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage()}
                     placeholder="Type your message..." 
                     className="flex-1 bg-slate-600 text-white placeholder-slate-400 rounded-lg px-4 py-2 border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    disabled={isLoading}
                   />
-                  <Button size="sm" className="bg-blue-500 hover:bg-blue-600">
-                    <MessageCircle className="h-4 w-4" />
+                  <Button 
+                    size="sm" 
+                    className="bg-blue-500 hover:bg-blue-600"
+                    onClick={() => handleSendMessage()}
+                    disabled={isLoading || !inputMessage.trim()}
+                  >
+                    <Send className="h-4 w-4" />
                   </Button>
                 </div>
               </div>
