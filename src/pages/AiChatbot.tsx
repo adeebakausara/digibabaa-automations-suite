@@ -54,6 +54,92 @@ const AiChatbot = () => {
             Enhance customer engagement effortlessly.
           </p>
           
+          
+          {/* Live Chatbot Demo */}
+          <div className="mb-12 max-w-2xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl shadow-2xl overflow-hidden">
+              {/* Chatbot Header */}
+              <div className="bg-blue-500 px-6 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <MessageCircle className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold">DigiBabaa AI ✨</h3>
+                    <p className="text-blue-100 text-sm">Business Intelligence Assistant</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                  <span className="text-white text-sm">Online</span>
+                </div>
+              </div>
+
+              {/* Chat Messages */}
+              <div className="p-6 space-y-4 bg-slate-800 min-h-[300px]">
+                <div className="flex gap-3">
+                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="h-4 w-4 text-white" />
+                  </div>
+                  <div className="bg-slate-700 rounded-lg p-4 max-w-xs">
+                    <p className="text-white">Hi! I'm DigiBabaa AI. How can I help you today?</p>
+                    <span className="text-slate-400 text-xs mt-2 block">03:44 PM</span>
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="h-4 w-4 text-white" />
+                  </div>
+                  <div className="bg-slate-700 rounded-lg p-4 max-w-sm">
+                    <p className="text-white mb-3">Ready to get started? 🚀</p>
+                    <div className="flex gap-2">
+                      <Button size="sm" className="bg-blue-500 hover:bg-blue-600 text-white">
+                        <Phone className="h-4 w-4 mr-1" />
+                        Call
+                      </Button>
+                      <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600">
+                        Pricing
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Questions */}
+                <div className="pt-4">
+                  <p className="text-slate-400 text-sm mb-3">Quick questions:</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs">
+                      🤖 AI Chatbots
+                    </Button>
+                    <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs">
+                      🎤 Voice Agents
+                    </Button>
+                    <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs">
+                      💰 Pricing
+                    </Button>
+                    <Button size="sm" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-600 text-xs">
+                      📞 Book Call
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Input Area */}
+              <div className="bg-slate-700 p-4 border-t border-slate-600">
+                <div className="flex gap-2">
+                  <input 
+                    type="text" 
+                    placeholder="Type your message..." 
+                    className="flex-1 bg-slate-600 text-white placeholder-slate-400 rounded-lg px-4 py-2 border-0 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  />
+                  <Button size="sm" className="bg-blue-500 hover:bg-blue-600">
+                    <MessageCircle className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* CTA Section */}
           <div className="mb-20">
