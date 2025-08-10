@@ -54,28 +54,6 @@ const AiChatbot = () => {
             Enhance customer engagement effortlessly.
           </p>
           
-          {/* Live Demo Section */}
-          <div className="mb-12">
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button size="lg" className="px-8 py-6 text-lg font-semibold bg-primary text-white hover:bg-primary/90">
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Try the Demo
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-2xl max-h-[80vh]">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2">
-                    <MessageCircle className="h-5 w-5 text-primary" />
-                    AI Chatbot Demo
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="mt-4">
-                  <ChatInterface />
-                </div>
-              </DialogContent>
-            </Dialog>
-          </div>
 
           {/* CTA Section */}
           <div className="mb-20">
