@@ -30,30 +30,59 @@ const AiChatbot = () => {
     return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
 
-  const sendToWebhook = async (message: string) => {
-    try {
-      const response = await fetch('https://adeebakausar292.app.n8n.cloud/webhook/chatbot', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: message,
-          timestamp: new Date().toISOString(),
-          user: 'website-visitor'
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      return data.response || "Thanks for your message! I'm processing it now.";
-    } catch (error) {
-      console.error('Error sending to webhook:', error);
-      return "I'm having trouble connecting right now. Please try again in a moment.";
+  const handleInternalResponse = (message: string): string => {
+    const lowerMessage = message.toLowerCase();
+    
+    if (lowerMessage.includes('chatbot') || lowerMessage.includes('ai chat')) {
+      return "Our AI Chatbots provide 24/7 customer support, lead generation, and instant responses. They integrate with your website, Facebook, Instagram, and WhatsApp. Would you like to learn more about implementation?";
     }
+    
+    if (lowerMessage.includes('voice') || lowerMessage.includes('call')) {
+      return "Our AI Voice Agents can handle customer calls, schedule appointments, and provide phone support with human-like conversations. They're perfect for businesses that need to scale their phone operations.";
+    }
+    
+    if (lowerMessage.includes('pricing') || lowerMessage.includes('cost') || lowerMessage.includes('price')) {
+      return "We offer flexible pricing plans starting from $199/month for basic chatbot services. Enterprise solutions are custom-priced based on your needs. Would you like me to connect you with our sales team for a detailed quote?";
+    }
+    
+    if (lowerMessage.includes('book') || lowerMessage.includes('consultation') || lowerMessage.includes('meeting') || lowerMessage.includes('demo')) {
+      setTimeout(() => {
+        window.location.href = '/book-consultation';
+      }, 1500);
+      return "Great! I'll redirect you to our consultation booking page where you can schedule a free 30-minute strategy session with our AI experts.";
+    }
+    
+    if (lowerMessage.includes('automation') || lowerMessage.includes('custom')) {
+      return "Our Custom AI Automation solutions streamline your business processes, reduce manual work, and integrate with your existing systems. We can automate everything from data entry to complex workflows.";
+    }
+    
+    if (lowerMessage.includes('website') || lowerMessage.includes('design')) {
+      return "Our AI Website Design service creates stunning, responsive websites optimized for conversions. The AI analyzes your business and generates custom designs that reflect your brand perfectly.";
+    }
+    
+    if (lowerMessage.includes('portfolio') || lowerMessage.includes('examples') || lowerMessage.includes('case study')) {
+      setTimeout(() => {
+        window.location.href = '/portfolio';
+      }, 1500);
+      return "I'll show you our portfolio with real client case studies and results. Redirecting you now to see our success stories...";
+    }
+    
+    if (lowerMessage.includes('contact') || lowerMessage.includes('support') || lowerMessage.includes('help')) {
+      setTimeout(() => {
+        window.location.href = '/contact';
+      }, 1500);
+      return "I'll connect you with our support team. Redirecting to our contact page where you can reach us directly...";
+    }
+    
+    if (lowerMessage.includes('services')) {
+      setTimeout(() => {
+        window.location.href = '/services';
+      }, 1500);
+      return "Let me show you all our AI services. Redirecting to our services page...";
+    }
+    
+    // Default response
+    return "I'm here to help you learn about our AI solutions! I can tell you about our chatbots, voice agents, automation services, pricing, or help you book a consultation. What interests you most?";
   };
 
   const handleSendMessage = async (messageText?: string) => {
@@ -72,18 +101,20 @@ const AiChatbot = () => {
     setInputMessage("");
     setIsLoading(true);
 
-    // Send to webhook and get response
-    const botResponse = await sendToWebhook(textToSend);
-    
-    const aiMessage: Message = {
-      id: chatMessages.length + 2,
-      text: botResponse,
-      isBot: true,
-      timestamp: getCurrentTime()
-    };
-    
-    setChatMessages(prev => [...prev, aiMessage]);
-    setIsLoading(false);
+    // Simulate thinking time and get internal response
+    setTimeout(() => {
+      const botResponse = handleInternalResponse(textToSend);
+      
+      const aiMessage: Message = {
+        id: chatMessages.length + 2,
+        text: botResponse,
+        isBot: true,
+        timestamp: getCurrentTime()
+      };
+      
+      setChatMessages(prev => [...prev, aiMessage]);
+      setIsLoading(false);
+    }, 800);
   };
 
   const handleQuickQuestion = (question: string) => {
