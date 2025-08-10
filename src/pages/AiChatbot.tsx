@@ -30,6 +30,53 @@ const AiChatbot = () => {
     return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   }
 
+  const parseResponse = (response: any): string => {
+    // If response is a string, return it directly
+    if (typeof response === 'string') {
+      try {
+        // Try to parse if it's a JSON string
+        const parsed = JSON.parse(response);
+        return parsed.output || parsed.message || parsed.text || response;
+      } catch {
+        // If not valid JSON, return the string as is
+        return response;
+      }
+    }
+    
+    // If response is an object, extract the text content
+    if (typeof response === 'object' && response !== null) {
+      return response.output || response.message || response.text || response.response || 'Sorry, I received an invalid response format.';
+    }
+    
+    return 'Sorry, I could not process that response.';
+  };
+
+  const sendToWebhook = async (message: string): Promise<string> => {
+    try {
+      const response = await fetch('https://adeebakausar292.app.n8n.cloud/webhook/chatbot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: message,
+          timestamp: new Date().toISOString(),
+          user: 'website-visitor'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return parseResponse(data);
+    } catch (error) {
+      console.error('Error sending to webhook:', error);
+      return handleInternalResponse(message); // Fallback to internal responses
+    }
+  };
+
   const handleInternalResponse = (message: string): string => {
     const lowerMessage = message.toLowerCase();
     
@@ -101,9 +148,9 @@ const AiChatbot = () => {
     setInputMessage("");
     setIsLoading(true);
 
-    // Simulate thinking time and get internal response
-    setTimeout(() => {
-      const botResponse = handleInternalResponse(textToSend);
+    try {
+      // Try webhook first, fallback to internal response
+      const botResponse = await sendToWebhook(textToSend);
       
       const aiMessage: Message = {
         id: chatMessages.length + 2,
@@ -113,8 +160,22 @@ const AiChatbot = () => {
       };
       
       setChatMessages(prev => [...prev, aiMessage]);
+    } catch (error) {
+      console.error('Error in handleSendMessage:', error);
+      // Fallback to internal response
+      const fallbackResponse = handleInternalResponse(textToSend);
+      
+      const aiMessage: Message = {
+        id: chatMessages.length + 2,
+        text: fallbackResponse,
+        isBot: true,
+        timestamp: getCurrentTime()
+      };
+      
+      setChatMessages(prev => [...prev, aiMessage]);
+    } finally {
       setIsLoading(false);
-    }, 800);
+    }
   };
 
   const handleQuickQuestion = (question: string) => {
