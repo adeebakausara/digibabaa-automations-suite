@@ -31,69 +31,46 @@ const AiChatbot = () => {
   }
 
   const parseResponse = (response: any): string => {
-    let textContent = '';
-    
-    // If response is a string, try to parse it as JSON first
+    // Handle simple text response (ideal case)
     if (typeof response === 'string') {
-      try {
-        const parsed = JSON.parse(response);
-        textContent = extractTextFromMalformedResponse(parsed);
-      } catch {
-        // If not valid JSON, use the string as is
-        textContent = response;
-      }
-    } else if (typeof response === 'object' && response !== null) {
-      // If response is an object, extract the text content
-      textContent = extractTextFromMalformedResponse(response);
-    } else {
-      textContent = 'Sorry, I could not process that response.';
+      return response.trim();
     }
     
-    // Clean up the text content - remove any remaining JSON formatting
-    textContent = String(textContent)
-      .replace(/^["']|["']$/g, '') // Remove surrounding quotes
-      .replace(/\\n/g, '\n') // Convert escaped newlines to actual newlines
-      .replace(/\\"/g, '"') // Convert escaped quotes
-      .replace(/\\\\/g, '\\') // Convert escaped backslashes
-      .trim(); // Remove leading/trailing whitespace
-    
-    return textContent;
-  };
-
-  const extractTextFromMalformedResponse = (obj: any): string => {
-    // Handle normal response structure first
-    if (obj.output || obj.message || obj.text || obj.response) {
-      return obj.output || obj.message || obj.text || obj.response;
-    }
-    
-    // Handle malformed webhook response where the message is split as keys
-    if (typeof obj === 'object' && obj !== null) {
-      // Look for nested arrays with output objects
-      for (const key in obj) {
-        if (Array.isArray(obj[key])) {
-          for (const item of obj[key]) {
-            if (item && item.output) {
-              return item.output;
+    // Handle JSON response from n8n webhook
+    if (typeof response === 'object' && response !== null) {
+      // Try to find the actual message in the complex structure
+      const findTextInObject = (obj: any): string | null => {
+        // Direct properties check
+        if (obj.output) return obj.output;
+        if (obj.message) return obj.message;
+        if (obj.text) return obj.text;
+        if (obj.response) return obj.response;
+        
+        // Search in arrays
+        for (const key in obj) {
+          if (Array.isArray(obj[key])) {
+            for (const item of obj[key]) {
+              if (typeof item === 'object' && item !== null) {
+                const found = findTextInObject(item);
+                if (found) return found;
+              }
             }
-          }
-        } else if (typeof obj[key] === 'object' && obj[key] !== null) {
-          // Recursively search nested objects
-          const result = extractTextFromMalformedResponse(obj[key]);
-          if (result && result !== 'Sorry, I received an invalid response format.') {
-            return result;
+          } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+            const found = findTextInObject(obj[key]);
+            if (found) return found;
           }
         }
-      }
+        
+        return null;
+      };
       
-      // If no proper structure found, try to reconstruct from keys
-      const keys = Object.keys(obj);
-      if (keys.length > 0) {
-        // Combine the keys as they might contain the actual message split up
-        return keys.join('');
+      const foundText = findTextInObject(response);
+      if (foundText) {
+        return foundText.trim();
       }
     }
     
-    return 'Sorry, I received an invalid response format.';
+    return 'Sorry, I could not understand the response from the server.';
   };
 
   const sendToWebhook = async (message: string): Promise<string> => {
