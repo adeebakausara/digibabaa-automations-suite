@@ -31,24 +31,33 @@ const AiChatbot = () => {
   }
 
   const parseResponse = (response: any): string => {
-    // If response is a string, return it directly
+    let textContent = '';
+    
+    // If response is a string, try to parse it as JSON first
     if (typeof response === 'string') {
       try {
-        // Try to parse if it's a JSON string
         const parsed = JSON.parse(response);
-        return parsed.output || parsed.message || parsed.text || response;
+        textContent = parsed.output || parsed.message || parsed.text || parsed.response || response;
       } catch {
-        // If not valid JSON, return the string as is
-        return response;
+        // If not valid JSON, use the string as is
+        textContent = response;
       }
+    } else if (typeof response === 'object' && response !== null) {
+      // If response is an object, extract the text content
+      textContent = response.output || response.message || response.text || response.response || 'Sorry, I received an invalid response format.';
+    } else {
+      textContent = 'Sorry, I could not process that response.';
     }
     
-    // If response is an object, extract the text content
-    if (typeof response === 'object' && response !== null) {
-      return response.output || response.message || response.text || response.response || 'Sorry, I received an invalid response format.';
-    }
+    // Clean up the text content - remove any remaining JSON formatting
+    textContent = String(textContent)
+      .replace(/^["']|["']$/g, '') // Remove surrounding quotes
+      .replace(/\\n/g, '\n') // Convert escaped newlines to actual newlines
+      .replace(/\\"/g, '"') // Convert escaped quotes
+      .replace(/\\\\/g, '\\') // Convert escaped backslashes
+      .trim(); // Remove leading/trailing whitespace
     
-    return 'Sorry, I could not process that response.';
+    return textContent;
   };
 
   const sendToWebhook = async (message: string): Promise<string> => {
