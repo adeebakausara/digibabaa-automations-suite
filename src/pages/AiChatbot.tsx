@@ -37,14 +37,14 @@ const AiChatbot = () => {
     if (typeof response === 'string') {
       try {
         const parsed = JSON.parse(response);
-        textContent = parsed.output || parsed.message || parsed.text || parsed.response || response;
+        textContent = extractTextFromMalformedResponse(parsed);
       } catch {
         // If not valid JSON, use the string as is
         textContent = response;
       }
     } else if (typeof response === 'object' && response !== null) {
       // If response is an object, extract the text content
-      textContent = response.output || response.message || response.text || response.response || 'Sorry, I received an invalid response format.';
+      textContent = extractTextFromMalformedResponse(response);
     } else {
       textContent = 'Sorry, I could not process that response.';
     }
@@ -58,6 +58,42 @@ const AiChatbot = () => {
       .trim(); // Remove leading/trailing whitespace
     
     return textContent;
+  };
+
+  const extractTextFromMalformedResponse = (obj: any): string => {
+    // Handle normal response structure first
+    if (obj.output || obj.message || obj.text || obj.response) {
+      return obj.output || obj.message || obj.text || obj.response;
+    }
+    
+    // Handle malformed webhook response where the message is split as keys
+    if (typeof obj === 'object' && obj !== null) {
+      // Look for nested arrays with output objects
+      for (const key in obj) {
+        if (Array.isArray(obj[key])) {
+          for (const item of obj[key]) {
+            if (item && item.output) {
+              return item.output;
+            }
+          }
+        } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+          // Recursively search nested objects
+          const result = extractTextFromMalformedResponse(obj[key]);
+          if (result && result !== 'Sorry, I received an invalid response format.') {
+            return result;
+          }
+        }
+      }
+      
+      // If no proper structure found, try to reconstruct from keys
+      const keys = Object.keys(obj);
+      if (keys.length > 0) {
+        // Combine the keys as they might contain the actual message split up
+        return keys.join('');
+      }
+    }
+    
+    return 'Sorry, I received an invalid response format.';
   };
 
   const sendToWebhook = async (message: string): Promise<string> => {
