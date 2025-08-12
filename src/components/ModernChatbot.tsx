@@ -33,18 +33,6 @@ export const ModernChatbot = ({ className = "", embedded = false }: ModernChatbo
     scrollToBottom();
   }, [messages]);
 
-  useEffect(() => {
-    if ((isOpen || embedded) && messages.length === 0) {
-      const welcomeMessage: Message = {
-        id: 'welcome',
-        text: "Hi there! 👋 I'm your AI assistant. How can I help you today?",
-        isUser: false,
-        timestamp: new Date()
-      };
-      setMessages([welcomeMessage]);
-    }
-  }, [isOpen, embedded, messages.length]);
-
   const sendMessage = async (text: string) => {
     if (!text.trim()) return;
 
@@ -137,11 +125,6 @@ export const ModernChatbot = ({ className = "", embedded = false }: ModernChatbo
           >
             <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <MessageCircle className="h-7 w-7 relative z-10" />
-            
-            {/* Notification dot */}
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center animate-bounce">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-            </div>
           </Button>
         </div>
       </div>
