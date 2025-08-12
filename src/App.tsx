@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
-import { FloatingChatButton } from "./components/FloatingChatButton";
+import { ModernChatbot } from "./components/ModernChatbot";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import AiChatbot from "./pages/AiChatbot";
@@ -43,7 +43,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <FloatingChatButton />
+        <ModernChatbot />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
