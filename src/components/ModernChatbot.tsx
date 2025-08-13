@@ -48,7 +48,7 @@ export const ModernChatbot = ({ className = "", embedded = false }: ModernChatbo
     setIsLoading(true);
 
     try {
-      const response = await fetch(`https://adeebakausar292.app.n8n.cloud/webhook/instagram-webhook?message=${encodeURIComponent(text.trim())}`, {
+      const response = await fetch(`https://adeeba12.app.n8n.cloud/webhook/24805e02-9cab-49ca-8611-f7f8ff3b2d33?message=${encodeURIComponent(text.trim())}`, {
         method: 'GET'
       });
 
