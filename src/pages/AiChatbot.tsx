@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { MessageCircle, Globe, Facebook, Instagram, MessageSquare, Phone, Calendar } from "lucide-react";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
+import { SimpleChatbot } from "@/components/SimpleChatbot";
 
 
 const AiChatbot = () => {
@@ -98,6 +99,26 @@ const AiChatbot = () => {
               </div>
               <h3 className="text-xl font-semibold">Easy Setup</h3>
               <p className="text-muted-foreground">Quick integration with your existing systems and platforms.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Chatbot Demo */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Try Our AI Chatbot Live
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Experience our intelligent chatbot in action. Start a conversation below to see how it can help your business engage with customers.
+            </p>
+          </div>
+          
+          <div className="max-w-2xl mx-auto">
+            <div className="h-[600px] rounded-xl border border-border/50 bg-background shadow-lg overflow-hidden">
+              <SimpleChatbot embedded={true} className="h-full" />
             </div>
           </div>
         </div>
