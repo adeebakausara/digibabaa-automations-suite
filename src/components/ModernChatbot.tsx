@@ -52,18 +52,36 @@ export const ModernChatbot = ({ className = "", embedded = false }: ModernChatbo
         method: 'GET'
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log('Webhook response:', data); // Debug log to see actual response structure
       
-      // Parse the "output" field from the response
+      // Parse the response - check all possible field names
       let botResponseText = '';
+      
+      // Check for common response field names from n8n webhooks
       if (data.output) {
         botResponseText = data.output;
       } else if (data.message) {
         botResponseText = data.message;
       } else if (data.reply) {
         botResponseText = data.reply;
+      } else if (data.response) {
+        botResponseText = data.response;
+      } else if (data.text) {
+        botResponseText = data.text;
+      } else if (data.content) {
+        botResponseText = data.content;
+      } else if (typeof data === 'string') {
+        // If the entire response is just a string
+        botResponseText = data;
       } else {
-        botResponseText = "I received your message but couldn't generate a proper response. Please try again.";
+        // If none of the expected fields exist, show the entire response structure
+        console.error('Unexpected response structure:', data);
+        botResponseText = `Received response but couldn't parse it. Please check the webhook response format. Response: ${JSON.stringify(data)}`;
       }
 
       const assistantMessage: Message = {
