@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, MessageCircle, Bot, User, Sparkles, X, Minimize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
@@ -24,6 +24,7 @@ export const ModernChatbot = ({ className = "", embedded = false }: ModernChatbo
   const [isOpen, setIsOpen] = useState(embedded);
   const [isMinimized, setIsMinimized] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -32,6 +33,15 @@ export const ModernChatbot = ({ className = "", embedded = false }: ModernChatbo
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Auto-resize textarea
+  useEffect(() => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+    }
+  }, [inputValue]);
 
   const sendMessage = async (text: string) => {
     if (!text.trim()) return;
@@ -279,31 +289,33 @@ export const ModernChatbot = ({ className = "", embedded = false }: ModernChatbo
           </div>
 
           {/* Input area */}
-          <div className="border-t bg-background/90 backdrop-blur-sm p-3 sm:p-4">
-            <form onSubmit={handleSubmit} className="flex gap-2">
+          <div className="border-t bg-background/90 backdrop-blur-sm p-3 sm:p-4 space-y-3">
+            <form onSubmit={handleSubmit} className="flex items-end gap-3">
               <div className="flex-1 relative">
-                <Input
+                <Textarea
+                  ref={textareaRef}
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
+                  onKeyDown={handleKeyPress}
                   placeholder="Type your message..."
                   disabled={isLoading}
-                  className="pr-10 rounded-full border-2 focus:border-primary/50 bg-background shadow-sm text-sm"
+                  className="min-h-[44px] max-h-[120px] resize-none rounded-2xl border-2 focus:border-primary/50 bg-background shadow-sm text-sm px-4 py-3 pr-12 leading-relaxed overflow-hidden"
+                  rows={1}
                 />
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground/40">
+                <div className="absolute right-4 bottom-3 text-muted-foreground/40 pointer-events-none">
                   <MessageCircle className="h-4 w-4" />
                 </div>
               </div>
               <Button
                 type="submit"
                 disabled={isLoading || !inputValue.trim()}
-                className="h-10 w-10 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-sm hover:shadow-md transition-all duration-200 disabled:opacity-50"
+                className="h-11 w-11 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white shadow-sm hover:shadow-md transition-all duration-200 disabled:opacity-50 flex-shrink-0"
               >
                 <Send className="h-4 w-4" />
               </Button>
             </form>
-            <p className="text-xs text-muted-foreground/60 mt-2 text-center">
-              Press Enter to send • Powered by AI
+            <p className="text-xs text-muted-foreground/60 text-center">
+              Press Enter to send • Shift+Enter for new line • Powered by AI
             </p>
           </div>
         </CardContent>
