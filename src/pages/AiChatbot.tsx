@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { MessageCircle, Globe, Facebook, Instagram, MessageSquare, Phone, Calendar } from "lucide-react";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
+import { DigibaaaChatbot } from "@/components/DigibaaaChatbot";
 
 
 
@@ -104,7 +105,25 @@ const AiChatbot = () => {
         </div>
       </section>
 
-
+      {/* Live Chatbot Demo */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Experience Our AI Chatbot Live
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Try our intelligent chatbot below. Ask questions about our services, pricing, or how we can help automate your business processes.
+            </p>
+          </div>
+          
+          <div className="max-w-2xl mx-auto">
+            <div className="h-[700px] rounded-xl border border-border/50 bg-background shadow-lg overflow-hidden">
+              <DigibaaaChatbot embedded={true} className="h-full" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <BookConsultationButton variant="fixed" position="bottom-left" />
       <Footer />
