@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { MessageCircle, X, Send, Minimize2, Maximize2 } from 'lucide-react';
+import { MessageCircle, X, Send, Minimize2, Maximize2, ChevronUp, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface Message {
@@ -27,10 +27,23 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollUp = () => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollBy({ top: -200, behavior: 'smooth' });
+    }
+  };
+
+  const scrollDown = () => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollBy({ top: 200, behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
@@ -180,9 +193,34 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
           </div>
         </CardHeader>
         
-        <CardContent className="flex-1 flex flex-col p-0 min-h-0">
+        <CardContent className="flex-1 flex flex-col p-0 min-h-0 relative">
+          {/* Scroll Buttons */}
+          {messages.length > 5 && (
+            <div className="absolute right-2 top-4 z-10 flex flex-col gap-1">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollUp}
+                className="h-8 w-8 bg-background/80 backdrop-blur-sm shadow-sm"
+              >
+                <ChevronUp className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollDown}
+                className="h-8 w-8 bg-background/80 backdrop-blur-sm shadow-sm"
+              >
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+          
           {/* Messages Container - Fixed height with scrolling */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 max-h-[400px]">
+          <div 
+            ref={messagesContainerRef}
+            className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 max-h-[400px]"
+          >
             {messages.length === 0 && (
               <div className="text-center text-muted-foreground py-8">
                 <MessageCircle className="h-12 w-12 mx-auto mb-4 opacity-50" />
@@ -305,9 +343,34 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
           </CardHeader>
 
           {!isMinimized && (
-            <CardContent className="flex-1 flex flex-col p-0 min-h-0">
+            <CardContent className="flex-1 flex flex-col p-0 min-h-0 relative">
+              {/* Scroll Buttons */}
+              {messages.length > 5 && (
+                <div className="absolute right-2 top-4 z-10 flex flex-col gap-1">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={scrollUp}
+                    className="h-6 w-6 bg-background/80 backdrop-blur-sm shadow-sm"
+                  >
+                    <ChevronUp className="h-3 w-3" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={scrollDown}
+                    className="h-6 w-6 bg-background/80 backdrop-blur-sm shadow-sm"
+                  >
+                    <ChevronDown className="h-3 w-3" />
+                  </Button>
+                </div>
+              )}
+              
               {/* Messages Container - Fixed height with scrolling */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 max-h-[420px]">
+              <div 
+                ref={messagesContainerRef}
+                className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 max-h-[420px]"
+              >
                 {messages.map((message) => (
                   <div
                     key={message.id}
