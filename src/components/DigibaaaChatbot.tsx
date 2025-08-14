@@ -180,9 +180,9 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
           </div>
         </CardHeader>
         
-        <CardContent className="flex-1 flex flex-col p-0">
-          {/* Messages Container */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
+        <CardContent className="flex-1 flex flex-col p-0 min-h-0">
+          {/* Messages Container - Fixed height with scrolling */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 max-h-[400px]">
             {messages.length === 0 && (
               <div className="text-center text-muted-foreground py-8">
                 <MessageCircle className="h-12 w-12 mx-auto mb-4 opacity-50" />
@@ -199,7 +199,7 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
               >
                 <div
                   className={cn(
-                    "max-w-[80%] rounded-2xl px-4 py-2 text-sm",
+                    "max-w-[80%] rounded-2xl px-4 py-2 text-sm break-words",
                     message.isUser
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted text-foreground"
@@ -305,9 +305,9 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
           </CardHeader>
 
           {!isMinimized && (
-            <CardContent className="flex-1 flex flex-col p-0">
-              {/* Messages Container */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
+            <CardContent className="flex-1 flex flex-col p-0 min-h-0">
+              {/* Messages Container - Fixed height with scrolling */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 max-h-[420px]">
                 {messages.map((message) => (
                   <div
                     key={message.id}
@@ -318,7 +318,7 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
                   >
                     <div
                       className={cn(
-                        "max-w-[85%] rounded-2xl px-3 py-2 text-sm",
+                        "max-w-[85%] rounded-2xl px-3 py-2 text-sm break-words",
                         message.isUser
                           ? "bg-primary text-primary-foreground"
                           : "bg-muted text-foreground"
