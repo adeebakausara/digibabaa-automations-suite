@@ -53,12 +53,44 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
   }, [isOpen, embedded, messages.length]);
 
   const extractTextFromResponse = (response: any): string => {
-    if (typeof response === 'string') return response;
-    if (response.text) return response.text;
-    if (response.message) return response.message;
-    if (response.response) return response.response;
-    if (response.data) return response.data;
-    return JSON.stringify(response);
+    try {
+      // If response is a string, try to parse it as JSON
+      let parsedResponse = response;
+      if (typeof response === 'string') {
+        try {
+          parsedResponse = JSON.parse(response);
+        } catch (e) {
+          // If JSON parsing fails, return the string as is
+          return response;
+        }
+      }
+
+      // Handle array responses with "output" property
+      if (Array.isArray(parsedResponse) && parsedResponse.length > 0) {
+        const firstItem = parsedResponse[0];
+        if (firstItem && typeof firstItem === 'object' && firstItem.output) {
+          return firstItem.output;
+        }
+      }
+
+      // Handle direct object with "output" property
+      if (parsedResponse && typeof parsedResponse === 'object' && parsedResponse.output) {
+        return parsedResponse.output;
+      }
+
+      // Fallback to other common response formats
+      if (typeof parsedResponse === 'string') return parsedResponse;
+      if (parsedResponse.text) return parsedResponse.text;
+      if (parsedResponse.message) return parsedResponse.message;
+      if (parsedResponse.response) return parsedResponse.response;
+      if (parsedResponse.data) return parsedResponse.data;
+
+      // Last resort: stringify the response
+      return JSON.stringify(parsedResponse);
+    } catch (error) {
+      // If all parsing fails, return the original response
+      return typeof response === 'string' ? response : JSON.stringify(response);
+    }
   };
 
   const sendMessage = async () => {
