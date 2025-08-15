@@ -18,6 +18,7 @@ const Navigation = () => {
         { name: "AI Voice Agent", path: "/services/ai-voice-agent" },
         { name: "Custom AI Automation", path: "/services/custom-ai-automation" },
         { name: "AI Website Design", path: "/services/ai-website-design" },
+        { name: "AI Services in Action", path: "/ai-services-in-action" },
       ]
     },
     { name: "How It Works", path: "/how-it-works" },

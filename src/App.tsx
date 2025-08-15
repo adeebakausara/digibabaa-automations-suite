@@ -28,6 +28,7 @@ import Portfolio from "./pages/Portfolio";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import ThankYou from "./pages/ThankYou";
+import AiServicesInAction from "./pages/AiServicesInAction";
 import NotFound from "./pages/NotFound";
 import EcommerceCaseStudy from "./pages/EcommerceCaseStudy";
 import HealthcareCaseStudy from "./pages/HealthcareCaseStudy";
@@ -75,6 +76,7 @@ const App = () => (
           <Route path="/case-study/restaurant" element={<RestaurantCaseStudy />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/ai-services-in-action" element={<AiServicesInAction />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
