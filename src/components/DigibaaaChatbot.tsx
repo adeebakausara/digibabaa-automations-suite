@@ -65,6 +65,39 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
     }
   }, [isOpen, embedded, messages.length]);
 
+  // Function to process and format text with markdown-like formatting
+  const processMessageText = (text: string): string => {
+    if (!text) return '';
+    
+    let processedText = text
+      // Handle bold text: **text** -> <strong>text</strong>
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      // Handle paragraph breaks: \n\n -> </p><p>
+      .replace(/\n\n/g, '</p><p>')
+      // Handle single line breaks: \n -> <br>
+      .replace(/\n/g, '<br>')
+      // Handle bullet points: • text -> <li>text</li>
+      .replace(/^• (.+)$/gm, '<li>$1</li>')
+      // Handle URLs: make them clickable
+      .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
+      // Handle email addresses
+      .replace(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1">$1</a>')
+      // Handle phone numbers (basic pattern)
+      .replace(/(\+?[\d\s\-\(\)]{10,})/g, '<a href="tel:$1">$1</a>');
+
+    // Wrap with paragraphs if contains </p><p>
+    if (processedText.includes('</p><p>')) {
+      processedText = '<p>' + processedText + '</p>';
+    }
+
+    // Wrap isolated <li> elements with <ul> tags
+    if (processedText.includes('<li>')) {
+      processedText = processedText.replace(/(<li>.*?<\/li>)+/g, '<ul>$&</ul>');
+    }
+
+    return processedText;
+  };
+
   const extractTextFromResponse = (response: any): string => {
     try {
       // If response is a string, try to parse it as JSON
@@ -237,14 +270,15 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
               >
                 <div
                   className={cn(
-                    "max-w-[80%] rounded-2xl px-4 py-2 text-sm break-words",
+                    "max-w-[80%] rounded-2xl px-4 py-2 text-sm break-words chatbot-message",
                     message.isUser
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted text-foreground"
                   )}
-                >
-                  {message.text}
-                </div>
+                  dangerouslySetInnerHTML={{
+                    __html: message.isUser ? message.text : processMessageText(message.text)
+                  }}
+                />
               </div>
             ))}
             {isLoading && (
@@ -381,14 +415,15 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
                   >
                     <div
                       className={cn(
-                        "max-w-[85%] rounded-2xl px-3 py-2 text-sm break-words",
+                        "max-w-[85%] rounded-2xl px-3 py-2 text-sm break-words chatbot-message",
                         message.isUser
                           ? "bg-primary text-primary-foreground"
                           : "bg-muted text-foreground"
                       )}
-                    >
-                      {message.text}
-                    </div>
+                      dangerouslySetInnerHTML={{
+                        __html: message.isUser ? message.text : processMessageText(message.text)
+                      }}
+                    />
                   </div>
                 ))}
                 {isLoading && (
