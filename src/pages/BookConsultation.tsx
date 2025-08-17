@@ -465,21 +465,36 @@ const BookConsultation = () => {
             </p>
           </div>
           
-          <div className="bg-card rounded-lg shadow-elegant p-4 md:p-6">
-            <div className="calendly-inline-widget" 
-                 data-url="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation" 
-                 style={{ 
-                   minWidth: '300px', 
-                   width: '100%',
-                   height: '650px'
-                 }}>
-            </div>
-            <script 
-              type="text/javascript" 
-              src="https://assets.calendly.com/assets/external/widget.js" 
-              async>
-            </script>
+          <div 
+            id="calendar-container"
+            className="bg-card rounded-lg shadow-elegant overflow-hidden"
+            style={{ 
+              maxWidth: '900px', 
+              margin: '0 auto',
+              opacity: 0, 
+              transform: 'translateY(20px)', 
+              transition: 'all 0.8s ease'
+            }}
+          >
+            <iframe 
+              src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs"
+              style={{ width: '100%', border: 'none' }}
+              scrolling="no"
+              id="sf5ZeWALmqKvHoroSvTs_1754294861967"
+              onLoad={() => {
+                const container = document.getElementById('calendar-container');
+                if (container) {
+                  container.style.opacity = '1';
+                  container.style.transform = 'translateY(0)';
+                }
+              }}
+            />
           </div>
+          
+          <script 
+            src="https://api.teamair.life/js/form_embed.js" 
+            type="text/javascript">
+          </script>
         </div>
       </section>
 
