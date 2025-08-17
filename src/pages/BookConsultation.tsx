@@ -455,20 +455,24 @@ const BookConsultation = () => {
 
       {/* Calendar Section */}
       <section id="calendar-section" className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Select Date & <span className="text-primary">Time</span>
+              Book Your <span className="text-primary">Free Consultation</span>
             </h2>
             <p className="text-lg text-muted-foreground">
-              Choose a convenient time slot for your free AI consultation
+              Schedule a call with our AI automation experts to discuss your business needs
             </p>
           </div>
           
-          <div className="bg-card rounded-lg shadow-elegant p-6">
+          <div className="bg-card rounded-lg shadow-elegant p-4 md:p-6">
             <div className="calendly-inline-widget" 
-                 data-url="https://calendly.com/digibabaa/30min" 
-                 style={{ minWidth: '320px', height: '700px' }}>
+                 data-url="https://calendly.com/akbarhayat228/ai-automation-marketing-consultation" 
+                 style={{ 
+                   minWidth: '300px', 
+                   width: '100%',
+                   height: '650px'
+                 }}>
             </div>
             <script 
               type="text/javascript" 
