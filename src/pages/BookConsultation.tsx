@@ -453,6 +453,32 @@ const BookConsultation = () => {
         </div>
       </section>
 
+      {/* Calendar Section */}
+      <section id="calendar-section" className="py-20 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Select Date & <span className="text-primary">Time</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Choose a convenient time slot for your free AI consultation
+            </p>
+          </div>
+          
+          <div className="bg-card rounded-lg shadow-elegant p-6">
+            <div className="calendly-inline-widget" 
+                 data-url="https://calendly.com/digibabaa/30min" 
+                 style={{ minWidth: '320px', height: '700px' }}>
+            </div>
+            <script 
+              type="text/javascript" 
+              src="https://assets.calendly.com/assets/external/widget.js" 
+              async>
+            </script>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 interface BookConsultationButtonProps {
   variant?: 'fixed' | 'inline';
@@ -15,12 +16,23 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
   size = 'md',
   className = ''
 }) => {
+  const navigate = useNavigate();
   const baseClasses = "transition-all duration-300 hover:scale-105 flex items-center gap-2 group";
   
   const sizeClasses = {
     sm: "px-3 py-2 text-xs sm:text-sm",
     md: "px-4 py-3 text-sm",
     lg: "px-6 py-4 text-base"
+  };
+
+  const handleClick = () => {
+    navigate('/book-consultation');
+    setTimeout(() => {
+      const calendarSection = document.getElementById('calendar-section');
+      if (calendarSection) {
+        calendarSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   if (variant === 'fixed') {
@@ -30,10 +42,8 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
     };
 
     return (
-      <a
-        href="https://calendly.com/digibabaa/30min"
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        onClick={handleClick}
         className={`
           ${positionClasses[position]}
           ${baseClasses}
@@ -45,7 +55,7 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
         <Calendar className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
         <span className="hidden sm:inline">Book Free Consultation</span>
         <span className="sm:hidden">Book Call</span>
-      </a>
+      </button>
     );
   }
 
@@ -54,16 +64,10 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
       variant="hero" 
       size={size === 'sm' ? 'sm' : size === 'lg' ? 'lg' : 'default'}
       className={`${baseClasses} ${className}`}
-      asChild
+      onClick={handleClick}
     >
-      <a
-        href="https://calendly.com/digibabaa/30min"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Calendar className="mr-2 h-4 w-4" />
-        Book Free Consultation
-      </a>
+      <Calendar className="mr-2 h-4 w-4" />
+      Book Free Consultation
     </Button>
   );
 };
