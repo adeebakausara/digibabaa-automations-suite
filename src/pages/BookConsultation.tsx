@@ -453,50 +453,6 @@ const BookConsultation = () => {
         </div>
       </section>
 
-      {/* Calendar Section */}
-      <section id="calendar-section" className="py-20 bg-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Book Your <span className="text-primary">Free Consultation</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Schedule a call with our AI automation experts to discuss your business needs
-            </p>
-          </div>
-          
-          <div 
-            id="calendar-container"
-            className="bg-card rounded-lg shadow-elegant overflow-hidden"
-            style={{ 
-              maxWidth: '900px', 
-              margin: '0 auto',
-              opacity: 0, 
-              transform: 'translateY(20px)', 
-              transition: 'all 0.8s ease'
-            }}
-          >
-            <iframe 
-              src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs"
-              style={{ width: '100%', border: 'none' }}
-              scrolling="no"
-              id="sf5ZeWALmqKvHoroSvTs_1754294861967"
-              onLoad={() => {
-                const container = document.getElementById('calendar-container');
-                if (container) {
-                  container.style.opacity = '1';
-                  container.style.transform = 'translateY(0)';
-                }
-              }}
-            />
-          </div>
-          
-          <script 
-            src="https://api.teamair.life/js/form_embed.js" 
-            type="text/javascript">
-          </script>
-        </div>
-      </section>
 
       <Footer />
     </div>
