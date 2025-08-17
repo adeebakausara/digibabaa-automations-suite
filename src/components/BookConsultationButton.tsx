@@ -27,12 +27,6 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
 
   const handleClick = () => {
     navigate('/book-consultation');
-    setTimeout(() => {
-      const calendarSection = document.getElementById('calendar-section');
-      if (calendarSection) {
-        calendarSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
   };
 
   if (variant === 'fixed') {
