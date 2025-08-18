@@ -3,10 +3,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Phone, MessageCircle, Mail, Bot, Zap, Palette } from 'lucide-react';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 const AiServicesInAction = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Navigation />
+      <div className="min-h-screen bg-background">
       {/* Header Section */}
       <section className="relative pt-24 pb-16 bg-gradient-ai overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-card/20 to-transparent" />
@@ -327,6 +331,8 @@ const AiServicesInAction = () => {
         </section>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
