@@ -1,7 +1,7 @@
 import React from 'react';
 import { Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface BookConsultationButtonProps {
   variant?: 'fixed' | 'inline';
@@ -17,6 +17,7 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
   className = ''
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const baseClasses = "transition-all duration-300 hover:scale-105 flex items-center gap-2 group";
   
   const sizeClasses = {
@@ -26,7 +27,19 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
   };
 
   const handleClick = () => {
-    navigate('/book-consultation');
+    // If we're on the homepage, scroll to the calendar section
+    if (location.pathname === '/') {
+      const calendarSection = document.getElementById('book-consultation');
+      if (calendarSection) {
+        calendarSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    } else {
+      // Navigate to homepage and scroll to calendar section
+      navigate('/#book-consultation');
+    }
   };
 
   if (variant === 'fixed') {
