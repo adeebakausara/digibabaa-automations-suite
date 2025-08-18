@@ -346,12 +346,28 @@ const Contact = () => {
                   <CardTitle className="text-xl">Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Link to="/#book-consultation">
-                    <Button variant="accent" className="w-full justify-start">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      Book a 30-min Demo
-                    </Button>
-                  </Link>
+                  <Button 
+                    variant="accent" 
+                    className="w-full justify-start"
+                    onClick={() => {
+                      // Navigate to homepage if not already there
+                      if (window.location.pathname !== '/') {
+                        window.location.href = '/#book-consultation';
+                      } else {
+                        // Smooth scroll to calendar section if already on homepage
+                        const element = document.getElementById('book-consultation');
+                        if (element) {
+                          element.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                          });
+                        }
+                      }
+                    }}
+                  >
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Book a 30-min Demo
+                  </Button>
                   <Button variant="outline" className="w-full justify-start">
                     <Zap className="h-4 w-4 mr-2" />
                     Download Case Studies
