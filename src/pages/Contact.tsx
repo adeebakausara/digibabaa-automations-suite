@@ -22,6 +22,7 @@ import {
   Zap
 } from "lucide-react";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -345,10 +346,12 @@ const Contact = () => {
                   <CardTitle className="text-xl">Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Button variant="accent" className="w-full justify-start">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    Book a 30-min Demo
-                  </Button>
+                  <Link to="/#book-consultation">
+                    <Button variant="accent" className="w-full justify-start">
+                      <Calendar className="h-4 w-4 mr-2" />
+                      Book a 30-min Demo
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="w-full justify-start">
                     <Zap className="h-4 w-4 mr-2" />
                     Download Case Studies
