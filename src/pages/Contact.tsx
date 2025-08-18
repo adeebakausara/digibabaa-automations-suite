@@ -372,7 +372,26 @@ const Contact = () => {
                     <Zap className="h-4 w-4 mr-2" />
                     Download Case Studies
                   </Button>
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start"
+                    onClick={() => {
+                      // First scroll to the bottom of the page to find the chatbot
+                      window.scrollTo({ 
+                        top: document.body.scrollHeight, 
+                        behavior: 'smooth' 
+                      });
+                      
+                      // Wait for scroll to complete, then trigger chatbot
+                      setTimeout(() => {
+                        // Find and click the chatbot button to open it
+                        const chatbotButton = document.querySelector('button[class*="fixed bottom-6 right-6"]') as HTMLButtonElement;
+                        if (chatbotButton) {
+                          chatbotButton.click();
+                        }
+                      }, 1000);
+                    }}
+                  >
                     <MessageSquare className="h-4 w-4 mr-2" />
                     Start Live Chat
                   </Button>
