@@ -338,7 +338,7 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
       {/* Chat Window */}
       {isOpen && (
         <Card className={cn(
-          "fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col transition-all duration-300",
+          "fixed bottom-6 right-6 w-80 h-[450px] shadow-2xl z-50 flex flex-col transition-all duration-300",
           isMinimized && "h-16"
         )}>
           {/* Header */}
@@ -403,7 +403,7 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
               {/* Messages Container - Fixed height with scrolling */}
               <div 
                 ref={messagesContainerRef}
-                className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 max-h-[420px]"
+                className="flex-1 overflow-y-auto p-3 space-y-3 min-h-0 max-h-[300px]"
               >
                 {messages.map((message) => (
                   <div
@@ -441,7 +441,7 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
               </div>
               
               {/* Fixed Input Area */}
-              <div className="flex-shrink-0 border-t bg-background p-4">
+              <div className="flex-shrink-0 border-t bg-background p-3">
                 <div className="flex gap-2">
                   <Input
                     ref={inputRef}
