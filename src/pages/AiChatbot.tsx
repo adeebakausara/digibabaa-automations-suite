@@ -10,10 +10,10 @@ import { DigibaaaChatbot } from "@/components/DigibaaaChatbot";
 
 const AiChatbot = () => {
   const integrations = [
-    { name: "Website", icon: Globe, description: "Seamless website integration" },
-    { name: "Facebook", icon: Facebook, description: "Facebook Messenger support" },
-    { name: "Instagram", icon: Instagram, description: "Instagram DM automation" },
-    { name: "WhatsApp", icon: MessageSquare, description: "WhatsApp Business API" }
+    { name: "Website", icon: Globe, description: "Instant website chat support" },
+    { name: "Facebook", icon: Facebook, description: "Auto-respond to messages" },
+    { name: "Instagram", icon: Instagram, description: "Handle DMs automatically" },
+    { name: "WhatsApp", icon: MessageSquare, description: "Business messaging made easy" }
   ];
 
   return (
@@ -24,11 +24,10 @@ const AiChatbot = () => {
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            AI Chatbot – Always On, Always Ready.
+            Smart AI Chatbot Solutions
           </h1>
           <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Integrate seamlessly with your website, Facebook, Instagram, and WhatsApp. 
-            Enhance customer engagement effortlessly.
+            Transform customer interactions with intelligent automation that works 24/7 across all your favorite platforms.
           </p>
           
           {/* CTA Section */}
@@ -48,10 +47,10 @@ const AiChatbot = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Seamless Platform Integration
+              Connect Everywhere Your Customers Are
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Connect your AI chatbot across all major platforms to engage customers wherever they are.
+              One powerful chatbot that works seamlessly across all your business channels.
             </p>
           </div>
           
@@ -77,29 +76,29 @@ const AiChatbot = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Why Choose Our AI Chatbot?
+            Powerful Features That Deliver Results
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto">
                 <MessageCircle className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">24/7 Availability</h3>
-              <p className="text-muted-foreground">Never miss a customer inquiry with round-the-clock automated responses.</p>
+              <h3 className="text-xl font-semibold">Always Available</h3>
+              <p className="text-muted-foreground">Respond instantly to customers any time of day, boosting satisfaction and sales.</p>
             </div>
             <div className="space-y-4">
               <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto">
                 <Globe className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">Multi-Platform</h3>
-              <p className="text-muted-foreground">Consistent experience across website, social media, and messaging apps.</p>
+              <h3 className="text-xl font-semibold">Unified Experience</h3>
+              <p className="text-muted-foreground">Consistent, smart responses across all platforms your customers use.</p>
             </div>
             <div className="space-y-4">
               <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto">
                 <Phone className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">Easy Setup</h3>
-              <p className="text-muted-foreground">Quick integration with your existing systems and platforms.</p>
+              <h3 className="text-xl font-semibold">Quick Implementation</h3>
+              <p className="text-muted-foreground">Get up and running in minutes with our simple setup process.</p>
             </div>
           </div>
         </div>
@@ -110,10 +109,10 @@ const AiChatbot = () => {
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Experience Our AI Chatbot Live
+              Try It Right Now
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Try our intelligent chatbot below. Ask questions about our services, pricing, or how we can help automate your business processes.
+              See our AI chatbot in action! Ask about services, get pricing info, or discover how we can transform your business.
             </p>
           </div>
           
