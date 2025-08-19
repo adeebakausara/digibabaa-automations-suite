@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { MessageCircle, X, Send, Minimize2, Maximize2, ChevronUp, ChevronDown } from 'lucide-react';
+import { MessageCircle, X, Send, Minimize2, Maximize2, ChevronUp, ChevronDown, Sparkles, Zap, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface Message {
@@ -56,7 +56,7 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
       if (messages.length === 0) {
         const welcomeMessage: Message = {
           id: Date.now().toString(),
-          text: "Hello! I'm here to help you with any questions about Digibabaa's AI automation services. How can I assist you today?",
+          text: "✨ Welcome to Digibabaa! I'm your AI assistant ready to help transform your business with intelligent automation. Ask me about our services, pricing, or how we can boost your productivity!",
           isUser: false,
           timestamp: new Date()
         };
@@ -213,15 +213,20 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
 
   if (embedded) {
     return (
-      <div className={cn("flex flex-col h-full bg-background", className)}>
-        <CardHeader className="flex-shrink-0 border-b bg-primary text-primary-foreground">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary-foreground/10 rounded-full">
-              <MessageCircle className="h-5 w-5" />
+      <div className={cn("flex flex-col h-full bg-gradient-to-br from-background via-background to-muted/20 border border-border/50 rounded-xl overflow-hidden shadow-2xl", className)}>
+        <CardHeader className="flex-shrink-0 border-b bg-gradient-to-r from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]"></div>
+          <div className="flex items-center gap-3 relative z-10">
+            <div className="p-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 shadow-lg">
+              <Sparkles className="h-5 w-5 animate-pulse" />
             </div>
-            <div>
-              <h3 className="font-semibold">Digibabaa AI Assistant</h3>
-              <p className="text-sm opacity-90">Ask me anything about our services</p>
+            <div className="flex-1">
+              <h3 className="font-bold text-lg tracking-tight">Digibabaa AI Assistant</h3>
+              <p className="text-sm text-primary-foreground/90 font-medium">🚀 Ready to transform your business? Let's chat!</p>
+            </div>
+            <div className="flex items-center gap-1 text-xs bg-white/20 px-2 py-1 rounded-full border border-white/30">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="font-medium">Live</span>
             </div>
           </div>
         </CardHeader>
@@ -252,12 +257,42 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
           {/* Messages Container - Fixed height with scrolling */}
           <div 
             ref={messagesContainerRef}
-            className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0 max-h-[400px]"
+            className="flex-1 overflow-y-auto p-6 space-y-4 min-h-0 max-h-[400px] bg-gradient-to-b from-transparent to-muted/10"
           >
             {messages.length === 0 && (
-              <div className="text-center text-muted-foreground py-8">
-                <MessageCircle className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>Start a conversation to see our AI in action!</p>
+              <div className="text-center py-12 space-y-6">
+                <div className="relative">
+                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center border border-primary/20 shadow-lg">
+                    <Sparkles className="h-10 w-10 text-primary animate-pulse" />
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-accent to-accent/80 rounded-full flex items-center justify-center">
+                    <Zap className="h-3 w-3 text-accent-foreground" />
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <h4 className="font-bold text-lg text-foreground">AI-Powered Assistance Awaits!</h4>
+                  <p className="text-muted-foreground leading-relaxed">Ready to explore how AI can revolutionize your business? Start chatting to discover our automation solutions!</p>
+                </div>
+                <div className="grid grid-cols-1 gap-2 max-w-xs mx-auto">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="justify-start text-xs hover:bg-primary/5 border-primary/20"
+                    onClick={() => setInputValue("What AI services do you offer?")}
+                  >
+                    <MessageCircle className="h-3 w-3 mr-2" />
+                    What AI services do you offer?
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="justify-start text-xs hover:bg-primary/5 border-primary/20"
+                    onClick={() => setInputValue("How much does automation cost?")}
+                  >
+                    <Sparkles className="h-3 w-3 mr-2" />
+                    How much does automation cost?
+                  </Button>
+                </div>
               </div>
             )}
             {messages.map((message) => (
@@ -270,10 +305,10 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
               >
                 <div
                   className={cn(
-                    "max-w-[80%] rounded-2xl px-4 py-2 text-sm break-words chatbot-message",
+                    "max-w-[80%] rounded-2xl px-4 py-3 text-sm break-words chatbot-message relative group transition-all duration-200",
                     message.isUser
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-foreground"
+                      ? "bg-gradient-to-br from-primary to-primary/90 text-primary-foreground shadow-lg shadow-primary/25 border border-primary/20"
+                      : "bg-gradient-to-br from-background to-muted/50 text-foreground shadow-md border border-border/50 hover:shadow-lg hover:border-border"
                   )}
                   dangerouslySetInnerHTML={{
                     __html: message.isUser ? message.text : processMessageText(message.text)
@@ -283,11 +318,14 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-muted text-foreground rounded-2xl px-4 py-2 text-sm">
-                  <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="bg-gradient-to-br from-muted to-muted/50 text-foreground rounded-2xl px-4 py-3 text-sm border border-border/50 shadow-md">
+                  <div className="flex items-center space-x-2">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                    <span className="text-xs text-muted-foreground font-medium">AI thinking...</span>
                   </div>
                 </div>
               </div>
@@ -296,25 +334,49 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
           </div>
           
           {/* Fixed Input Area */}
-          <div className="flex-shrink-0 border-t bg-background p-4">
-            <div className="flex gap-2">
-              <Input
-                ref={inputRef}
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Type your message..."
-                className="flex-1"
-                disabled={isLoading}
-              />
-              <Button
-                onClick={sendMessage}
-                disabled={!inputValue.trim() || isLoading}
-                size="icon"
-                className="flex-shrink-0"
-              >
-                <Send className="h-4 w-4" />
-              </Button>
+          <div className="flex-shrink-0 border-t bg-gradient-to-r from-background via-background to-muted/20 p-4 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 opacity-50"></div>
+            <div className="relative space-y-3">
+              <div className="flex gap-2">
+                <div className="relative flex-1">
+                  <Input
+                    ref={inputRef}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Ask about our AI solutions..."
+                    className="flex-1 pr-12 bg-background/50 backdrop-blur-sm border-border/50 focus:border-primary/50 focus:bg-background transition-all duration-200 rounded-xl shadow-sm"
+                    disabled={isLoading}
+                  />
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">
+                    <Sparkles className="h-3 w-3" />
+                  </div>
+                </div>
+                <Button
+                  onClick={sendMessage}
+                  disabled={!inputValue.trim() || isLoading}
+                  size="icon"
+                  className="flex-shrink-0 rounded-xl bg-gradient-to-br from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-200 border border-primary/20"
+                >
+                  {isLoading ? (
+                    <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                  ) : (
+                    <Send className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
+              <div className="flex items-center justify-between text-xs text-muted-foreground">
+                <span>Powered by Digibabaa AI</span>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="h-6 px-2 text-xs hover:bg-primary/10 hover:text-primary transition-colors"
+                  onClick={() => setInputValue("I want to schedule a consultation")}
+                >
+                  <ArrowRight className="h-3 w-3 mr-1" />
+                  Book Demo
+                </Button>
+              </div>
             </div>
           </div>
         </CardContent>
@@ -326,32 +388,45 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
     <>
       {/* Floating Chat Button */}
       {!isOpen && (
-        <Button
-          onClick={handleToggle}
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
-          size="icon"
-        >
-          <MessageCircle className="h-6 w-6" />
-        </Button>
+        <div className="fixed bottom-6 right-6 z-50 group">
+          <Button
+            onClick={handleToggle}
+            className="relative h-16 w-16 rounded-full bg-gradient-to-br from-primary via-primary to-primary/90 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-primary/20 overflow-hidden group-hover:scale-105"
+            size="icon"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_ease-in-out_infinite]"></div>
+            <Sparkles className="h-7 w-7 text-primary-foreground animate-pulse relative z-10" />
+          </Button>
+          <div className="absolute -top-2 -right-1 bg-gradient-to-br from-accent to-accent/80 text-accent-foreground text-xs font-bold px-2 py-1 rounded-full shadow-lg animate-bounce border border-accent/20">
+            AI
+          </div>
+          <div className="absolute -bottom-12 right-0 bg-background/95 backdrop-blur-sm text-foreground text-sm font-medium px-3 py-2 rounded-lg shadow-lg border border-border/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+            Chat with AI Assistant
+          </div>
+        </div>
       )}
 
       {/* Chat Window */}
       {isOpen && (
         <Card className={cn(
-          "fixed bottom-6 right-6 w-80 h-[450px] shadow-2xl z-50 flex flex-col transition-all duration-300",
+          "fixed bottom-6 right-6 w-80 h-[500px] shadow-2xl z-50 flex flex-col transition-all duration-300 border border-border/50 bg-gradient-to-br from-background via-background to-muted/10 overflow-hidden",
           isMinimized && "h-16"
         )}>
           {/* Header */}
-          <CardHeader className="flex-shrink-0 bg-primary text-primary-foreground rounded-t-lg">
-            <div className="flex items-center justify-between">
+          <CardHeader className="flex-shrink-0 bg-gradient-to-r from-primary via-primary to-primary/90 text-primary-foreground rounded-t-lg relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]"></div>
+            <div className="flex items-center justify-between relative z-10">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-primary-foreground/10 rounded-full">
-                  <MessageCircle className="h-4 w-4" />
+                <div className="p-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 shadow-lg">
+                  <Sparkles className="h-4 w-4 animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm">Digibabaa AI Assistant</h3>
+                  <h3 className="font-bold text-sm tracking-tight">Digibabaa AI Assistant</h3>
                   {!isMinimized && (
-                    <p className="text-xs opacity-90">Online now</p>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <p className="text-xs text-primary-foreground/90 font-medium">Ready to help</p>
+                    </div>
                   )}
                 </div>
               </div>
@@ -403,7 +478,7 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
               {/* Messages Container - Fixed height with scrolling */}
               <div 
                 ref={messagesContainerRef}
-                className="flex-1 overflow-y-auto p-3 space-y-3 min-h-0 max-h-[300px]"
+                className="flex-1 overflow-y-auto p-4 space-y-3 min-h-0 max-h-[320px] bg-gradient-to-b from-transparent to-muted/5"
               >
                 {messages.map((message) => (
                   <div
@@ -415,10 +490,10 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
                   >
                     <div
                       className={cn(
-                        "max-w-[85%] rounded-2xl px-3 py-2 text-sm break-words chatbot-message",
+                        "max-w-[85%] rounded-2xl px-3 py-2 text-sm break-words chatbot-message relative group transition-all duration-200",
                         message.isUser
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted text-foreground"
+                          ? "bg-gradient-to-br from-primary to-primary/90 text-primary-foreground shadow-md shadow-primary/20 border border-primary/20"
+                          : "bg-gradient-to-br from-background to-muted/50 text-foreground shadow-sm border border-border/50 hover:shadow-md hover:border-border"
                       )}
                       dangerouslySetInnerHTML={{
                         __html: message.isUser ? message.text : processMessageText(message.text)
@@ -428,11 +503,14 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="bg-muted text-foreground rounded-2xl px-3 py-2 text-sm">
-                      <div className="flex space-x-1">
-                        <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                        <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="bg-gradient-to-br from-muted to-muted/50 text-foreground rounded-2xl px-3 py-2 text-sm border border-border/50 shadow-sm">
+                      <div className="flex items-center space-x-2">
+                        <div className="flex space-x-1">
+                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                          <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        </div>
+                        <span className="text-xs text-muted-foreground">AI thinking...</span>
                       </div>
                     </div>
                   </div>
@@ -441,25 +519,48 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
               </div>
               
               {/* Fixed Input Area */}
-              <div className="flex-shrink-0 border-t bg-background p-3">
-                <div className="flex gap-2">
-                  <Input
-                    ref={inputRef}
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder="Type your message..."
-                    className="flex-1"
-                    disabled={isLoading}
-                  />
-                  <Button
-                    onClick={sendMessage}
-                    disabled={!inputValue.trim() || isLoading}
-                    size="icon"
-                    className="flex-shrink-0"
-                  >
-                    <Send className="h-4 w-4" />
-                  </Button>
+              <div className="flex-shrink-0 border-t bg-gradient-to-r from-background via-background to-muted/10 p-3 relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 opacity-50"></div>
+                <div className="relative space-y-2">
+                  <div className="flex gap-2">
+                    <div className="relative flex-1">
+                      <Input
+                        ref={inputRef}
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                        placeholder="Ask about our AI solutions..."
+                        className="flex-1 pr-10 bg-background/50 backdrop-blur-sm border-border/50 focus:border-primary/50 focus:bg-background transition-all duration-200 rounded-lg shadow-sm text-sm"
+                        disabled={isLoading}
+                      />
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-muted-foreground">
+                        <Sparkles className="h-3 w-3" />
+                      </div>
+                    </div>
+                    <Button
+                      onClick={sendMessage}
+                      disabled={!inputValue.trim() || isLoading}
+                      size="icon"
+                      className="flex-shrink-0 h-9 w-9 rounded-lg bg-gradient-to-br from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-md hover:shadow-lg transition-all duration-200 border border-primary/20"
+                    >
+                      {isLoading ? (
+                        <div className="w-3 h-3 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                      ) : (
+                        <Send className="h-3 w-3" />
+                      )}
+                    </Button>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="h-5 px-2 text-xs hover:bg-primary/10 hover:text-primary transition-colors rounded-md"
+                      onClick={() => setInputValue("I want to schedule a consultation")}
+                    >
+                      <ArrowRight className="h-2 w-2 mr-1" />
+                      Book Demo
+                    </Button>
+                  </div>
                 </div>
               </div>
             </CardContent>

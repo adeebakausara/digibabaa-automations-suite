@@ -55,6 +55,9 @@ All colors MUST be HSL.
     --glow-primary: 0 0 30px hsl(var(--electric-blue) / 0.3);
     --glow-accent: 0 0 20px hsl(var(--aqua) / 0.4);
     --shadow-elegant: 0 10px 40px -15px hsl(var(--electric-blue) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 
@@ -221,5 +224,19 @@ All colors MUST be HSL.
     .chatbot-message ul {
       padding-left: 12px;
     }
+  }
+
+  /* Shimmer animation for enhanced branding effects */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
   }
 }
