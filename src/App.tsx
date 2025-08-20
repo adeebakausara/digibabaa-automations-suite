@@ -36,6 +36,7 @@ import RealEstateCaseStudy from "./pages/RealEstateCaseStudy";
 import RestaurantCaseStudy from "./pages/RestaurantCaseStudy";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import BookingCalendar from "./pages/BookingCalendar";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const App = () => (
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/book-consultation" element={<BookConsultation />} />
+          <Route path="/booking-calendar" element={<BookingCalendar />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
