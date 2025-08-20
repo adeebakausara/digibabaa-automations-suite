@@ -10,11 +10,12 @@ const BookingCalendar = () => {
       <section className="py-8 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-full mx-auto">
           {/* Header */}
-          <div className="text-center mb-8 lg:mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Book Your <span className="text-primary bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Free Consultation</span>
+          <div className="text-center mb-8 lg:mb-12 px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-normal sm:leading-tight">
+              <span className="block">Book Your</span> 
+              <span className="text-primary block mt-2">Free Consultation</span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Schedule a call with our AI automation experts to discuss your business needs and discover how we can transform your operations
             </p>
             
