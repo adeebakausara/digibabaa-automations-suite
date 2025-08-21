@@ -146,7 +146,7 @@ const CustomAiAutomation = () => {
                   <Link to="/contact">Get Started Today</Link>
                 </Button>
                 <Button variant="outline" size="lg" className="px-8" asChild>
-                  <Link to="/contact">Schedule a Demo</Link>
+                  <Link to="/booking-calendar">Schedule a Demo</Link>
                 </Button>
               </div>
             </div>
@@ -197,7 +197,7 @@ const CustomAiAutomation = () => {
               <Link to="/contact">Get Your Custom AI Solution</Link>
             </Button>
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" asChild>
-              <Link to="/contact">Book a Free Consultation</Link>
+              <Link to="/booking-calendar">Book a Free Consultation</Link>
             </Button>
           </div>
         </div>

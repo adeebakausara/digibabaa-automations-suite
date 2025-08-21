@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -272,10 +273,13 @@ const Testimonials = () => {
                   <Button 
                     size="lg" 
                     className="bg-gradient-primary hover:opacity-90 text-white px-10 py-6 text-xl font-semibold w-full sm:w-auto shadow-lg hover:shadow-xl transition-all"
+                    asChild
                   >
-                    <Calendar className="mr-3 h-6 w-6" />
-                    Book Your Free Consultation
-                    <ArrowRight className="ml-3 h-6 w-6" />
+                    <Link to="/booking-calendar">
+                      <Calendar className="mr-3 h-6 w-6" />
+                      Book Your Free Consultation
+                      <ArrowRight className="ml-3 h-6 w-6" />
+                    </Link>
                   </Button>
                   
                   <Button 

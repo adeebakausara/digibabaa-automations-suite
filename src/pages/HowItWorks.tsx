@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -156,9 +157,11 @@ const HowItWorks = () => {
           <p className="text-muted-foreground mb-8">
             Let's discuss your automation needs
           </p>
-          <Button variant="hero" size="lg">
-            Book Free Consultation
-            <ArrowRight className="ml-2 h-4 w-4" />
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/booking-calendar">
+              Book a Free Consultation
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </section>

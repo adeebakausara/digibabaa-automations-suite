@@ -98,9 +98,9 @@ const GetStarted = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
+            <Link to="/booking-calendar">
               <Button variant="hero" size="lg" className="group">
-                Book Discovery Call
+                Book a Free Discovery Call
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -207,9 +207,9 @@ const GetStarted = () => {
             Join hundreds of businesses already automating their success
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
+            <Link to="/booking-calendar">
               <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-                Book Free Discovery Call
+                Book a Free Discovery Call
               </Button>
             </Link>
             <Link to="/portfolio">

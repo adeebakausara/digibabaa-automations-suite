@@ -157,7 +157,7 @@ const CustomerVerificationDetails = () => {
               <Link to="/contact">Get Started Now</Link>
             </Button>
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" asChild>
-              <Link to="/contact">Schedule a Demo</Link>
+              <Link to="/booking-calendar">Schedule a Demo</Link>
             </Button>
           </div>
         </div>

@@ -33,7 +33,7 @@ const AiChatbot = () => {
           {/* CTA Section */}
           <div className="mb-20">
             <Button variant="outline" size="lg" className="px-8 py-6 text-lg" asChild>
-              <a href="/contact">
+              <a href="/booking-calendar">
                 <Calendar className="mr-2 h-5 w-5" />
                 Book a Free Consultation
               </a>

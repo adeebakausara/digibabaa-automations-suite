@@ -162,9 +162,9 @@ const Index = () => {
                 Watch Demo
               </Button>
             </Link>
-            <Link to="/book-consultation">
+            <Link to="/booking-calendar">
               <Button variant="accent" size="lg">
-                Book Free Audit
+                Book a Free Consultation
               </Button>
             </Link>
           </div>
@@ -386,9 +386,9 @@ const Index = () => {
                 Get Started Today
               </Button>
             </Link>
-            <Link to="/book-consultation">
+            <Link to="/booking-calendar">
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-                Schedule Free Consultation
+                Schedule a Free Consultation
               </Button>
             </Link>
           </div>

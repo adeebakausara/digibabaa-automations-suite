@@ -125,7 +125,7 @@ const AiVoiceAgent = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
-              <Link to="/contact">Book a Free Consultation</Link>
+              <Link to="/booking-calendar">Book a Free Consultation</Link>
             </Button>
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
               Get Your Voice Solution

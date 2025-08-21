@@ -27,19 +27,8 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
   };
 
   const handleClick = () => {
-    // If we're on the homepage, scroll to the calendar section
-    if (location.pathname === '/') {
-      const calendarSection = document.getElementById('book-consultation');
-      if (calendarSection) {
-        calendarSection.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    } else {
-      // Navigate to homepage and scroll to calendar section
-      navigate('/#book-consultation');
-    }
+    // Navigate to the booking calendar page
+    navigate('/booking-calendar');
   };
 
   if (variant === 'fixed') {
@@ -60,7 +49,7 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
         `}
       >
         <Calendar className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-        <span className="hidden sm:inline">Book Free Consultation</span>
+        <span className="hidden sm:inline">Book a Free Consultation</span>
         <span className="sm:hidden">Book Call</span>
       </button>
     );
@@ -74,7 +63,7 @@ export const BookConsultationButton: React.FC<BookConsultationButtonProps> = ({
       onClick={handleClick}
     >
       <Calendar className="mr-2 h-4 w-4" />
-      Book Free Consultation
+      Book a Free Consultation
     </Button>
   );
 };

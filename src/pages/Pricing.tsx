@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -284,8 +285,8 @@ const Pricing = () => {
               Start Free Trial
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Schedule Demo
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" asChild>
+              <Link to="/booking-calendar">Schedule Demo</Link>
             </Button>
           </div>
         </div>

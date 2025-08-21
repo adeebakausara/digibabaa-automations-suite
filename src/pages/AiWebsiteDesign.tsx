@@ -223,7 +223,7 @@ const AiWebsiteDesign = () => {
               <Link to="/contact">Get Your AI-Designed Website</Link>
             </Button>
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" asChild>
-              <Link to="/contact">Book a Free Consultation</Link>
+              <Link to="/booking-calendar">Book a Free Consultation</Link>
             </Button>
           </div>
         </div>
