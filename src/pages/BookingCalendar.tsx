@@ -7,33 +7,33 @@ const BookingCalendar = () => {
       <Navigation />
       
       {/* Main Booking Section */}
-      <section className="py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-full mx-auto">
+      <section className="py-2 px-2 sm:px-4">
+        <div className="w-full">
           
           {/* Enhanced Calendar Widget */}
-          <div className="max-w-full lg:max-w-6xl xl:max-w-7xl mx-auto">
-            <div className="bg-background rounded-3xl shadow-elegant border-2 border-primary/20 overflow-hidden hover:shadow-glow hover:border-primary/30 transition-all duration-500">
+          <div className="w-full max-w-none">
+            <div className="bg-gradient-to-br from-background via-card/10 to-background rounded-2xl shadow-2xl border border-primary/30 overflow-hidden animate-fade-in">
               {/* Calendar Header */}
-              <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 border-b border-primary/20">
-                <h2 className="text-2xl font-bold text-center text-primary">Select Your Consultation Time</h2>
-                <p className="text-center text-muted-foreground mt-2 text-lg">All times shown in your local timezone</p>
+              <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 px-4 py-3 border-b border-primary/30">
+                <h1 className="text-xl sm:text-2xl font-bold text-center text-primary">Select Your Consultation Time</h1>
+                <p className="text-center text-muted-foreground mt-1 text-sm sm:text-base">All times shown in your local timezone</p>
               </div>
               
               {/* Calendar Container */}
-              <div className="p-2 lg:p-4 bg-background">
+              <div className="p-0 bg-gradient-to-br from-background to-card/5">
                 <iframe 
                   src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
                   style={{
                     width: '100%', 
                     border: 'none', 
                     overflow: 'hidden',
-                    minHeight: '900px',
-                    height: '100vh',
-                    maxHeight: '1200px'
+                    minHeight: '800px',
+                    height: '90vh',
+                    maxHeight: '1000px'
                   }} 
                   scrolling="no" 
                   id="sf5ZeWALmqKvHoroSvTs_1754294861967"
-                  className="w-full rounded-2xl"
+                  className="w-full"
                   title="Book Consultation Calendar - Select your preferred date and time"
                 />
               </div>
