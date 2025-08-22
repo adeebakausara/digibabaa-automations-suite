@@ -312,9 +312,31 @@ const Contact = () => {
                       <MapPin className="h-6 w-6 text-purple-start" />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Visit Us</h4>
-                      <p className="text-muted-foreground text-sm">Al Muraqqabat, Deira</p>
-                      <p className="text-muted-foreground text-sm">Dubai, UAE</p>
+                      <h4 className="font-semibold">Our Offices</h4>
+                      <div className="space-y-3">
+                        <div>
+                          <p className="font-medium text-sm">Dubai Office</p>
+                          <a 
+                            href="https://www.google.com/maps/place/Splendor+Home+Technical+Services+LLC/@25.277637,55.3084101,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f42d8aee6ddc7:0x52cfd4e898b9cf9f!8m2!3d25.277637!4d55.3084101!16s%2Fg%2F11gh2tx2qh?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground text-sm hover:text-primary transition-colors block"
+                          >
+                            401, Building 44, Al Murar – Deira, Dubai, UAE
+                          </a>
+                        </div>
+                        <div>
+                          <p className="font-medium text-sm">Lahore Office</p>
+                          <a 
+                            href="https://www.google.com/maps/place/31%C2%B027'34.6%22N+74%C2%B017'15.9%22E/@31.459614,74.2851751,17z/data=!3m1!4b1!4m4!3m3!8m2!3d31.459614!4d74.28775?q=31.459614,74.287750&entry=tts&g_ep=EgoyMDI0MTIxMS4wIPu8ASoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground text-sm hover:text-primary transition-colors block"
+                          >
+                            Johar Town, Lahore, Pakistan
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   
