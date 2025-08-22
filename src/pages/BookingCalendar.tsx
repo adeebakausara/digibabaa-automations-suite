@@ -8,11 +8,11 @@ const BookingCalendar = () => {
       
       {/* Main Booking Section */}
       <main className="pt-8 pb-16 px-4 md:pt-12 lg:pt-16">
-        <div className="mx-auto max-w-[640px] md:max-w-[520px] lg:max-w-[640px]">
+        <div className="mx-auto max-w-[800px] md:max-w-[720px] lg:max-w-[800px]">
           
           {/* Page Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+          <div className="text-center mb-12">
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               Book Your Free Consultation
             </h1>
             <p className="text-muted-foreground text-sm md:text-base">
@@ -41,9 +41,9 @@ const BookingCalendar = () => {
                   width: '100%', 
                   border: 'none', 
                   overflow: 'hidden',
-                  minHeight: '700px',
-                  height: '80vh',
-                  maxHeight: '900px'
+                  minHeight: '900px',
+                  height: '90vh',
+                  maxHeight: '1200px'
                 }} 
                 scrolling="no" 
                 id="sf5ZeWALmqKvHoroSvTs_1754294861967"
