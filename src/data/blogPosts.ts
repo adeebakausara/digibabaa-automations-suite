@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     seoTitle: 'AI Chatbots: The Future of Customer Service | AI Automation Solutions',
     metaDescription: 'Learn how AI chatbots are transforming customer service with instant support, reduced costs, and improved satisfaction. Get your AI chatbot today.',
     keywords: ['AI chatbots', 'customer service', 'artificial intelligence', 'automated support', 'customer experience'],
-    imageUrl: '/src/assets/ai-chatbots.jpg',
+    imageUrl: '/src/assets/blog-ai-chatbot-future.jpg',
     imageAlt: 'AI chatbot interface showing customer service automation',
     content: `
 # The Future of Customer Service: How AI Chatbots Are Changing the Game
@@ -142,7 +142,7 @@ The question isn't whether AI chatbots will transform customer service, but how 
     seoTitle: 'Why Your Business Needs AI Chatbots: Key Benefits & ROI | AI Solutions',
     metaDescription: 'Discover the top benefits of AI chatbots for business: 24/7 support, cost reduction, lead generation, and improved customer experience. Start today!',
     keywords: ['AI chatbot benefits', 'business automation', 'customer support AI', 'chatbot ROI', 'business efficiency'],
-    imageUrl: '/src/assets/ai-chatbots.jpg',
+    imageUrl: '/src/assets/blog-chatbot-benefits.jpg',
     imageAlt: 'Business owner analyzing AI chatbot benefits and ROI',
     content: `
 # Why Your Business Needs an AI Chatbot: Top Benefits Explained
@@ -333,7 +333,7 @@ Don't let your business fall behind. The future of customer service is here, and
     seoTitle: 'AI Calling Agents: Transform Customer Interactions | Voice AI Solutions',
     metaDescription: 'Discover how AI calling agents revolutionize customer service with natural voice interactions, 24/7 availability, and cost-effective communication solutions.',
     keywords: ['AI calling agents', 'voice AI', 'automated phone calls', 'AI customer service', 'conversational AI'],
-    imageUrl: '/src/assets/ai-voice-agents.jpg',
+    imageUrl: '/src/assets/blog-ai-calling-agents.jpg',
     imageAlt: 'AI calling agent technology showing voice interaction interface',
     content: `
 # AI Calling Agents: Revolutionizing Customer Interactions
@@ -610,7 +610,7 @@ The future of customer communication is here, and it speaks your language—lite
     seoTitle: 'AI Chatbots vs Human Agents: Complete Comparison Guide | Customer Service',
     metaDescription: 'Compare AI chatbots vs human agents for customer service. Learn when to use each approach to optimize costs, efficiency, and customer satisfaction.',
     keywords: ['AI chatbots vs humans', 'customer service comparison', 'chatbot efficiency', 'human agent benefits', 'hybrid customer service'],
-    imageUrl: '/src/assets/ai-chatbots.jpg',
+    imageUrl: '/src/assets/blog-chatbot-vs-human.jpg',
     imageAlt: 'Comparison between AI chatbot and human customer service agent',
     content: `
 # AI Chatbots vs. Human Agents: What Works Best for Your Business?
@@ -971,7 +971,7 @@ Whatever approach you choose, the key is to start with your customers' needs and
     seoTitle: 'Custom AI Automation Solutions: Boost Business Efficiency | Enterprise AI',
     metaDescription: 'Transform your business with custom AI automation solutions. Streamline operations, reduce costs, improve accuracy, and accelerate growth with tailored AI.',
     keywords: ['AI automation', 'business efficiency', 'custom automation', 'workflow automation', 'business process automation'],
-    imageUrl: '/src/assets/custom-automation.jpg',
+    imageUrl: '/src/assets/blog-ai-automation-efficiency.jpg',
     imageAlt: 'Business automation dashboard showing AI-powered workflows and efficiency metrics',
     content: `
 # Boost Your Business Efficiency with Customized AI Automation Solutions

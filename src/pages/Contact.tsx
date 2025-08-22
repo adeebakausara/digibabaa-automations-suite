@@ -291,8 +291,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email Us</h4>
-                      <p className="text-muted-foreground text-sm">akbar@digibabaa.com</p>
-                      <p className="text-muted-foreground text-sm">support@digibabaa.com</p>
+                      <p className="text-muted-foreground text-sm">akbar@digibabaa.co</p>
                     </div>
                   </div>
                   
@@ -398,20 +397,14 @@ const Contact = () => {
                     variant="outline" 
                     className="w-full justify-start"
                     onClick={() => {
-                      // First scroll to the bottom of the page to find the chatbot
-                      window.scrollTo({ 
-                        top: document.body.scrollHeight, 
-                        behavior: 'smooth' 
-                      });
-                      
-                      // Wait for scroll to complete, then trigger chatbot
-                      setTimeout(() => {
-                        // Find and click the chatbot button to open it
-                        const chatbotButton = document.querySelector('button[class*="fixed bottom-6 right-6"]') as HTMLButtonElement;
-                        if (chatbotButton) {
-                          chatbotButton.click();
-                        }
-                      }, 1000);
+                      // Find and click the chatbot button to open it directly
+                      const chatbotButton = document.querySelector('button[class*="fixed bottom-6 right-6"]') as HTMLButtonElement;
+                      if (chatbotButton) {
+                        chatbotButton.click();
+                      } else {
+                        // If chatbot button not found, try to trigger it via custom event
+                        window.dispatchEvent(new CustomEvent('openChatbot'));
+                      }
                     }}
                   >
                     <MessageSquare className="h-4 w-4 mr-2" />

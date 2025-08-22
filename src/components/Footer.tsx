@@ -62,7 +62,6 @@ const Footer = () => {
                 { name: "Pricing", path: "/pricing" },
                 { name: "Portfolio", path: "/portfolio" },
                 { name: "About Us", path: "/about" },
-                { name: "Book Consultation", path: "/book-consultation" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -88,9 +87,32 @@ const Footer = () => {
                 <Phone className="h-4 w-4" />
                 <span>+971 50 167 0273</span>
               </li>
-              <li className="flex items-center space-x-2 text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                <span>Al Muraqqabat, Deira, Dubai, UAE</span>
+              <li className="flex items-start space-x-2 text-muted-foreground">
+                <MapPin className="h-4 w-4 mt-1" />
+                <div className="space-y-2">
+                  <div>
+                    <p className="font-medium text-sm">Dubai Office</p>
+                    <a 
+                      href="https://www.google.com/maps/place/Splendor+Home+Technical+Services+LLC/@25.277637,55.3084101,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f42d8aee6ddc7:0x52cfd4e898b9cf9f!8m2!3d25.277637!4d55.3084101!16s%2Fg%2F11gh2tx2qh?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors text-sm block"
+                    >
+                      401, Building 44, Al Murar – Deira, Dubai, UAE
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm">Lahore Office</p>
+                    <a 
+                      href="https://www.google.com/maps/place/31%C2%B027'34.6%22N+74%C2%B017'15.9%22E/@31.459614,74.2851751,17z/data=!3m1!4b1!4m4!3m3!8m2!3d31.459614!4d74.28775?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors text-sm block"
+                    >
+                      Johar Town, Lahore, Pakistan
+                    </a>
+                  </div>
+                </div>
               </li>
               <li className="flex items-center space-x-2 text-muted-foreground">
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
