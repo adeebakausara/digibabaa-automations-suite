@@ -83,11 +83,13 @@ const Demo = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" className="group">
-              <Play className="mr-2 h-4 w-4" />
-              Start Interactive Demo
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link to="/booking-calendar">
+              <Button variant="hero" size="lg" className="group">
+                <Play className="mr-2 h-4 w-4" />
+                Start Interactive Demo
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
             <Link to="/contact">
               <Button variant="outline" size="lg">
                 <Calendar className="mr-2 h-4 w-4" />
@@ -199,13 +201,20 @@ const Demo = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Link to="/contact">
+                <Link to="/booking-calendar">
                   <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
                     <Calendar className="mr-2 h-4 w-4" />
                     Book Live Demo
                   </Button>
                 </Link>
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-white text-white hover:bg-white/10"
+                  onClick={() => {
+                    window.open('/portfolio', '_blank');
+                  }}
+                >
                   <Download className="mr-2 h-4 w-4" />
                   Download Case Studies
                 </Button>

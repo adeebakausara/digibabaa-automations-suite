@@ -170,14 +170,30 @@ const Portfolio = () => {
             Discover how we've transformed businesses across industries with our AI automation solutions. Real results, real impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => {
+                window.open('/portfolio', '_blank');
+              }}
+            >
               View All Case Studies
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline" size="lg">
-              <Play className="mr-2 h-4 w-4" />
-              Watch Demo Reel
-            </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => {
+                  // Scroll to portfolio section or navigate within same page
+                  const portfolioSection = document.querySelector('section');
+                  if (portfolioSection) {
+                    portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                <Play className="mr-2 h-4 w-4" />
+                Watch Demo Reel
+              </Button>
           </div>
         </div>
       </section>
@@ -429,7 +445,22 @@ const Portfolio = () => {
               Start Your Project
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-white text-white hover:bg-white/10"
+              onClick={() => {
+                // Open portfolio page to view case studies
+                const currentPath = window.location.pathname;
+                if (currentPath === '/portfolio') {
+                  // Scroll to top of current page
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  // Navigate to portfolio page
+                  window.location.href = '/portfolio';
+                }
+              }}
+            >
               Download Case Studies
             </Button>
           </div>

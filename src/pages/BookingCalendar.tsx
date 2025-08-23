@@ -1,89 +1,136 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { MessageSquare, Mail, ExternalLink } from "lucide-react";
 
 const BookingCalendar = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Main Booking Section */}
-      <main className="pt-8 pb-16 px-4 md:pt-12 lg:pt-16">
-        <div className="mx-auto max-w-[800px] md:max-w-[720px] lg:max-w-[800px]">
-          
-          {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Book Your Free Consultation
-            </h1>
-            <p className="text-muted-foreground text-sm md:text-base">
-              Select your preferred date and time for a personalized AI strategy discussion
-            </p>
-          </div>
+      {/* Hero Section - Minimalist */}
+      <section className="pt-16 pb-8 bg-gradient-to-b from-background to-card/20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            Book Your Free Consultation
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Schedule a personalized AI strategy session with our experts
+          </p>
+        </div>
+      </section>
 
-          {/* Calendar Card */}
-          <div className="bg-card rounded-2xl shadow-elegant border border-border/50 overflow-hidden animate-fade-in">
+      {/* Calendar Section - Clean & Spacious */}
+      <main className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          
+          {/* Calendar Container - Modern Design */}
+          <div className="bg-card rounded-3xl shadow-elegant border border-border/30 overflow-hidden">
             
-            {/* Calendar Header */}
-            <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 px-6 py-4 border-b border-border/30">
-              <h2 className="text-lg font-semibold text-center text-primary mb-1">
-                Select Your Consultation Time
-              </h2>
-              <p className="text-center text-muted-foreground text-sm">
-                All times shown in your local timezone
-              </p>
+            {/* Calendar Header - Minimal */}
+            <div className="bg-gradient-subtle px-8 py-6 border-b border-border/20">
+              <div className="text-center">
+                <h2 className="text-xl font-semibold text-primary mb-2">
+                  Select Your Preferred Time
+                </h2>
+                <p className="text-muted-foreground text-sm">
+                  All times are displayed in your local timezone
+                </p>
+              </div>
             </div>
             
-            {/* Calendar Container - preserving original calendar styling */}
-            <div className="p-0">
+            {/* Calendar Widget - Enhanced Size */}
+            <div className="p-0 bg-white">
               <iframe 
                 src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
                 style={{
                   width: '100%', 
                   border: 'none', 
                   overflow: 'hidden',
-                  minHeight: '900px',
-                  height: '90vh',
-                  maxHeight: '1200px'
+                  minHeight: '1000px',
+                  height: '95vh',
+                  maxHeight: '1400px'
                 }} 
                 scrolling="no" 
-                id="sf5ZeWALmqKvHoroSvTs_1754294861967"
+                id="sf5ZeWALmqKvHoroSvTs_calendar"
                 className="w-full"
                 title="Book Consultation Calendar - Select your preferred date and time"
-                aria-label="Booking calendar widget for scheduling consultation appointments"
+                aria-label="Interactive booking calendar for scheduling consultation appointments"
               />
             </div>
             
           </div>
 
-          {/* Support Section */}
-          <div className="mt-12 text-center">
-            <div className="bg-card/50 rounded-xl p-6 md:p-8 border border-border/30">
-              <h3 className="text-lg font-semibold mb-3 text-foreground">
-                Need Help Booking?
-              </h3>
-              <p className="text-muted-foreground mb-6 text-sm md:text-base leading-relaxed">
-                Having trouble with the calendar or need to schedule outside available times? 
-                Contact us directly and we'll arrange a suitable time.
-              </p>
+          {/* Help Section - Redesigned */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               
-              <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-                <a 
-                  href="mailto:info@digibabaa.com" 
-                  className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 hover:shadow-glow-primary min-h-[44px]"
-                  aria-label="Send us an email at info@digibabaa.com"
-                >
-                  📧 Email Us
-                </a>
-                <a 
-                  href="https://wa.me/923216666856" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-all duration-300 hover:shadow-glow-accent min-h-[44px]"
-                  aria-label="Message us on WhatsApp"
-                >
-                  💬 WhatsApp
-                </a>
+              {/* Contact Options */}
+              <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-border/20">
+                <h3 className="text-xl font-semibold mb-6 text-center text-foreground">
+                  Need Assistance?
+                </h3>
+                <p className="text-muted-foreground mb-8 text-center text-sm leading-relaxed">
+                  Having trouble with scheduling? Reach out to us directly
+                </p>
+                
+                <div className="space-y-4">
+                  <Button 
+                    className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground"
+                    onClick={() => window.open('mailto:akbar@digibabaa.co')}
+                  >
+                    <Mail className="h-4 w-4 mr-3" />
+                    Email Us Directly
+                  </Button>
+                  
+                  <Button 
+                    variant="outline"
+                    className="w-full h-12 border-accent text-accent hover:bg-accent/10"
+                    onClick={() => window.open('https://wa.me/923216666856', '_blank')}
+                  >
+                    <MessageSquare className="h-4 w-4 mr-3" />
+                    WhatsApp Support
+                  </Button>
+                </div>
               </div>
+
+              {/* What to Expect */}
+              <div className="bg-gradient-subtle rounded-2xl p-8 border border-border/20">
+                <h3 className="text-xl font-semibold mb-6 text-center text-foreground">
+                  What to Expect
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div>
+                      <p className="font-medium text-sm">30-Minute Strategy Session</p>
+                      <p className="text-muted-foreground text-xs">Personalized AI automation roadmap</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div>
+                      <p className="font-medium text-sm">Custom Solution Design</p>
+                      <p className="text-muted-foreground text-xs">Tailored to your business needs</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div>
+                      <p className="font-medium text-sm">Implementation Timeline</p>
+                      <p className="text-muted-foreground text-xs">Clear next steps and delivery schedule</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div>
+                      <p className="font-medium text-sm">No Commitment Required</p>
+                      <p className="text-muted-foreground text-xs">Completely free consultation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
           
