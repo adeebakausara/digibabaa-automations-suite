@@ -5,42 +5,30 @@ import { MessageSquare, Mail, ExternalLink } from "lucide-react";
 
 const BookingCalendar = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-900">
       <Navigation />
       
-      {/* Hero Section - Minimalist */}
-      <section className="pt-16 pb-8 bg-gradient-to-b from-background to-card/20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+      {/* Hero Section - Dark Blue Design */}
+      <section className="pt-20 pb-12 bg-gradient-to-b from-slate-900 to-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Book Your Free Consultation
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Schedule a personalized AI strategy session with our experts
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Schedule a call with our AI automation experts to discuss your business needs
           </p>
         </div>
       </section>
 
-      {/* Calendar Section - Clean & Spacious */}
-      <main className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      {/* Calendar Section */}
+      <main className="py-8 px-4 sm:px-6 lg:px-8 bg-slate-900">
+        <div className="max-w-4xl mx-auto">
           
-          {/* Calendar Container - Modern Design */}
-          <div className="bg-card rounded-3xl shadow-elegant border border-border/30 overflow-hidden">
+          {/* Calendar Container - White Background */}
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             
-            {/* Calendar Header - Minimal */}
-            <div className="bg-gradient-subtle px-8 py-6 border-b border-border/20">
-              <div className="text-center">
-                <h2 className="text-xl font-semibold text-primary mb-2">
-                  Select Your Preferred Time
-                </h2>
-                <p className="text-muted-foreground text-sm">
-                  All times are displayed in your local timezone
-                </p>
-              </div>
-            </div>
-            
-            {/* Calendar Widget - Enhanced Size */}
-            <div className="p-0 bg-white">
+            {/* Calendar Widget - Keep Same Size */}
+            <div className="p-0">
               <iframe 
                 src="https://api.teamair.life/widget/booking/sf5ZeWALmqKvHoroSvTs" 
                 style={{
@@ -49,7 +37,8 @@ const BookingCalendar = () => {
                   overflow: 'hidden',
                   minHeight: '1000px',
                   height: '95vh',
-                  maxHeight: '1400px'
+                  maxHeight: '1400px',
+                  display: 'block'
                 }} 
                 scrolling="no" 
                 id="sf5ZeWALmqKvHoroSvTs_calendar"
