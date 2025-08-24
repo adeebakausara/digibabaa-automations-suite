@@ -83,7 +83,7 @@ const Footer = () => {
                 <Mail className="h-4 w-4 mt-0.5" />
                 <div>
                   <span className="block">akbar@digibabaa.com</span>
-                  <span className="block">akbar@digibaba.co</span>
+                  <span className="block">akbar@digibabaa.co</span>
                 </div>
               </li>
               <li className="flex items-center space-x-2 text-muted-foreground">

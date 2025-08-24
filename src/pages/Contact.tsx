@@ -292,7 +292,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold">Email Us</h4>
                       <p className="text-muted-foreground text-sm">akbar@digibabaa.com</p>
-                      <p className="text-muted-foreground text-sm">akbar@digibaba.co</p>
+                      <p className="text-muted-foreground text-sm">akbar@digibabaa.co</p>
                     </div>
                   </div>
                   
