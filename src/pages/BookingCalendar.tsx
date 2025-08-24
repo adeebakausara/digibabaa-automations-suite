@@ -56,7 +56,7 @@ const BookingCalendar = () => {
               
               {/* Contact Options */}
               <div className="bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-border/20">
-                <h3 className="text-xl font-semibold mb-6 text-center text-foreground">
+                <h3 className="text-xl font-semibold mb-6 text-center text-white">
                   Need Assistance?
                 </h3>
                 <p className="text-muted-foreground mb-8 text-center text-sm leading-relaxed">
@@ -85,7 +85,7 @@ const BookingCalendar = () => {
 
               {/* What to Expect */}
               <div className="bg-gradient-subtle rounded-2xl p-8 border border-border/20">
-                <h3 className="text-xl font-semibold mb-6 text-center text-foreground">
+                <h3 className="text-xl font-semibold mb-6 text-center text-white">
                   What to Expect
                 </h3>
                 <div className="space-y-4">
