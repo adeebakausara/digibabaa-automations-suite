@@ -291,7 +291,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email Us</h4>
-                      <p className="text-muted-foreground text-sm">akbar@digibabaa.co</p>
+                      <p className="text-muted-foreground text-sm">akbar@digibabaa.com</p>
+                      <p className="text-muted-foreground text-sm">akbar@digibaba.co</p>
                     </div>
                   </div>
                   
@@ -392,13 +393,9 @@ const Contact = () => {
                     variant="outline" 
                     className="w-full justify-start"
                     onClick={() => {
-                      // Find and click the chatbot button to open it directly
-                      const chatbotButton = document.querySelector('button[class*="fixed bottom-6 right-6"]') as HTMLButtonElement;
-                      if (chatbotButton) {
-                        chatbotButton.click();
-                      } else {
-                        // If chatbot button not found, try to trigger it via custom event
-                        window.dispatchEvent(new CustomEvent('openChatbot'));
+                      // Open the chatbot programmatically
+                      if ((window as any).openDigibaaaChatbot) {
+                        (window as any).openDigibaaaChatbot();
                       }
                     }}
                   >

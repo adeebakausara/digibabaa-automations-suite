@@ -22,6 +22,22 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
   className 
 }) => {
   const [isOpen, setIsOpen] = useState(embedded);
+
+  // Global function to open chatbot
+  useEffect(() => {
+    if (!embedded) {
+      (window as any).openDigibaaaChatbot = () => {
+        setIsOpen(true);
+        setIsMinimized(false);
+      };
+    }
+    
+    return () => {
+      if (!embedded) {
+        delete (window as any).openDigibaaaChatbot;
+      }
+    };
+  }, [embedded]);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');

@@ -79,9 +79,12 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-center space-x-2 text-muted-foreground">
-                <Mail className="h-4 w-4" />
-                <span>akbar@digibabaa.co</span>
+              <li className="flex items-start space-x-2 text-muted-foreground">
+                <Mail className="h-4 w-4 mt-0.5" />
+                <div>
+                  <span className="block">akbar@digibabaa.com</span>
+                  <span className="block">akbar@digibaba.co</span>
+                </div>
               </li>
               <li className="flex items-center space-x-2 text-muted-foreground">
                 <Phone className="h-4 w-4" />
