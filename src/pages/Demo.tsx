@@ -1,62 +1,59 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
-import { 
-  Play, 
-  ArrowRight, 
-  MessageSquare, 
-  Phone, 
-  Zap, 
-  Video,
-  ExternalLink,
-  Calendar,
-  Download,
-  CheckCircle
-} from "lucide-react";
 
 const Demo = () => {
-  const demoVideos = [
+  const demoTemplates = [
     {
-      title: "AI Chatbot in Action",
-      description: "See how our AI chatbot handles customer inquiries with human-like responses",
-      thumbnail: "/placeholder.svg",
-      duration: "3:45",
-      category: "Chatbot"
+      title: "AI Agent Template: Answers Any Question via WhatsApp From Your Documents & Saves 40+ Hours Monthly",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Answers%20Any%20Question%20via%20WhatsApp%20From%20Your%20Documents%20&%20Saves%2040+%20Hours%20Monthly.mp4",
+      description: {
+        problem: "You spend 40–100+ hours monthly answering repetitive WhatsApp questions – the same product details, prices, and policies over and over.",
+        solution: "This AI agent reads your uploaded documents (PDFs, FAQs, price lists, websites) and automatically answers customer questions on WhatsApp using YOUR exact information.",
+        howItWorks: "Drag and drop any file into the system. The AI learns your content instantly. When customers message, it finds the answer in your documents and responds in seconds.",
+        bestFor: "Coaches, course creators, e-commerce stores, service businesses, or agencies offering WhatsApp automation."
+      }
     },
     {
-      title: "Voice Agent Demo",
-      description: "Experience our AI voice agent managing customer calls and appointments",
-      thumbnail: "/placeholder.svg", 
-      duration: "5:20",
-      category: "Voice"
+      title: "AI Agent Template: Books Appointments with Customers via WhatsApp",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Books%20Appointments%20with%20Customers%20via%20WhatsApp.mp4",
+      description: {
+        overview: "This AI agent books appointments with customers via WhatsApp, 24/7.",
+        benefits: "Businesses can get 35–45% MORE customers when they offer WhatsApp booking instead of just phone calls. Plus can save $2k/m per month on staff costs.",
+        process: "When someone messages you OR clicks the WhatsApp link on your website, the AI replies instantly, asks what service they need, and checks available times.",
+        booking: "The customer picks their time, and the AI books it directly into your calendar with all their contact details. It also sends automatic SMS reminders before their appointment so they actually show up.",
+        perfectFor: "Any business that takes appointments – salons, clinics, restaurants, gyms, consultants."
+      }
     },
     {
-      title: "Custom Automation Workflow",
-      description: "Watch automated lead generation and CRM integration in real-time",
-      thumbnail: "/placeholder.svg",
-      duration: "4:15", 
-      category: "Automation"
-    }
-  ];
-
-  const features = [
-    {
-      icon: MessageSquare,
-      title: "Interactive Chatbot Demo",
-      description: "Chat with our AI assistant and experience the conversation flow"
+      title: "AI Agent Template: Instagram DMs to Sales Calls & Product Sales",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Instagram%20DMs%20to%20Sales%20Calls%20&%20Product%20Sales.mp4",
+      description: {
+        overview: "This AI automation turns every Instagram comment or DM into booked sales calls or product sales.",
+        workflow: "It starts when someone comments on any post or sends a DM. The AI replies instantly, asks a few smart qualifying questions to figure out what they need, and checks if they're a good fit for your offer.",
+        booking: "If yes, it collects their contact details, shows available time slots, and books the call right into your calendar.",
+        followUp: "If they don't book right away, it follows up automatically. It also sends SMS reminders so they actually show up.",
+        alternative: "And if they're not a fit for a call, it sends them straight to your entry level product."
+      }
     },
     {
-      icon: Phone,
-      title: "Voice Agent Simulation", 
-      description: "Listen to sample calls and voice interactions"
+      title: "AI Agent Template: Your WhatsApp Sales Assistant",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Your%20WhatsApp%20Sales%20Assistant.mp4",
+      description: {
+        overview: "Answering customer questions manually? This AI agent acts as your personal sales assistant, helping potential buyers find the right product, get instant answers, and receive direct purchase links, all through WhatsApp.",
+        process: "Once set up, customers can simply message your WhatsApp number, describe what they need, and the AI will recommend the best products, handle inquiries, and guide them to checkout – making sales effortless."
+      }
     },
     {
-      icon: Zap,
-      title: "Automation Showcase",
-      description: "See workflows and integrations in action"
+      title: "AI Agent Template: WhatsApp AI Agent \"Appointment Setter\"",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20WhatsApp%20AI%20Agent%20Appointment%20Setter.mp4",
+      description: {
+        overview: "Let people book appointments with you, just by messaging your AI assistant on WhatsApp.",
+        simplicity: "No booking links. No forms. No websites.",
+        functionality: "This AI agent chats with your clients or prospects via text or voice, checks your office hours and available time slots, converts to their time zone, and collects all the important info like their name, email, phone number, and even what they want to talk about.",
+        completion: "Once confirmed, it adds the appointment to your calendar, sends an email confirmation to both of you, and reminds them on WhatsApp one hour before the meeting – so they actually show up."
+      }
     }
   ];
 
@@ -64,178 +61,116 @@ const Demo = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-background to-card/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Title Section */}
+      <section className="py-16 bg-gradient-to-br from-background to-card/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Badge variant="secondary" className="mb-6">
-            🎬 Live Demos & Previews
+            🤖 AI Agent Templates
           </Badge>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            See Our AI Solutions{" "}
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            AI Agent Templates –{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              In Action
+              Live Demos
             </span>
           </h1>
           
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Experience the power of AI automation through interactive demos and real-world examples
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            See our pre-built AI agent templates in action. Each template is ready to deploy and customize for your specific business needs.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/booking-calendar">
-              <Button variant="hero" size="lg" className="group">
-                <Play className="mr-2 h-4 w-4" />
-                Start Interactive Demo
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="outline" size="lg">
-                <Calendar className="mr-2 h-4 w-4" />
-                Book Live Demo Call
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Interactive Demo Features */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Try Our <span className="text-primary">Live Demos</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Interactive experiences you can try right now
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon;
-              return (
-                <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant cursor-pointer">
-                  <CardHeader className="text-center">
-                    <div className="mx-auto mb-4 w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center">
-                      <IconComponent className="h-8 w-8 text-white" />
-                    </div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      {feature.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-muted-foreground mb-6">
-                      {feature.description}
-                    </p>
-                    <Button variant="outline" className="group-hover:border-primary group-hover:text-primary">
-                      Try Demo
-                      <Play className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Demo Videos */}
-      <section className="py-20 bg-card/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Watch <span className="text-primary">Demo Videos</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              See real implementations and success stories
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {demoVideos.map((video, index) => (
-              <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant cursor-pointer">
-                <div className="relative">
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-t-lg flex items-center justify-center">
-                    <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="h-8 w-8 text-white ml-1" />
-                    </div>
+      {/* Demo Templates */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          {demoTemplates.map((template, index) => (
+            <Card key={index} className="overflow-hidden">
+              <CardContent className="p-0">
+                {/* Template Title */}
+                <div className="p-8 pb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                    {template.title}
+                  </h2>
+                </div>
+                
+                {/* Video */}
+                <div className="px-8 pb-6">
+                  <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                    <video 
+                      controls 
+                      className="w-full h-full object-cover"
+                      preload="metadata"
+                    >
+                      <source src={template.videoUrl} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
-                  <Badge variant="secondary" className="absolute top-4 left-4">
-                    {video.category}
-                  </Badge>
-                  <Badge variant="outline" className="absolute top-4 right-4 bg-black/80 text-white border-white/20">
-                    {video.duration}
-                  </Badge>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {video.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {video.description}
-                  </p>
-                  <Button variant="outline" size="sm" className="w-full">
-                    <Video className="mr-2 h-4 w-4" />
-                    Watch Demo
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Live Demo CTA */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-gradient-primary text-white overflow-hidden relative">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
-            <CardContent className="p-12 text-center relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Want a Personalized Demo?
-              </h2>
-              <p className="text-xl mb-8 opacity-90">
-                Schedule a live demo tailored to your specific business needs
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Link to="/booking-calendar">
-                  <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book Live Demo
-                  </Button>
-                </Link>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-white text-white hover:bg-white/10"
-                  onClick={() => {
-                    window.open('/portfolio', '_blank');
-                  }}
-                >
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Case Studies
-                </Button>
-              </div>
-              
-              <div className="flex flex-wrap justify-center gap-4 text-sm">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4" />
-                  <span>30-minute session</span>
+                
+                {/* Description */}
+                <div className="p-8 pt-2">
+                  <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+                    {template.description.problem && (
+                      <p>
+                        <span className="font-bold text-foreground">The Problem:</span> {template.description.problem}
+                      </p>
+                    )}
+                    {template.description.solution && (
+                      <p>
+                        <span className="font-bold text-foreground">What This Does:</span> {template.description.solution}
+                      </p>
+                    )}
+                    {template.description.howItWorks && (
+                      <p>
+                        <span className="font-bold text-foreground">How It Works:</span> {template.description.howItWorks}
+                      </p>
+                    )}
+                    {template.description.bestFor && (
+                      <p>
+                        <span className="font-bold text-foreground">Best For:</span> {template.description.bestFor}
+                      </p>
+                    )}
+                    {template.description.overview && (
+                      <p>{template.description.overview}</p>
+                    )}
+                    {template.description.benefits && (
+                      <p>{template.description.benefits}</p>
+                    )}
+                    {template.description.process && (
+                      <p>{template.description.process}</p>
+                    )}
+                    {template.description.workflow && (
+                      <p>{template.description.workflow}</p>
+                    )}
+                    {template.description.booking && (
+                      <p>{template.description.booking}</p>
+                    )}
+                    {template.description.followUp && (
+                      <p>{template.description.followUp}</p>
+                    )}
+                    {template.description.alternative && (
+                      <p>{template.description.alternative}</p>
+                    )}
+                    {template.description.perfectFor && (
+                      <p>
+                        <span className="font-bold text-foreground">Perfect For:</span> {template.description.perfectFor}
+                      </p>
+                    )}
+                    {template.description.simplicity && (
+                      <p>{template.description.simplicity}</p>
+                    )}
+                    {template.description.functionality && (
+                      <p>{template.description.functionality}</p>
+                    )}
+                    {template.description.completion && (
+                      <p>{template.description.completion}</p>
+                    )}
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4" />
-                  <span>Customized to your needs</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4" />
-                  <span>No commitment required</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
