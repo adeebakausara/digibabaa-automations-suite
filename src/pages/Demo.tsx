@@ -4,11 +4,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 // Import thumbnail images
-import whatsappDocsThumbnail from "@/assets/demo-whatsapp-documents-thumbnail.jpg";
-import whatsappAppointmentsThumbnail from "@/assets/demo-whatsapp-appointments-thumbnail.jpg";
-import instagramSalesThumbnail from "@/assets/demo-instagram-sales-thumbnail.jpg";
-import whatsappSalesThumbnail from "@/assets/demo-whatsapp-sales-thumbnail.jpg";
-import whatsappSchedulerThumbnail from "@/assets/demo-whatsapp-scheduler-thumbnail.jpg";
+import whatsappDocsThumbnail from "@/assets/demo-whatsapp-docs-thumbnail-new.jpg";
+import whatsappAppointmentsThumbnail from "@/assets/demo-whatsapp-appointments-thumbnail-new.jpg";
+import instagramSalesThumbnail from "@/assets/demo-instagram-sales-thumbnail-new.jpg";
+import whatsappSalesThumbnail from "@/assets/demo-whatsapp-sales-thumbnail-new.jpg";
+import whatsappSchedulerThumbnail from "@/assets/demo-whatsapp-scheduler-thumbnail-new.jpg";
 
 const Demo = () => {
   const demoTemplates = [
