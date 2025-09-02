@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     seoTitle: 'AI Chatbots for Lead Generation: Convert Conversations to Customers',
     metaDescription: 'Learn how AI chatbots transform lead generation with intelligent prospect qualification, automated nurturing, and conversion optimization strategies.',
     keywords: ['AI chatbots lead generation', 'conversational marketing', 'customer conversion', 'chatbot sales'],
-    imageUrl: '/src/assets/blog-chatbot-lead-generation.jpg',
+    imageUrl: '/lovable-uploads/blog-chatbot-lead-generation.jpg',
     imageAlt: 'AI chatbot engaging with potential customers for lead generation',
     content: `# AI Chatbots for Lead Generation: Turning Conversations into Customers
 
@@ -157,7 +157,7 @@ Voice-enabled chatbots will enable more natural conversations, especially as sma
     seoTitle: 'Voice-Enabled Chatbots: Future of Conversational Commerce | Voice AI',
     metaDescription: 'Discover how voice-enabled chatbots are revolutionizing conversational commerce with natural interactions, accessibility features, and seamless customer experiences.',
     keywords: ['voice-enabled chatbots', 'conversational commerce', 'voice AI', 'speech recognition'],
-    imageUrl: '/src/assets/blog-voice-chatbot-commerce.jpg',
+    imageUrl: '/lovable-uploads/blog-voice-chatbot-commerce.jpg',
     imageAlt: 'Voice-enabled chatbot interface showing speech-to-text functionality',
     content: `# Voice-Enabled Chatbots: The Future of Conversational Commerce
 
@@ -336,7 +336,7 @@ Multiple AI assistants working together to provide comprehensive voice-powered c
     seoTitle: 'AI Chatbots for Education: Virtual Tutors Transform Learning',
     metaDescription: 'Learn how AI educational chatbots provide personalized tutoring, instant homework help, and adaptive learning experiences for students of all ages.',
     keywords: ['AI educational chatbots', 'virtual tutoring', 'personalized learning', 'EdTech AI'],
-    imageUrl: '/src/assets/blog-ai-education-tutoring.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-education-tutoring.jpg',
     imageAlt: 'AI chatbot providing virtual tutoring to students on various devices',
     content: `# AI Chatbots for Education: Virtual Tutors for Students
 
@@ -529,7 +529,7 @@ Advanced analytics will identify students at risk of academic failure early, ena
     seoTitle: 'Real Estate Chatbots: Automate Property Inquiries & Bookings',
     metaDescription: 'Discover how AI chatbots revolutionize real estate with automated property searches, instant inquiry responses, and seamless viewing scheduling.',
     keywords: ['real estate chatbots', 'property automation', 'real estate AI', 'automated bookings'],
-    imageUrl: '/src/assets/blog-real-estate-chatbot.jpg',
+    imageUrl: '/lovable-uploads/blog-real-estate-chatbot.jpg',
     imageAlt: 'AI chatbot interface showing property listings and booking features',
     content: `# Chatbots in Real Estate: Automating Property Inquiries & Bookings
 
@@ -713,7 +713,7 @@ Chatbots will connect with local community platforms to provide real-time inform
     seoTitle: 'Multimodal AI Chatbots: Text, Voice & Visual Interactions',
     metaDescription: 'Discover how multimodal AI chatbots integrate text, voice, and visual capabilities to deliver comprehensive, intuitive customer experiences.',
     keywords: ['multimodal AI chatbots', 'voice and visual AI', 'comprehensive chatbot interactions', 'omnichannel AI'],
-    imageUrl: '/src/assets/blog-multimodal-chatbot.jpg',
+    imageUrl: '/lovable-uploads/blog-multimodal-chatbot.jpg',
     imageAlt: 'Multimodal AI chatbot interface showing text, voice, and visual interaction modes',
     content: `# AI Chatbots with Multimodal Capabilities: Text, Voice & Visual Interactions
 
@@ -936,7 +936,7 @@ Quantum computing may revolutionize:
     seoTitle: 'AI Sales Agents: Close More Deals with Data-Driven Insights',
     metaDescription: 'Learn how AI sales agents use data analytics, behavioral insights, and predictive modeling to increase sales conversion rates and optimize deal closure.',
     keywords: ['AI sales agents', 'data-driven sales', 'sales automation', 'predictive sales analytics'],
-    imageUrl: '/src/assets/blog-ai-sales-agent.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-sales-agent.jpg',
     imageAlt: 'AI sales agent analyzing customer data and sales metrics on dashboard',
     content: `# AI Sales Agents: Closing Deals with Data-Driven Insights
 
@@ -1137,7 +1137,7 @@ AI agents will coordinate immersive product demonstrations and virtual showrooms
     seoTitle: 'AI Recruitment Agents: Automate Candidate Screening & Interviews',
     metaDescription: 'Discover how AI recruitment agents revolutionize hiring with automated screening, intelligent interviews, and bias-free candidate evaluation.',
     keywords: ['AI recruitment agents', 'automated hiring', 'candidate screening AI', 'recruitment automation'],
-    imageUrl: '/src/assets/blog-ai-recruitment-agent.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-recruitment-agent.jpg',
     imageAlt: 'AI recruitment agent analyzing candidate profiles and conducting virtual interviews',
     content: `# AI Recruitment Agents: Automating Candidate Screening & Interviews
 
@@ -1334,7 +1334,7 @@ AI recruitment agents will continuously learn from hiring outcomes, automaticall
     seoTitle: 'AI Travel Agents: Personalized Itineraries & Smart Booking',
     metaDescription: 'Learn how AI travel agents revolutionize trip planning with personalized itineraries, intelligent booking optimization, and real-time travel assistance.',
     keywords: ['AI travel agents', 'personalized travel planning', 'smart booking system', 'intelligent itineraries'],
-    imageUrl: '/src/assets/blog-ai-travel-agent.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-travel-agent.jpg',
     imageAlt: 'AI travel agent creating personalized itinerary with smart booking interface',
     content: `# AI Travel Agents: Personalized Itineraries with Smart Booking
 
@@ -1538,7 +1538,7 @@ AI systems will monitor global health trends, providing proactive travel health 
     seoTitle: 'AI Legal Assistants: Automate Compliance & Case Research',
     metaDescription: 'Discover how AI legal assistants transform law practice with automated document review, intelligent case research, and compliance monitoring.',
     keywords: ['AI legal assistants', 'legal automation', 'case research AI', 'compliance automation'],
-    imageUrl: '/src/assets/blog-ai-legal-assistant.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-legal-assistant.jpg',
     imageAlt: 'AI legal assistant analyzing documents and legal databases for case research',
     content: `# AI Legal Assistants: Automating Compliance & Case Research
 
@@ -1746,7 +1746,7 @@ Smart contracts and blockchain verification will automate certain legal processe
     seoTitle: 'AI Finance Agents: Intelligent Portfolio & Wealth Management',
     metaDescription: 'Learn how AI finance agents transform wealth management with automated portfolio optimization, personalized investment advice, and intelligent financial planning.',
     keywords: ['AI finance agents', 'automated portfolio management', 'wealth management AI', 'intelligent investing'],
-    imageUrl: '/src/assets/blog-ai-finance-agent.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-finance-agent.jpg',
     imageAlt: 'AI finance agent analyzing market data and optimizing investment portfolios',
     content: `# AI Finance Agents: Intelligent Portfolio & Wealth Management
 
@@ -1948,7 +1948,7 @@ ESG integration will become more sophisticated, with AI analyzing environmental 
     seoTitle: 'Hyperautomation with AI: Beyond Traditional RPA | Intelligent Process Automation',
     metaDescription: 'Discover how hyperautomation leverages AI, ML, and advanced analytics to create adaptive, intelligent automation that goes far beyond traditional RPA.',
     keywords: ['hyperautomation', 'intelligent automation', 'AI-powered RPA', 'end-to-end automation'],
-    imageUrl: '/src/assets/blog-hyperautomation-ai.jpg',
+    imageUrl: '/lovable-uploads/blog-hyperautomation-ai.jpg',
     imageAlt: 'Hyperautomation dashboard showing AI-powered processes across multiple systems',
     content: `# Hyperautomation with AI: Going Beyond Traditional RPA
 
@@ -8736,7 +8736,7 @@ Don't let your business fall behind. The future of customer service is here, and
     seoTitle: 'Generative AI Web Design: Create Complete Websites in Minutes',
     metaDescription: 'Learn how generative AI transforms web design by creating full websites from simple ideas, reducing development time from weeks to minutes.',
     keywords: ['generative AI web design', 'automated website creation', 'AI web development', 'instant website builder'],
-    imageUrl: '/src/assets/blog-generative-ai-web-design.jpg',
+    imageUrl: '/lovable-uploads/blog-generative-ai-web-design.jpg',
     imageAlt: 'Generative AI interface creating a complete website from a simple prompt',
     content: `# Generative AI for Web Design: From Idea to Full Website in Minutes
 
@@ -8941,7 +8941,7 @@ Property websites feature:
     seoTitle: 'AI-Powered UX Testing: Websites That Learn and Improve Automatically',
     metaDescription: 'Discover how AI UX testing transforms website optimization with automated behavior analysis, predictive insights, and self-improving user experiences.',
     keywords: ['AI UX testing', 'automated user testing', 'website optimization', 'predictive UX'],
-    imageUrl: '/src/assets/blog-ai-ux-testing.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-ux-testing.jpg',
     imageAlt: 'AI UX testing dashboard showing heatmaps and user behavior analytics',
     content: `# AI-Powered UX Testing: Designing Websites That Learn & Improve
 
@@ -9140,7 +9140,7 @@ AI automatically identifies user segments based on:
     seoTitle: 'AI Accessibility: Inclusive Website Design for All Users',
     metaDescription: 'Discover how AI creates accessible websites with automatic adaptations, screen reader optimization, and inclusive design for users with disabilities.',
     keywords: ['AI accessibility', 'inclusive web design', 'accessible websites', 'disability-friendly design'],
-    imageUrl: '/src/assets/blog-ai-accessibility-design.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-accessibility-design.jpg',
     imageAlt: 'Accessible website interface with AI features for screen readers and inclusive design',
     content: `# AI Websites for Accessibility: Designing Inclusive Digital Spaces
 
@@ -9362,7 +9362,7 @@ AI creates personalized experiences by:
     seoTitle: 'AI Landing Page Optimization: Maximize Conversions with Smart Testing',
     metaDescription: 'Learn how AI optimizes landing pages for higher conversions through automated testing, personalization, and data-driven design improvements.',
     keywords: ['AI landing page optimization', 'conversion rate optimization', 'automated A/B testing', 'personalized landing pages'],
-    imageUrl: '/src/assets/blog-ai-landing-page-optimization.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-landing-page-optimization.jpg',
     imageAlt: 'AI landing page optimization dashboard with conversion analytics and A/B testing results',
     content: `# AI in Landing Page Optimization: Turning Visitors into Conversions
 
@@ -9582,7 +9582,7 @@ AI algorithms analyze visitor data to predict:
     seoTitle: 'Real-Time AI Personalization: Websites That Adapt to Every User',
     metaDescription: 'Discover how AI creates personalized website experiences in real-time, adapting content, layout, and functionality to individual user preferences.',
     keywords: ['AI website personalization', 'real-time adaptation', 'personalized user experience', 'dynamic content'],
-    imageUrl: '/src/assets/blog-ai-real-time-personalization.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-real-time-personalization.jpg',
     imageAlt: 'Website interface showing real-time personalization adapting to different user preferences',
     content: `# AI Websites with Real-Time Personalization: Adapting to Each User
 
@@ -10899,7 +10899,7 @@ Your journey to business transformation through AI automation starts with a sing
     seoTitle: 'AI Healthcare Workflow Automation | Administrative Efficiency Solutions',
     metaDescription: 'Learn how AI-powered workflow automation transforms healthcare administration with automated scheduling, billing, compliance monitoring, and patient management systems.',
     keywords: ['AI healthcare automation', 'workflow automation', 'healthcare administration', 'medical AI systems'],
-    imageUrl: '/src/assets/blog-ai-healthcare-workflow.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-healthcare-workflow.jpg',
     imageAlt: 'AI-powered healthcare workflow automation system in modern hospital setting',
     content: `# AI-Powered Workflow Automation in Healthcare Administration
 
@@ -11020,7 +11020,7 @@ Specialized practices implement automation for:
     seoTitle: 'AI Financial Automation: Invoicing, Fraud Detection & Compliance',
     metaDescription: 'Discover how AI-driven financial automation transforms invoicing, expense management, fraud detection, and compliance with intelligent workflow solutions.',
     keywords: ['AI financial automation', 'automated invoicing', 'fraud detection AI', 'financial compliance'],
-    imageUrl: '/src/assets/blog-ai-financial-automation.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-financial-automation.jpg',
     imageAlt: 'AI-driven financial automation system showing invoicing and fraud detection interfaces',
     content: `# AI-Driven Financial Automation: From Invoicing to Fraud Detection
 
@@ -11101,7 +11101,7 @@ Enterprises implement AI automation for:
     seoTitle: 'AI Automation for SMEs: Affordable Growth Solutions | Small Business AI',
     metaDescription: 'Discover affordable AI automation solutions for SMEs that streamline operations, reduce costs, and enable small businesses to scale efficiently and compete effectively.',
     keywords: ['SME AI automation', 'small business automation', 'affordable AI solutions', 'business growth AI'],
-    imageUrl: '/src/assets/blog-ai-sme-automation.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-sme-automation.jpg',
     imageAlt: 'Small and medium enterprise owners using AI automation tools to scale their business',
     content: `# AI Automation for SMEs: Affordable Solutions to Scale Growth
 
@@ -11163,7 +11163,7 @@ AI systems handle increased workload without adding staff, enabling profitable g
     seoTitle: 'AI Document Processing: Automate Contracts & Legal Paperwork',
     metaDescription: 'Learn how AI-powered document processing automates contract analysis, legal document review, and paperwork workflows with intelligent extraction and processing.',
     keywords: ['AI document processing', 'contract automation', 'legal document AI', 'paperwork automation'],
-    imageUrl: '/src/assets/blog-ai-document-processing.jpg',
+    imageUrl: '/lovable-uploads/blog-ai-document-processing.jpg',
     imageAlt: 'AI-powered document processing system analyzing contracts and legal paperwork',
     content: `# AI-Powered Document Processing: Automating Contracts & Paperwork
 
