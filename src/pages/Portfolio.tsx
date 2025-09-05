@@ -16,7 +16,10 @@ import {
   Clock,
   Play,
   Settings,
-  Cloud
+  Cloud,
+  CheckCircle,
+  Workflow,
+  Target
 } from "lucide-react";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
 import chatbotsImage from "@/assets/ai-chatbots.jpg";
@@ -24,6 +27,74 @@ import voiceImage from "@/assets/ai-voice-agents.jpg";
 import automationImage from "@/assets/custom-automation.jpg";
 
 const Portfolio = () => {
+  // Demo templates from Demo page
+  const demoTemplates = [
+    {
+      title: "AI Agent Template: Answers Any Question via WhatsApp From Your Documents & Saves 40+ Hours Monthly",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Answers%20Any%20Question%20via%20WhatsApp%20From%20Your%20Documents%20&%20Saves%2040+%20Hours%20Monthly.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Answers%20Any%20Question%20via%20WhatsApp%20From%20Your%20Documents%20&%20Saves%2040+%20Hours%20Monthly.JPG",
+      description: {
+        problem: "You spend 40–100+ hours monthly answering repetitive WhatsApp questions – the same product details, prices, and policies over and over.",
+        solution: "This AI agent reads your uploaded documents (PDFs, FAQs, price lists, websites) and automatically answers customer questions on WhatsApp using YOUR exact information.",
+        howItWorks: "Drag and drop any file into the system. The AI learns your content instantly. When customers message, it finds the answer in your documents and responds in seconds.",
+        bestFor: "Coaches, course creators, e-commerce stores, service businesses, or agencies offering WhatsApp automation."
+      }
+    },
+    {
+      title: "AI Agent Template: Books Appointments with Customers via WhatsApp",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Books%20Appointments%20with%20Customers%20via%20WhatsApp.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Books%20Appointments%20with%20Customers%20via%20WhatsApp.jpg",
+      description: {
+        overview: "This AI agent books appointments with customers via WhatsApp, 24/7.",
+        benefits: "Businesses can get 35–45% MORE customers when they offer WhatsApp booking instead of just phone calls. Plus can save $2k/m per month on staff costs.",
+        process: "When someone messages you OR clicks the WhatsApp link on your website, the AI replies instantly, asks what service they need, and checks available times.",
+        booking: "The customer picks their time, and the AI books it directly into your calendar with all their contact details. It also sends automatic SMS reminders before their appointment so they actually show up.",
+        perfectFor: "Any business that takes appointments – salons, clinics, restaurants, gyms, consultants."
+      }
+    },
+    {
+      title: "AI Agent Template: Instagram DMs to Sales Calls & Product Sales",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Instagram%20DMs%20to%20Sales%20Calls%20&%20Product%20Sales.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Instagram%20DMs%20to%20Sales%20Calls%20&%20Product%20Sales.jpg",
+      description: {
+        overview: "This AI automation turns every Instagram comment or DM into booked sales calls or product sales.",
+        workflow: "It starts when someone comments on any post or sends a DM. The AI replies instantly, asks a few smart qualifying questions to figure out what they need, and checks if they're a good fit for your offer.",
+        booking: "If yes, it collects their contact details, shows available time slots, and books the call right into your calendar.",
+        followUp: "If they don't book right away, it follows up automatically. It also sends SMS reminders so they actually show up.",
+        alternative: "And if they're not a fit for a call, it sends them straight to your entry level product."
+      }
+    },
+    {
+      title: "AI Agent Template: Your WhatsApp Sales Assistant",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Your%20WhatsApp%20Sales%20Assistant.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Your%20WhatsApp%20Sales%20Assistant.jpg",
+      description: {
+        overview: "Answering customer questions manually? This AI agent acts as your personal sales assistant, helping potential buyers find the right product, get instant answers, and receive direct purchase links, all through WhatsApp.",
+        process: "Once set up, customers can simply message your WhatsApp number, describe what they need, and the AI will recommend the best products, handle inquiries, and guide them to checkout – making sales effortless."
+      }
+    },
+    {
+      title: "AI Agent Template: WhatsApp AI Agent \"Appointment Setter\"",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20WhatsApp%20AI%20Agent%20Appointment%20Setter.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20WhatsApp%20AI%20Agent%20Appointment%20Setter.jpg",
+      description: {
+        overview: "Let people book appointments with you, just by messaging your AI assistant on WhatsApp.",
+        simplicity: "No booking links. No forms. No websites.",
+        functionality: "This AI agent chats with your clients or prospects via text or voice, checks your office hours and available time slots, converts to their time zone, and collects all the important info like their name, email, phone number, and even what they want to talk about.",
+        completion: "Once confirmed, it adds the appointment to your calendar, sends an email confirmation to both of you, and reminds them on WhatsApp one hour before the meeting – so they actually show up."
+      }
+    }
+  ];
+
+  // Custom automation features
+  const features = [
+    "Tailored to your unique needs",
+    "Automate workflows and customer interactions", 
+    "Enhance efficiency, reduce costs",
+    "Easy integration with your existing systems"
+  ];
+
+  // Projects data from existing portfolio
   const projects = [
     {
       title: "E-commerce Complete AI Solution",
@@ -163,46 +234,307 @@ const Portfolio = () => {
       <section className="pt-20 pb-16 bg-gradient-to-b from-card/50 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Badge variant="secondary" className="mb-6">
-            📁 Our Work
+            📁 Complete Portfolio
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Success Stories & <span className="bg-gradient-primary bg-clip-text text-transparent">Portfolio</span>
+            AI Solutions & <span className="bg-gradient-primary bg-clip-text text-transparent">Success Stories</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Discover how we've transformed businesses across industries with our AI automation solutions. Real results, real impact.
+            Explore our comprehensive portfolio: from ready-to-deploy AI agent templates to custom automation systems and real client success stories.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               variant="hero" 
               size="lg"
               onClick={() => {
-                window.open('/portfolio', '_blank');
+                const demoSection = document.getElementById('ai-agent-templates');
+                if (demoSection) {
+                  demoSection.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
             >
-              View All Case Studies
+              View Live Demos
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => {
-                  // Scroll to portfolio section or navigate within same page
-                  const portfolioSection = document.querySelector('section');
-                  if (portfolioSection) {
-                    portfolioSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                <Play className="mr-2 h-4 w-4" />
-                Watch Demo Reel
-              </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => {
+                const successSection = document.getElementById('success-stories');
+                if (successSection) {
+                  successSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              <Play className="mr-2 h-4 w-4" />
+              Success Stories
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Portfolio Grid */}
-      <section className="py-20">
+      {/* AI Agent Templates - Live Demos Section */}
+      <section id="ai-agent-templates" className="py-16 bg-gradient-to-br from-background to-card/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-6">
+              🤖 AI Agent Templates
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              AI Agent Templates –{" "}
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Live Demos
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              See our pre-built AI agent templates in action. Each template is ready to deploy and customize for your specific business needs.
+            </p>
+          </div>
+          
+          <div className="space-y-16">
+            {demoTemplates.map((template, index) => (
+              <Card key={index} className="overflow-hidden">
+                <CardContent className="p-0">
+                  {/* Template Title */}
+                  <div className="p-8 pb-6">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                      {template.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Video */}
+                  <div className="px-8 pb-6">
+                    <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                      <video 
+                        controls 
+                        className="w-full h-full object-cover"
+                        preload="metadata"
+                        poster={template.thumbnail}
+                      >
+                        <source src={template.videoUrl} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                  
+                  {/* Description */}
+                  <div className="p-8 pt-2">
+                    <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+                      {template.description.problem && (
+                        <p>
+                          <span className="font-bold text-foreground">The Problem:</span> {template.description.problem}
+                        </p>
+                      )}
+                      {template.description.solution && (
+                        <p>
+                          <span className="font-bold text-foreground">What This Does:</span> {template.description.solution}
+                        </p>
+                      )}
+                      {template.description.howItWorks && (
+                        <p>
+                          <span className="font-bold text-foreground">How It Works:</span> {template.description.howItWorks}
+                        </p>
+                      )}
+                      {template.description.bestFor && (
+                        <p>
+                          <span className="font-bold text-foreground">Best For:</span> {template.description.bestFor}
+                        </p>
+                      )}
+                      {template.description.overview && (
+                        <p>{template.description.overview}</p>
+                      )}
+                      {template.description.benefits && (
+                        <p>{template.description.benefits}</p>
+                      )}
+                      {template.description.process && (
+                        <p>{template.description.process}</p>
+                      )}
+                      {template.description.workflow && (
+                        <p>{template.description.workflow}</p>
+                      )}
+                      {template.description.booking && (
+                        <p>{template.description.booking}</p>
+                      )}
+                      {template.description.followUp && (
+                        <p>{template.description.followUp}</p>
+                      )}
+                      {template.description.alternative && (
+                        <p>{template.description.alternative}</p>
+                      )}
+                      {template.description.perfectFor && (
+                        <p>
+                          <span className="font-bold text-foreground">Perfect For:</span> {template.description.perfectFor}
+                        </p>
+                      )}
+                      {template.description.simplicity && (
+                        <p>{template.description.simplicity}</p>
+                      )}
+                      {template.description.functionality && (
+                        <p>{template.description.functionality}</p>
+                      )}
+                      {template.description.completion && (
+                        <p>{template.description.completion}</p>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Custom AI Automation Systems Section */}
+      <section id="custom-automation" className="py-20 bg-card/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-6">
+              🔧 Custom Solutions
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Custom AI Automation Systems
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
+              Explore our suite of AI-powered automation systems designed to streamline business operations, 
+              increase efficiency, and enhance customer experience. Browse through our offerings and find the perfect fit for your needs.
+            </p>
+          </div>
+
+          {/* Key Features */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-center mb-8">
+              Why Choose <span className="text-primary">Custom AI Automation</span>
+            </h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-center space-x-4 p-6 bg-card rounded-lg">
+                  <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
+                  <p className="text-lg">{feature}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Workflow Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                title: "Lead Generation & Management",
+                description: "Automates lead capture, validation, scoring, and nurturing workflows with seamless CRM integration and email automation.",
+                image: "/lovable-uploads/cfc66a89-08a0-4f5e-a8d3-6e02a5a74b58.png",
+                link: "/automation/lead-generation"
+              },
+              {
+                title: "E-commerce Lead Automation", 
+                description: "Streamlines e-commerce lead processing with automated routing, scoring, and multi-channel follow-up campaigns.",
+                image: "/lovable-uploads/28284395-0823-47f7-9b9b-c697b37127a7.png",
+                link: "/automation/ecommerce-lead"
+              },
+              {
+                title: "Order Processing Automation",
+                description: "Manages end-to-end order workflows from validation to fulfillment with automated routing and notification systems.",
+                image: "/lovable-uploads/16d3eaf0-536d-4ef1-add3-daa4dd9dbe27.png",
+                link: "/automation/order-processing"
+              },
+              {
+                title: "Customer Support Automation",
+                description: "Handles customer inquiries, order lookups, and return requests with intelligent routing and automated responses.",
+                image: "/lovable-uploads/9a5c9675-1b5b-430f-a8ea-f1f92fa8c76a.png",
+                link: "/automation/customer-support"
+              },
+              {
+                title: "Customer Verification System",
+                description: "Automates customer onboarding with identity verification, compliance screening, and approval workflows.",
+                image: "/lovable-uploads/eee2d694-55fd-4edc-afd7-6ad6163fd127.png",
+                link: "/automation/customer-verification"
+              }
+            ].map((workflow, index) => (
+              <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden">
+                <div className="aspect-video overflow-hidden bg-gradient-to-br from-muted/50 to-muted">
+                  <img 
+                    src={workflow.image} 
+                    alt={workflow.title}
+                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-3 text-foreground">{workflow.title}</h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{workflow.description}</p>
+                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" asChild>
+                    <Link to={workflow.link}>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Integrations */}
+          <div className="text-center mb-16">
+            <h3 className="text-2xl md:text-3xl font-bold mb-6">
+              Enterprise <span className="text-primary">Integrations</span>
+            </h3>
+            <p className="text-lg text-muted-foreground mb-12">
+              Connect seamlessly with your existing business systems
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { name: "Salesforce", icon: BarChart3, description: "CRM Integration" },
+                { name: "HubSpot", icon: Settings, description: "Marketing Hub" },
+                { name: "AWS", icon: Cloud, description: "Cloud Platform" },
+                { name: "Custom APIs", icon: Zap, description: "API Integration" },
+              ].map((integration, index) => (
+                <Card key={index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant">
+                  <CardContent className="p-6 text-center">
+                    <integration.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
+                    <h4 className="font-semibold mb-2">{integration.name}</h4>
+                    <p className="text-sm text-muted-foreground">{integration.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                Ready to Transform Your Business with AI?
+              </h3>
+              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Discover how our custom automation systems can revolutionize your operations and drive growth.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="px-8" asChild>
+                  <Link to="/contact">Get Started Today</Link>
+                </Button>
+                <Button variant="outline" size="lg" className="px-8" asChild>
+                  <Link to="/booking-calendar">Schedule a Demo</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories & Portfolio Section */}
+      <section id="success-stories" className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-6">
+              🏆 Success Stories
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Success Stories & <span className="bg-gradient-primary bg-clip-text text-transparent">Portfolio</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Discover how we've transformed businesses across industries with our AI automation solutions. Real results, real impact.
+            </p>
+          </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {projects.map((project, index) => (
               <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 hover:border-primary/30 overflow-hidden">
@@ -359,7 +691,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-
       {/* Workflow Samples */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -417,12 +748,12 @@ const Portfolio = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
-                    {workflow.steps.map((step, idx) => (
-                      <div key={idx} className="flex items-center">
-                        <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                          <span className="text-xs font-semibold text-primary">{idx + 1}</span>
+                    {workflow.steps.map((step, stepIndex) => (
+                      <div key={stepIndex} className="flex items-center space-x-3">
+                        <div className="flex-shrink-0 w-6 h-6 bg-gradient-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
+                          {stepIndex + 1}
                         </div>
-                        <span className="text-sm">{step}</span>
+                        <p className="text-sm text-muted-foreground">{step}</p>
                       </div>
                     ))}
                   </div>
@@ -433,305 +764,21 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* AI Agent Templates Demo Section */}
-      <section className="py-20 bg-card/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-6">
-              🤖 AI Agent Templates
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              AI Agent Templates –{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Live Demos
-              </span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              See our pre-built AI agent templates in action. Each template is ready to deploy and customize for your specific business needs.
-            </p>
-          </div>
-          
-          <div className="space-y-16">
-            {[
-              {
-                title: "AI Agent Template: Answers Any Question via WhatsApp From Your Documents & Saves 40+ Hours Monthly",
-                videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Answers%20Any%20Question%20via%20WhatsApp%20From%20Your%20Documents%20&%20Saves%2040+%20Hours%20Monthly.mp4",
-                thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Answers%20Any%20Question%20via%20WhatsApp%20From%20Your%20Documents%20&%20Saves%2040+%20Hours%20Monthly.JPG",
-                description: {
-                  problem: "You spend 40–100+ hours monthly answering repetitive WhatsApp questions – the same product details, prices, and policies over and over.",
-                  solution: "This AI agent reads your uploaded documents (PDFs, FAQs, price lists, websites) and automatically answers customer questions on WhatsApp using YOUR exact information.",
-                  howItWorks: "Drag and drop any file into the system. The AI learns your content instantly. When customers message, it finds the answer in your documents and responds in seconds.",
-                  bestFor: "Coaches, course creators, e-commerce stores, service businesses, or agencies offering WhatsApp automation."
-                }
-              },
-              {
-                title: "AI Agent Template: Books Appointments with Customers via WhatsApp",
-                videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Books%20Appointments%20with%20Customers%20via%20WhatsApp.mp4",
-                thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Books%20Appointments%20with%20Customers%20via%20WhatsApp.jpg",
-                description: {
-                  overview: "This AI agent books appointments with customers via WhatsApp, 24/7.",
-                  benefits: "Businesses can get 35–45% MORE customers when they offer WhatsApp booking instead of just phone calls. Plus can save $2k/m per month on staff costs.",
-                  process: "When someone messages you OR clicks the WhatsApp link on your website, the AI replies instantly, asks what service they need, and checks available times.",
-                  booking: "The customer picks their time, and the AI books it directly into your calendar with all their contact details. It also sends automatic SMS reminders before their appointment so they actually show up.",
-                  perfectFor: "Any business that takes appointments – salons, clinics, restaurants, gyms, consultants."
-                }
-              },
-              {
-                title: "AI Agent Template: Instagram DMs to Sales Calls & Product Sales",
-                videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Instagram%20DMs%20to%20Sales%20Calls%20&%20Product%20Sales.mp4",
-                thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Instagram%20DMs%20to%20Sales%20Calls%20&%20Product%20Sales.jpg",
-                description: {
-                  overview: "This AI automation turns every Instagram comment or DM into booked sales calls or product sales.",
-                  workflow: "It starts when someone comments on any post or sends a DM. The AI replies instantly, asks a few smart qualifying questions to figure out what they need, and checks if they're a good fit for your offer.",
-                  booking: "If yes, it collects their contact details, shows available time slots, and books the call right into your calendar.",
-                  followUp: "If they don't book right away, it follows up automatically. It also sends SMS reminders so they actually show up.",
-                  alternative: "And if they're not a fit for a call, it sends them straight to your entry level product."
-                }
-              },
-              {
-                title: "AI Agent Template: Your WhatsApp Sales Assistant",
-                videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Your%20WhatsApp%20Sales%20Assistant.mp4",
-                thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Your%20WhatsApp%20Sales%20Assistant.jpg",
-                description: {
-                  overview: "Answering customer questions manually? This AI agent acts as your personal sales assistant, helping potential buyers find the right product, get instant answers, and receive direct purchase links, all through WhatsApp.",
-                  process: "Once set up, customers can simply message your WhatsApp number, describe what they need, and the AI will recommend the best products, handle inquiries, and guide them to checkout – making sales effortless."
-                }
-              },
-              {
-                title: "AI Agent Template: WhatsApp AI Agent \"Appointment Setter\"",
-                videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20WhatsApp%20AI%20Agent%20Appointment%20Setter.mp4",
-                thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20WhatsApp%20AI%20Agent%20Appointment%20Setter.jpg",
-                description: {
-                  overview: "Let people book appointments with you, just by messaging your AI assistant on WhatsApp.",
-                  simplicity: "No booking links. No forms. No websites.",
-                  functionality: "This AI agent chats with your clients or prospects via text or voice, checks your office hours and available time slots, converts to their time zone, and collects all the important info like their name, email, phone number, and even what they want to talk about.",
-                  completion: "Once confirmed, it adds the appointment to your calendar, sends an email confirmation to both of you, and reminds them on WhatsApp one hour before the meeting – so they actually show up."
-                }
-              }
-            ].map((template, index) => (
-              <Card key={index} className="overflow-hidden">
-                <CardContent className="p-0">
-                  {/* Template Title */}
-                  <div className="p-8 pb-6">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                      {template.title}
-                    </h3>
-                  </div>
-                  
-                  {/* Video */}
-                  <div className="px-8 pb-6">
-                    <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                      <video 
-                        controls 
-                        className="w-full h-full object-cover"
-                        preload="metadata"
-                        poster={template.thumbnail}
-                      >
-                        <source src={template.videoUrl} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                  </div>
-                  
-                  {/* Description */}
-                  <div className="p-8 pt-2">
-                    <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-                      {template.description.problem && (
-                        <p>
-                          <span className="font-bold text-foreground">The Problem:</span> {template.description.problem}
-                        </p>
-                      )}
-                      {template.description.solution && (
-                        <p>
-                          <span className="font-bold text-foreground">What This Does:</span> {template.description.solution}
-                        </p>
-                      )}
-                      {template.description.howItWorks && (
-                        <p>
-                          <span className="font-bold text-foreground">How It Works:</span> {template.description.howItWorks}
-                        </p>
-                      )}
-                      {template.description.bestFor && (
-                        <p>
-                          <span className="font-bold text-foreground">Best For:</span> {template.description.bestFor}
-                        </p>
-                      )}
-                      {template.description.overview && (
-                        <p>{template.description.overview}</p>
-                      )}
-                      {template.description.benefits && (
-                        <p>{template.description.benefits}</p>
-                      )}
-                      {template.description.process && (
-                        <p>{template.description.process}</p>
-                      )}
-                      {template.description.workflow && (
-                        <p>{template.description.workflow}</p>
-                      )}
-                      {template.description.booking && (
-                        <p>{template.description.booking}</p>
-                      )}
-                      {template.description.followUp && (
-                        <p>{template.description.followUp}</p>
-                      )}
-                      {template.description.alternative && (
-                        <p>{template.description.alternative}</p>
-                      )}
-                      {template.description.perfectFor && (
-                        <p>
-                          <span className="font-bold text-foreground">Perfect For:</span> {template.description.perfectFor}
-                        </p>
-                      )}
-                      {template.description.simplicity && (
-                        <p>{template.description.simplicity}</p>
-                      )}
-                      {template.description.functionality && (
-                        <p>{template.description.functionality}</p>
-                      )}
-                      {template.description.completion && (
-                        <p>{template.description.completion}</p>
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Custom AI Automation Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-6">
-              🔧 Custom Solutions
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Custom AI Automation Systems
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-              Explore our suite of AI-powered automation systems designed to streamline business operations, 
-              increase efficiency, and enhance customer experience. Browse through our offerings and find the perfect fit for your needs.
-            </p>
-          </div>
-
-          {/* Automation Workflow Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                title: "Lead Generation & Management",
-                description: "Automates lead capture, validation, scoring, and nurturing workflows with seamless CRM integration and email automation.",
-                image: "/lovable-uploads/cfc66a89-08a0-4f5e-a8d3-6e02a5a74b58.png",
-                link: "/automation/lead-generation"
-              },
-              {
-                title: "E-commerce Lead Automation", 
-                description: "Streamlines e-commerce lead processing with automated routing, scoring, and multi-channel follow-up campaigns.",
-                image: "/lovable-uploads/28284395-0823-47f7-9b9b-c697b37127a7.png",
-                link: "/automation/ecommerce-lead"
-              },
-              {
-                title: "Order Processing Automation",
-                description: "Manages end-to-end order workflows from validation to fulfillment with automated routing and notification systems.",
-                image: "/lovable-uploads/16d3eaf0-536d-4ef1-add3-daa4dd9dbe27.png",
-                link: "/automation/order-processing"
-              },
-              {
-                title: "Customer Support Automation",
-                description: "Handles customer inquiries, order lookups, and return requests with intelligent routing and automated responses.",
-                image: "/lovable-uploads/9a5c9675-1b5b-430f-a8ea-f1f92fa8c76a.png",
-                link: "/automation/customer-support"
-              },
-              {
-                title: "Customer Verification System",
-                description: "Automates customer onboarding with identity verification, compliance screening, and approval workflows.",
-                image: "/lovable-uploads/eee2d694-55fd-4edc-afd7-6ad6163fd127.png",
-                link: "/automation/customer-verification"
-              }
-            ].map((workflow, index) => (
-              <Card key={index} className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant overflow-hidden">
-                <div className="aspect-video overflow-hidden bg-gradient-to-br from-muted/50 to-muted">
-                  <img 
-                    src={workflow.image} 
-                    alt={workflow.title}
-                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-foreground">{workflow.title}</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{workflow.description}</p>
-                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" asChild>
-                    <Link to={workflow.link}>
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Integrations Section */}
-          <div className="text-center mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">
-              Enterprise <span className="text-primary">Integrations</span>
-            </h3>
-            <p className="text-lg text-muted-foreground mb-12">
-              Connect seamlessly with your existing business systems
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { name: "Salesforce", icon: BarChart3, description: "CRM Integration" },
-                { name: "HubSpot", icon: Settings, description: "Marketing Hub" },
-                { name: "AWS", icon: Cloud, description: "Cloud Platform" },
-                { name: "Custom APIs", icon: Zap, description: "API Integration" },
-              ].map((integration, index) => (
-                <Card key={index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant">
-                  <CardContent className="p-6 text-center">
-                    <integration.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-                    <h4 className="font-semibold mb-2">{integration.name}</h4>
-                    <p className="text-sm text-muted-foreground">{integration.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-purple">
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-ai">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Create Your Success Story?
+            Ready to Join Our Success Stories?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Let's discuss how we can deliver similar results for your business
+            Let's build AI solutions that transform your business operations and drive real results
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-              Start Your Project
-              <ArrowRight className="ml-2 h-4 w-4" />
+            <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
+              <Link to="/contact">Start Your AI Journey</Link>
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-white text-white hover:bg-white/10"
-              onClick={() => {
-                // Open portfolio page to view case studies
-                const currentPath = window.location.pathname;
-                if (currentPath === '/portfolio') {
-                  // Scroll to top of current page
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                  // Navigate to portfolio page
-                  window.location.href = '/portfolio';
-                }
-              }}
-            >
-              Download Case Studies
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10" asChild>
+              <Link to="/booking-calendar">Book a Free Consultation</Link>
             </Button>
           </div>
         </div>
