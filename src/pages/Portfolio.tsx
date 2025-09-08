@@ -471,52 +471,6 @@ const Portfolio = () => {
             ))}
           </div>
 
-          {/* Integrations */}
-          <div className="text-center mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">
-              Enterprise <span className="text-primary">Integrations</span>
-            </h3>
-            <p className="text-lg text-muted-foreground mb-12">
-              Connect seamlessly with your existing business systems
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { name: "Salesforce", icon: BarChart3, description: "CRM Integration" },
-                { name: "HubSpot", icon: Settings, description: "Marketing Hub" },
-                { name: "AWS", icon: Cloud, description: "Cloud Platform" },
-                { name: "Custom APIs", icon: Zap, description: "API Integration" },
-              ].map((integration, index) => (
-                <Card key={index} className="hover:scale-105 transition-all duration-300 hover:shadow-elegant">
-                  <CardContent className="p-6 text-center">
-                    <integration.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-                    <h4 className="font-semibold mb-2">{integration.name}</h4>
-                    <p className="text-sm text-muted-foreground">{integration.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Ready to Transform Your Business with AI?
-              </h3>
-              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Discover how our custom automation systems can revolutionize your operations and drive growth.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="px-8" asChild>
-                  <Link to="/contact">Get Started Today</Link>
-                </Button>
-                <Button variant="outline" size="lg" className="px-8" asChild>
-                  <Link to="/booking-calendar">Schedule a Demo</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
