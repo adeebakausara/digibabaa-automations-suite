@@ -16,8 +16,36 @@ interface ContactFormData {
   company?: string;
   message: string;
   subject?: string;
-  // Add any other fields your form has
+  honeypot?: string; // Honeypot field for spam protection
 }
+
+// Rate limiting storage (in production, use Redis or similar)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const checkRateLimit = (ip: string): boolean => {
+  const now = Date.now();
+  const windowMs = 60 * 1000; // 1 minute
+  const maxRequests = 10;
+
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+  
+  if (record.count >= maxRequests) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+};
 
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
@@ -25,8 +53,52 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Only allow POST requests
+  if (req.method !== "POST") {
+    return new Response(JSON.stringify({ ok: false, error: "Method not allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+
+  // Get client IP for rate limiting
+  const clientIP = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown";
+
+  // Check rate limit
+  if (!checkRateLimit(clientIP)) {
+    return new Response(JSON.stringify({ ok: false, error: "Rate limit exceeded" }), {
+      status: 429,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+
   try {
     const formData: ContactFormData = await req.json();
+
+    // Honeypot check
+    if (formData.honeypot && formData.honeypot.trim() !== "") {
+      console.log("Honeypot triggered, possible spam submission");
+      return new Response(JSON.stringify({ ok: false, error: "Invalid submission" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.message) {
+      return new Response(JSON.stringify({ ok: false, error: "Missing required fields: name, email, message" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Validate email format
+    if (!validateEmail(formData.email)) {
+      return new Response(JSON.stringify({ ok: false, error: "Invalid email format" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
 
     console.log("Processing contact form submission for:", formData.email);
 
@@ -55,9 +127,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email
     const emailResponse = await resend.emails.send({
-      from: "DigiBabaa Website <noreply@digibabaa.com>",
-      to: ["akbar@digibabaa.com"],
-      subject: formData.subject || `New Contact Form - ${formData.name}`,
+      from: "updates@digibabaa.co",
+      to: ["akbar@digibabaa.co"],
+      subject: `Contact Form Submission - ${formData.name}`,
       html: emailHtml,
       replyTo: formData.email,
       attachments: [
@@ -70,11 +142,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Contact email sent successfully:", emailResponse);
 
-    return new Response(JSON.stringify({ 
-      success: true, 
-      message: "Contact form submitted successfully",
-      emailId: emailResponse.data?.id 
-    }), {
+    return new Response(JSON.stringify({ ok: true }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
@@ -84,16 +152,19 @@ const handler = async (req: Request): Promise<Response> => {
 
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
-    return new Response(
-      JSON.stringify({ 
-        error: error.message,
-        details: "Failed to process contact form submission"
-      }),
-      {
-        status: 500,
+    
+    // Check if it's a Resend API error
+    if (error.message?.includes("resend") || error.name === "ResendError") {
+      return new Response(JSON.stringify({ ok: false, error: "Email service unavailable" }), {
+        status: 502,
         headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
+      });
+    }
+
+    return new Response(JSON.stringify({ ok: false, error: "Internal server error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
   }
 };
 

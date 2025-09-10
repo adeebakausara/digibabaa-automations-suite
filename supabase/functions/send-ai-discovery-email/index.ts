@@ -9,6 +9,34 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
+// Rate limiting storage (in production, use Redis or similar)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const checkRateLimit = (ip: string): boolean => {
+  const now = Date.now();
+  const windowMs = 60 * 1000; // 1 minute
+  const maxRequests = 10;
+
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+  
+  if (record.count >= maxRequests) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+};
+
 interface AiDiscoveryFormData {
   // Contact Information
   full_name: string;
@@ -34,6 +62,9 @@ interface AiDiscoveryFormData {
   
   // Timestamp
   submitted_at: string;
+  
+  // Honeypot field
+  honeypot?: string;
 }
 
 const formatAnswer = (answer?: string) => {
@@ -46,8 +77,81 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Only allow POST requests
+  if (req.method !== "POST") {
+    return new Response(JSON.stringify({ ok: false, error: "Method not allowed" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+
+  // Get client IP for rate limiting
+  const clientIP = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown";
+
+  // Check rate limit
+  if (!checkRateLimit(clientIP)) {
+    return new Response(JSON.stringify({ ok: false, error: "Rate limit exceeded" }), {
+      status: 429,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  }
+
   try {
     const formData: AiDiscoveryFormData = await req.json();
+
+    // Honeypot check
+    if (formData.honeypot && formData.honeypot.trim() !== "") {
+      console.log("Honeypot triggered, possible spam submission");
+      return new Response(JSON.stringify({ ok: false, error: "Invalid submission" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Validate required fields
+    const requiredFields = [
+      'full_name', 'email', 'phone', 'q1_current_state', 'q2_6_12_goal',
+      'q3_biggest_challenge', 'q4_personal_importance', 'q5_time_sink',
+      'q6_kill_task', 'q7_ai_experience', 'q8_customer_frustration',
+      'q9_strength', 'q10_big_impact', 'industry'
+    ];
+
+    const missingFields = requiredFields.filter(field => !formData[field as keyof AiDiscoveryFormData]);
+
+    // Check if industry is "Other" and industry_other is required
+    if (formData.industry === "Other" && (!formData.industry_other || formData.industry_other.trim() === "")) {
+      missingFields.push('industry_other');
+    }
+
+    if (missingFields.length > 0) {
+      return new Response(JSON.stringify({ 
+        ok: false, 
+        error: `Missing required fields: ${missingFields.join(', ')}` 
+      }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Validate email format
+    if (!validateEmail(formData.email)) {
+      return new Response(JSON.stringify({ ok: false, error: "Invalid email format" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
+
+    // Validate website URL if provided
+    if (formData.website && formData.website.trim() !== "") {
+      try {
+        new URL(formData.website);
+      } catch {
+        return new Response(JSON.stringify({ ok: false, error: "Invalid website URL format" }), {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        });
+      }
+    }
 
     console.log("Processing AI Discovery submission for:", formData.email);
 
@@ -104,9 +208,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email
     const emailResponse = await resend.emails.send({
-      from: "DigiBabaa AI Discovery <noreply@digibabaa.com>",
-      to: ["akbar@digibabaa.com"],
-      subject: `New AI Discovery Submission – DigiBabaa (${formData.full_name})`,
+      from: "updates@digibabaa.co",
+      to: ["akbar@digibabaa.co"],
+      subject: `AI Discovery Submission - ${formData.full_name}`,
       html: emailHtml,
       replyTo: formData.email,
       attachments: [
@@ -119,11 +223,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("AI Discovery email sent successfully:", emailResponse);
 
-    return new Response(JSON.stringify({ 
-      success: true, 
-      message: "AI Discovery submission processed successfully",
-      emailId: emailResponse.data?.id 
-    }), {
+    return new Response(JSON.stringify({ ok: true }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
@@ -133,16 +233,19 @@ const handler = async (req: Request): Promise<Response> => {
 
   } catch (error: any) {
     console.error("Error in send-ai-discovery-email function:", error);
-    return new Response(
-      JSON.stringify({ 
-        error: error.message,
-        details: "Failed to process AI Discovery submission"
-      }),
-      {
-        status: 500,
+    
+    // Check if it's a Resend API error
+    if (error.message?.includes("resend") || error.name === "ResendError") {
+      return new Response(JSON.stringify({ ok: false, error: "Email service unavailable" }), {
+        status: 502,
         headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
+      });
+    }
+
+    return new Response(JSON.stringify({ ok: false, error: "Internal server error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
   }
 };
 

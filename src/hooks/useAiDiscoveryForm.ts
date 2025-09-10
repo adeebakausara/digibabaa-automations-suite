@@ -28,6 +28,9 @@ export interface AiDiscoveryFormData {
   
   // Timestamp (added at submit time)
   submitted_at?: string;
+  
+  // Honeypot field for spam protection
+  honeypot?: string;
 }
 
 export const useAiDiscoveryForm = () => {
@@ -54,6 +57,7 @@ export const useAiDiscoveryForm = () => {
       q10_big_impact: "",
       industry: "",
       industry_other: "",
+      honeypot: "",
     },
     mode: "onChange",
   });
@@ -81,6 +85,17 @@ export const useAiDiscoveryForm = () => {
         toast({
           title: "Email Failed",
           description: "Email failed to send — please try again",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Check if the response indicates success
+      if (!emailResult?.ok) {
+        console.error("Email sending failed:", emailResult);
+        toast({
+          title: "Email Failed",
+          description: emailResult?.error || "Email failed to send — please try again",
           variant: "destructive",
         });
         return;

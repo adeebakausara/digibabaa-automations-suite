@@ -10,6 +10,7 @@ export interface ContactFormData {
   company?: string;
   message: string;
   subject?: string;
+  honeypot?: string; // Honeypot field for spam protection
 }
 
 export const useContactForm = () => {
@@ -25,6 +26,7 @@ export const useContactForm = () => {
       company: "",
       message: "",
       subject: "",
+      honeypot: "",
     },
     mode: "onChange",
   });
@@ -46,6 +48,17 @@ export const useContactForm = () => {
         toast({
           title: "Submission Failed",
           description: "Failed to send your message. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Check if the response indicates success
+      if (!emailResult?.ok) {
+        console.error("Email sending failed:", emailResult);
+        toast({
+          title: "Submission Failed",
+          description: emailResult?.error || "Failed to send your message. Please try again.",
           variant: "destructive",
         });
         return;
