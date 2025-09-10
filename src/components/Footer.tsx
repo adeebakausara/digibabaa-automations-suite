@@ -5,19 +5,13 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {/* Logo & Description */}
-          <div className="col-span-1 sm:col-span-2 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="relative">
-                <Bot className="h-8 w-8 text-primary" />
-                <Zap className="h-4 w-4 text-aqua absolute -top-1 -right-1 animate-pulse" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                DigiBabaa
-              </span>
-            </div>
-            <p className="text-muted-foreground mb-6 max-w-md">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Company Info & Description */}
+          <div>
+            <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
+              DigiBabaa
+            </h3>
+            <p className="text-muted-foreground mb-6">
               Empowering businesses with cutting-edge AI automation solutions. 
               Transform your operations with intelligent chatbots, voice agents, 
               and custom automation workflows.
