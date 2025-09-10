@@ -44,32 +44,32 @@ const About = () => {
   const team = [
     {
       name: "Akbar Hayat",
-      role: "Founder",
+      role: "Founder & Visionary Leader",
       image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Akbar%20Hayat%20founder1.jpg"
     },
     {
-      name: "Tanveer",
-      role: "Cofounder",
+      name: "Tanveer Ahmad",
+      role: "Cofounder & Strategy Head",
       image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Tanveer.jpg"
     },
     {
-      name: "Abdullah",
-      role: "Team Member",
+      name: "M. Abdullah",
+      role: "AI Solutions Architect",
       image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Abdulllah.jpg"
     },
     {
-      name: "Fahad",
-      role: "Team Member",
+      name: "Fahad Khan",
+      role: "Automation Specialist",
       image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/fahad.png"
     },
     {
-      name: "Athar",
-      role: "Team Member",
+      name: "M. Athar",
+      role: "Creative Developer",
       image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/athar.png"
     },
     {
-      name: "Umar",
-      role: "Team Member",
+      name: "Umar Farooq",
+      role: "Innovation & Research Lead",
       image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/umar.png"
     }
   ];
@@ -201,7 +201,7 @@ const About = () => {
               Meet Our <span className="text-primary">Expert Team</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Industry veterans with deep expertise in AI, automation, and business transformation
+              At DigiBabaa, we believe great innovation comes from great people. Our passionate team brings together vision, creativity, and technical brilliance to deliver AI automation that transforms businesses. Together, we're not just building technology—we're shaping the future.
             </p>
           </div>
           
