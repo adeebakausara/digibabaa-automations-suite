@@ -112,7 +112,7 @@ const handler = async (req: Request): Promise<Response> => {
       attachments: [
         {
           filename: 'ai_discovery_submission.json',
-          content: Buffer.from(jsonAttachment).toString('base64'),
+          content: btoa(jsonAttachment),
         },
       ],
     });
