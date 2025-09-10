@@ -15,55 +15,56 @@ import { Link } from "react-router-dom";
 
 const AiDiscovery = () => {
   const { form, onSubmit, isSubmitting, isSuccess, currentStep, setCurrentStep } = useAiDiscoveryForm();
+  const [otherIndustry, setOtherIndustry] = useState("");
 
   const discoveryQuestions = [
     {
-      id: "q1_current_state",
+      id: "currentState",
       question: "Where is your business right now?",
       placeholder: "Describe your current business situation in 1-3 sentences..."
     },
     {
-      id: "q2_6_12_goal",
+      id: "futureGoals",
       question: "Where do you want your business to be in the next 6–12 months?",
       placeholder: "Share your goals and vision for the near future..."
     },
     {
-      id: "q3_biggest_challenge",
+      id: "biggestChallenge",
       question: "What's the biggest challenge holding you back from reaching that goal?",
       placeholder: "What's preventing you from achieving your goals?"
     },
     {
-      id: "q4_personal_importance",
+      id: "personalImportance",
       question: "Why is achieving this goal important to you personally?",
       placeholder: "What motivates you to reach this goal?"
     },
     {
-      id: "q5_time_sink",
+      id: "timeEnergyDrain",
       question: "What part of your business takes the most time and energy every week?",
       placeholder: "Which tasks or processes consume most of your time?"
     },
     {
-      id: "q6_kill_task",
+      id: "eliminateOneTask",
       question: "If you could eliminate one task from your workload forever, what would it be?",
       placeholder: "What's the one thing you wish you never had to do again?"
     },
     {
-      id: "q7_ai_experience",
+      id: "aiExperience",
       question: "Have you already tried using AI or automation tools? If yes, what worked or didn't work?",
       placeholder: "Share your experience with AI or automation tools, if any..."
     },
     {
-      id: "q8_customer_frustration",
+      id: "customerFrustrations",
       question: "What's the most common frustration your customers have when dealing with your business?",
       placeholder: "What do customers complain about or struggle with?"
     },
     {
-      id: "q9_strength",
+      id: "businessStrengths",
       question: "What do you believe your business does exceptionally well right now?",
       placeholder: "What are you most proud of in your business?"
     },
     {
-      id: "q10_big_impact",
+      id: "biggestImpact",
       question: "If we helped you fix one problem in your business today, what would make the biggest difference?",
       placeholder: "What single improvement would transform your business?"
     }
@@ -204,19 +205,19 @@ const AiDiscovery = () => {
                     </CardHeader>
                     <CardContent className="space-y-6">
                       <div className="grid sm:grid-cols-2 gap-6">
-                         <div className="space-y-2">
-                           <Label htmlFor="full_name">Full Name *</Label>
-                           <Input
-                             {...form.register("full_name", { required: "Full name is required" })}
-                             placeholder="Your full name"
-                             aria-describedby="full_name-error"
-                           />
-                           {form.formState.errors.full_name && (
-                             <p id="full_name-error" className="text-sm text-destructive">
-                               {form.formState.errors.full_name.message}
-                             </p>
-                           )}
-                         </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="fullName">Full Name *</Label>
+                          <Input
+                            {...form.register("fullName", { required: "Full name is required" })}
+                            placeholder="Your full name"
+                            aria-describedby="fullName-error"
+                          />
+                          {form.formState.errors.fullName && (
+                            <p id="fullName-error" className="text-sm text-destructive">
+                              {form.formState.errors.fullName.message}
+                            </p>
+                          )}
+                        </div>
 
                         <div className="space-y-2">
                           <Label htmlFor="email">Email Address *</Label>
@@ -366,18 +367,17 @@ const AiDiscovery = () => {
                             ))}
                           </SelectContent>
                         </Select>
-                         {form.watch("industry") === "Other" && (
-                           <div className="mt-4">
-                             <Label htmlFor="industry_other">Please specify your industry:</Label>
-                             <Input
-                               {...form.register("industry_other", {
-                                 required: form.watch("industry") === "Other" ? "Please specify your industry" : false
-                               })}
-                               placeholder="Enter your industry..."
-                               className="mt-2"
-                             />
-                           </div>
-                         )}
+                        {form.watch("industry") === "Other" && (
+                          <div className="mt-4">
+                            <Label htmlFor="otherIndustry">Please specify your industry:</Label>
+                            <Input
+                              value={otherIndustry}
+                              onChange={(e) => setOtherIndustry(e.target.value)}
+                              placeholder="Enter your industry..."
+                              className="mt-2"
+                            />
+                          </div>
+                        )}
                         {form.formState.errors.industry && (
                           <p className="text-sm text-destructive">
                             Please select your industry

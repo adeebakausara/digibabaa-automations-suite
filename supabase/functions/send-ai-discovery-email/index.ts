@@ -9,62 +9,27 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-// Rate limiting storage (in production, use Redis or similar)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-
-const validateEmail = (email: string): boolean => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-};
-
-const checkRateLimit = (ip: string): boolean => {
-  const now = Date.now();
-  const windowMs = 60 * 1000; // 1 minute
-  const maxRequests = 10;
-
-  const record = rateLimitMap.get(ip);
-  
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(ip, { count: 1, resetTime: now + windowMs });
-    return true;
-  }
-  
-  if (record.count >= maxRequests) {
-    return false;
-  }
-  
-  record.count++;
-  return true;
-};
-
 interface AiDiscoveryFormData {
   // Contact Information
-  full_name: string;
+  fullName: string;
   email: string;
   website?: string;
   phone: string;
   
   // Discovery Questions
-  q1_current_state: string;
-  q2_6_12_goal: string;
-  q3_biggest_challenge: string;
-  q4_personal_importance: string;
-  q5_time_sink: string;
-  q6_kill_task: string;
-  q7_ai_experience: string;
-  q8_customer_frustration: string;
-  q9_strength: string;
-  q10_big_impact: string;
+  currentState?: string;
+  futureGoals?: string;
+  biggestChallenge?: string;
+  personalImportance?: string;
+  timeEnergyDrain?: string;
+  eliminateOneTask?: string;
+  aiExperience?: string;
+  customerFrustrations?: string;
+  businessStrengths?: string;
+  biggestImpact?: string;
   
   // Industry
   industry: string;
-  industry_other?: string;
-  
-  // Timestamp
-  submitted_at: string;
-  
-  // Honeypot field
-  honeypot?: string;
 }
 
 const formatAnswer = (answer?: string) => {
@@ -77,153 +42,131 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // Only allow POST requests
-  if (req.method !== "POST") {
-    return new Response(JSON.stringify({ ok: false, error: "Method not allowed" }), {
-      status: 405,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
-  }
-
-  // Get client IP for rate limiting
-  const clientIP = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown";
-
-  // Check rate limit
-  if (!checkRateLimit(clientIP)) {
-    return new Response(JSON.stringify({ ok: false, error: "Rate limit exceeded" }), {
-      status: 429,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
-  }
-
   try {
     const formData: AiDiscoveryFormData = await req.json();
 
-    // Honeypot check
-    if (formData.honeypot && formData.honeypot.trim() !== "") {
-      console.log("Honeypot triggered, possible spam submission");
-      return new Response(JSON.stringify({ ok: false, error: "Invalid submission" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      });
-    }
-
-    // Validate required fields
-    const requiredFields = [
-      'full_name', 'email', 'phone', 'q1_current_state', 'q2_6_12_goal',
-      'q3_biggest_challenge', 'q4_personal_importance', 'q5_time_sink',
-      'q6_kill_task', 'q7_ai_experience', 'q8_customer_frustration',
-      'q9_strength', 'q10_big_impact', 'industry'
-    ];
-
-    const missingFields = requiredFields.filter(field => !formData[field as keyof AiDiscoveryFormData]);
-
-    // Check if industry is "Other" and industry_other is required
-    if (formData.industry === "Other" && (!formData.industry_other || formData.industry_other.trim() === "")) {
-      missingFields.push('industry_other');
-    }
-
-    if (missingFields.length > 0) {
-      return new Response(JSON.stringify({ 
-        ok: false, 
-        error: `Missing required fields: ${missingFields.join(', ')}` 
-      }), {
-        status: 400,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      });
-    }
-
-    // Validate email format
-    if (!validateEmail(formData.email)) {
-      return new Response(JSON.stringify({ ok: false, error: "Invalid email format" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      });
-    }
-
-    // Validate website URL if provided
-    if (formData.website && formData.website.trim() !== "") {
-      try {
-        new URL(formData.website);
-      } catch {
-        return new Response(JSON.stringify({ ok: false, error: "Invalid website URL format" }), {
-          status: 400,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        });
-      }
-    }
-
     console.log("Processing AI Discovery submission for:", formData.email);
 
-    // Create HTML email content with exact format requested
-    const industryDisplay = formData.industry === "Other" && formData.industry_other 
-      ? `${formData.industry} (Other: ${formData.industry_other})` 
-      : formData.industry;
-
+    // Create HTML email content
     const emailHtml = `
-      📩 <strong>New AI Discovery Submission</strong><br/><br/>
+      <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f8fafc;">
+        <div style="background: linear-gradient(135deg, #3b82f6, #06b6d4); padding: 30px; border-radius: 12px 12px 0 0; text-align: center;">
+          <h1 style="color: white; margin: 0; font-size: 28px; font-weight: bold;">📩 New AI Discovery Submission</h1>
+          <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">DigiBabaa AI Discovery Form</p>
+        </div>
+        
+        <div style="background: white; padding: 30px; border-radius: 0 0 12px 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          
+          <!-- Contact Info Section -->
+          <div style="margin-bottom: 40px;">
+            <h2 style="color: #1e293b; border-bottom: 2px solid #3b82f6; padding-bottom: 10px; margin-bottom: 20px; font-size: 22px;">👤 Contact Info</h2>
+            <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+              <p style="margin: 8px 0; font-size: 16px;"><strong>Full Name:</strong> ${formData.fullName}</p>
+              <p style="margin: 8px 0; font-size: 16px;"><strong>Email:</strong> <a href="mailto:${formData.email}" style="color: #3b82f6; text-decoration: none;">${formData.email}</a></p>
+              <p style="margin: 8px 0; font-size: 16px;"><strong>Website:</strong> ${formData.website ? `<a href="${formData.website}" target="_blank" style="color: #3b82f6; text-decoration: none;">${formData.website}</a>` : 'Not provided'}</p>
+              <p style="margin: 8px 0; font-size: 16px;"><strong>Phone/WhatsApp:</strong> <a href="tel:${formData.phone}" style="color: #06b6d4; text-decoration: none;">${formData.phone}</a></p>
+            </div>
+          </div>
 
-      <strong>👤 Contact Info</strong><br/>
-      - Full Name: ${formData.full_name}<br/>
-      - Email: ${formData.email}<br/>
-      - Website: ${formData.website || ""}<br/>
-      - Phone/WhatsApp: ${formData.phone}<br/><br/>
+          <!-- Discovery Answers Section -->
+          <div style="margin-bottom: 40px;">
+            <h2 style="color: #1e293b; border-bottom: 2px solid #06b6d4; padding-bottom: 10px; margin-bottom: 20px; font-size: 22px;">📝 Discovery Answers</h2>
+            
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">1. Where is your business right now?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.currentState)}</p>
+            </div>
 
-      <strong>📝 Discovery Answers</strong><br/>
-      1. Where is your business right now?<br/>→ ${formatAnswer(formData.q1_current_state)}<br/><br/>
-      2. Where do you want your business to be in the next 6–12 months?<br/>→ ${formatAnswer(formData.q2_6_12_goal)}<br/><br/>
-      3. What's the biggest challenge holding you back from reaching that goal?<br/>→ ${formatAnswer(formData.q3_biggest_challenge)}<br/><br/>
-      4. Why is achieving this goal important to you personally?<br/>→ ${formatAnswer(formData.q4_personal_importance)}<br/><br/>
-      5. What part of your business takes the most time and energy every week?<br/>→ ${formatAnswer(formData.q5_time_sink)}<br/><br/>
-      6. If you could eliminate one task from your workload forever, what would it be?<br/>→ ${formatAnswer(formData.q6_kill_task)}<br/><br/>
-      7. Have you already tried using AI or automation tools? What worked or didn't?<br/>→ ${formatAnswer(formData.q7_ai_experience)}<br/><br/>
-      8. What's the most common frustration your customers have?<br/>→ ${formatAnswer(formData.q8_customer_frustration)}<br/><br/>
-      9. What does your business do exceptionally well right now?<br/>→ ${formatAnswer(formData.q9_strength)}<br/><br/>
-      10. If we fixed one problem today, what would make the biggest difference?<br/>→ ${formatAnswer(formData.q10_big_impact)}<br/><br/>
-      11. Industry: ${industryDisplay}<br/><br/>
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">2. Where do you want your business to be in the next 6–12 months?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.futureGoals)}</p>
+            </div>
 
-      Timestamp: ${formData.submitted_at}
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">3. What's the biggest challenge holding you back from reaching that goal?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.biggestChallenge)}</p>
+            </div>
+
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">4. Why is achieving this goal important to you personally?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.personalImportance)}</p>
+            </div>
+
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">5. What part of your business takes the most time and energy every week?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.timeEnergyDrain)}</p>
+            </div>
+
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">6. If you could eliminate one task from your workload forever, what would it be?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.eliminateOneTask)}</p>
+            </div>
+
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">7. Have you already tried using AI or automation tools? If yes, what worked or didn't work?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.aiExperience)}</p>
+            </div>
+
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">8. What's the most common frustration your customers have when dealing with your business?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.customerFrustrations)}</p>
+            </div>
+
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">9. What do you believe your business does exceptionally well right now?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.businessStrengths)}</p>
+            </div>
+
+            <div style="background-color: #f0fdff; padding: 20px; border-radius: 8px; border-left: 4px solid #06b6d4; margin-bottom: 20px;">
+              <h3 style="color: #0e7490; margin: 0 0 10px 0; font-size: 18px;">10. If we helped you fix one problem in your business today, what would make the biggest difference?</h3>
+              <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 15px;">→ ${formatAnswer(formData.biggestImpact)}</p>
+            </div>
+          </div>
+
+          <!-- Industry Section -->
+          <div style="margin-bottom: 30px;">
+            <h2 style="color: #1e293b; border-bottom: 2px solid #10b981; padding-bottom: 10px; margin-bottom: 15px; font-size: 22px;">🏢 Industry Context</h2>
+            <div style="background-color: #ecfdf5; padding: 20px; border-radius: 8px; border-left: 4px solid #10b981;">
+              <p style="margin: 0; font-size: 18px; font-weight: 600; color: #047857;">Industry: ${formData.industry}</p>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div style="border-top: 1px solid #e2e8f0; padding-top: 20px; text-align: center; color: #64748b; font-size: 14px;">
+            <p style="margin: 0;">This discovery submission was received on ${new Date().toLocaleDateString('en-US', { 
+              weekday: 'long', 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            })}</p>
+            <p style="margin: 10px 0 0 0;">
+              <strong>DigiBabaa</strong> - AI Automation & Business Solutions<br>
+              <a href="https://preview--digibabaa.lovable.app" style="color: #3b82f6; text-decoration: none;">preview--digibabaa.lovable.app</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
     `;
-
-    // Create JSON attachment data with exact structure requested
-    const jsonAttachment = JSON.stringify({
-      full_name: formData.full_name,
-      email: formData.email,
-      website: formData.website || "",
-      phone: formData.phone,
-      q1_current_state: formData.q1_current_state,
-      q2_6_12_goal: formData.q2_6_12_goal,
-      q3_biggest_challenge: formData.q3_biggest_challenge,
-      q4_personal_importance: formData.q4_personal_importance,
-      q5_time_sink: formData.q5_time_sink,
-      q6_kill_task: formData.q6_kill_task,
-      q7_ai_experience: formData.q7_ai_experience,
-      q8_customer_frustration: formData.q8_customer_frustration,
-      q9_strength: formData.q9_strength,
-      q10_big_impact: formData.q10_big_impact,
-      industry: formData.industry,
-      industry_other: formData.industry_other || "",
-      submitted_at: formData.submitted_at
-    }, null, 2);
 
     // Send email
     const emailResponse = await resend.emails.send({
-      from: "updates@digibabaa.co",
-      to: ["akbar@digibabaa.co"],
-      subject: `AI Discovery Submission - ${formData.full_name}`,
+      from: "DigiBabaa Discovery <noreply@digibabaa.com>",
+      to: ["akbar@digibabaa.com"],
+      subject: "New AI Discovery Submission – DigiBabaa",
       html: emailHtml,
       replyTo: formData.email,
-      attachments: [
-        {
-          filename: 'ai_discovery_submission.json',
-          content: btoa(jsonAttachment),
-        },
-      ],
     });
 
     console.log("AI Discovery email sent successfully:", emailResponse);
 
-    return new Response(JSON.stringify({ ok: true }), {
+    return new Response(JSON.stringify({ 
+      success: true, 
+      message: "AI Discovery submission processed successfully",
+      emailId: emailResponse.data?.id 
+    }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
@@ -233,19 +176,16 @@ const handler = async (req: Request): Promise<Response> => {
 
   } catch (error: any) {
     console.error("Error in send-ai-discovery-email function:", error);
-    
-    // Check if it's a Resend API error
-    if (error.message?.includes("resend") || error.name === "ResendError") {
-      return new Response(JSON.stringify({ ok: false, error: "Email service unavailable" }), {
-        status: 502,
+    return new Response(
+      JSON.stringify({ 
+        error: error.message,
+        details: "Failed to process AI Discovery submission"
+      }),
+      {
+        status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
-      });
-    }
-
-    return new Response(JSON.stringify({ ok: false, error: "Internal server error" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
+      }
+    );
   }
 };
 

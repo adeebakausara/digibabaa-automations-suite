@@ -5,32 +5,25 @@ import { supabase } from "@/integrations/supabase/client";
 
 export interface AiDiscoveryFormData {
   // Contact Information
-  full_name: string;
+  fullName: string;
   email: string;
   website?: string;
   phone: string;
   
   // Discovery Questions
-  q1_current_state: string;
-  q2_6_12_goal: string;
-  q3_biggest_challenge: string;
-  q4_personal_importance: string;
-  q5_time_sink: string;
-  q6_kill_task: string;
-  q7_ai_experience: string;
-  q8_customer_frustration: string;
-  q9_strength: string;
-  q10_big_impact: string;
+  currentState?: string;
+  futureGoals?: string;
+  biggestChallenge?: string;
+  personalImportance?: string;
+  timeEnergyDrain?: string;
+  eliminateOneTask?: string;
+  aiExperience?: string;
+  customerFrustrations?: string;
+  businessStrengths?: string;
+  biggestImpact?: string;
   
   // Industry
   industry: string;
-  industry_other?: string;
-  
-  // Timestamp (added at submit time)
-  submitted_at?: string;
-  
-  // Honeypot field for spam protection
-  honeypot?: string;
 }
 
 export const useAiDiscoveryForm = () => {
@@ -41,23 +34,21 @@ export const useAiDiscoveryForm = () => {
   
   const form = useForm<AiDiscoveryFormData>({
     defaultValues: {
-      full_name: "",
+      fullName: "",
       email: "",
       website: "",
       phone: "",
-      q1_current_state: "",
-      q2_6_12_goal: "",
-      q3_biggest_challenge: "",
-      q4_personal_importance: "",
-      q5_time_sink: "",
-      q6_kill_task: "",
-      q7_ai_experience: "",
-      q8_customer_frustration: "",
-      q9_strength: "",
-      q10_big_impact: "",
+      currentState: "",
+      futureGoals: "",
+      biggestChallenge: "",
+      personalImportance: "",
+      timeEnergyDrain: "",
+      eliminateOneTask: "",
+      aiExperience: "",
+      customerFrustrations: "",
+      businessStrengths: "",
+      biggestImpact: "",
       industry: "",
-      industry_other: "",
-      honeypot: "",
     },
     mode: "onChange",
   });
@@ -66,52 +57,21 @@ export const useAiDiscoveryForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Add submitted_at timestamp
-      const submissionData = {
-        ...data,
-        submitted_at: new Date().toISOString()
-      };
-
-      // Send email with all discovery answers
+      // Send email notification via edge function
       const { data: emailResult, error: emailError } = await supabase.functions.invoke(
         'send-ai-discovery-email',
         {
-          body: submissionData,
+          body: data,
         }
       );
 
       if (emailError) {
-        console.error("Email sending failed:", emailError);
-        toast({
-          title: "Email Failed",
-          description: "Email failed to send — please try again",
-          variant: "destructive",
-        });
-        return;
-      }
-
-      // Check if the response indicates success
-      if (!emailResult?.ok) {
-        console.error("Email sending failed:", emailResult);
-        toast({
-          title: "Email Failed",
-          description: emailResult?.error || "Email failed to send — please try again",
-          variant: "destructive",
-        });
-        return;
+        throw emailError;
       }
 
       console.log("AI Discovery email sent successfully:", emailResult);
 
-      // Track analytics event for successful email send
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'ai_discovery_submit', {
-          event_category: 'engagement',
-          event_label: data.industry,
-        });
-      }
-
-      // Show success state
+      // Show success message and set success state
       toast({
         title: "Discovery Submitted Successfully!",
         description: "We'll review your answers and send back tailored AI automation ideas.",
@@ -119,11 +79,19 @@ export const useAiDiscoveryForm = () => {
 
       setIsSuccess(true);
 
+      // Track analytics event
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'ai_discovery_submission', {
+          event_category: 'engagement',
+          event_label: data.industry,
+        });
+      }
+
     } catch (error: any) {
       console.error("Error submitting AI discovery form:", error);
       toast({
         title: "Submission Failed",
-        description: "Email failed to send — please try again",
+        description: "There was an error submitting your discovery. Please try again.",
         variant: "destructive",
       });
     } finally {
