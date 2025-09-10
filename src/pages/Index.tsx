@@ -149,7 +149,7 @@ const Index = () => {
           </div>
           
           {/* Enhanced Headlines */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 animate-slide-up leading-[0.9] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up leading-tight tracking-tight">
             Transform Your Business with{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-primary bg-clip-text text-transparent animate-shimmer">
@@ -160,7 +160,7 @@ const Index = () => {
           </h1>
           
           {/* Enhanced Subtitle */}
-          <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-12 max-w-4xl mx-auto animate-fade-in leading-relaxed font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto animate-fade-in leading-relaxed font-light">
             Unlock the power of <span className="text-primary font-medium">AI chatbots</span>, 
             <span className="text-aqua font-medium"> voice agents</span>, and 
             <span className="text-purple-start font-medium"> custom automation</span> to 
@@ -168,7 +168,7 @@ const Index = () => {
           </p>
           
           {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col lg:flex-row gap-6 justify-center mb-16 animate-slide-up">
+          <div className="flex flex-col lg:flex-row gap-4 justify-center mb-12 animate-slide-up">
             <Link to="/get-started">
               <Button 
                 variant="hero" 
@@ -239,11 +239,11 @@ const Index = () => {
               Our Solutions
             </Badge>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
               Our <span className="bg-gradient-primary bg-clip-text text-transparent">Core Services</span>
             </h2>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Comprehensive AI solutions designed to <span className="text-foreground font-medium">revolutionize</span> your business operations and drive <span className="text-primary font-medium">measurable growth</span>
             </p>
           </div>
@@ -320,10 +320,10 @@ const Index = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               What Our <span className="text-primary">Customers Are Saying</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               See how our service has transformed real businesses
             </p>
           </div>
@@ -477,15 +477,15 @@ const Index = () => {
             </Badge>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
             Ready to Transform Your Business?
           </h2>
           
-          <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
             Join <span className="font-semibold">500+ businesses</span> already automating their success with DigiBabaa's cutting-edge AI solutions
           </p>
           
-          <div className="flex flex-col lg:flex-row gap-6 justify-center">
+          <div className="flex flex-col lg:flex-row gap-4 justify-center">
             <Link to="/get-started">
               <Button 
                 variant="secondary" 
@@ -532,10 +532,10 @@ const Index = () => {
       <section id="book-consultation" className="py-16 bg-gradient-to-b from-background to-card/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               <span className="text-primary">Book Your</span> Free Consultation
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Schedule a call with our AI automation experts to discuss your business needs
             </p>
           </div>
@@ -575,11 +575,11 @@ const Index = () => {
                   Hey, I'm Akbar.
                 </p>
                 
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-6">
                   I'm here to make AI automation accessible and ROI-driven.
                 </h3>
                 
-                <p className="text-gray-300 text-lg leading-relaxed">
+                <p className="text-gray-300 text-base leading-relaxed">
                   Thank you for visiting DigiBabaa. My mission is to help businesses unlock growth through intelligent automation—simple, practical, and profitable. Let's build the future of automation together.
                 </p>
               </div>
