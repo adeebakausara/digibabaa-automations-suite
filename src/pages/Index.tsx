@@ -123,52 +123,56 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with founder image blended on the right */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-background" />
-          {/* Founder image positioned on the right */}
-          <div 
-            className="absolute inset-0 bg-cover bg-no-repeat"
-            style={{
-              backgroundImage: `url('https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Akbar%20Hayat%20founder%20.jpg')`,
-              backgroundPosition: '80% center',
-              backgroundSize: 'cover'
-            }}
+          <img 
+            src={heroImage} 
+            alt="AI Automation" 
+            className="w-full h-full object-cover opacity-20"
           />
-          {/* Gradient overlays for seamless blending */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40 sm:to-background/20" />
-          <div className="absolute inset-0 bg-gradient-to-l from-background/60 via-transparent to-transparent sm:from-background/30" />
-          {/* Additional dark vignette for mobile */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40 sm:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/60" />
         </div>
         
-        {/* Founder caption */}
-        <div className="absolute bottom-8 right-8 z-20 hidden sm:block">
-          <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-2">
-            <span className="text-sm text-white/90 font-medium" aria-label="Portrait of Akbar Hayat, Founder of DigiBabaa">
-              Akbar Hayat — Founder & Visionary
-            </span>
-          </div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-6 animate-fade-in">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Badge variant="secondary" className="mb-6 animate-fade-in text-center lg:text-left">
             🚀 AI-Powered Business Automation
           </Badge>
           
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
-            Transform Your Business with{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Intelligent Automation
-            </span>
-          </h1>
+          {/* Desktop: Side by side layout, Mobile: Stacked */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-16">
+            {/* Left side - Headline and content */}
+            <div className="flex-1 text-center lg:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up leading-tight">
+                Transform Your Business with{" "}
+                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                  Intelligent Automation
+                </span>
+              </h1>
+              
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl lg:max-w-none animate-fade-in leading-relaxed">
+                Unlock the power of AI chatbots, voice agents, and custom automation 
+                to streamline operations and boost productivity across all platforms.
+              </p>
+            </div>
+            
+            {/* Right side - Founder image and tagline */}
+            <div className="flex-shrink-0 text-center animate-fade-in">
+              <div className="inline-block">
+                <img 
+                  src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Akbar%20Hayat%20founder%20.jpg"
+                  alt="Akbar Hayat - Founder of DigiBabaa"
+                  className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-elegant border-4 border-primary/20 mx-auto mb-4 hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder.svg';
+                  }}
+                />
+                <p className="text-sm sm:text-base text-muted-foreground font-medium max-w-64 mx-auto">
+                  Akbar Hayat – Founder & Visionary Behind DigiBabaa
+                </p>
+              </div>
+            </div>
+          </div>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in leading-relaxed">
-            Unlock the power of AI chatbots, voice agents, and custom automation 
-            to streamline operations and boost productivity across all platforms.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-12 animate-slide-up">
             <Link to="/get-started">
               <Button variant="hero" size="lg" className="group">
                 Start Automating
@@ -189,22 +193,13 @@ const Index = () => {
           </div>
           
           {/* Platform Logos */}
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 animate-fade-in">
+          <div className="flex flex-wrap justify-center lg:justify-start items-center gap-8 mt-12 opacity-60 animate-fade-in">
             <span className="text-sm font-medium">Trusted Integrations:</span>
             {["WhatsApp", "Zapier", "Shopify", "Zoho", "Google Sheets"].map((platform) => (
               <Badge key={platform} variant="secondary" className="hover:scale-105 transition-transform">
                 {platform}
               </Badge>
             ))}
-          </div>
-          
-          {/* Founder caption for mobile */}
-          <div className="mt-8 sm:hidden">
-            <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-2 inline-block">
-              <span className="text-sm text-white/90 font-medium" aria-label="Portrait of Akbar Hayat, Founder of DigiBabaa">
-                Akbar Hayat — Founder & Visionary
-              </span>
-            </div>
           </div>
         </div>
       </section>
