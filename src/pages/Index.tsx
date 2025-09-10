@@ -123,13 +123,32 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background with founder image blended on the right */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage} 
-            alt="AI Automation" 
-            className="w-full h-full object-cover opacity-20"
+          <div className="absolute inset-0 bg-background" />
+          {/* Founder image positioned on the right */}
+          <div 
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={{
+              backgroundImage: `url('https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Akbar%20Hayat%20founder%20.jpg')`,
+              backgroundPosition: '80% center',
+              backgroundSize: 'cover'
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/60" />
+          {/* Gradient overlays for seamless blending */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40 sm:to-background/20" />
+          <div className="absolute inset-0 bg-gradient-to-l from-background/60 via-transparent to-transparent sm:from-background/30" />
+          {/* Additional dark vignette for mobile */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40 sm:hidden" />
+        </div>
+        
+        {/* Founder caption */}
+        <div className="absolute bottom-8 right-8 z-20 hidden sm:block">
+          <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-2">
+            <span className="text-sm text-white/90 font-medium" aria-label="Portrait of Akbar Hayat, Founder of DigiBabaa">
+              Akbar Hayat — Founder & Visionary
+            </span>
+          </div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -177,6 +196,15 @@ const Index = () => {
                 {platform}
               </Badge>
             ))}
+          </div>
+          
+          {/* Founder caption for mobile */}
+          <div className="mt-8 sm:hidden">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-2 inline-block">
+              <span className="text-sm text-white/90 font-medium" aria-label="Portrait of Akbar Hayat, Founder of DigiBabaa">
+                Akbar Hayat — Founder & Visionary
+              </span>
+            </div>
           </div>
         </div>
       </section>
