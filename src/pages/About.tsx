@@ -43,28 +43,34 @@ const About = () => {
 
   const team = [
     {
-      name: "Alex Rodriguez",
-      role: "CEO & Founder",
-      expertise: "AI Strategy, Business Development",
-      experience: "10+ years in AI and automation"
+      name: "Akbar Hayat",
+      role: "Founder",
+      image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Akbar%20Hayat%20founder1.jpg"
     },
     {
-      name: "Sarah Chen",
-      role: "CTO",
-      expertise: "Machine Learning, System Architecture",
-      experience: "8+ years in AI development"
+      name: "Tanveer",
+      role: "Cofounder",
+      image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Tanveer.jpg"
     },
     {
-      name: "Marcus Johnson",
-      role: "Head of Solutions",
-      expertise: "Integration, Customer Success",
-      experience: "12+ years in enterprise solutions"
+      name: "Abdullah",
+      role: "Team Member",
+      image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Abdulllah.jpg"
     },
     {
-      name: "Elena Petrov",
-      role: "Lead AI Engineer",
-      expertise: "NLP, Voice Recognition",
-      experience: "6+ years in AI research"
+      name: "Fahad",
+      role: "Team Member",
+      image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/fahad.png"
+    },
+    {
+      name: "Athar",
+      role: "Team Member",
+      image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/athar.png"
+    },
+    {
+      name: "Umar",
+      role: "Team Member",
+      image: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/umar.png"
     }
   ];
 
@@ -92,8 +98,9 @@ const About = () => {
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            We're on a mission to democratize AI automation, making advanced technology 
-            accessible to businesses of all sizes to drive growth and efficiency.
+            DigiBabaa is a pioneer in AI services and automation solutions, empowering businesses of all sizes 
+            with innovative technology. We focus on client success through human-centric AI that drives 
+            measurable growth and transformation.
           </p>
           <Button variant="hero" size="lg">
             Join Our Journey
@@ -113,8 +120,8 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-primary">Our Mission</h3>
                 <p className="text-muted-foreground">
-                  To empower businesses worldwide with intelligent automation solutions 
-                  that enhance productivity, improve customer experiences, and drive sustainable growth.
+                  To revolutionize business operations through cutting-edge AI automation, empowering 
+                  companies to achieve unprecedented efficiency, innovation, and sustainable growth.
                 </p>
               </CardContent>
             </Card>
@@ -126,8 +133,8 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-aqua">Our Vision</h3>
                 <p className="text-muted-foreground">
-                  To create a world where AI seamlessly integrates with human expertise, 
-                  enabling businesses to focus on innovation while AI handles routine operations.
+                  To be the global leader in AI-driven business transformation, where intelligent 
+                  automation amplifies human potential and creates limitless possibilities for growth.
                 </p>
               </CardContent>
             </Card>
@@ -139,8 +146,8 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-purple-start">Our Values</h3>
                 <p className="text-muted-foreground">
-                  Built on innovation, integrity, and impact. We believe technology should 
-                  serve humanity, creating solutions that are ethical, transparent, and beneficial.
+                  Grounded in innovation, integrity, and transformative impact. We pioneer AI solutions 
+                  that are ethical, transparent, and designed to elevate human capabilities.
                 </p>
               </CardContent>
             </Card>
@@ -198,17 +205,23 @@ const About = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <Card key={index} className="text-center hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50">
                 <CardContent className="p-6">
-                  <div className="w-20 h-20 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users className="h-10 w-10 text-white" />
+                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden bg-gradient-primary">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-primary rounded-full flex items-center justify-center"><svg class="h-10 w-10 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg></div>';
+                      }}
+                    />
                   </div>
                   <h3 className="text-lg font-semibold mb-1">{member.name}</h3>
                   <Badge variant="secondary" className="mb-3">{member.role}</Badge>
-                  <p className="text-sm text-muted-foreground mb-2">{member.expertise}</p>
-                  <p className="text-xs text-muted-foreground">{member.experience}</p>
                 </CardContent>
               </Card>
             ))}
