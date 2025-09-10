@@ -21,7 +21,6 @@ const Navigation = () => {
         { name: "AI Services in Action", path: "/ai-services-in-action" },
       ]
     },
-    { name: "AI Discovery", path: "/ai-discovery" },
     { name: "How It Works", path: "/how-it-works" },
     { name: "Pricing", path: "/pricing" },
     { name: "Portfolio", path: "/portfolio" },
@@ -32,6 +31,7 @@ const Navigation = () => {
       name: "Support", 
       path: "/contact",
       submenu: [
+        { name: "AI Discovery", path: "/ai-discovery" },
         { name: "Contact Us", path: "/contact" },
         { name: "Thank You", path: "/thank-you" },
       ]
