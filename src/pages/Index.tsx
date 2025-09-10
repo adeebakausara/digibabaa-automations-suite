@@ -121,105 +121,193 @@ const Index = () => {
       
       <BookConsultationButton variant="fixed" position="bottom-left" />
       
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Enhanced Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background/95 to-card/30">
+        {/* Background Elements */}
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
-            alt="AI Automation" 
-            className="w-full h-full object-cover opacity-20"
+            alt="AI Automation Technology Background" 
+            className="w-full h-full object-cover opacity-30 blur-[1px]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-background/70" />
+          
+          {/* Animated Background Elements */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary rounded-full opacity-10 animate-float" />
+          <div className="absolute bottom-32 right-20 w-24 h-24 bg-gradient-purple rounded-full opacity-15 animate-float animation-delay-500" />
+          <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-gradient-ai rounded-full opacity-20 animate-float animation-delay-1000" />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="secondary" className="mb-6 animate-fade-in">
-            🚀 AI-Powered Business Automation
-          </Badge>
+          {/* Enhanced Badge */}
+          <div className="mb-8 animate-fade-in">
+            <Badge variant="secondary" className="relative px-6 py-2 bg-primary/10 border border-primary/20 backdrop-blur-sm hover:bg-primary/15 transition-all duration-300">
+              <Zap className="mr-2 h-4 w-4 text-primary animate-glow-pulse" />
+              AI-Powered Business Automation
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20 blur-lg -z-10" />
+            </Badge>
+          </div>
           
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
+          {/* Enhanced Headlines */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 animate-slide-up leading-[0.9] tracking-tight">
             Transform Your Business with{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Intelligent Automation
+            <span className="relative inline-block">
+              <span className="bg-gradient-primary bg-clip-text text-transparent animate-shimmer">
+                Intelligent Automation
+              </span>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-primary opacity-30 blur-sm" />
             </span>
           </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in leading-relaxed">
-            Unlock the power of AI chatbots, voice agents, and custom automation 
-            to streamline operations and boost productivity across all platforms.
+          {/* Enhanced Subtitle */}
+          <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-12 max-w-4xl mx-auto animate-fade-in leading-relaxed font-light">
+            Unlock the power of <span className="text-primary font-medium">AI chatbots</span>, 
+            <span className="text-aqua font-medium"> voice agents</span>, and 
+            <span className="text-purple-start font-medium"> custom automation</span> to 
+            streamline operations and boost productivity across all platforms.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
+          {/* Enhanced CTA Buttons */}
+          <div className="flex flex-col lg:flex-row gap-6 justify-center mb-16 animate-slide-up">
             <Link to="/get-started">
-              <Button variant="hero" size="lg" className="group">
-                Start Automating
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="group relative overflow-hidden px-8 py-4 text-lg font-semibold bg-gradient-primary hover:shadow-glow-primary transition-all duration-300"
+              >
+                <span className="relative z-10">Start Automating Today</span>
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
               </Button>
             </Link>
+            
             <Link to="/demo">
-              <Button variant="outline" size="lg" className="group">
-                <Play className="mr-2 h-4 w-4" />
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="group px-8 py-4 text-lg border-2 border-primary/30 bg-background/50 backdrop-blur-sm hover:border-primary/60 hover:bg-primary/10 transition-all duration-300"
+              >
+                <Play className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 Watch Demo
               </Button>
             </Link>
+            
             <Link to="/booking-calendar">
-              <Button variant="accent" size="lg">
-                Book a Free Consultation
+              <Button 
+                variant="secondary" 
+                size="lg" 
+                className="px-8 py-4 text-lg bg-gradient-ai text-white font-semibold hover:shadow-glow-accent transition-all duration-300"
+              >
+                <Calendar className="mr-3 h-5 w-5" />
+                Free Consultation
               </Button>
             </Link>
           </div>
           
-          {/* Platform Logos */}
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 animate-fade-in">
-            <span className="text-sm font-medium">Trusted Integrations:</span>
-            {["WhatsApp", "Zapier", "Shopify", "Zoho", "Google Sheets"].map((platform) => (
-              <Badge key={platform} variant="secondary" className="hover:scale-105 transition-transform">
-                {platform}
-              </Badge>
-            ))}
+          {/* Enhanced Platform Integrations */}
+          <div className="animate-fade-in">
+            <div className="flex flex-wrap justify-center items-center gap-6 mb-8">
+              <span className="text-lg font-medium text-muted-foreground">Trusted by businesses worldwide:</span>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              {["WhatsApp", "Zapier", "Shopify", "Zoho", "Google Sheets", "Slack"].map((platform, index) => (
+                <Badge 
+                  key={platform} 
+                  variant="secondary" 
+                  className="px-4 py-2 bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-primary/5 hover:scale-105 transition-all duration-300 cursor-pointer"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <span className="font-medium">{platform}</span>
+                </Badge>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Quick Services Overview */}
-      <section className="py-20 bg-card/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our <span className="text-primary">Core Services</span>
+      {/* Enhanced Services Overview */}
+      <section className="py-24 bg-gradient-to-b from-background to-card/30 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary))_0%,transparent_50%)]" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-20">
+            <Badge variant="secondary" className="mb-6 px-4 py-2 bg-primary/10 border border-primary/20">
+              <Bot className="mr-2 h-4 w-4" />
+              Our Solutions
+            </Badge>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Our <span className="bg-gradient-primary bg-clip-text text-transparent">Core Services</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive AI solutions designed to revolutionize your business operations
+            
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Comprehensive AI solutions designed to <span className="text-foreground font-medium">revolutionize</span> your business operations and drive <span className="text-primary font-medium">measurable growth</span>
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {displayServices.map((service, index) => {
               const IconComponent = service.icon ? iconMap[service.icon] || MessageSquare : MessageSquare;
-              const colors = ["text-primary", "text-aqua", "text-purple-start", "text-soft-teal"];
+              const gradients = ["bg-gradient-primary", "bg-gradient-ai", "bg-gradient-purple", "bg-gradient-chat"];
+              const glows = ["shadow-glow-primary", "shadow-glow-accent", "shadow-elegant", "shadow-glow-primary"];
               const images = [chatbotsImage, voiceImage, automationImage, heroImage];
               const serviceUrl = serviceUrlMap[service.title] || "/services";
               
               return (
-                <Link key={service.id || index} to={serviceUrl} className="block">
-                  <Card className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 hover:border-primary/30 cursor-pointer">
-                    <CardContent className="p-6">
-                      <div className="relative mb-4 overflow-hidden rounded-lg">
+                <Link key={service.id || index} to={serviceUrl} className="block group">
+                  <Card className="relative overflow-hidden border-0 bg-card/50 backdrop-blur-sm hover:shadow-elegant hover:scale-[1.02] transition-all duration-500 hover:bg-card/70">
+                    <CardContent className="p-0">
+                      {/* Enhanced Image Section */}
+                      <div className="relative h-48 overflow-hidden">
                         <img 
                           src={service.image_url || images[index % images.length]} 
                           alt={service.title}
-                          className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                        <IconComponent className={`absolute bottom-2 right-2 h-8 w-8 ${colors[index % colors.length]}`} />
+                        
+                        {/* Gradient Overlay */}
+                        <div className={`absolute inset-0 ${gradients[index % gradients.length]} opacity-20 group-hover:opacity-30 transition-opacity duration-300`} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
+                        
+                        {/* Floating Icon */}
+                        <div className="absolute top-4 right-4">
+                          <div className={`p-3 rounded-xl bg-background/20 backdrop-blur-md border border-white/10 group-hover:${glows[index % glows.length]} transition-all duration-300`}>
+                            <IconComponent className="h-6 w-6 text-white" />
+                          </div>
+                        </div>
+                        
+                        {/* Service Badge */}
+                        <div className="absolute bottom-4 left-4">
+                          <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm text-xs">
+                            {index === 0 ? "Most Popular" : index === 1 ? "Enterprise" : index === 2 ? "Custom" : "Trending"}
+                          </Badge>
+                        </div>
                       </div>
-                      <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">
-                        {service.description}
-                      </p>
+                      
+                      {/* Enhanced Content Section */}
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                          {service.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                          {service.description}
+                        </p>
+                        
+                        {/* Call to Action */}
+                        <div className="flex items-center justify-between">
+                          <span className="text-primary font-medium text-sm group-hover:text-primary/80 transition-colors">
+                            Learn More
+                          </span>
+                          <ArrowRight className="h-4 w-4 text-primary group-hover:translate-x-1 transition-transform duration-300" />
+                        </div>
+                      </div>
                     </CardContent>
+                    
+                    {/* Hover Effect Border */}
+                    <div className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-primary/20 transition-colors duration-300" />
                   </Card>
                 </Link>
               );
@@ -370,27 +458,71 @@ const Index = () => {
       </section>
 
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary relative overflow-hidden">
+      {/* Enhanced CTA Section */}
+      <section className="py-24 relative overflow-hidden">
+        {/* Background with Enhanced Visuals */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-electric-blue to-aqua" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full animate-float" />
+        <div className="absolute bottom-20 right-20 w-24 h-24 bg-white/15 rounded-full animate-float animation-delay-1000" />
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/20 rounded-full animate-float animation-delay-500" />
+        
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <div className="mb-8">
+            <Badge variant="secondary" className="bg-white/20 text-white border-white/30 backdrop-blur-sm px-4 py-2">
+              <Zap className="mr-2 h-4 w-4" />
+              Ready to Get Started?
+            </Badge>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join hundreds of businesses already automating their success with DigiBabaa
+          
+          <p className="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
+            Join <span className="font-semibold">500+ businesses</span> already automating their success with DigiBabaa's cutting-edge AI solutions
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          
+          <div className="flex flex-col lg:flex-row gap-6 justify-center">
             <Link to="/get-started">
-              <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
-                Get Started Today
+              <Button 
+                variant="secondary" 
+                size="lg" 
+                className="px-8 py-4 text-lg bg-white text-primary hover:bg-white/90 font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 group"
+              >
+                <span>Get Started Today</span>
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
+            
             <Link to="/booking-calendar">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-                Schedule a Free Consultation
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="px-8 py-4 text-lg border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
+              >
+                <Calendar className="mr-3 h-5 w-5" />
+                Schedule Free Consultation
               </Button>
             </Link>
+          </div>
+          
+          {/* Trust Indicators */}
+          <div className="mt-16 flex flex-wrap justify-center items-center gap-8 opacity-80">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5" />
+              <span className="text-sm">No Setup Fees</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5" />
+              <span className="text-sm">30-Day Free Trial</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5" />
+              <span className="text-sm">24/7 Support</span>
+            </div>
           </div>
         </div>
       </section>
