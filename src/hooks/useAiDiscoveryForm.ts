@@ -5,25 +5,26 @@ import { supabase } from "@/integrations/supabase/client";
 
 export interface AiDiscoveryFormData {
   // Contact Information
-  fullName: string;
+  full_name: string;
   email: string;
   website?: string;
   phone: string;
   
   // Discovery Questions
-  currentState?: string;
-  futureGoals?: string;
-  biggestChallenge?: string;
-  personalImportance?: string;
-  timeEnergyDrain?: string;
-  eliminateOneTask?: string;
-  aiExperience?: string;
-  customerFrustrations?: string;
-  businessStrengths?: string;
-  biggestImpact?: string;
+  q1_current_state: string;
+  q2_6_12_goal: string;
+  q3_biggest_challenge: string;
+  q4_personal_importance: string;
+  q5_time_sink: string;
+  q6_kill_task: string;
+  q7_ai_experience: string;
+  q8_customer_frustration: string;
+  q9_strength: string;
+  q10_big_impact: string;
   
   // Industry
   industry: string;
+  industry_other?: string;
 }
 
 export const useAiDiscoveryForm = () => {
@@ -34,21 +35,22 @@ export const useAiDiscoveryForm = () => {
   
   const form = useForm<AiDiscoveryFormData>({
     defaultValues: {
-      fullName: "",
+      full_name: "",
       email: "",
       website: "",
       phone: "",
-      currentState: "",
-      futureGoals: "",
-      biggestChallenge: "",
-      personalImportance: "",
-      timeEnergyDrain: "",
-      eliminateOneTask: "",
-      aiExperience: "",
-      customerFrustrations: "",
-      businessStrengths: "",
-      biggestImpact: "",
+      q1_current_state: "",
+      q2_6_12_goal: "",
+      q3_biggest_challenge: "",
+      q4_personal_importance: "",
+      q5_time_sink: "",
+      q6_kill_task: "",
+      q7_ai_experience: "",
+      q8_customer_frustration: "",
+      q9_strength: "",
+      q10_big_impact: "",
       industry: "",
+      industry_other: "",
     },
     mode: "onChange",
   });
@@ -57,41 +59,88 @@ export const useAiDiscoveryForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Send email notification via edge function
-      const { data: emailResult, error: emailError } = await supabase.functions.invoke(
-        'send-ai-discovery-email',
-        {
-          body: data,
-        }
-      );
+      // ACTION A - Insert into Supabase FIRST
+      const { data: insertData, error: insertError } = await supabase
+        .from('ai_discovery_submissions')
+        .insert({
+          full_name: data.full_name,
+          email: data.email,
+          website: data.website,
+          phone: data.phone,
+          q1_current_state: data.q1_current_state,
+          q2_6_12_goal: data.q2_6_12_goal,
+          q3_biggest_challenge: data.q3_biggest_challenge,
+          q4_personal_importance: data.q4_personal_importance,
+          q5_time_sink: data.q5_time_sink,
+          q6_kill_task: data.q6_kill_task,
+          q7_ai_experience: data.q7_ai_experience,
+          q8_customer_frustration: data.q8_customer_frustration,
+          q9_strength: data.q9_strength,
+          q10_big_impact: data.q10_big_impact,
+          industry: data.industry,
+          industry_other: data.industry_other,
+          submitted_at: new Date().toISOString()
+        })
+        .select();
 
-      if (emailError) {
-        throw emailError;
+      if (insertError) {
+        throw new Error("Couldn't save to database. Please try again.");
       }
 
-      console.log("AI Discovery email sent successfully:", emailResult);
+      console.log("AI Discovery saved to database:", insertData);
 
-      // Show success message and set success state
-      toast({
-        title: "Discovery Submitted Successfully!",
-        description: "We'll review your answers and send back tailored AI automation ideas.",
-      });
-
-      setIsSuccess(true);
-
-      // Track analytics event
+      // Track analytics event for successful insert
       if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'ai_discovery_submission', {
+        (window as any).gtag('event', 'ai_discovery_submit', {
           event_category: 'engagement',
           event_label: data.industry,
         });
+      }
+
+      // ACTION B - Send email (only if Supabase insert succeeded)
+      try {
+        const { data: emailResult, error: emailError } = await supabase.functions.invoke(
+          'send-ai-discovery-email',
+          {
+            body: data,
+          }
+        );
+
+        if (emailError) {
+          // Email failed but database saved - show partial success
+          toast({
+            title: "Discovery Submitted Successfully!",
+            description: "Saved, but email failed — we'll follow up.",
+          });
+          setIsSuccess(true);
+          return;
+        }
+
+        console.log("AI Discovery email sent successfully:", emailResult);
+
+        // Both actions succeeded
+        toast({
+          title: "Discovery Submitted Successfully!",
+          description: "We'll review your answers and send back tailored AI automation ideas.",
+        });
+
+        setIsSuccess(true);
+
+      } catch (emailError) {
+        // Email failed but database saved
+        console.error("Email sending failed:", emailError);
+        toast({
+          title: "Discovery Submitted Successfully!",
+          description: "Saved, but email failed — we'll follow up.",
+        });
+        setIsSuccess(true);
       }
 
     } catch (error: any) {
       console.error("Error submitting AI discovery form:", error);
       toast({
         title: "Submission Failed",
-        description: "There was an error submitting your discovery. Please try again.",
+        description: error.message || "There was an error submitting your discovery. Please try again.",
         variant: "destructive",
       });
     } finally {
