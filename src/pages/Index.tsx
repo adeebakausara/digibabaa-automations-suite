@@ -423,6 +423,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Founder's Note Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl shadow-[0_0_40px] shadow-blue-500/10 p-8 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              {/* Image - Left on desktop, top on mobile */}
+              <div className="order-1 lg:order-1">
+                <img 
+                  src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/testimonials/Akbar%20Hayat%20founder%20.jpg"
+                  alt="Akbar Hayat, Founder of DigiBabaa"
+                  className="rounded-xl object-cover h-64 w-auto mx-auto lg:mx-0"
+                />
+              </div>
+              
+              {/* Text Content - Right on desktop, bottom on mobile */}
+              <div className="order-2 lg:order-2 text-center lg:text-left">
+                <p className="text-lg text-gray-400 italic mb-4 font-light">
+                  Hey, I'm Akbar.
+                </p>
+                
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                  I'm here to make AI automation accessible and ROI-driven.
+                </h3>
+                
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Thank you for visiting DigiBabaa. My mission is to help businesses unlock growth through intelligent automation—simple, practical, and profitable. Let's build the future of automation together.
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
       <Footer />
       
     </div>
