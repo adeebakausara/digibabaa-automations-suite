@@ -66,3 +66,6 @@ port = 54330
 
 [functions.send-consultation-email]
 verify_jwt = false
+
+[functions.send-ai-discovery-email]  
+verify_jwt = false

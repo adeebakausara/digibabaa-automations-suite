@@ -21,6 +21,7 @@ const Navigation = () => {
         { name: "AI Services in Action", path: "/ai-services-in-action" },
       ]
     },
+    { name: "AI Discovery", path: "/ai-discovery" },
     { name: "How It Works", path: "/how-it-works" },
     { name: "Pricing", path: "/pricing" },
     { name: "Portfolio", path: "/portfolio" },

@@ -37,6 +37,7 @@ import RestaurantCaseStudy from "./pages/RestaurantCaseStudy";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import BookingCalendar from "./pages/BookingCalendar";
+import AiDiscovery from "./pages/AiDiscovery";
 import AdminAuth from "./pages/AdminAuth";
 import AdminTestimonials from "./pages/AdminTestimonials";
 
@@ -65,6 +66,7 @@ const App = () => (
           <Route path="/automation/customer-verification" element={<CustomerVerificationDetails />} />
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/demo" element={<Demo />} />
+          <Route path="/ai-discovery" element={<AiDiscovery />} />
           <Route path="/book-consultation" element={<BookConsultation />} />
           <Route path="/booking-calendar" element={<BookingCalendar />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
