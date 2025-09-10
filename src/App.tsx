@@ -37,6 +37,8 @@ import RestaurantCaseStudy from "./pages/RestaurantCaseStudy";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import BookingCalendar from "./pages/BookingCalendar";
+import AdminAuth from "./pages/AdminAuth";
+import AdminTestimonials from "./pages/AdminTestimonials";
 
 const queryClient = new QueryClient();
 
@@ -79,6 +81,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/ai-services-in-action" element={<AiServicesInAction />} />
+          <Route path="/admin/auth" element={<AdminAuth />} />
+          <Route path="/admin/testimonials" element={<AdminTestimonials />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

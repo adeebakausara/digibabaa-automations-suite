@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,19 +23,39 @@ const TestimonialEditModal = ({ isOpen, onClose, testimonial, onUpdate }: Testim
   const { toast } = useToast();
   const [saving, setSaving] = useState(false);
   const [formData, setFormData] = useState({
-    name: testimonial?.name || "",
-    role: testimonial?.role || "",
-    company: testimonial?.company || "",
-    quote: testimonial?.quote || "",
-    rating: testimonial?.rating || 5,
-    results: testimonial?.results || "",
-    is_featured: testimonial?.is_featured || false,
-    is_video: testimonial?.is_video || false,
-    video_url: testimonial?.video_url || "",
-    video_thumbnail: testimonial?.video_thumbnail || "",
-    video_length: testimonial?.video_length || "",
-    image_url: testimonial?.image_url || ""
+    name: "",
+    role: "",
+    company: "",
+    quote: "",
+    rating: 5,
+    results: "",
+    is_featured: false,
+    is_video: false,
+    video_url: "",
+    video_thumbnail: "",
+    video_length: "",
+    image_url: ""
   });
+
+  // Reset form when modal opens/closes or testimonial changes
+  useEffect(() => {
+    if (isOpen) {
+      setFormData({
+        name: testimonial?.name || "",
+        role: testimonial?.role || "",
+        company: testimonial?.company || "",
+        quote: testimonial?.quote || "",
+        rating: testimonial?.rating || 5,
+        results: testimonial?.results || "",
+        is_featured: testimonial?.is_featured || false,
+        is_video: testimonial?.is_video || false,
+        video_url: testimonial?.video_url || "",
+        video_thumbnail: testimonial?.video_thumbnail || "",
+        video_length: testimonial?.video_length || "",
+        image_url: testimonial?.image_url || ""
+      });
+    }
+  }, [isOpen, testimonial]);
 
   const handleInputChange = (field: string, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -50,45 +70,75 @@ const TestimonialEditModal = ({ isOpen, onClose, testimonial, onUpdate }: Testim
   };
 
   const handleSave = async () => {
-    if (!testimonial) return;
-
     setSaving(true);
     try {
-      const { data, error } = await supabase
-        .from('testimonials')
-        .update({
-          name: formData.name,
-          role: formData.role,
-          company: formData.company,
-          quote: formData.quote,
-          rating: formData.rating,
-          results: formData.results,
-          is_featured: formData.is_featured,
-          is_video: formData.is_video,
-          video_url: formData.video_url,
-          video_thumbnail: formData.video_thumbnail,
-          video_length: formData.video_length,
-          image_url: formData.image_url,
-          updated_at: new Date().toISOString()
-        })
-        .eq('id', testimonial.id)
-        .select();
+      if (testimonial) {
+        // Update existing testimonial
+        const { data, error } = await supabase
+          .from('testimonials')
+          .update({
+            name: formData.name,
+            role: formData.role,
+            company: formData.company,
+            quote: formData.quote,
+            rating: formData.rating,
+            results: formData.results,
+            is_featured: formData.is_featured,
+            is_video: formData.is_video,
+            video_url: formData.video_url,
+            video_thumbnail: formData.video_thumbnail,
+            video_length: formData.video_length,
+            image_url: formData.image_url,
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', testimonial.id)
+          .select();
 
-      if (error) throw error;
+        if (error) throw error;
 
-      if (data && data.length > 0) {
-        onUpdate(data[0]);
+        if (data && data.length > 0) {
+          onUpdate(data[0]);
+        }
+        toast({
+          title: "Success",
+          description: "Testimonial updated successfully",
+        });
+      } else {
+        // Create new testimonial
+        const { data, error } = await supabase
+          .from('testimonials')
+          .insert({
+            name: formData.name,
+            role: formData.role,
+            company: formData.company,
+            quote: formData.quote,
+            rating: formData.rating,
+            results: formData.results,
+            is_featured: formData.is_featured,
+            is_video: formData.is_video,
+            video_url: formData.video_url,
+            video_thumbnail: formData.video_thumbnail,
+            video_length: formData.video_length,
+            image_url: formData.image_url
+          })
+          .select();
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          onUpdate(data[0]);
+        }
+        toast({
+          title: "Success",
+          description: "Testimonial created successfully",
+        });
       }
-      toast({
-        title: "Success",
-        description: "Testimonial updated successfully",
-      });
       onClose();
     } catch (error) {
-      console.error('Error updating testimonial:', error);
+      console.error('Error saving testimonial:', error);
       toast({
         title: "Error",
-        description: "Failed to update testimonial",
+        description: testimonial ? "Failed to update testimonial" : "Failed to create testimonial",
         variant: "destructive",
       });
     } finally {
@@ -96,14 +146,14 @@ const TestimonialEditModal = ({ isOpen, onClose, testimonial, onUpdate }: Testim
     }
   };
 
-  if (!testimonial) return null;
+  if (!isOpen) return null;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            Edit Testimonial
+            {testimonial ? 'Edit Testimonial' : 'Create New Testimonial'}
             {formData.is_featured && (
               <Badge className="bg-gradient-primary text-white">Featured</Badge>
             )}
@@ -251,7 +301,7 @@ const TestimonialEditModal = ({ isOpen, onClose, testimonial, onUpdate }: Testim
           </Button>
           <Button onClick={handleSave} disabled={saving}>
             <Save className="h-4 w-4 mr-2" />
-            {saving ? "Saving..." : "Save Changes"}
+            {saving ? "Saving..." : testimonial ? "Save Changes" : "Create Testimonial"}
           </Button>
         </div>
       </DialogContent>
