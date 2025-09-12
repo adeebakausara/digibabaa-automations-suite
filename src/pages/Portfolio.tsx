@@ -291,19 +291,19 @@ const Portfolio = () => {
             </p>
           </div>
           
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {demoTemplates.map((template, index) => (
-              <Card key={index} className="overflow-hidden">
-                <CardContent className="p-0">
+              <Card key={index} className="overflow-hidden flex flex-col h-full">
+                <CardContent className="p-0 flex-1 flex flex-col">
                   {/* Template Title */}
-                  <div className="p-8 pb-6">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  <div className="p-6 pb-4">
+                    <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 leading-tight">
                       {template.title}
                     </h3>
                   </div>
                   
                   {/* Video */}
-                  <div className="px-8 pb-6">
+                  <div className="px-6 pb-4">
                     <div className="aspect-video rounded-lg overflow-hidden bg-muted">
                       <video 
                         controls 
@@ -318,8 +318,8 @@ const Portfolio = () => {
                   </div>
                   
                   {/* Description */}
-                  <div className="p-8 pt-2">
-                    <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+                  <div className="p-6 pt-2 flex-1">
+                    <div className="prose prose-base max-w-none text-muted-foreground space-y-3">
                       {template.description.problem && (
                         <p>
                           <span className="font-bold text-foreground">The Problem:</span> {template.description.problem}
