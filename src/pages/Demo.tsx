@@ -88,95 +88,97 @@ const Demo = () => {
 
       {/* Demo Templates */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {demoTemplates.map((template, index) => (
-            <Card key={index} className="overflow-hidden">
-              <CardContent className="p-0">
-                {/* Template Title */}
-                <div className="p-8 pb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                    {template.title}
-                  </h2>
-                </div>
-                
-                {/* Video */}
-                <div className="px-8 pb-6">
-                  <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                    <video 
-                      controls 
-                      className="w-full h-full object-cover"
-                      preload="metadata"
-                      poster={template.thumbnail}
-                    >
-                      <source src={template.videoUrl} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {demoTemplates.map((template, index) => (
+              <Card key={index} className="overflow-hidden h-fit">
+                <CardContent className="p-0">
+                  {/* Template Title */}
+                  <div className="p-6 pb-4">
+                    <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 leading-tight">
+                      {template.title}
+                    </h2>
                   </div>
-                </div>
-                
-                {/* Description */}
-                <div className="p-8 pt-2">
-                  <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-                    {template.description.problem && (
-                      <p>
-                        <span className="font-bold text-foreground">The Problem:</span> {template.description.problem}
-                      </p>
-                    )}
-                    {template.description.solution && (
-                      <p>
-                        <span className="font-bold text-foreground">What This Does:</span> {template.description.solution}
-                      </p>
-                    )}
-                    {template.description.howItWorks && (
-                      <p>
-                        <span className="font-bold text-foreground">How It Works:</span> {template.description.howItWorks}
-                      </p>
-                    )}
-                    {template.description.bestFor && (
-                      <p>
-                        <span className="font-bold text-foreground">Best For:</span> {template.description.bestFor}
-                      </p>
-                    )}
-                    {template.description.overview && (
-                      <p>{template.description.overview}</p>
-                    )}
-                    {template.description.benefits && (
-                      <p>{template.description.benefits}</p>
-                    )}
-                    {template.description.process && (
-                      <p>{template.description.process}</p>
-                    )}
-                    {template.description.workflow && (
-                      <p>{template.description.workflow}</p>
-                    )}
-                    {template.description.booking && (
-                      <p>{template.description.booking}</p>
-                    )}
-                    {template.description.followUp && (
-                      <p>{template.description.followUp}</p>
-                    )}
-                    {template.description.alternative && (
-                      <p>{template.description.alternative}</p>
-                    )}
-                    {template.description.perfectFor && (
-                      <p>
-                        <span className="font-bold text-foreground">Perfect For:</span> {template.description.perfectFor}
-                      </p>
-                    )}
-                    {template.description.simplicity && (
-                      <p>{template.description.simplicity}</p>
-                    )}
-                    {template.description.functionality && (
-                      <p>{template.description.functionality}</p>
-                    )}
-                    {template.description.completion && (
-                      <p>{template.description.completion}</p>
-                    )}
+                  
+                  {/* Video */}
+                  <div className="px-6 pb-4">
+                    <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                      <video 
+                        controls 
+                        className="w-full h-full object-cover"
+                        preload="metadata"
+                        poster={template.thumbnail}
+                      >
+                        <source src={template.videoUrl} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  
+                  {/* Description */}
+                  <div className="p-6 pt-2">
+                    <div className="prose prose-sm max-w-none text-muted-foreground space-y-3">
+                      {template.description.problem && (
+                        <p>
+                          <span className="font-bold text-foreground">The Problem:</span> {template.description.problem}
+                        </p>
+                      )}
+                      {template.description.solution && (
+                        <p>
+                          <span className="font-bold text-foreground">What This Does:</span> {template.description.solution}
+                        </p>
+                      )}
+                      {template.description.howItWorks && (
+                        <p>
+                          <span className="font-bold text-foreground">How It Works:</span> {template.description.howItWorks}
+                        </p>
+                      )}
+                      {template.description.bestFor && (
+                        <p>
+                          <span className="font-bold text-foreground">Best For:</span> {template.description.bestFor}
+                        </p>
+                      )}
+                      {template.description.overview && (
+                        <p>{template.description.overview}</p>
+                      )}
+                      {template.description.benefits && (
+                        <p>{template.description.benefits}</p>
+                      )}
+                      {template.description.process && (
+                        <p>{template.description.process}</p>
+                      )}
+                      {template.description.workflow && (
+                        <p>{template.description.workflow}</p>
+                      )}
+                      {template.description.booking && (
+                        <p>{template.description.booking}</p>
+                      )}
+                      {template.description.followUp && (
+                        <p>{template.description.followUp}</p>
+                      )}
+                      {template.description.alternative && (
+                        <p>{template.description.alternative}</p>
+                      )}
+                      {template.description.perfectFor && (
+                        <p>
+                          <span className="font-bold text-foreground">Perfect For:</span> {template.description.perfectFor}
+                        </p>
+                      )}
+                      {template.description.simplicity && (
+                        <p>{template.description.simplicity}</p>
+                      )}
+                      {template.description.functionality && (
+                        <p>{template.description.functionality}</p>
+                      )}
+                      {template.description.completion && (
+                        <p>{template.description.completion}</p>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
