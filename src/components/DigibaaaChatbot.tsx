@@ -171,7 +171,7 @@ export const DigibaaaChatbot: React.FC<DigibaaaChatbotProps> = ({
 
     try {
       const response = await fetch(
-        `https://adeeba12.app.n8n.cloud/webhook/24805e02-9cab-49ca-8611-f7f8ff3b2d33?message=${encodeURIComponent(userMessage.text)}`,
+        `https://digibabaa.app.n8n.cloud/webhook/24805e02-9cab-49ca-8611-f7f8ff3b2d33?message=${encodeURIComponent(userMessage.text)}`,
         {
           method: 'GET',
           headers: {
