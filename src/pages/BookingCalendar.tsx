@@ -86,7 +86,7 @@ const BookingCalendar = () => {
               
               <Button 
                 variant="outline"
-                onClick={() => window.open('https://wa.me/971501670273', '_blank')}
+                onClick={() => window.open('https://wa.link/6u8z8o', '_blank')}
               >
                 <MessageSquare className="h-4 w-4 mr-2" />
                 WhatsApp

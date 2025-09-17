@@ -354,7 +354,7 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold">WhatsApp</h4>
                       <a 
-                        href="https://wa.me/971501670273" 
+                        href="https://wa.link/6u8z8o" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-muted-foreground text-sm hover:text-primary transition-colors"
