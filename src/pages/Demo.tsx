@@ -133,8 +133,8 @@ const Demo = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {demoTemplates.map((template, index) => (
-              <Card key={index} className="overflow-hidden h-fit">
-                <CardContent className="p-0">
+              <Card key={index} className="overflow-hidden flex flex-col h-full">
+                <CardContent className="p-0 flex-1 flex flex-col">
                   {/* Template Title */}
                   <div className="p-6 pb-4">
                     <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4 leading-tight">
@@ -158,7 +158,7 @@ const Demo = () => {
                   </div>
                   
                   {/* Description */}
-                  <div className="p-6 pt-2">
+                  <div className="p-6 pt-2 flex-1">
                     <div className="prose prose-sm max-w-none text-muted-foreground space-y-3">
                       {template.description.problem && (
                         <p>
