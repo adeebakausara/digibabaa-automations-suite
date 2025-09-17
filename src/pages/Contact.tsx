@@ -301,8 +301,13 @@ const Contact = () => {
                       <Phone className="h-6 w-6 text-aqua" />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Call Us</h4>
-                      <p className="text-muted-foreground text-sm">+971 50 167 0273</p>
+                      <h4 className="font-semibold">Phone</h4>
+                      <a 
+                        href="tel:+971562578722"
+                        className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                      >
+                        +971 56 257 8722
+                      </a>
                       <p className="text-muted-foreground text-sm">Mon-Fri, 9AM-6PM GST</p>
                     </div>
                   </div>
@@ -354,9 +359,8 @@ const Contact = () => {
                         rel="noopener noreferrer"
                         className="text-muted-foreground text-sm hover:text-primary transition-colors"
                       >
-                        Chat on WhatsApp
+                        WhatsApp: +971 50 167 0273
                       </a>
-                      <p className="text-muted-foreground text-sm">Quick responses guaranteed</p>
                     </div>
                   </div>
                 </CardContent>
