@@ -6,6 +6,48 @@ import Footer from "@/components/Footer";
 const Demo = () => {
   const demoTemplates = [
     {
+      title: "AI Voice Agent Template Calls Customers, Confirms Appointments & Reduces No-Shows Automatically",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Voice%20Agent%20Template%20Calls%20Customers,%20Confirms%20Appointments%20&%20Reduces%20No-Shows%20Automatically22.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Voice%20Agent%20Template%20Calls%20Customers,%20Confirms%20Appointments%20&%20Reduces%20No-Shows%20Automatically.jpg",
+      description: {
+        overview: "This AI agent calls your customers to remind them about appointments and confirms if they're still coming, reducing no-shows by up to 80%.",
+        problem: "Most businesses lose $20,000+ yearly when customers forget appointments. This agent calls them automatically the day before, has natural conversations, and saves you from losing revenue.",
+        integration: "The template uses Google Calendar and Google Sheets for logging, but can be integrated with other booking systems - you'd just connect them properly.",
+        perfectFor: "Perfect for salons, clinics, repair shops, consultants with appointments, or agencies building voice AI solutions for service businesses."
+      }
+    },
+    {
+      title: "Building a Self-Learning AI Agent for Your Website",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/Building%20a%20Self-Learning%20AI%20Agent%20for%20Your%20Website11.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/Building%20a%20Self-Learning%20AI%20Agent%20for%20Your%20Website.jpg",
+      description: {
+        overview: "This AI agent acts as your 24/7 sales assistant, helping website visitors find the right product, get instant answers, and receive direct purchase links, all while learning from every interaction.",
+        process: "Once set up, visitors can simply start a chat on your website, ask about products, and the AI will answer their questions, recommend the best options, and remember past conversations to improve its responses over time."
+      }
+    },
+    {
+      title: "AI Agent Template Handles Product Inquiries, Checks Orders & Records Support Tickets via WhatsApp",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Handles%20Product%20Inquiries,%20Checks%20Orders%20&%20Records%20Support%20Tickets%20via%20WhatsApp.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Handles%20Product%20Inquiries,%20Checks%20Orders%20&%20Records%20Support%20Tickets%20via%20WhatsApp.jpg",
+      description: {
+        overview: "This AI agent gets product information and links, checks order status, and records support tickets via WhatsApp, 24/7.",
+        benefits: "Most businesses take hours to respond on WhatsApp. This agent responds instantly to all customer messages and saves 10-20+ hours per week handling repetitive tasks.",
+        integration: "The template uses Google Sheets as Demo Database, but can be integrated with other ecommerce systems - you'd just connect them properly.",
+        perfectFor: "Perfect for online shops, e-commerce stores, small businesses with customer service needs, or agencies building WhatsApp automation for clients."
+      }
+    },
+    {
+      title: "AI Agent Template WhatsApp Sales Assistant with Voice & Vision",
+      videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20WhatsApp%20Sales%20Assistant%20with%20Voice%20&%20vision.mp4",
+      thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20WhatsApp%20Sales%20Assistant%20with%20Voice%20&%20vision.jpg",
+      description: {
+        problem: "Answering customer questions manually is a time-sucking nightmare.",
+        solution: "This AI agent solves it by handling product questions on WhatsApp, sending purchase links, and even replying to voice messages with voice and understanding screenshots your customers upload.",
+        experience: "It feels like a real person chatting with them 24/7, but it's fully automated, self-learning, and connects directly to your product database.",
+        capabilities: "Customers can talk, type, or send images, and your AI agent listens, sees, replies, and sells."
+      }
+    },
+    {
       title: "AI Agent Template: Answers Any Question via WhatsApp From Your Documents & Saves 40+ Hours Monthly",
       videoUrl: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Answers%20Any%20Question%20via%20WhatsApp%20From%20Your%20Documents%20&%20Saves%2040+%20Hours%20Monthly.mp4",
       thumbnail: "https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Agent%20Template%20Answers%20Any%20Question%20via%20WhatsApp%20From%20Your%20Documents%20&%20Saves%2040+%20Hours%20Monthly.JPG",
