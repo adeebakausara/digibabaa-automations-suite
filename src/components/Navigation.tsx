@@ -100,7 +100,7 @@ const Navigation = () => {
             ))}
             <div className="ml-6">
               <Button variant="hero" size="sm" className="px-6" asChild>
-                <Link to="/contact">Start Automating</Link>
+                <a href="https://wa.me/971501670273" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
               </Button>
             </div>
           </div>
@@ -158,9 +158,9 @@ const Navigation = () => {
               ))}
               <div className="px-4 pt-3">
                 <Button variant="hero" size="sm" className="w-full" asChild>
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>
-                    Start Automating
-                  </Link>
+                  <a href="https://wa.me/971501670273" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                    Chat on WhatsApp
+                  </a>
                 </Button>
               </div>
             </div>
