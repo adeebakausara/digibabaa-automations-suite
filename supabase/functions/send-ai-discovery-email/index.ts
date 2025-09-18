@@ -153,9 +153,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email
     const emailResponse = await resend.emails.send({
-      from: "DigiBabaa Discovery <noreply@digibabaa.com>",
-      to: ["akbar@digibabaa.com"],
-      subject: "New AI Discovery Submission – DigiBabaa",
+      from: "DigiBabaa Discovery <noreply@updates.digibabaa.co>",
+      to: ["akbar@digibabaa.co"],
+      subject: "AI Discovery Form Submission",
       html: emailHtml,
       replyTo: formData.email,
     });
