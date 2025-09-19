@@ -45,7 +45,7 @@ const AiVoiceAgent = () => {
         </div>
       </section>
 
-      {/* Video Upload & Demo Section */}
+      {/* AI Voice Demo Section */}
       <section className="py-20 bg-card/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
@@ -53,35 +53,51 @@ const AiVoiceAgent = () => {
               Experience AI Voice in Action
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Upload your own demo video or see how our AI calling agent works
+              Watch our AI calling agent in action - confirming appointments and reducing no-shows automatically
             </p>
           </div>
           
-          {currentVideoUrl ? (
-            <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 mb-8">
-              <div className="relative w-full max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
+            <div className="relative w-full max-w-3xl mx-auto">
+              {!currentVideoUrl ? (
+                <div className="relative group cursor-pointer" onClick={() => setCurrentVideoUrl("https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Voice%20Agent%20Template%20Calls%20Customers,%20Confirms%20Appointments%20&%20Reduces%20No-Shows%20Automatically22.mp4")}>
+                  <img 
+                    src="https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/videos/AI%20Voice%20Agent%20Template%20Calls%20Customers,%20Confirms%20Appointments%20&%20Reduces%20No-Shows%20Automatically.jpg"
+                    alt="AI Voice Agent Demo - Calls Customers & Confirms Appointments"
+                    className="w-full h-auto rounded-xl shadow-elegant"
+                  />
+                  <div className="absolute inset-0 bg-black/40 rounded-xl flex items-center justify-center group-hover:bg-black/50 transition-all duration-300">
+                    <div className="bg-white/90 rounded-full p-6 group-hover:scale-110 transition-transform duration-300">
+                      <Play className="h-12 w-12 text-primary fill-primary ml-1" />
+                    </div>
+                  </div>
+                </div>
+              ) : (
                 <video 
                   src={currentVideoUrl}
                   controls
+                  autoPlay
                   className="w-full h-auto rounded-xl shadow-elegant"
                   preload="metadata"
                 >
                   Your browser does not support the video tag.
                 </video>
-              </div>
-              <p className="text-lg mt-6 text-center">Your uploaded AI voice agent demo</p>
-              <div className="flex justify-center mt-4">
-                <VideoUpload 
-                  onVideoUploaded={handleVideoUploaded}
-                  currentVideoUrl={currentVideoUrl}
-                />
-              </div>
+              )}
             </div>
-          ) : (
-            <VideoUpload 
-              onVideoUploaded={handleVideoUploaded}
-            />
-          )}
+            <div className="text-center mt-6">
+              <h3 className="text-xl font-semibold mb-2">AI Voice Agent Template</h3>
+              <p className="text-muted-foreground">Calls customers, confirms appointments & reduces no-shows automatically</p>
+              {currentVideoUrl && (
+                <Button 
+                  variant="outline" 
+                  className="mt-4"
+                  onClick={() => setCurrentVideoUrl("")}
+                >
+                  View Thumbnail Again
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
