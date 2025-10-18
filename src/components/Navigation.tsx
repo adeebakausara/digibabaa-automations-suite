@@ -23,7 +23,7 @@ const Navigation = () => {
     },
     { name: "How It Works", path: "/how-it-works" },
     { name: "Pricing", path: "/pricing" },
-    { name: "Portfolio", path: "/portfolio" },
+    { name: "Case Studies", path: "/case-studies" },
     { name: "Blog", path: "/blog" },
     { name: "About", path: "/about" },
     { name: "Testimonials", path: "/testimonials" },
@@ -31,6 +31,7 @@ const Navigation = () => {
       name: "Support", 
       path: "/contact",
       submenu: [
+        { name: "Portfolio", path: "/portfolio" },
         { name: "AI Discovery", path: "/ai-discovery" },
         { name: "Contact Us", path: "/contact" },
         { name: "Thank You", path: "/thank-you" },
