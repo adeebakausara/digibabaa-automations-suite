@@ -31,7 +31,7 @@ const Navigation = () => {
       name: "Support", 
       path: "/contact",
       submenu: [
-        { name: "Portfolio", path: "/portfolio" },
+        { name: "Video Samples", path: "/portfolio" },
         { name: "AI Discovery", path: "/ai-discovery" },
         { name: "Contact Us", path: "/contact" },
         { name: "Thank You", path: "/thank-you" },

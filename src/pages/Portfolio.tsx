@@ -276,13 +276,13 @@ const Portfolio = () => {
       <section className="pt-20 pb-16 bg-gradient-to-b from-card/50 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Badge variant="secondary" className="mb-6">
-            📁 Complete Portfolio
+            🎥 Video Samples
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            AI Solutions & <span className="bg-gradient-primary bg-clip-text text-transparent">Success Stories</span>
+            AI Video Samples & <span className="bg-gradient-primary bg-clip-text text-transparent">Success Stories</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Explore our comprehensive portfolio: from ready-to-deploy AI agent templates to custom automation systems and real client success stories.
+            Explore our video samples: from ready-to-deploy AI agent templates to custom automation systems and real client success stories.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
