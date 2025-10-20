@@ -139,7 +139,6 @@ const AiDiscovery = () => {
         <title>AI Discovery | DigiBabaa</title>
         <meta name="description" content="Share your business goals and challenges in 3–5 minutes. Get tailored AI automation ideas, demos, and a chance to book a call with DigiBabaa." />
         <meta name="keywords" content="AI discovery, business automation, AI consultation, DigiBabaa" />
-        <link rel="canonical" href="https://preview--digibabaa.lovable.app/ai-discovery" />
       </Helmet>
       
       <div className="min-h-screen bg-background">
