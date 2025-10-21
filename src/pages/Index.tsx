@@ -57,28 +57,28 @@ const Index = () => {
     {
       id: '1',
       title: "AI Chatbots",
-      description: "Intelligent conversational agents for websites, WhatsApp, and social platforms",
+      description: "Engage customers 24/7, qualify leads, and boost conversions with intelligent chat marketing",
       image_url: chatbotsImage,
       icon: 'MessageCircle'
     },
     {
       id: '2', 
       title: "Voice Agents",
-      description: "AI-powered voice solutions for IVR, customer support, and sales automation",
+      description: "Scale your outreach with AI voice calls for lead generation, follow-ups, and appointment booking",
       image_url: voiceImage,
       icon: 'Phone'
     },
     {
       id: '3',
       title: "Custom Automation", 
-      description: "Tailored AI workflows for lead generation, email outreach, and CRM management",
+      description: "Automate email campaigns, social media outreach, and lead nurturing workflows",
       image_url: automationImage,
       icon: 'Cog'
     },
     {
       id: '4',
       title: "AI Website Design",
-      description: "Create stunning, AI-powered websites with intelligent design recommendations and responsive layouts",
+      description: "Build high-converting landing pages and websites optimized for lead generation",
       image_url: heroImage,
       icon: 'Palette'
     }
@@ -88,25 +88,25 @@ const Index = () => {
   const fallbackTestimonials = [
     {
       id: "fallback-1",
-      quote: "DigiBabaa's AI chatbot increased our customer engagement by 300% and reduced response time to under 2 minutes.",
+      quote: "DigiBabaa's AI chatbot generated 300% more qualified leads and boosted our conversion rate by 45%.",
       name: "Sarah Johnson",
-      role: "CEO",
+      role: "Marketing Director",
       company: "TechStart Inc.",
       rating: 5
     },
     {
       id: "fallback-2",
-      quote: "The voice agent integration transformed our customer support. We now handle 5x more calls with better satisfaction scores.",
+      quote: "Their AI voice agents transformed our outbound marketing. We're now reaching 5x more prospects with personalized messaging.",
       name: "Michael Chen",
-      role: "Operations Director",
+      role: "Head of Sales",
       company: "ServicePro",
       rating: 5
     },
     {
       id: "fallback-3",
-      quote: "Custom automation workflows saved us 20 hours per week on lead generation. ROI was visible within the first month.",
+      quote: "Marketing automation saved us 20 hours per week and doubled our email campaign ROI in the first month.",
       name: "Emily Rodriguez",
-      role: "Marketing Manager",
+      role: "CMO",
       company: "GrowthCorp",
       rating: 5
     }
@@ -134,19 +134,19 @@ const Index = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Badge variant="secondary" className="mb-6 animate-fade-in">
-            🚀 AI-Powered Business Automation
+            🚀 AI-Powered Marketing Solutions
           </Badge>
           
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
-            Transform Your Business with{" "}
+            Supercharge Your Marketing with{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Intelligent Automation
+              AI Automation
             </span>
           </h1>
           
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in leading-relaxed">
-            Unlock the power of AI chatbots, voice agents, and custom automation 
-            to streamline operations and boost productivity across all platforms.
+            Transform your marketing with AI chatbots, voice agents, and intelligent automation 
+            that generate leads, nurture customers, and drive conversions 24/7.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
@@ -186,10 +186,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our <span className="text-primary">Core Services</span>
+              Our <span className="text-primary">Marketing Services</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive AI solutions designed to revolutionize your business operations
+              AI-powered marketing solutions that attract, engage, and convert customers
             </p>
           </div>
           
@@ -375,10 +375,10 @@ const Index = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready to Transform Your Business?
+            Ready to Scale Your Marketing?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Join hundreds of businesses already automating their success with DigiBabaa
+            Join hundreds of businesses generating more leads and revenue with AI marketing
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/get-started">
