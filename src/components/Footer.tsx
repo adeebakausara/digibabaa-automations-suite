@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Bot, Zap, Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -8,11 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {/* Logo & Description */}
           <div className="col-span-1 sm:col-span-2 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="relative">
-                <Bot className="h-8 w-8 text-primary" />
-                <Zap className="h-4 w-4 text-aqua absolute -top-1 -right-1 animate-pulse" />
-              </div>
+            <div className="mb-4">
               <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                 DigiBabaa
               </span>
