@@ -14,9 +14,9 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Your AI Marketing agency specializing in lead generation, customer engagement, 
-              and revenue growth through intelligent chatbots, voice agents, 
-              and automated marketing campaigns.
+              Empowering businesses with cutting-edge AI automation solutions. 
+              Transform your operations with intelligent chatbots, voice agents, 
+              and custom automation workflows.
             </p>
             <div className="flex flex-wrap gap-4">
               <a

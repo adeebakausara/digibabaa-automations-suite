@@ -92,15 +92,15 @@ const About = () => {
             🚀 About DigiBabaa
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Leading the Future of{" "}
+            Pioneering the Future of{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              AI Marketing
+              AI Automation
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            DigiBabaa is an innovative AI Marketing agency that helps businesses generate more leads, 
-            engage customers, and drive revenue through intelligent automation. We combine cutting-edge 
-            AI technology with proven marketing strategies to deliver measurable growth.
+            DigiBabaa is a pioneer in AI services and automation solutions, empowering businesses of all sizes 
+            with innovative technology. We focus on client success through human-centric AI that drives 
+            measurable growth and transformation.
           </p>
           <Button variant="hero" size="lg">
             Join Our Journey
@@ -120,8 +120,8 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-primary">Our Mission</h3>
                 <p className="text-muted-foreground">
-                  To empower businesses with AI-powered marketing solutions that generate qualified leads, 
-                  increase customer engagement, and drive sustainable revenue growth through intelligent automation.
+                  To revolutionize business operations through cutting-edge AI automation, empowering 
+                  companies to achieve unprecedented efficiency, innovation, and sustainable growth.
                 </p>
               </CardContent>
             </Card>
@@ -133,8 +133,8 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-aqua">Our Vision</h3>
                 <p className="text-muted-foreground">
-                  To be the world's most trusted AI Marketing agency, where businesses of all sizes 
-                  leverage intelligent automation to compete, scale, and win in the digital marketplace.
+                  To be the global leader in AI-driven business transformation, where intelligent 
+                  automation amplifies human potential and creates limitless possibilities for growth.
                 </p>
               </CardContent>
             </Card>
@@ -146,8 +146,8 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-purple-start">Our Values</h3>
                 <p className="text-muted-foreground">
-                  Results-driven, innovative, and client-focused. We deliver AI marketing solutions 
-                  that are measurable, transparent, and designed to maximize ROI for our clients.
+                  Grounded in innovation, integrity, and transformative impact. We pioneer AI solutions 
+                  that are ethical, transparent, and designed to elevate human capabilities.
                 </p>
               </CardContent>
             </Card>
@@ -278,10 +278,10 @@ const About = () => {
             <Zap className="h-8 w-8" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Grow Your Business?
+            Ready to Partner with Us?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Let's discuss how DigiBabaa can scale your marketing with AI automation
+            Let's discuss how DigiBabaa can transform your business with AI automation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" className="bg-white text-primary hover:bg-white/90">
