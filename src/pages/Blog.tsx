@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { SEO } from '@/components/SEO';
 import { blogPosts, blogCategories, getBlogPostsByCategory } from '../data/blogPosts';
 import { Calendar, Clock, ArrowRight, Search, Filter } from 'lucide-react';
 import { BookConsultationButton } from '../components/BookConsultationButton';
@@ -31,36 +30,8 @@ const Blog = () => {
     });
   };
 
-  const blogSchema = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "DigiBabaa AI Marketing Blog",
-    "description": "Expert insights on AI automation, chatbots, voice agents, and marketing technology",
-    "publisher": {
-      "@type": "Organization",
-      "name": "DigiBabaa"
-    },
-    "blogPost": filteredPosts.slice(0, 10).map(post => ({
-      "@type": "BlogPosting",
-      "headline": post.title,
-      "description": post.excerpt,
-      "datePublished": post.publishDate,
-      "keywords": post.keywords.join(", "),
-      "author": {
-        "@type": "Organization",
-        "name": "DigiBabaa"
-      }
-    }))
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="AI Marketing Blog - Insights & Strategies"
-        description="Expert insights on AI automation, chatbots, voice agents, and marketing technology. Learn from industry leaders about the latest trends in AI-powered marketing."
-        keywords="AI marketing blog, chatbot insights, voice agent technology, marketing automation tips, AI business strategies"
-        schema={blogSchema}
-      />
       <Navigation />
       
       {/* Hero Section */}

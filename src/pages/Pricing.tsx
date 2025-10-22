@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -106,28 +105,8 @@ const Pricing = () => {
     }
   ];
 
-  const pricingSchema = {
-    "@context": "https://schema.org",
-    "@type": "PriceSpecification",
-    "name": "AI Marketing Services Pricing",
-    "offers": plans.map(plan => ({
-      "@type": "Offer",
-      "name": plan.name,
-      "description": plan.description,
-      "price": plan.price === "Custom" ? 0 : parseFloat(plan.price.replace("$", "")),
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    }))
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Pricing - AI Marketing Solutions | Transparent & Flexible"
-        description="Explore our AI marketing pricing plans. From AI chatbots to voice agents and custom automation. Flexible plans for businesses of all sizes. Free consultation included."
-        keywords="AI marketing pricing, chatbot pricing, voice agent cost, marketing automation pricing, AI services cost"
-        schema={pricingSchema}
-      />
       <Navigation />
       
       {/* Hero Section */}

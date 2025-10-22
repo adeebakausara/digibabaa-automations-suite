@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { SEO } from "@/components/SEO";
 import { MessageCircle, Globe, Facebook, Instagram, MessageSquare, Phone, Calendar } from "lucide-react";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
 import { DigibaaaChatbot } from "@/components/DigibaaaChatbot";
@@ -17,30 +16,8 @@ const AiChatbot = () => {
     { name: "WhatsApp", icon: MessageSquare, description: "Business messaging made easy" }
   ];
 
-  const chatbotSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "AI Chatbot for Lead Generation",
-    "description": "Intelligent AI chatbot for customer engagement, lead qualification, and automated support across website, WhatsApp, Facebook, and Instagram",
-    "provider": {
-      "@type": "Organization",
-      "name": "DigiBabaa"
-    },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="AI Chatbots for Lead Generation | 24/7 Customer Engagement"
-        description="Deploy intelligent AI chatbots across your website, WhatsApp, Facebook & Instagram. Automate customer support, qualify leads, and boost conversions 24/7."
-        keywords="AI chatbot, lead generation chatbot, WhatsApp automation, website chatbot, customer support automation, AI chat marketing"
-        schema={chatbotSchema}
-      />
       <Navigation />
       
       {/* Hero Section */}

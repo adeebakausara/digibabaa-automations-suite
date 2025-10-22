@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -110,58 +109,8 @@ const Services = () => {
     }
   ];
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "AI Marketing Services",
-    "provider": {
-      "@type": "Organization",
-      "name": "DigiBabaa"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": ["United Arab Emirates", "Pakistan", "United States", "United Kingdom"]
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "AI Marketing Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI Chatbots for Lead Generation",
-            "description": "Deploy intelligent AI chatbots across websites and WhatsApp to engage customers 24/7 and generate qualified leads"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI Voice Agents for Sales",
-            "description": "Transform phone systems with AI-powered voice agents for automated customer inquiries and sales calls"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Custom Marketing Automation",
-            "description": "Build custom AI-powered workflows for lead generation, email outreach, and marketing automation"
-          }
-        }
-      ]
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="AI Marketing Services - Chatbots, Voice Agents & Automation"
-        description="Comprehensive AI-powered marketing services: chatbots for lead generation, voice agents for sales, and custom automation solutions. Transform your marketing today."
-        keywords="AI marketing services, AI chatbots, voice agents, marketing automation, lead generation automation, WhatsApp marketing, automated sales"
-        schema={serviceSchema}
-      />
       <Navigation />
       
       {/* Hero Section */}
@@ -195,7 +144,7 @@ const Services = () => {
                 <div className="relative overflow-hidden rounded-lg shadow-elegant">
                   <img
                     src={service.image}
-                    alt={`${service.title} - ${service.subtitle} for AI-powered marketing and lead generation`}
+                    alt={service.title}
                     className="w-full h-64 lg:h-80 object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />

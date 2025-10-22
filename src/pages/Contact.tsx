@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -95,38 +94,8 @@ const Contact = () => {
     "Just exploring"
   ];
 
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "DigiBabaa",
-      "email": "akbar@digibabaa.com",
-      "telephone": "+971-56-257-8722",
-      "address": [
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "401, Building 44, Al Murar – Deira",
-          "addressLocality": "Dubai",
-          "addressCountry": "AE"
-        },
-        {
-          "@type": "PostalAddress",
-          "addressLocality": "Johar Town, Lahore",
-          "addressCountry": "PK"
-        }
-      ]
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Contact Us - Get Your Free AI Marketing Audit"
-        description="Ready to transform your marketing with AI automation? Contact DigiBabaa for a free consultation. Expert AI marketing solutions, chatbots, and voice agents. 24hr response time."
-        keywords="contact AI marketing agency, free AI consultation, AI automation consultation, marketing automation help, AI chatbot consultation"
-        schema={contactSchema}
-      />
       <Navigation />
       
       {/* Hero Section */}

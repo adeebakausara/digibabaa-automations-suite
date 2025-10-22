@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
-import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { 
   Bot, 
@@ -116,42 +115,8 @@ const Index = () => {
   const displayServices = servicesLoading ? fallbackServices : (services.length > 0 ? services : fallbackServices);
   const displayTestimonials = testimonialsLoading ? fallbackTestimonials : (testimonials.length > 0 ? testimonials.slice(0, 3) : fallbackTestimonials);
 
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "DigiBabaa",
-    "description": "AI Marketing agency specializing in lead generation, customer engagement, and marketing automation",
-    "url": "https://digibabaa.com",
-    "logo": "https://digibabaa.com/digibabaa-logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+971-56-257-8722",
-      "contactType": "sales",
-      "email": "akbar@digibabaa.com",
-      "areaServed": ["AE", "PK", "US", "GB"],
-      "availableLanguage": ["English", "Arabic"]
-    },
-    "sameAs": [
-      "https://www.instagram.com/digibabaa",
-      "https://www.linkedin.com/company/digibabaa",
-      "https://www.facebook.com/digibabaa"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "401, Building 44, Al Murar – Deira",
-      "addressLocality": "Dubai",
-      "addressCountry": "AE"
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="AI Marketing Agency | Lead Generation & Automation"
-        description="Transform your marketing with AI chatbots, voice agents, and intelligent automation. Generate leads, nurture customers, and drive conversions 24/7 with DigiBabaa."
-        keywords="AI marketing agency, lead generation, AI chatbots, voice agents, marketing automation, AI automation, customer engagement, WhatsApp automation"
-        schema={organizationSchema}
-      />
       <Navigation />
       
       <BookConsultationButton variant="fixed" position="bottom-left" />
@@ -161,7 +126,7 @@ const Index = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
-            alt="AI marketing automation hero showing digital transformation and automated workflows" 
+            alt="AI Automation" 
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/60" />
@@ -239,10 +204,10 @@ const Index = () => {
                 <Link key={service.id || index} to={serviceUrl} className="block">
                   <Card className="group hover:scale-105 transition-all duration-300 hover:shadow-elegant border-border/50 hover:border-primary/30 cursor-pointer">
                     <CardContent className="p-6">
-                       <div className="relative mb-4 overflow-hidden rounded-lg">
+                      <div className="relative mb-4 overflow-hidden rounded-lg">
                         <img 
                           src={service.image_url || images[index % images.length]} 
-                          alt={`${service.title} - AI-powered marketing solution for lead generation and customer engagement`}
+                          alt={service.title}
                           className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />

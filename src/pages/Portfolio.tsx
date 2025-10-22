@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -269,25 +268,8 @@ const Portfolio = () => {
     }
   ];
 
-  const portfolioSchema = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "DigiBabaa Portfolio - AI Marketing Case Studies & Examples",
-    "description": "See real AI automation examples and case studies across chatbots, voice agents, and custom workflows",
-    "publisher": {
-      "@type": "Organization",
-      "name": "DigiBabaa"
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
-      <SEO 
-        title="Portfolio - AI Marketing Case Studies & Examples"
-        description="Explore our portfolio of successful AI marketing implementations. Real-world examples of chatbots, voice agents, and automation solutions that drive results."
-        keywords="AI marketing portfolio, chatbot examples, voice agent case studies, marketing automation examples, AI implementation success stories"
-        schema={portfolioSchema}
-      />
       <Navigation />
       
       {/* Hero Section */}
