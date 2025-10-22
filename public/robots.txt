@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digibabaa.com/sitemap.xml
+Sitemap: https://digibabaa.co/sitemap.xml

@@ -101,7 +101,7 @@ const Contact = () => {
     "mainEntity": {
       "@type": "Organization",
       "name": "DigiBabaa",
-      "email": "akbar@digibabaa.com",
+      "email": "akbar@digibabaa.co",
       "telephone": "+971-56-257-8722",
       "address": [
         {

@@ -60,9 +60,9 @@ export const generateLocalBusinessSchema = () => {
     "@type": "LocalBusiness",
     "name": "DigiBabaa",
     "description": "AI Marketing agency specializing in chatbots, voice agents, and marketing automation",
-    "url": "https://digibabaa.com",
+    "url": "https://digibabaa.co",
     "telephone": "+971-56-257-8722",
-    "email": "akbar@digibabaa.com",
+    "email": "akbar@digibabaa.co",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "401, Building 44, Al Murar – Deira",
