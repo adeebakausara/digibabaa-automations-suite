@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,8 +25,25 @@ const CustomAiAutomation = () => {
     "Easy integration with your existing systems"
   ];
 
+  const automationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Custom AI Marketing Automation",
+    "description": "Tailored AI automation solutions for lead generation, email campaigns, CRM management, and workflow optimization",
+    "provider": {
+      "@type": "Organization",
+      "name": "DigiBabaa"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Custom AI Automation | Tailored Marketing Workflows"
+        description="Build custom AI-powered marketing workflows for lead generation, email outreach, CRM automation, and process optimization. Designed for your unique business needs."
+        keywords="custom AI automation, marketing workflow automation, lead generation automation, email marketing automation, CRM automation, business process automation"
+        schema={automationSchema}
+      />
       <Navigation />
       
       {/* Hero Section */}

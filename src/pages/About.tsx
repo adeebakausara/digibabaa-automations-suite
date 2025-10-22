@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -81,8 +82,29 @@ const About = () => {
     { number: "99.9%", label: "System Uptime" }
   ];
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "DigiBabaa",
+      "description": "Leading AI Marketing agency specializing in chatbots, voice agents, and intelligent automation solutions",
+      "foundingDate": "2023",
+      "founder": {
+        "@type": "Person",
+        "name": "Akbar Hayat"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="About Us - Leading AI Marketing Agency"
+        description="Learn about DigiBabaa's mission to revolutionize marketing with AI. Expert team delivering chatbots, voice agents, and automation solutions that drive real results."
+        keywords="AI marketing agency, about DigiBabaa, AI automation experts, marketing automation company, AI chatbot agency"
+        schema={aboutSchema}
+      />
       <Navigation />
       
       {/* Hero Section */}

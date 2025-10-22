@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import VideoUpload from "@/components/VideoUpload";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,8 +27,25 @@ const AiVoiceAgent = () => {
     setCurrentVideoUrl(videoUrl);
   };
 
+  const voiceAgentSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "AI Voice Agent for Business",
+    "description": "Advanced AI voice automation for phone systems, IVR, appointment scheduling, and customer service calls with human-like conversations",
+    "provider": {
+      "@type": "Organization",
+      "name": "DigiBabaa"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="AI Voice Agents | Automate Phone Calls & Customer Service"
+        description="Transform your phone system with AI voice agents. Automate appointment booking, customer inquiries, and sales calls with natural conversations. Reduce costs by 70%."
+        keywords="AI voice agent, automated phone calls, voice automation, AI phone system, appointment scheduling automation, IVR automation"
+        schema={voiceAgentSchema}
+      />
       <Navigation />
       
       {/* Hero Section */}
