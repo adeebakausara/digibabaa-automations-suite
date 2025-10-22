@@ -72,7 +72,7 @@ const CustomerSupportDetails = () => {
             <h2 className="text-2xl font-bold text-center mb-6">Customer Support Automation Workflow</h2>
             <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted rounded-xl overflow-hidden">
               <img 
-                src="/lovable-uploads/9a5c9675-1b5b-430f-a8ea-f1f92fa8c76a.png" 
+                src="/lovable-uploads/digibabaa-customer-support-automation.png" 
                 alt="Customer Support Automation Workflow Diagram"
                 className="w-full h-full object-contain p-4"
               />

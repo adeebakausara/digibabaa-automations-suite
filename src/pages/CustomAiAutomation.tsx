@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,8 +25,25 @@ const CustomAiAutomation = () => {
     "Easy integration with your existing systems"
   ];
 
+  const automationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Custom AI Marketing Automation",
+    "description": "Tailored AI automation solutions for lead generation, email campaigns, CRM management, and workflow optimization",
+    "provider": {
+      "@type": "Organization",
+      "name": "DigiBabaa"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Custom AI Automation | Tailored Marketing Workflows"
+        description="Build custom AI-powered marketing workflows for lead generation, email outreach, CRM automation, and process optimization. Designed for your unique business needs."
+        keywords="custom AI automation, marketing workflow automation, lead generation automation, email marketing automation, CRM automation, business process automation"
+        schema={automationSchema}
+      />
       <Navigation />
       
       {/* Hero Section */}
@@ -82,31 +100,31 @@ const CustomAiAutomation = () => {
               {
                 title: "Lead Generation & Management",
                 description: "Automates lead capture, validation, scoring, and nurturing workflows with seamless CRM integration and email automation.",
-                image: "/lovable-uploads/cfc66a89-08a0-4f5e-a8d3-6e02a5a74b58.png",
+                image: "/lovable-uploads/digibabaa-lead-generation-automation.png",
                 link: "/automation/lead-generation"
               },
               {
                 title: "E-commerce Lead Automation", 
                 description: "Streamlines e-commerce lead processing with automated routing, scoring, and multi-channel follow-up campaigns.",
-                image: "/lovable-uploads/28284395-0823-47f7-9b9b-c697b37127a7.png",
+                image: "/lovable-uploads/digibabaa-ecommerce-lead-automation.png",
                 link: "/automation/ecommerce-lead"
               },
               {
                 title: "Order Processing Automation",
                 description: "Manages end-to-end order workflows from validation to fulfillment with automated routing and notification systems.",
-                image: "/lovable-uploads/16d3eaf0-536d-4ef1-add3-daa4dd9dbe27.png",
+                image: "/lovable-uploads/digibabaa-order-processing-automation.png",
                 link: "/automation/order-processing"
               },
               {
                 title: "Customer Support Automation",
                 description: "Handles customer inquiries, order lookups, and return requests with intelligent routing and automated responses.",
-                image: "/lovable-uploads/9a5c9675-1b5b-430f-a8ea-f1f92fa8c76a.png",
+                image: "/lovable-uploads/digibabaa-customer-support-automation.png",
                 link: "/automation/customer-support"
               },
               {
                 title: "Customer Verification System",
                 description: "Automates customer onboarding with identity verification, compliance screening, and approval workflows.",
-                image: "/lovable-uploads/eee2d694-55fd-4edc-afd7-6ad6163fd127.png",
+                image: "/lovable-uploads/digibabaa-customer-verification-automation.png",
                 link: "/automation/customer-verification"
               }
             ].map((workflow, index) => (
