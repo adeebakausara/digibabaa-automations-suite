@@ -72,7 +72,7 @@ const LeadGenerationDetails = () => {
             <h2 className="text-2xl font-bold text-center mb-6">Automated Workflow Overview</h2>
             <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted rounded-xl overflow-hidden">
               <img 
-                src="/lovable-uploads/digibabaa-lead-generation-automation.png" 
+                src="/lovable-uploads/cfc66a89-08a0-4f5e-a8d3-6e02a5a74b58.png" 
                 alt="Lead Generation Workflow Diagram"
                 className="w-full h-full object-contain p-4"
               />

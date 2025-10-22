@@ -72,7 +72,7 @@ const CustomerVerificationDetails = () => {
             <h2 className="text-2xl font-bold text-center mb-6">Customer Verification Workflow</h2>
             <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted rounded-xl overflow-hidden">
               <img 
-                src="/lovable-uploads/digibabaa-customer-verification-automation.png" 
+                src="/lovable-uploads/eee2d694-55fd-4edc-afd7-6ad6163fd127.png" 
                 alt="Customer Verification System Workflow Diagram"
                 className="w-full h-full object-contain p-4"
               />

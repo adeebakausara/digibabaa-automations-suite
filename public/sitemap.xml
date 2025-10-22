@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
   <!-- Homepage -->
   <url>
-    <loc>https://digibabaa.co/</loc>
+    <loc>https://digibabaa.com/</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,35 +11,35 @@
   
   <!-- Main Service Pages -->
   <url>
-    <loc>https://digibabaa.co/services</loc>
+    <loc>https://digibabaa.com/services</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/services/ai-chatbot</loc>
+    <loc>https://digibabaa.com/services/ai-chatbot</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/services/ai-voice-agent</loc>
+    <loc>https://digibabaa.com/services/ai-voice-agent</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/services/custom-ai-automation</loc>
+    <loc>https://digibabaa.com/services/custom-ai-automation</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/services/ai-website-design</loc>
+    <loc>https://digibabaa.com/services/ai-website-design</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -48,35 +48,35 @@
   
   <!-- Automation Solutions -->
   <url>
-    <loc>https://digibabaa.co/automation/lead-generation</loc>
+    <loc>https://digibabaa.com/automation/lead-generation</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/automation/ecommerce-lead</loc>
+    <loc>https://digibabaa.com/automation/ecommerce-lead</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/automation/order-processing</loc>
+    <loc>https://digibabaa.com/automation/order-processing</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/automation/customer-support</loc>
+    <loc>https://digibabaa.com/automation/customer-support</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/automation/customer-verification</loc>
+    <loc>https://digibabaa.com/automation/customer-verification</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -85,21 +85,21 @@
   
   <!-- Company Pages -->
   <url>
-    <loc>https://digibabaa.co/about</loc>
+    <loc>https://digibabaa.com/about</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/contact</loc>
+    <loc>https://digibabaa.com/contact</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/pricing</loc>
+    <loc>https://digibabaa.com/pricing</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -108,49 +108,49 @@
   
   <!-- Portfolio & Case Studies -->
   <url>
-    <loc>https://digibabaa.co/portfolio</loc>
+    <loc>https://digibabaa.com/portfolio</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/case-studies</loc>
+    <loc>https://digibabaa.com/case-studies</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/case-study/ecommerce</loc>
+    <loc>https://digibabaa.com/case-study/ecommerce</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/case-study/healthcare</loc>
+    <loc>https://digibabaa.com/case-study/healthcare</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/case-study/real-estate</loc>
+    <loc>https://digibabaa.com/case-study/real-estate</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/case-study/restaurant</loc>
+    <loc>https://digibabaa.com/case-study/restaurant</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/testimonials</loc>
+    <loc>https://digibabaa.com/testimonials</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -159,452 +159,65 @@
   
   <!-- Blog -->
   <url>
-    <loc>https://digibabaa.co/blog</loc>
+    <loc>https://digibabaa.com/blog</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
   </url>
   
-  <!-- Blog Posts -->
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chatbots-healthcare-insurance-simplifying-claims-support</loc>
-    <lastmod>2025-03-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-voice-agents-retail-enhancing-shopping-voice-commerce</loc>
-    <lastmod>2025-02-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-powered-hr-automation-smarter-workforce-management</loc>
-    <lastmod>2025-02-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-web-security-building-safer-digital-experiences</loc>
-    <lastmod>2025-02-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chat-automation-creating-24-7-self-service-business-operations</loc>
-    <lastmod>2025-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chatbots-lead-generation-turning-conversations-customers</loc>
-    <lastmod>2025-02-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/voice-enabled-chatbots-future-conversational-commerce</loc>
-    <lastmod>2025-02-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chatbots-education-virtual-tutors-students</loc>
-    <lastmod>2025-02-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/chatbots-real-estate-automating-property-inquiries-bookings</loc>
-    <lastmod>2025-01-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chatbots-multimodal-capabilities-text-voice-visual-interactions</loc>
-    <lastmod>2025-01-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-sales-agents-closing-deals-data-driven-insights</loc>
-    <lastmod>2025-01-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-recruitment-agents-automating-candidate-screening-interviews</loc>
-    <lastmod>2025-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-travel-agents-personalized-itineraries-smart-booking</loc>
-    <lastmod>2025-01-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-legal-assistants-automating-compliance-case-research</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-finance-agents-intelligent-portfolio-wealth-management</loc>
-    <lastmod>2025-01-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/hyperautomation-ai-beyond-traditional-rpa</loc>
-    <lastmod>2025-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-powered-rpa-transforming-repetitive-tasks-intelligent-workflows</loc>
-    <lastmod>2025-01-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/how-ai-automation-builds-smarter-data-pipelines</loc>
-    <lastmod>2025-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/revolutionizing-supply-chains-ai-automation</loc>
-    <lastmod>2025-01-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-compliance-automating-business-risk-management</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-marketing-automation-personalizing-customer-journeys</loc>
-    <lastmod>2024-12-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-outbound-calling-agents-transform-sales-outreach</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-inbound-voice-agents-enhancing-customer-support</loc>
-    <lastmod>2024-12-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/breaking-language-barriers-multilingual-ai-voice-agents</loc>
-    <lastmod>2024-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-voice-agents-healthcare-redefining-patient-communication</loc>
-    <lastmod>2024-12-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/crm-integrated-ai-calling-agents-intelligent-customer-conversations</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/automated-ai-website-builders-designing-smarter-web-experiences</loc>
-    <lastmod>2024-12-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/emotion-aware-websites-ai-designs-personalized-experiences</loc>
-    <lastmod>2024-12-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-ecommerce-building-personalized-online-shopping-experiences</loc>
-    <lastmod>2024-12-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/voice-enabled-websites-ai-redefining-user-interaction</loc>
-    <lastmod>2024-12-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/seo-optimized-web-design-ai-automation</loc>
-    <lastmod>2024-12-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chatbots-hr-automating-employee-support-engagement</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/smarter-shopping-ai-chatbots-ecommerce</loc>
-    <lastmod>2024-11-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chatbots-banking-redefining-digital-customer-experience</loc>
-    <lastmod>2024-11-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-healthcare-chatbots-future-patient-interaction</loc>
-    <lastmod>2024-11-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/emotionally-intelligent-chatbots-humanizing-ai-conversations</loc>
-    <lastmod>2024-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-automation-revolution-transform-business-operations</loc>
-    <lastmod>2024-11-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-voice-agents-revolutionizing-customer-communication</loc>
-    <lastmod>2024-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/next-generation-ai-website-development-intelligent-experiences</loc>
-    <lastmod>2024-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chatbot-revolution-transforming-business-communication-2024</loc>
-    <lastmod>2024-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-website-design-future-intelligent-web-development</loc>
-    <lastmod>2024-11-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/future-customer-service-ai-chatbots</loc>
-    <lastmod>2024-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/why-business-needs-ai-chatbot-benefits</loc>
-    <lastmod>2024-11-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/generative-ai-web-design-idea-to-website-minutes</loc>
-    <lastmod>2024-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-powered-ux-testing-websites-learn-improve</loc>
-    <lastmod>2024-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-websites-accessibility-inclusive-digital-spaces</loc>
-    <lastmod>2024-10-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-landing-page-optimization-visitors-conversions</loc>
-    <lastmod>2024-10-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-websites-real-time-personalization-adapting-users</loc>
-    <lastmod>2024-10-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-calling-agents-revolutionizing-customer-interactions</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-chatbots-vs-human-agents-comparison</loc>
-    <lastmod>2024-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/boost-business-efficiency-ai-automation-solutions</loc>
-    <lastmod>2024-10-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-powered-workflow-automation-healthcare-administration</loc>
-    <lastmod>2024-10-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-driven-financial-automation-invoicing-fraud-detection</loc>
-    <lastmod>2024-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-automation-smes-affordable-solutions-scale-growth</loc>
-    <lastmod>2024-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  <url>
-    <loc>https://digibabaa.co/blog/ai-powered-document-processing-automating-contracts-paperwork</loc>
-    <lastmod>2024-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <mobile:mobile/>
-  </url>
-  
   <!-- Action Pages -->
   <url>
-    <loc>https://digibabaa.co/get-started</loc>
+    <loc>https://digibabaa.com/get-started</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/book-consultation</loc>
+    <loc>https://digibabaa.com/book-consultation</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/booking-calendar</loc>
+    <loc>https://digibabaa.com/booking-calendar</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/ai-discovery</loc>
+    <loc>https://digibabaa.com/ai-discovery</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/demo</loc>
+    <loc>https://digibabaa.com/demo</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/how-it-works</loc>
+    <loc>https://digibabaa.com/how-it-works</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/ai-services-in-action</loc>
+    <loc>https://digibabaa.com/ai-services-in-action</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
   </url>
   <url>
-    <loc>https://digibabaa.co/thank-you</loc>
+    <loc>https://digibabaa.com/thank-you</loc>
     <lastmod>2025-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

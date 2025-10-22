@@ -121,13 +121,13 @@ const Index = () => {
     "@type": "Organization",
     "name": "DigiBabaa",
     "description": "AI Marketing agency specializing in lead generation, customer engagement, and marketing automation",
-    "url": "https://digibabaa.co",
-    "logo": "https://digibabaa.co/digibabaa-logo.png",
+    "url": "https://digibabaa.com",
+    "logo": "https://digibabaa.com/digibabaa-logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+971-56-257-8722",
       "contactType": "sales",
-      "email": "akbar@digibabaa.co",
+      "email": "akbar@digibabaa.com",
       "areaServed": ["AE", "PK", "US", "GB"],
       "availableLanguage": ["English", "Arabic"]
     },
