@@ -13,7 +13,7 @@ export const SEO = ({
   title, 
   description, 
   keywords, 
-  ogImage = '/digibabaa-logo.png',
+  ogImage = 'https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/general/0b295294-5b14-4405-b5ef-da41243c9f16.png',
   canonical,
   schema 
 }: SEOProps) => {
