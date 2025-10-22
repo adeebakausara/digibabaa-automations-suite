@@ -100,31 +100,31 @@ const CustomAiAutomation = () => {
               {
                 title: "Lead Generation & Management",
                 description: "Automates lead capture, validation, scoring, and nurturing workflows with seamless CRM integration and email automation.",
-                image: "/lovable-uploads/cfc66a89-08a0-4f5e-a8d3-6e02a5a74b58.png",
+                image: "/lovable-uploads/digibabaa-lead-generation-automation.png",
                 link: "/automation/lead-generation"
               },
               {
                 title: "E-commerce Lead Automation", 
                 description: "Streamlines e-commerce lead processing with automated routing, scoring, and multi-channel follow-up campaigns.",
-                image: "/lovable-uploads/28284395-0823-47f7-9b9b-c697b37127a7.png",
+                image: "/lovable-uploads/digibabaa-ecommerce-lead-automation.png",
                 link: "/automation/ecommerce-lead"
               },
               {
                 title: "Order Processing Automation",
                 description: "Manages end-to-end order workflows from validation to fulfillment with automated routing and notification systems.",
-                image: "/lovable-uploads/16d3eaf0-536d-4ef1-add3-daa4dd9dbe27.png",
+                image: "/lovable-uploads/digibabaa-order-processing-automation.png",
                 link: "/automation/order-processing"
               },
               {
                 title: "Customer Support Automation",
                 description: "Handles customer inquiries, order lookups, and return requests with intelligent routing and automated responses.",
-                image: "/lovable-uploads/9a5c9675-1b5b-430f-a8ea-f1f92fa8c76a.png",
+                image: "/lovable-uploads/digibabaa-customer-support-automation.png",
                 link: "/automation/customer-support"
               },
               {
                 title: "Customer Verification System",
                 description: "Automates customer onboarding with identity verification, compliance screening, and approval workflows.",
-                image: "/lovable-uploads/eee2d694-55fd-4edc-afd7-6ad6163fd127.png",
+                image: "/lovable-uploads/digibabaa-customer-verification-automation.png",
                 link: "/automation/customer-verification"
               }
             ].map((workflow, index) => (

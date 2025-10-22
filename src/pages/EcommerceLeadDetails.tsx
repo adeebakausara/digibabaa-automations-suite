@@ -72,7 +72,7 @@ const EcommerceLeadDetails = () => {
             <h2 className="text-2xl font-bold text-center mb-6">E-commerce Automation Workflow</h2>
             <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted rounded-xl overflow-hidden">
               <img 
-                src="/lovable-uploads/28284395-0823-47f7-9b9b-c697b37127a7.png" 
+                src="/lovable-uploads/digibabaa-ecommerce-lead-automation.png" 
                 alt="E-commerce Lead Automation Workflow Diagram"
                 className="w-full h-full object-contain p-4"
               />

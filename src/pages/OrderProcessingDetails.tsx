@@ -72,7 +72,7 @@ const OrderProcessingDetails = () => {
             <h2 className="text-2xl font-bold text-center mb-6">Order Processing Workflow</h2>
             <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted rounded-xl overflow-hidden">
               <img 
-                src="/lovable-uploads/16d3eaf0-536d-4ef1-add3-daa4dd9dbe27.png" 
+                src="/lovable-uploads/digibabaa-order-processing-automation.png" 
                 alt="Order Processing Automation Workflow Diagram"
                 className="w-full h-full object-contain p-4"
               />
