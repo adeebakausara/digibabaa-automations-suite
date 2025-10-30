@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://digibabaa.co/</loc>
+    <image:image>
+      <image:loc>https://digibabaa.co/lovable-uploads/digibabaa-logo.png</image:loc>
+      <image:title>DigiBabaa AI Marketing Agency Logo</image:title>
+      <image:caption>AI-powered marketing solutions provider specializing in automation</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://digibabaa.co/lovable-uploads/hero-ai-automation.jpg</image:loc>
+      <image:title>AI Marketing Automation Hero</image:title>
+      <image:caption>Transform your marketing with AI chatbots and voice agents</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://digibabaa.co/services/ai-chatbot</loc>
+    <image:image>
+      <image:loc>https://digibabaa.co/lovable-uploads/ai-chatbots.jpg</image:loc>
+      <image:title>AI Chatbot Solutions</image:title>
+      <image:caption>24/7 AI-powered chatbot for customer engagement</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://digibabaa.co/services/ai-voice-agent</loc>
+    <image:image>
+      <image:loc>https://digibabaa.co/lovable-uploads/ai-voice-agents.jpg</image:loc>
+      <image:title>AI Voice Agent Technology</image:title>
+      <image:caption>Intelligent voice agents for automated customer communication</image:caption>
+    </image:image>
+  </url>
+</urlset>

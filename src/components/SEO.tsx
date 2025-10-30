@@ -13,12 +13,12 @@ export const SEO = ({
   title, 
   description, 
   keywords, 
-  ogImage = 'https://utdvpdfiiykaykzgzveg.supabase.co/storage/v1/object/public/general/0b295294-5b14-4405-b5ef-da41243c9f16.png',
+  ogImage = 'https://digibabaa.co/favicon.png',
   canonical,
   schema 
 }: SEOProps) => {
-  const fullTitle = `${title} | DigiBabaa - AI Marketing Agency`;
-  const url = canonical || window.location.href;
+  const fullTitle = title.includes('DigiBabaa') ? title : `${title} | DigiBabaa`;
+  const url = canonical || `https://digibabaa.co${window.location.pathname}`;
 
   return (
     <Helmet>

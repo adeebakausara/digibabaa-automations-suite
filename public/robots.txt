@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /_headers
 
 Sitemap: https://digibabaa.co/sitemap.xml
+Sitemap: https://digibabaa.co/sitemap-images.xml
