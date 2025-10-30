@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { generateServiceSchema, generateBreadcrumbSchema } from "@/lib/seoHelpers";
 import { MessageCircle, Globe, Facebook, Instagram, MessageSquare, Phone, Calendar } from "lucide-react";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
 import { DigibaaaChatbot } from "@/components/DigibaaaChatbot";
@@ -17,37 +19,48 @@ const AiChatbot = () => {
     { name: "WhatsApp", icon: MessageSquare, description: "Business messaging made easy" }
   ];
 
-  const chatbotSchema = {
+  const breadcrumbItems = [
+    { name: "Services", url: "https://digibabaa.co/services" },
+    { name: "AI Chatbot", url: "https://digibabaa.co/services/ai-chatbot" }
+  ];
+
+  const combinedSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "AI Chatbot for Lead Generation",
-    "description": "Intelligent AI chatbot for customer engagement, lead qualification, and automated support across website, WhatsApp, Facebook, and Instagram",
-    "provider": {
-      "@type": "Organization",
-      "name": "DigiBabaa"
-    },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    }
+    "@graph": [
+      generateBreadcrumbSchema([
+        { name: "Home", url: "https://digibabaa.co/" },
+        ...breadcrumbItems
+      ]),
+      generateServiceSchema({
+        name: "AI Chatbot Development for Lead Generation",
+        description: "Intelligent AI chatbot solutions for customer engagement, lead qualification, and automated support across website, WhatsApp, Facebook, and Instagram in Dubai",
+        url: "https://digibabaa.co/services/ai-chatbot",
+        provider: "DigiBabaa"
+      })
+    ]
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="AI Chatbots for Lead Generation | 24/7 Customer Engagement"
-        description="Deploy intelligent AI chatbots across your website, WhatsApp, Facebook & Instagram. Automate customer support, qualify leads, and boost conversions 24/7."
-        keywords="AI chatbot, lead generation chatbot, WhatsApp automation, website chatbot, customer support automation, AI chat marketing"
-        schema={chatbotSchema}
+        title="AI Chatbots for Lead Generation in Dubai | WhatsApp & Website"
+        description="Deploy intelligent AI chatbots across your website, WhatsApp, Facebook & Instagram in Dubai. Automate customer support, qualify leads, and boost conversions 24/7."
+        keywords="AI chatbot Dubai, lead generation chatbot UAE, WhatsApp automation Dubai, website chatbot, customer support automation, AI chat marketing Dubai"
+        canonical="https://digibabaa.co/services/ai-chatbot"
+        schema={combinedSchema}
       />
       <Navigation />
+      
+      {/* Breadcrumbs */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            Smart AI Chatbot Solutions
+            AI Chatbots for Lead Generation in Dubai
           </h1>
           <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
             Transform customer interactions with intelligent automation that works 24/7 across all your favorite platforms.

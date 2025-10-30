@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { BookConsultationButton } from "@/components/BookConsultationButton";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
+import { generateOrganizationSchema, generateWebSiteSchema, generateLocalBusinessSchema } from "@/lib/seoHelpers";
 import { 
   Bot, 
   Mic, 
@@ -116,41 +117,24 @@ const Index = () => {
   const displayServices = servicesLoading ? fallbackServices : (services.length > 0 ? services : fallbackServices);
   const displayTestimonials = testimonialsLoading ? fallbackTestimonials : (testimonials.length > 0 ? testimonials.slice(0, 3) : fallbackTestimonials);
 
-  const organizationSchema = {
+  // Combined schema markup for homepage
+  const combinedSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "DigiBabaa",
-    "description": "AI Marketing agency specializing in lead generation, customer engagement, and marketing automation",
-    "url": "https://digibabaa.co",
-    "logo": "https://digibabaa.co/digibabaa-logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+971-56-257-8722",
-      "contactType": "sales",
-      "email": "akbar@digibabaa.co",
-      "areaServed": ["AE", "PK", "US", "GB"],
-      "availableLanguage": ["English", "Arabic"]
-    },
-    "sameAs": [
-      "https://www.instagram.com/digibabaa",
-      "https://www.linkedin.com/company/digibabaa",
-      "https://www.facebook.com/digibabaa"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "401, Building 44, Al Murar – Deira",
-      "addressLocality": "Dubai",
-      "addressCountry": "AE"
-    }
+    "@graph": [
+      generateOrganizationSchema(),
+      generateWebSiteSchema(),
+      generateLocalBusinessSchema()
+    ]
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="AI Marketing Agency | Lead Generation & Automation"
-        description="Transform your marketing with AI chatbots, voice agents, and intelligent automation. Generate leads, nurture customers, and drive conversions 24/7 with DigiBabaa."
-        keywords="AI marketing agency, lead generation, AI chatbots, voice agents, marketing automation, AI automation, customer engagement, WhatsApp automation"
-        schema={organizationSchema}
+        title="AI Marketing & Automation in Dubai | DigiBabaa"
+        description="Transform your business with AI marketing automation in Dubai. AI chatbots, voice agents & intelligent campaigns that generate leads and drive conversions 24/7."
+        keywords="AI marketing Dubai, marketing automation UAE, AI chatbot Dubai, voice agents, lead generation UAE, WhatsApp automation Dubai"
+        canonical="https://digibabaa.co/"
+        schema={combinedSchema}
       />
       <Navigation />
       
@@ -161,8 +145,13 @@ const Index = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
-            alt="AI marketing automation hero showing digital transformation and automated workflows" 
+            alt="AI marketing automation dashboard showing intelligent chatbot workflows and customer engagement tools for Dubai businesses" 
             className="w-full h-full object-cover opacity-20"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/60" />
         </div>
@@ -173,15 +162,15 @@ const Index = () => {
           </Badge>
           
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up leading-tight">
-            Supercharge Your Marketing with{" "}
+            AI Marketing & Automation in{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              AI Automation
+              Dubai, UAE
             </span>
           </h1>
           
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in leading-relaxed">
-            Transform your marketing with AI chatbots, voice agents, and intelligent automation 
-            that generate leads, nurture customers, and drive conversions 24/7.
+            Transform your Dubai business with AI chatbots, voice agents, and intelligent marketing automation 
+            that generate qualified leads, nurture customers, and drive conversions 24/7.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-slide-up">
@@ -242,8 +231,12 @@ const Index = () => {
                        <div className="relative mb-4 overflow-hidden rounded-lg">
                         <img 
                           src={service.image_url || images[index % images.length]} 
-                          alt={`${service.title} - AI-powered marketing solution for lead generation and customer engagement`}
+                          alt={`${service.title} - AI-powered marketing solution for lead generation and customer engagement in Dubai`}
                           className="w-full h-32 object-cover group-hover:scale-110 transition-transform duration-300"
+                          width={400}
+                          height={128}
+                          loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                         <IconComponent className={`absolute bottom-2 right-2 h-8 w-8 ${colors[index % colors.length]}`} />

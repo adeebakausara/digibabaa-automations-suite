@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { generateBreadcrumbSchema } from "@/lib/seoHelpers";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -110,59 +112,84 @@ const Services = () => {
     }
   ];
 
-  const serviceSchema = {
+  const breadcrumbItems = [
+    { name: "Services", url: "https://digibabaa.co/services" }
+  ];
+
+  const combinedSchema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "AI Marketing Services",
-    "provider": {
-      "@type": "Organization",
-      "name": "DigiBabaa"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": ["United Arab Emirates", "Pakistan", "United States", "United Kingdom"]
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "AI Marketing Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI Chatbots for Lead Generation",
-            "description": "Deploy intelligent AI chatbots across websites and WhatsApp to engage customers 24/7 and generate qualified leads"
+    "@graph": [
+      generateBreadcrumbSchema([
+        { name: "Home", url: "https://digibabaa.co/" },
+        ...breadcrumbItems
+      ]),
+      {
+        "@type": "Service",
+        "serviceType": "AI Marketing Services",
+        "name": "AI Marketing Services in Dubai",
+        "description": "Comprehensive AI-powered marketing services including chatbots, voice agents, and automation for businesses in Dubai and UAE",
+        "provider": {
+          "@type": "Organization",
+          "name": "DigiBabaa",
+          "url": "https://digibabaa.co"
+        },
+        "areaServed": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE"
           }
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI Voice Agents for Sales",
-            "description": "Transform phone systems with AI-powered voice agents for automated customer inquiries and sales calls"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Custom Marketing Automation",
-            "description": "Build custom AI-powered workflows for lead generation, email outreach, and marketing automation"
-          }
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "AI Marketing Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Chatbots for Lead Generation",
+                "description": "Deploy intelligent AI chatbots across websites and WhatsApp to engage customers 24/7 and generate qualified leads"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI Voice Agents for Sales",
+                "description": "Transform phone systems with AI-powered voice agents for automated customer inquiries and sales calls"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Marketing Automation",
+                "description": "Build custom AI-powered workflows for lead generation, email outreach, and marketing automation"
+              }
+            }
+          ]
         }
-      ]
-    }
+      }
+    ]
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="AI Marketing Services - Chatbots, Voice Agents & Automation"
-        description="Comprehensive AI-powered marketing services: chatbots for lead generation, voice agents for sales, and custom automation solutions. Transform your marketing today."
-        keywords="AI marketing services, AI chatbots, voice agents, marketing automation, lead generation automation, WhatsApp marketing, automated sales"
-        schema={serviceSchema}
+        title="AI Marketing Services in Dubai | Chatbots & Automation"
+        description="Comprehensive AI marketing services in Dubai: chatbots for lead generation, voice agents for sales, and custom automation. Transform your Dubai business today."
+        keywords="AI marketing services Dubai, AI chatbots UAE, voice agents Dubai, marketing automation UAE, lead generation Dubai, WhatsApp marketing UAE"
+        canonical="https://digibabaa.co/services"
+        schema={combinedSchema}
       />
       <Navigation />
+      
+      {/* Breadcrumbs */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
       
       {/* Hero Section */}
       <section className="pt-20 pb-16 bg-gradient-to-b from-card/50 to-background">
