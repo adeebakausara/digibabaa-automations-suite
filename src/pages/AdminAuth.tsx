@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,7 +16,19 @@ const AdminAuth = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { toast } = useToast();
+
+  // Only same-origin relative paths are allowed as a post-login destination.
+  const rawNext = searchParams.get('next') ?? '';
+  const nextPath = rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '';
+  const afterAuth = () => {
+    if (nextPath) {
+      window.location.href = nextPath;
+      return;
+    }
+    navigate('/admin/testimonials');
+  };
 
   useEffect(() => {
     // Check if user is already authenticated
@@ -32,7 +44,7 @@ const AdminAuth = () => {
           .single();
         
         if (roles) {
-          navigate('/admin/testimonials');
+          afterAuth();
         }
       }
     };
@@ -70,7 +82,7 @@ const AdminAuth = () => {
           title: "Success",
           description: "Signed in successfully",
         });
-        navigate('/admin/testimonials');
+        afterAuth();
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
@@ -85,7 +97,7 @@ const AdminAuth = () => {
     setError('');
 
     try {
-      const redirectUrl = `${window.location.origin}/admin/auth`;
+      const redirectUrl = `${window.location.origin}/admin/auth${nextPath ? '?next=' + encodeURIComponent(nextPath) : ''}`;
       
       const { data, error } = await supabase.auth.signUp({
         email,
