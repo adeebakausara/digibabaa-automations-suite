@@ -27,7 +27,7 @@ const AdminAuth = () => {
       window.location.href = nextPath;
       return;
     }
-        afterAuth();
+    navigate('/admin/testimonials');
   };
 
   useEffect(() => {
