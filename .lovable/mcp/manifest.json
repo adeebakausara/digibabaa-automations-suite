@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://utdvpdfiiykaykzgzveg.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "final-digibabaa",
+      "version": "0.1.0",
+      "title": "Final digibabaa"
+    },
+    "tools": [
+      {
+        "name": "list_testimonials",
+        "title": "List testimonials",
+        "description": "List customer testimonials stored in the site, newest first.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20,
+              "description": "Maximum testimonials to return."
+            },
+            "featuredOnly": {
+              "type": "boolean",
+              "default": false,
+              "description": "Return only featured testimonials."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_testimonial",
+        "title": "Create testimonial",
+        "description": "Add a new customer testimonial to the site.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Customer name."
+            },
+            "role": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Customer job title or role."
+            },
+            "company": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Customer company."
+            },
+            "quote": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The testimonial text."
+            },
+            "rating": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5,
+              "default": 5,
+              "description": "Star rating 1-5."
+            },
+            "results": {
+              "type": "string",
+              "description": "Short result summary, e.g. '40% more leads'."
+            },
+            "isFeatured": {
+              "type": "boolean",
+              "default": false,
+              "description": "Feature this testimonial on the site."
+            }
+          },
+          "required": [
+            "name",
+            "role",
+            "company",
+            "quote"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_services",
+        "title": "List services",
+        "description": "List the AI services and automation offerings published on the site.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "pageRoute": {
+              "type": "string",
+              "description": "Filter by the page route a service belongs to, e.g. '/services'."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_discovery_submissions",
+        "title": "List AI discovery submissions",
+        "description": "List leads submitted through the AI discovery form, newest first. Requires admin access.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 10,
+              "description": "Maximum submissions to return."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
