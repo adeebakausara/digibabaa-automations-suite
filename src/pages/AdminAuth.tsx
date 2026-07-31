@@ -27,7 +27,7 @@ const AdminAuth = () => {
       window.location.href = nextPath;
       return;
     }
-    navigate('/admin/testimonials');
+        afterAuth();
   };
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const AdminAuth = () => {
           .single();
         
         if (roles) {
-          navigate('/admin/testimonials');
+          afterAuth();
         }
       }
     };
@@ -82,7 +82,7 @@ const AdminAuth = () => {
           title: "Success",
           description: "Signed in successfully",
         });
-        navigate('/admin/testimonials');
+        afterAuth();
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
@@ -97,7 +97,7 @@ const AdminAuth = () => {
     setError('');
 
     try {
-      const redirectUrl = `${window.location.origin}/admin/auth`;
+      const redirectUrl = `${window.location.origin}/admin/auth${nextPath ? '?next=' + encodeURIComponent(nextPath) : ''}`;
       
       const { data, error } = await supabase.auth.signUp({
         email,
