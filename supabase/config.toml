@@ -69,3 +69,6 @@ verify_jwt = false
 
 [functions.send-ai-discovery-email]  
 verify_jwt = false
+
+[functions.mcp]
+verify_jwt = false
